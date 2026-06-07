@@ -229,11 +229,11 @@ async function start() {
     state.startedAt =
         new Date();
 
-    await loadData();
+ await loadData();
 
-    initModules();
+ bindEvents();
 
-    bindEvents();
+ initModules();
 
     Navigation.goTo(
         "e01_accueil"
