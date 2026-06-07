@@ -11,7 +11,7 @@ const App = (() => {
 
 const VERSION = "3.0-C";
 
-const DEBUG = true;
+const DEBUG = false;
 
 /****************************************
  STATE
