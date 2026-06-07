@@ -33,7 +33,7 @@ async function load() {
 
         const response =
             await fetch(
-                "data/zones-v2.json"
+                "data/zones-v3-final-beta.json"
             );
 
         const data =
