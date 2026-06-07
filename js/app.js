@@ -128,21 +128,12 @@ async function loadData() {
 
     }
 
-    try {
-
-        if (
-            typeof Constellation !==
-            "undefined"
-        ) {
-
-            await Constellation.load();
-
-            state.storiesLoaded =
-                true;
-
-        }
-
-    } catch(error) {
+if (
+    typeof Constellation !==
+    "undefined"
+) {
+    state.storiesLoaded = true;
+} catch(error) {
 
         console.error(
             "Erreur constellation",
