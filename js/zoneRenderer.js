@@ -344,11 +344,14 @@ return {
 
     refresh,
 
+    bindEvents,
+
     enableDebug,
 
     clear
 
 };
+ 
 
 })();
 
