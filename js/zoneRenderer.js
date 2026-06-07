@@ -13,7 +13,7 @@ const BASE_WIDTH = 1536;
 
 const BASE_HEIGHT = 1024;
 
-const DEBUG_ZONES = false;
+const DEBUG_ZONES = true;
 
 /****************************************
  STATE
