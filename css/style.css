@@ -1,10 +1,60 @@
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Arial,sans-serif;
+}
 
-body{margin:0;background:#08111f;color:white;font-family:Arial}
-.center{text-align:center;padding-top:20vh}
-.btn{padding:12px 20px;background:#c9a227;color:black;text-decoration:none}
-.screen{position:relative;height:100vh;background:#111}
-.overlay{position:absolute;border:2px dashed rgba(255,215,0,.4);padding:10px}
-.zone1{left:5%;top:25%}
-.zone2{left:5%;top:40%}
-.zone3{left:5%;top:55%}
-.zone4{left:5%;top:70%}
+#app{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.screen{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:none;
+}
+
+.screen-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+}
+
+#loadingScreen{
+    position:fixed;
+    inset:0;
+    background:#08111f;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.loader-inner{
+    text-align:center;
+}
+
+.books-container{
+    position:absolute;
+    inset:0;
+    z-index:20;
+}
+
+.constellation-panel{
+    position:absolute;
+    z-index:30;
+}
