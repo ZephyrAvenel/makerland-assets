@@ -1,0 +1,165 @@
+{
+  "version": "2.0",
+  "author": "Zéphyr Avenel",
+  "updated": "2026-06",
+  "qr_master": {
+    "portail": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-01-Portail-ZephyrAvenel.png",
+    "oeuvre": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-02-Oeuvre-Immersive.png",
+    "bibliotheque": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png"
+  },
+  "resources": [
+    {
+      "id": "metamorphose_zephyr",
+      "title": "La Métamorphose de Zéphyr",
+      "category": "fiction",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/metamorphose-zephyr.jpg",
+      "url": "https://amzn.eu/d/0dV7A7Ww",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": true,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "seuil_etoiles",
+      "title": "Au Seuil des Étoiles",
+      "category": "fiction",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/seuil-etoiles.jpg",
+      "url": "https://zephyr-avenel.blogspot.com/2026/04/au-seuil-des-etoiles-ou-la.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": true,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "horizons_infini",
+      "title": "Horizons de l'Infini",
+      "category": "fiction",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/horizons-infini.jpg",
+      "url": "https://zephyr-avenel.blogspot.com/2026/04/horizons-de-linfini-ou-trois-manieres.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "lumieres_fractales",
+      "title": "Lumières Fractales",
+      "category": "fiction",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/lumieres-fractales.jpg",
+      "url": "https://zephyr-avenel.blogspot.com/2026/04/lumieres-fractales-ou-la-friction-du.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "marges_vivantes",
+      "title": "Les Marges Vivantes",
+      "category": "essais",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/marges-vivantes.jpg",
+      "url": "https://amzn.eu/d/00FlIrlf",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": true,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "cosmologie_recits_vivants",
+      "title": "Cosmologie des Récits Vivants",
+      "category": "essais",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/cosmologie.jpg",
+      "url": "https://zephyr-avenel.blogspot.com/2026/04/cosmologie-des-recits-vivants-du-livre.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "ecriture_augmentee",
+      "title": "L'Écriture Augmentée",
+      "category": "essais",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/ecriture-augmentee.jpg",
+      "url": "https://amzn.eu/d/06Y5TCPk",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "art_augmente",
+      "title": "L'Art Augmenté",
+      "category": "essais",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/art-augmente.jpg",
+      "url": "https://amzn.eu/d/07q1VmJ4",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "atlas_v1",
+      "title": "Atlas des Récits Vivants - Créer avec le Vivant",
+      "category": "atlas",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/atlas1.jpg",
+      "url": "https://amzn.eu/d/0eWhhKyq",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": true,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "atlas_v2",
+      "title": "Atlas des Récits Vivants - Danser avec le Vivant",
+      "category": "atlas",
+      "cover": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/covers/atlas2.jpg",
+      "url": "https://amzn.eu/d/0c9U4FUU",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": true,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "bestiaire",
+      "title": "Le Grand Bestiaire Anti‑Agressivité",
+      "category": "portes_ouvertes",
+      "url": "https://zephyr-avenel.blogspot.com/2025/11/le-grand-bestiaire-anti-agressivite.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "manifeste",
+      "title": "Manifeste pour une Littérature des Seuils",
+      "category": "portes_ouvertes",
+      "url": "https://zephyr-avenel.blogspot.com/2025/05/manifeste-pour-une-litterature-des.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
+      "id": "bibliographie",
+      "title": "La Boussole des Passages Vivants",
+      "category": "portes_ouvertes",
+      "url": "https://zephyr-avenel.blogspot.com/2026/06/la-boussole-des-passages-vivants.html?m=1",
+      "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+      "featured": true,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    }
+  ]
+}
