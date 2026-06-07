@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<title>Makerland V3.0-C</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bookRenderer.css">
+
+</head>
+
+<body>
+
+<div id="loadingScreen">
+
+    <div class="loader-inner">
+
+        <h1>Récits Vivants</h1>
+
+        <p>
+            Ouverture de la bibliothèque vivante...
+        </p>
+
+    </div>
+
+</div>
+
+<div id="app">
+
+    <!-- E01 -->
+    <section
+        id="e01_accueil"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-1-accueil.png"
+            class="screen-bg">
+
+    </section>
+
+    <!-- E02 -->
+    <section
+        id="e02_meteo"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-2-question.png"
+            class="screen-bg">
+
+    </section>
+
+    <!-- E03 -->
+    <section
+        id="e03_boussole"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-3-boussole.png"
+            class="screen-bg">
+
+    </section>
+
+    <!-- E04 -->
+    <section
+        id="e04_oeuvre"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-4-oeuvre.png"
+            class="screen-bg">
+
+    </section>
+
+    <!-- E05 -->
+    <section
+        id="e05_cartes"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-5-cartes.png"
+            class="screen-bg">
+
+    </section>
+
+    <!-- E06 FICTION -->
+    <section
+        id="e06_fiction"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-6-fiction.png"
+            class="screen-bg">
+
+        <div
+            id="fiction-container"
+            class="books-container">
+        </div>
+
+    </section>
+
+    <!-- E06 ESSAIS -->
+    <section
+        id="e06_essais"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-6-essais.png"
+            class="screen-bg">
+
+        <div
+            id="essais-container"
+            class="books-container">
+        </div>
+
+    </section>
+
+    <!-- E06 ATLAS -->
+    <section
+        id="e06_atlas"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-6-atlas.png"
+            class="screen-bg">
+
+        <div
+            id="atlas-container"
+            class="books-container">
+        </div>
+
+    </section>
+
+    <!-- E06 PORTES -->
+    <section
+        id="e06_portes"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-6-portes-ouvertes.png"
+            class="screen-bg">
+
+        <div
+            id="portes-container"
+            class="books-container">
+        </div>
+
+    </section>
+
+    <!-- E07 -->
+    <section
+        id="e07_atelier"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-7-atelier.png"
+            class="screen-bg">
+
+    </section>
+
+    <!-- E08 -->
+    <section
+        id="e08_constellation"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-8-constellation.png"
+            class="screen-bg">
+
+        <div
+            class="constellation-panel">
+
+            <textarea
+                id="storyInput"
+                placeholder="Déposez ici une trace de votre passage...">
+            </textarea>
+
+            <button
+                id="shareStoryButton">
+
+                Partager
+
+            </button>
+
+            <div
+                id="storiesContainer">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- E09 -->
+    <section
+        id="e09_voyage"
+        class="screen">
+
+        <img
+            src="ecrans/ecran-9-voyage.png"
+            class="screen-bg">
+
+    </section>
+
+</div>
+
+<!-- QR Modal -->
+
+<div id="qrModal">
+
+    <img
+        id="qrImage"
+        src="">
+
+</div>
+
+<!-- JS -->
+
+<script src="js/navigation.js"></script>
+
+<script src="js/zoneRenderer.js"></script>
+
+<script src="js/bookRenderer.js"></script>
+
+<script src="js/constellation.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
