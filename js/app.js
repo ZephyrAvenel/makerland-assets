@@ -161,6 +161,8 @@ function initModules() {
 
     Navigation.init();
 
+ ZoneRenderer.bindEvents();
+
     if (
         typeof Constellation !==
         "undefined" &&
