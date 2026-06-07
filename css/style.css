@@ -1,0 +1,10 @@
+
+body{margin:0;background:#08111f;color:white;font-family:Arial}
+.center{text-align:center;padding-top:20vh}
+.btn{padding:12px 20px;background:#c9a227;color:black;text-decoration:none}
+.screen{position:relative;height:100vh;background:#111}
+.overlay{position:absolute;border:2px dashed rgba(255,215,0,.4);padding:10px}
+.zone1{left:5%;top:25%}
+.zone2{left:5%;top:40%}
+.zone3{left:5%;top:55%}
+.zone4{left:5%;top:70%}
