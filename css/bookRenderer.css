@@ -1,0 +1,491 @@
+/****************************************************
+MAKERLAND V3.0-C
+bookRenderer.css
+****************************************************/
+
+/* ==================================================
+VARIABLES
+================================================== */
+
+:root {
+
+--makerland-bg: #08111f;
+
+--makerland-card: #10233d;
+
+--makerland-card-hover: #173459;
+
+--makerland-gold: #d4af37;
+
+--makerland-gold-soft: rgba(212,175,55,.35);
+
+--makerland-text: #f5f7fa;
+
+--makerland-text-soft: #c9d4e2;
+
+--makerland-shadow:
+    0 0 20px rgba(212,175,55,.15);
+
+--makerland-shadow-hover:
+    0 0 35px rgba(212,175,55,.30);
+
+--makerland-radius: 18px;
+
+}
+
+/* ==================================================
+CONTAINERS
+================================================== */
+
+#fiction-container,
+#essais-container,
+#atlas-container,
+#portes-container {
+
+display: grid;
+
+grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+gap: 24px;
+
+padding: 24px;
+
+}
+
+/* ==================================================
+BOOK CARD
+================================================== */
+
+.makerland-book-card {
+
+background:
+    linear-gradient(
+        180deg,
+        #10233d,
+        #08111f
+    );
+
+border:
+    1px solid var(--makerland-gold-soft);
+
+border-radius:
+    var(--makerland-radius);
+
+overflow: hidden;
+
+transition:
+    .35s ease;
+
+box-shadow:
+    var(--makerland-shadow);
+
+display: flex;
+
+flex-direction: column;
+
+min-height: 640px;
+
+}
+
+.makerland-book-card:hover {
+
+transform:
+    translateY(-6px);
+
+box-shadow:
+    var(--makerland-shadow-hover);
+
+border-color:
+    var(--makerland-gold);
+
+}
+
+/* ==================================================
+COVER
+================================================== */
+
+.book-cover {
+
+width: 100%;
+
+height: 420px;
+
+overflow: hidden;
+
+}
+
+.book-cover img {
+
+width: 100%;
+
+height: 100%;
+
+object-fit: cover;
+
+transition:
+    .4s ease;
+
+}
+
+.makerland-book-card:hover
+.book-cover img {
+
+transform:
+    scale(1.04);
+
+}
+
+/* ==================================================
+CONTENT
+================================================== */
+
+.book-content {
+
+padding: 20px;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 12px;
+
+flex: 1;
+
+}
+
+.book-content h3 {
+
+margin: 0;
+
+color:
+    var(--makerland-gold);
+
+font-size:
+    1.3rem;
+
+line-height:
+    1.3;
+
+}
+
+.book-content p {
+
+margin: 0;
+
+color:
+    var(--makerland-text-soft);
+
+font-size:
+    .95rem;
+
+}
+
+.book-description {
+
+color:
+    var(--makerland-text);
+
+line-height:
+    1.6;
+
+font-size:
+    .92rem;
+
+}
+
+/* ==================================================
+CATEGORY
+================================================== */
+
+.book-category {
+
+display: inline-flex;
+
+align-self: flex-start;
+
+padding:
+    4px 10px;
+
+border-radius:
+    999px;
+
+border:
+    1px solid var(--makerland-gold-soft);
+
+color:
+    var(--makerland-gold);
+
+font-size:
+    .75rem;
+
+}
+
+/* ==================================================
+TAGS
+================================================== */
+
+.book-tags {
+
+display: flex;
+
+flex-wrap: wrap;
+
+gap: 8px;
+
+}
+
+.book-tag {
+
+padding:
+    4px 10px;
+
+background:
+    rgba(255,255,255,.05);
+
+border-radius:
+    999px;
+
+color:
+    var(--makerland-text-soft);
+
+font-size:
+    .75rem;
+
+}
+
+/* ==================================================
+ACTIONS
+================================================== */
+
+.book-actions {
+
+margin-top: auto;
+
+display: flex;
+
+gap: 12px;
+
+}
+
+.book-open,
+.book-qr {
+
+flex: 1;
+
+cursor: pointer;
+
+border: none;
+
+border-radius: 12px;
+
+padding: 12px;
+
+font-weight: 600;
+
+transition:
+    .3s ease;
+
+}
+
+.book-open {
+
+background:
+    var(--makerland-gold);
+
+color:
+    #08111f;
+
+}
+
+.book-open:hover {
+
+filter:
+    brightness(1.1);
+
+}
+
+.book-qr {
+
+background:
+    rgba(255,255,255,.08);
+
+color:
+    white;
+
+}
+
+.book-qr:hover {
+
+background:
+    rgba(255,255,255,.15);
+
+}
+
+/* ==================================================
+FEATURED
+================================================== */
+
+.makerland-book-card.featured {
+
+border:
+    2px solid var(--makerland-gold);
+
+box-shadow:
+    0 0 40px rgba(212,175,55,.25);
+
+}
+
+.makerland-book-card.featured::before {
+
+content:
+    "★ Sélection";
+
+display: block;
+
+text-align: center;
+
+padding: 8px;
+
+background:
+    var(--makerland-gold);
+
+color:
+    #08111f;
+
+font-weight: 700;
+
+}
+
+/* ==================================================
+STATS
+================================================== */
+
+.book-stats {
+
+display: flex;
+
+gap: 16px;
+
+color:
+    var(--makerland-text-soft);
+
+font-size:
+    .8rem;
+
+}
+
+/* ==================================================
+QR MODAL
+================================================== */
+
+#qrModal {
+
+position: fixed;
+
+inset: 0;
+
+background:
+    rgba(0,0,0,.88);
+
+display: none;
+
+align-items: center;
+
+justify-content: center;
+
+z-index: 9999;
+
+}
+
+#qrModal.active {
+
+display: flex;
+
+}
+
+#qrImage {
+
+max-width: 420px;
+
+width: 80vw;
+
+border-radius: 12px;
+
+background: white;
+
+padding: 20px;
+
+}
+
+/* ==================================================
+TABLET
+================================================== */
+
+@media (max-width:1024px) {
+
+.book-cover {
+
+    height: 340px;
+
+}
+
+}
+
+/* ==================================================
+MOBILE
+================================================== */
+
+@media (max-width:768px) {
+
+#fiction-container,
+#essais-container,
+#atlas-container,
+#portes-container {
+
+    grid-template-columns:
+        1fr;
+
+    padding: 12px;
+
+}
+
+.makerland-book-card {
+
+    min-height: auto;
+
+}
+
+.book-cover {
+
+    height: 280px;
+
+}
+
+.book-actions {
+
+    flex-direction: column;
+
+}
+
+}
+
+/* ==================================================
+SMALL MOBILE
+================================================== */
+
+@media (max-width:480px) {
+
+.book-cover {
+
+    height: 240px;
+
+}
+
+.book-content h3 {
+
+    font-size: 1.1rem;
+
+}
+
+}
