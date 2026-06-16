@@ -101,17 +101,23 @@ function goTo(screenId) {
     if (
         currentScreen &&
         currentScreen !== screenId
-    ) {
+       ) {
 
         historyStack.push(
-            currentScreen
+        currentScreen
         );
 
     }
 
     show(screenId);
 
-    resetIdleTimer();
+    if (
+        typeof UIRenderer !== "undefined"
+) {
+    UIRenderer.render(screenId);
+}
+
+resetIdleTimer();
 
 }
 
