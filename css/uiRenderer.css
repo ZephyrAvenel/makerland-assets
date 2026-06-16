@@ -39,20 +39,3 @@
 
     backdrop-filter:blur(8px);
 }
-
-.ui-panel{
-
-    position:fixed !important;
-
-    top:100px !important;
-
-    left:50% !important;
-
-    transform:translateX(-50%) !important;
-
-    z-index:99999 !important;
-
-    background:red !important;
-
-    padding:20px !important;
-}
