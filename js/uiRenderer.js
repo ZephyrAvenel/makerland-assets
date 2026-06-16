@@ -7,8 +7,7 @@ function render(screenId) {
     clear();  
 
     switch(screenId) {  
-        case 'e02_meteo':  
-            renderMeteo(screenId);  
+        case 'e02_meteo': 
             break;  
         case 'e08_constellation':  
             renderConstellation(screenId);  
