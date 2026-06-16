@@ -20,28 +20,49 @@ const UIRenderer = (() => {
         }
     }
 
-    function renderMeteo(screenId) {
-        const screen = document.getElementById(screenId);
-        if (!screen) return;
+function renderMeteo(screenId) {
 
-        const panel = document.createElement('div');
-        panel.className = 'ui-panel meteo-panel';
+    const screen = document.getElementById(screenId);
 
-        ['☀ Éclaircie','🌤 Transition','❓ Je ne sais pas','🌫 Brouillard','⛈ Tempête']
-        .forEach(label => {
-            const btn = document.createElement('button');
-            btn.className = 'ui-button';
-            btn.textContent = label;
-            btn.addEventListener('click', () => {
-                if (typeof Navigation !== 'undefined') {
-                    Navigation.goTo('e03_boussole');
-                }
-            });
-            panel.appendChild(btn);
+    if (!screen) return;
+
+    const panel = document.createElement('div');
+
+    panel.className = 'ui-panel meteo-panel';
+
+    const options = [
+        '☀ Éclaircie',
+        '🌤 Transition',
+        '❓ Je ne sais pas',
+        '🌫 Brouillard',
+        '⛈ Tempête'
+    ];
+
+    options.forEach(label => {
+
+        const btn = document.createElement('button');
+
+        btn.className = 'ui-button';
+
+        btn.textContent = label;
+
+        btn.addEventListener('click', () => {
+
+            console.log('Météo choisie :', label);
+
+            if (typeof Navigation !== 'undefined') {
+                Navigation.goTo('e03_boussole');
+            }
+
         });
 
-        screen.appendChild(panel);
-    }
+        panel.appendChild(btn);
+
+    });
+
+    screen.appendChild(panel);
+
+}
 
     function renderConstellation(screenId) {}
     function renderVoyage(screenId) {}
