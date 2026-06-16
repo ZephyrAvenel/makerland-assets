@@ -24,3 +24,20 @@
     background:rgba(255,255,255,.92);
     color:#222;
 }
+
+.ui-panel{
+
+    position:fixed !important;
+
+    top:100px !important;
+
+    left:50% !important;
+
+    transform:translateX(-50%) !important;
+
+    z-index:99999 !important;
+
+    background:red !important;
+
+    padding:20px !important;
+}
