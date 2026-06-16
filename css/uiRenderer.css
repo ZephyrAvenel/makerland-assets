@@ -6,11 +6,13 @@
 }
  
 .meteo-panel{
-    bottom:40px;
+    bottom:90px;
+
     display:flex;
     gap:10px;
     flex-wrap:wrap;
     justify-content:center;
+
     width:90%;
 }
 
