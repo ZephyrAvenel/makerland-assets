@@ -4,7 +4,7 @@
     transform:translateX(-50%);
     z-index:999;
 }
-
+ 
 .meteo-panel{
     bottom:40px;
     display:flex;
