@@ -2,8 +2,7 @@ const UIRenderer = (() => {
 
 function clear() {  
     document.querySelectorAll('.ui-panel').forEach(el => el.remove());  
-}  
-
+}   
 function render(screenId) {  
     clear();  
 
