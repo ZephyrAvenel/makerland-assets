@@ -89,6 +89,10 @@ const state = {
 
     livingCompassTimer: null,
 
+    livingEchoTimer: null,
+
+    livingEchoHideTimer: null,
+
     startedAt: null
 
 };
@@ -262,6 +266,10 @@ function bindEvents() {
 
                 prepareLivingCompass();
 
+            } else {
+
+                clearLivingEcho();
+
             }
 
         }
@@ -433,6 +441,11 @@ function prepareLivingCompass() {
     compass.dataset.suggestedDirection =
         config.direction;
 
+    scheduleLivingEcho(
+        selectedWeather,
+        memory.memory
+    );
+
     compass.classList.remove(
         "living-compass-ready"
     );
@@ -469,6 +482,116 @@ function prepareLivingCompass() {
 
         },
         420
+        );
+
+}
+
+function clearLivingEcho() {
+
+    if (state.livingEchoTimer) {
+
+        window.clearTimeout(
+            state.livingEchoTimer
+        );
+
+        state.livingEchoTimer =
+            null;
+
+    }
+
+    if (state.livingEchoHideTimer) {
+
+        window.clearTimeout(
+            state.livingEchoHideTimer
+        );
+
+        state.livingEchoHideTimer =
+            null;
+
+    }
+
+    const echo =
+        document.getElementById(
+            "livingEcho"
+        );
+
+    if (!echo) return;
+
+    echo.className =
+        "living-echo";
+
+    echo.textContent =
+        "";
+
+}
+
+function scheduleLivingEcho(
+    selectedWeather,
+    memory
+) {
+
+    clearLivingEcho();
+
+    if (
+        typeof LivingEcho === "undefined" ||
+        !LivingEcho.create
+    ) return;
+
+    const echo =
+        document.getElementById(
+            "livingEcho"
+        );
+
+    if (!echo) return;
+
+    const livingEcho =
+        LivingEcho.create({
+
+            selectedWeather,
+
+            visitCount:
+                memory && memory.visitCount,
+
+            weatherHistory:
+                memory && memory.weatherHistory
+
+        });
+
+    if (!livingEcho.message) return;
+
+    echo.textContent =
+        livingEcho.message;
+
+    echo.dataset.intensity =
+        String(
+            livingEcho.intensity
+        );
+
+    echo.dataset.glow =
+        livingEcho.glow;
+
+    state.livingEchoTimer =
+        window.setTimeout(
+            () => {
+
+                echo.classList.add(
+                    "living-echo-visible"
+                );
+
+            },
+            livingEcho.delay
+        );
+
+    state.livingEchoHideTimer =
+        window.setTimeout(
+            () => {
+
+                echo.classList.remove(
+                    "living-echo-visible"
+                );
+
+            },
+            livingEcho.delay + 5200
         );
 
 }
