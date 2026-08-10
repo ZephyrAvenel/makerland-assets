@@ -140,10 +140,11 @@
       "clicks": 0
     },
     {
-      "id": "bestiaire",
+      "id": "portes_carnets",
       "title": "Le Grand Bestiaire Anti‑Agressivité",
       "category": "portes_ouvertes",
-      "url": "https://zephyr-avenel.blogspot.com/2025/11/le-grand-bestiaire-anti-agressivite.html?m=1",
+      "label": "Carnets gratuits",
+      "targetScreen": "e06_carnets",
       "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
       "featured": false,
       "visible": true,
@@ -151,10 +152,11 @@
       "clicks": 0
     },
     {
-      "id": "manifeste",
+      "id": "portes_manifestes",
       "title": "Manifeste pour une Littérature des Seuils",
       "category": "portes_ouvertes",
-      "url": "https://zephyr-avenel.blogspot.com/2025/05/manifeste-pour-une-litterature-des.html?m=1",
+      "label": "Manifestes et textes ouverts",
+      "targetScreen": "e06_manifestes",
       "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
       "featured": false,
       "visible": true,
@@ -162,10 +164,11 @@
       "clicks": 0
     },
     {
-      "id": "bibliographie",
+      "id": "portes_oeuvres_libres",
       "title": "La Boussole des Passages Vivants",
       "category": "portes_ouvertes",
-      "url": "https://zephyr-avenel.blogspot.com/2026/06/la-boussole-des-passages-vivants.html?m=1",
+      "label": "Oeuvres libres",
+      "targetScreen": "e06_ressources_libres",
       "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
       "featured": true,
       "visible": true,
