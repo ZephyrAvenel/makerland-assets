@@ -52,28 +52,32 @@ bookRenderer.css
 .living-library-cover-button{
     border-radius:4px;
     filter:drop-shadow(0 18px 22px rgba(0,0,0,.44));
+    will-change:transform, filter;
     transition:
-        filter .32s ease,
-        transform .32s ease;
+        filter .26s ease,
+        transform .26s ease;
 }
 
 .living-library-cover-button:hover,
 .living-library-cover-button:focus-visible{
     filter:
         drop-shadow(0 18px 22px rgba(0,0,0,.44))
-        drop-shadow(0 0 16px rgba(255,214,132,.46));
-    transform:scale(1.035);
+        drop-shadow(0 0 18px rgba(255,214,132,.42));
+    transform:translateY(-3px) scale(1.025);
 }
 
 .living-library-cover-button:active{
-    transform:scale(1.015);
+    filter:
+        drop-shadow(0 14px 18px rgba(0,0,0,.40))
+        drop-shadow(0 0 14px rgba(255,214,132,.34));
+    transform:translateY(-1px) scale(1.018);
 }
 
 .living-library-volume-opening .living-library-cover-button{
     filter:
         drop-shadow(0 18px 22px rgba(0,0,0,.44))
-        drop-shadow(0 0 22px rgba(255,218,140,.62));
-    transform:scale(1.045);
+        drop-shadow(0 0 20px rgba(255,218,140,.50));
+    transform:translateY(-3px) scale(1.025);
 }
 
 .living-library-cover-button:focus-visible,
@@ -174,19 +178,28 @@ bookRenderer.css
     box-shadow:
         0 0 12px rgba(255,176,73,.15),
         0 10px 18px rgba(0,0,0,.34);
+    will-change:filter, transform, opacity;
     transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        transform .25s ease;
+        filter .24s ease,
+        opacity .24s ease,
+        transform .24s ease;
 }
 
 .living-library-qr-button:hover,
 .living-library-qr-button:focus-visible{
-    border-color:rgba(255,235,190,.95);
-    box-shadow:
-        0 0 18px rgba(255,205,120,.30),
-        0 10px 18px rgba(0,0,0,.34);
-    transform:scale(1.04);
+    filter:
+        brightness(1.06)
+        drop-shadow(0 0 8px rgba(255,214,132,.18));
+    transform:scale(1.025);
+}
+
+.living-library-volume:has(.living-library-cover-button:hover) .living-library-qr-button,
+.living-library-volume:has(.living-library-cover-button:focus-visible) .living-library-qr-button,
+.living-library-volume:has(.living-library-cover-button:active) .living-library-qr-button{
+    filter:
+        brightness(1.05)
+        drop-shadow(0 0 7px rgba(255,214,132,.16));
+    opacity:.98;
 }
 
 .living-library-qr-button img{
