@@ -1,0 +1,129 @@
+{
+  "version": "library-extensions-rv-014",
+  "rooms": [
+    {
+      "id": "carnets",
+      "screenId": "e06_carnets",
+      "containerId": "carnets-container",
+      "title": "Carnets gratuits",
+      "subtitle": "Des carnets a ouvrir, traverser, reprendre plus tard.",
+      "previous": "e06_portes",
+      "next": "e06_manifestes",
+      "returnTo": "e06_portes",
+      "resources": [
+        {
+          "id": "carnet_brunes",
+          "title": "Carnet des Brumes",
+          "description": "Un carnet pour avancer quand les contours sont doux.",
+          "category": "carnets",
+          "status": "coming_soon"
+        },
+        {
+          "id": "carnet_transitions",
+          "title": "Carnet des Transitions Interieures",
+          "description": "Un passage accompagne, a reprendre a son rythme.",
+          "category": "carnets",
+          "status": "coming_soon"
+        },
+        {
+          "id": "carnet_vol_libre",
+          "title": "Carnet du Vol Libre",
+          "description": "Un carnet pour retrouver de l'espace.",
+          "category": "carnets",
+          "status": "coming_soon"
+        },
+        {
+          "id": "carnets_futurs",
+          "title": "Futurs carnets",
+          "description": "De nouveaux carnets pourront rejoindre cette salle.",
+          "category": "carnets",
+          "status": "coming_soon"
+        }
+      ]
+    },
+    {
+      "id": "manifestes",
+      "screenId": "e06_manifestes",
+      "containerId": "manifestes-container",
+      "title": "Manifestes & Textes ouverts",
+      "subtitle": "Des textes pour habiter autrement les recits.",
+      "previous": "e06_carnets",
+      "next": "e06_ressources_libres",
+      "returnTo": "e06_portes",
+      "resources": [
+        {
+          "id": "manifeste_possibles",
+          "title": "Manifeste pour une litterature des possibles",
+          "description": "Un manifeste pour ouvrir d'autres formes de recit.",
+          "category": "manifestes",
+          "url": "https://zephyr-avenel.blogspot.com/2025/05/manifeste-pour-une-litterature-des.html?m=1",
+          "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+          "status": "published"
+        },
+        {
+          "id": "numerique_recit",
+          "title": "Le Numerique est un recit",
+          "description": "Un texte ouvert sur les formes symboliques du numerique.",
+          "category": "manifestes",
+          "status": "coming_soon"
+        },
+        {
+          "id": "statuts_pensees",
+          "title": "Statuts et pensees fondatrices",
+          "description": "Fragments fondateurs des Recits Vivants.",
+          "category": "manifestes",
+          "status": "coming_soon"
+        },
+        {
+          "id": "rehumanisation_symbolique",
+          "title": "Vers une rehumanisation symbolique",
+          "description": "Un texte pour reprendre place dans les signes.",
+          "category": "manifestes",
+          "status": "coming_soon"
+        }
+      ]
+    },
+    {
+      "id": "ressources_libres",
+      "screenId": "e06_ressources_libres",
+      "containerId": "ressources-libres-container",
+      "title": "Oeuvres libres",
+      "subtitle": "Ressources gratuites, extraits, guides et passages a emporter.",
+      "previous": "e06_manifestes",
+      "next": null,
+      "returnTo": "e06_portes",
+      "resources": [
+        {
+          "id": "bestiaire",
+          "title": "Le Grand Bestiaire Anti-Agressivite",
+          "description": "Une ressource libre pour traverser autrement l'agressivite.",
+          "category": "ressources_libres",
+          "url": "https://zephyr-avenel.blogspot.com/2025/11/le-grand-bestiaire-anti-agressivite.html?m=1",
+          "qr": "https://raw.githubusercontent.com/ZephyrAvenel/makerland-assets/refs/heads/main/qr/QR-03-Bibliotheque-Vivante.png",
+          "status": "published"
+        },
+        {
+          "id": "guides",
+          "title": "Guides",
+          "description": "Des guides gratuits rejoindront cette salle.",
+          "category": "ressources_libres",
+          "status": "coming_soon"
+        },
+        {
+          "id": "pdf_extraits",
+          "title": "PDF et extraits",
+          "description": "Extraits et ressources a telecharger prochainement.",
+          "category": "ressources_libres",
+          "status": "coming_soon"
+        },
+        {
+          "id": "ressources_gratuites",
+          "title": "Ressources gratuites",
+          "description": "Un espace extensible pour les futurs partages.",
+          "category": "ressources_libres",
+          "status": "coming_soon"
+        }
+      ]
+    }
+  ]
+}

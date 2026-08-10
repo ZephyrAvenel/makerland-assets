@@ -9,6 +9,8 @@ data: null,
 
 layout: null,
 
+extensions: null,
+
 rooms: [
 
     {
@@ -55,7 +57,8 @@ async load() {
 
         const [
             booksResponse,
-            layoutResponse
+            layoutResponse,
+            extensionsResponse
         ] = await Promise.all([
 
             fetch(
@@ -64,6 +67,10 @@ async load() {
 
             fetch(
                 "data/library-layout.json"
+            ),
+
+            fetch(
+                "data/library-extensions.json"
             )
 
         ]);
@@ -73,6 +80,9 @@ async load() {
 
         this.layout =
             await layoutResponse.json();
+
+        this.extensions =
+            await extensionsResponse.json();
 
         console.log(
             "Bibliotheque chargee"
@@ -173,6 +183,8 @@ renderLibrary() {
         }
     );
 
+    this.renderExtensionLibrary();
+
 },
 
 renderRoom(room) {
@@ -263,8 +275,16 @@ renderBook(
     slot
 ) {
 
+    const displayTitle =
+        this.getDisplayTitle(
+            book
+        );
+
     const canOpen =
-        Boolean(book.url) &&
+        (
+            Boolean(book.url) ||
+            Boolean(book.targetScreen)
+        ) &&
         book.available !== false &&
         book.status !== "coming_soon";
 
@@ -294,15 +314,15 @@ renderBook(
     coverButton.setAttribute(
         "aria-label",
         canOpen
-            ? "Ouvrir " + book.title
-            : book.title + " a venir"
+            ? "Ouvrir " + displayTitle
+            : displayTitle + " a venir"
     );
 
     coverButton.setAttribute(
         "title",
         canOpen
-            ? "Ouvrir " + book.title
-            : book.title + " a venir"
+            ? "Ouvrir " + displayTitle
+            : displayTitle + " a venir"
     );
 
     if (!canOpen) {
@@ -336,7 +356,7 @@ renderBook(
             book.cover;
 
         image.alt =
-            book.title;
+            displayTitle;
 
         cover.appendChild(
             image
@@ -350,7 +370,7 @@ renderBook(
             );
 
         title.textContent =
-            book.title;
+            displayTitle;
 
         cover.appendChild(
             title
@@ -391,12 +411,12 @@ renderBook(
 
     qrButton.setAttribute(
         "aria-label",
-        "Afficher le QR " + book.title
+        "Afficher le QR " + displayTitle
     );
 
     qrButton.setAttribute(
         "title",
-        "Afficher le QR " + book.title
+        "Afficher le QR " + displayTitle
     );
 
     this.applySlotBox(
@@ -449,7 +469,7 @@ renderBook(
         );
 
     heading.textContent =
-        book.title;
+        displayTitle;
 
     volume.append(
         coverButton,
@@ -472,15 +492,367 @@ renderBook(
 
 },
 
+renderExtensionLibrary() {
+
+    if (
+        !this.extensions ||
+        !Array.isArray(this.extensions.rooms)
+    ) return;
+
+    this.extensions.rooms.forEach(
+        room => {
+
+            this.renderExtensionRoom(
+                room
+            );
+
+        }
+    );
+
+},
+
+renderExtensionRoom(room) {
+
+    const container =
+        document.getElementById(
+            room.containerId
+        );
+
+    if (!container) return;
+
+    container.innerHTML =
+        "";
+
+    container.className =
+        "books-container living-library-room " +
+        "living-library-extension-room";
+
+    container.dataset.room =
+        room.id;
+
+    const hall =
+        document.createElement(
+            "div"
+        );
+
+    hall.className =
+        "living-library-extension-hall";
+
+    const header =
+        document.createElement(
+            "header"
+        );
+
+    header.className =
+        "living-library-extension-header";
+
+    const title =
+        document.createElement(
+            "h2"
+        );
+
+    title.textContent =
+        room.title;
+
+    const subtitle =
+        document.createElement(
+            "p"
+        );
+
+    subtitle.textContent =
+        room.subtitle || "";
+
+    header.append(
+        title,
+        subtitle
+    );
+
+    const grid =
+        document.createElement(
+            "div"
+        );
+
+    grid.className =
+        "living-library-extension-grid";
+
+    (
+        room.resources || []
+    ).forEach(resource => {
+
+        grid.appendChild(
+            this.renderExtensionResource(
+                resource
+            )
+        );
+
+    });
+
+    hall.append(
+        header,
+        grid,
+        this.renderExtensionNavigation(
+            room
+        )
+    );
+
+    container.appendChild(
+        hall
+    );
+
+},
+
+renderExtensionResource(resource) {
+
+    const canOpen =
+        Boolean(resource.url) &&
+        resource.status !== "coming_soon";
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+    card.className =
+        "living-library-extension-book";
+
+    if (!canOpen) {
+
+        card.classList.add(
+            "living-library-extension-book-coming-soon"
+        );
+
+    }
+
+    const button =
+        document.createElement(
+            "button"
+        );
+
+    button.className =
+        "living-library-extension-cover";
+
+    button.type =
+        "button";
+
+    button.disabled =
+        !canOpen;
+
+    button.setAttribute(
+        "aria-label",
+        canOpen
+            ? "Ouvrir " + resource.title
+            : resource.title + " a venir"
+    );
+
+    button.setAttribute(
+        "title",
+        canOpen
+            ? "Ouvrir " + resource.title
+            : resource.title + " a venir"
+    );
+
+    if (resource.cover) {
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+        image.src =
+            resource.cover;
+
+        image.alt =
+            resource.title;
+
+        button.appendChild(
+            image
+        );
+
+    } else {
+
+        const title =
+            document.createElement(
+                "span"
+            );
+
+        title.textContent =
+            resource.title;
+
+        button.appendChild(
+            title
+        );
+
+    }
+
+    if (canOpen) {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                this.openBook(
+                    resource,
+                    card
+                );
+
+            }
+        );
+
+    }
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+    description.textContent =
+        resource.description || "";
+
+    card.append(
+        button,
+        description
+    );
+
+    if (
+        resource.qr &&
+        canOpen
+    ) {
+
+        const qrButton =
+            document.createElement(
+                "button"
+            );
+
+        qrButton.className =
+            "living-library-extension-qr";
+
+        qrButton.type =
+            "button";
+
+        qrButton.setAttribute(
+            "aria-label",
+            "Afficher le QR " + resource.title
+        );
+
+        qrButton.setAttribute(
+            "title",
+            "Afficher le QR " + resource.title
+        );
+
+        const qr =
+            document.createElement(
+                "img"
+            );
+
+        qr.src =
+            resource.qr;
+
+        qr.alt =
+            "";
+
+        qrButton.appendChild(
+            qr
+        );
+
+        qrButton.addEventListener(
+            "click",
+            () => {
+
+                this.showQR(
+                    resource.qr
+                );
+
+            }
+        );
+
+        card.appendChild(
+            qrButton
+        );
+
+    }
+
+    return card;
+
+},
+
+renderExtensionNavigation(room) {
+
+    const navigation =
+        document.createElement(
+            "div"
+        );
+
+    navigation.className =
+        "living-library-navigation " +
+        "living-library-extension-navigation";
+
+    if (room.previous) {
+
+        navigation.appendChild(
+            this.renderRoomButton(
+                "previous",
+                "Salle precedente",
+                room.previous,
+                {}
+            )
+        );
+
+    }
+
+    if (room.next) {
+
+        navigation.appendChild(
+            this.renderRoomButton(
+                "next",
+                "Salle suivante",
+                room.next,
+                {}
+            )
+        );
+
+    }
+
+    if (room.returnTo) {
+
+        navigation.appendChild(
+            this.renderRoomButton(
+                "return",
+                "Retour Bibliotheque principale",
+                room.returnTo,
+                {}
+            )
+        );
+
+    }
+
+    return navigation;
+
+},
+
 openBook(
     book,
     volume
 ) {
 
     if (
-        !book ||
-        !book.url
+        !book
     ) return;
+
+    if (book.targetScreen) {
+
+        this.trackClick(
+            book.id
+        );
+
+        this.goToRoom(
+            book.targetScreen
+        );
+
+        return;
+
+    }
+
+    if (!book.url) return;
 
     if (volume) {
 
@@ -513,6 +885,18 @@ openBook(
         },
         220
     );
+
+},
+
+getDisplayTitle(book) {
+
+    return (
+        book &&
+        (
+            book.label ||
+            book.title
+        )
+    ) || "";
 
 },
 
@@ -639,7 +1023,9 @@ renderRoomButton(
     button.textContent =
         direction === "previous"
             ? "< " + label
-            : label + " >";
+            : direction === "return"
+                ? label
+                : label + " >";
 
     this.applyNavBox(
         button,
@@ -830,6 +1216,13 @@ applySlotBox(
 ) {
 
     if (!box) return;
+
+    if (
+        typeof box.x !== "number" ||
+        typeof box.y !== "number" ||
+        typeof box.w !== "number" ||
+        typeof box.h !== "number"
+    ) return;
 
     element.style.left =
         box.x + "%";
