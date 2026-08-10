@@ -13,7 +13,7 @@ rooms: [
         screenId: "e06_fiction",
         containerId: "fiction-container",
         category: "fiction",
-        title: "Romans",
+        title: "Fictions symboliques",
         previous: null,
         next: "e06_essais"
     },
@@ -31,7 +31,7 @@ rooms: [
         screenId: "e06_atlas",
         containerId: "atlas-container",
         category: "atlas",
-        title: "Atlas",
+        title: "Atlas des Recits Vivants",
         previous: "e06_essais",
         next: "e06_portes"
     },
@@ -205,6 +205,14 @@ renderRoom(room) {
         )
     );
 
+    if (!room.next) {
+
+        container.appendChild(
+            this.renderVisitEnd()
+        );
+
+    }
+
 },
 
 renderBook(
@@ -225,7 +233,13 @@ renderBook(
 
     card.innerHTML = `
 
-        <div class="living-library-cover">
+        <button
+            class="living-library-cover-button"
+            type="button"
+            aria-label="Ouvrir ${book.title}"
+        >
+
+            <span class="living-library-cover">
 
             ${
                 book.cover
@@ -233,54 +247,44 @@ renderBook(
                 : `<span>${book.title}</span>`
             }
 
-        </div>
+            </span>
 
-        <div class="living-library-caption">
+        </button>
 
-            <h3>${book.title}</h3>
+        <button
+            class="living-library-qr-button"
+            type="button"
+            aria-label="Afficher le QR ${book.title}"
+        >
 
-            <div class="living-library-actions">
+            ${
+                book.qr
+                ? `<img src="${book.qr}" alt="">`
+                : `<span>QR</span>`
+            }
 
-                <button
-                    class="book-open"
-                    data-url="${book.url}"
-                >
-                    Ouvrir
-                </button>
+        </button>
 
-                <button
-                    class="book-qr"
-                    data-qr="${book.qr}"
-                >
-                    QR
-                </button>
-
-            </div>
-
-        </div>
+        <h3>${book.title}</h3>
 
     `;
 
     card
-        .querySelector(".book-open")
+        .querySelector(".living-library-cover-button")
         .addEventListener(
             "click",
             () => {
 
-                this.trackClick(
-                    book.id
-                );
-
-                window.open(
-                    book.url,
-                    "_blank"
+                this.openBook(
+                    book,
+                    card
                 );
 
             }
         );
 
     card
-        .querySelector(".book-qr")
+        .querySelector(".living-library-qr-button")
         .addEventListener(
             "click",
             () => {
@@ -297,6 +301,47 @@ renderBook(
     );
 
     return card;
+
+},
+
+openBook(
+    book,
+    card
+) {
+
+    if (!book || !book.url) return;
+
+    if (card) {
+
+        card.classList.add(
+            "living-library-volume-opening"
+        );
+
+    }
+
+    window.setTimeout(
+        () => {
+
+            this.trackClick(
+                book.id
+            );
+
+            window.open(
+                book.url,
+                "_blank"
+            );
+
+            if (card) {
+
+                card.classList.remove(
+                    "living-library-volume-opening"
+                );
+
+            }
+
+        },
+        220
+    );
 
 },
 
@@ -341,12 +386,42 @@ renderRoomNavigation(room) {
     } else {
 
         navigation.appendChild(
-            this.renderRoomSpacer()
+            this.renderFinishButton()
         );
 
     }
 
     return navigation;
+
+},
+
+renderFinishButton() {
+
+    const button =
+        document.createElement(
+            "button"
+        );
+
+    button.className =
+        "living-library-room-button " +
+        "living-library-room-button-finish";
+
+    button.type =
+        "button";
+
+    button.textContent =
+        "Terminer la visite";
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            this.showVisitEnd();
+
+        }
+    );
+
+    return button;
 
 },
 
@@ -408,6 +483,94 @@ renderRoomSpacer() {
     );
 
     return spacer;
+
+},
+
+renderVisitEnd() {
+
+    const panel =
+        document.createElement(
+            "div"
+        );
+
+    panel.className =
+        "living-library-end";
+
+    panel.setAttribute(
+        "aria-live",
+        "polite"
+    );
+
+    panel.innerHTML = `
+
+        <div class="living-library-end-inner">
+
+            <p>
+                Vous avez parcouru cette partie de la Bibliotheque Vivante.
+            </p>
+
+            <p>
+                Chaque livre demeure une porte.
+                Vous pourrez toujours revenir explorer d'autres chemins.
+            </p>
+
+            <div class="living-library-end-actions">
+
+                <button type="button" data-target-screen="e04_oeuvre">
+                    Retour vers l'Oeuvre
+                </button>
+
+                <button type="button" data-target-screen="e03_boussole">
+                    Retour vers la Boussole Vivante
+                </button>
+
+                <button type="button" data-target-screen="e01_accueil">
+                    Retour a l'Accueil
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+    panel
+        .querySelectorAll(
+            "[data-target-screen]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        this.goToRoom(
+                            button.dataset.targetScreen
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    return panel;
+
+},
+
+showVisitEnd() {
+
+    const panel =
+        document.querySelector(
+            "#portes-container .living-library-end"
+        );
+
+    if (!panel) return;
+
+    panel.classList.add(
+        "living-library-end-visible"
+    );
 
 },
 
