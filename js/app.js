@@ -13,6 +13,20 @@ const VERSION = "3.0-C";
 
 const DEBUG = false;
 
+const WEATHER_ZONE_IDS = [
+
+    "eclaircie",
+
+    "transition",
+
+    "je_ne_sais_pas",
+
+    "brouillard",
+
+    "tempete"
+
+];
+
 /****************************************
  STATE
 ****************************************/
@@ -28,6 +42,8 @@ const state = {
     booksLoaded: false,
 
     storiesLoaded: false,
+
+    selectedWeather: null,
 
     startedAt: null
 
@@ -199,6 +215,16 @@ function bindEvents() {
 
     );
 
+    document.addEventListener(
+
+        "click",
+
+        captureWeatherSelection,
+
+        true
+
+    );
+
     window.addEventListener(
 
         "error",
@@ -212,6 +238,29 @@ function bindEvents() {
 
         }
 
+    );
+
+}
+
+function captureWeatherSelection(event) {
+
+    const zone =
+        event.target.closest(
+            ".makerland-zone"
+        );
+
+    if (
+        !zone ||
+        state.currentScreen !== "e02_meteo" ||
+        !WEATHER_ZONE_IDS.includes(zone.dataset.id)
+    ) return;
+
+    state.selectedWeather =
+        zone.dataset.id;
+
+    log(
+        "Météo intérieure :",
+        state.selectedWeather
     );
 
 }
@@ -300,7 +349,10 @@ function getStatus() {
             state.booksLoaded,
 
         storiesLoaded:
-            state.storiesLoaded
+            state.storiesLoaded,
+
+        selectedWeather:
+            state.selectedWeather
 
     };
 

@@ -38,10 +38,10 @@
   "zones": {
 
     "eclaircie": {
-      "x": 120,
-      "y": 730,
-      "w": 220,
-      "h": 110,
+      "x": 100,
+      "y": 715,
+      "w": 260,
+      "h": 140,
       "type": "navigation",
       "label": "☀ Éclaircie",
       "action": "goto",
@@ -49,10 +49,10 @@
     },
 
     "transition": {
-      "x": 390,
-      "y": 730,
-      "w": 220,
-      "h": 110,
+      "x": 370,
+      "y": 715,
+      "w": 260,
+      "h": 140,
       "type": "navigation",
       "label": "🌤 Transition",
       "action": "goto",
@@ -60,10 +60,10 @@
     },
 
     "je_ne_sais_pas": {
-      "x": 658,
-      "y": 730,
-      "w": 220,
-      "h": 110,
+      "x": 638,
+      "y": 715,
+      "w": 260,
+      "h": 140,
       "type": "navigation",
       "label": "❓ Je ne sais pas",
       "action": "goto",
@@ -71,10 +71,10 @@
     },
 
     "brouillard": {
-      "x": 926,
-      "y": 730,
-      "w": 220,
-      "h": 110,
+      "x": 906,
+      "y": 715,
+      "w": 260,
+      "h": 140,
       "type": "navigation",
       "label": "🌫 Brouillard",
       "action": "goto",
@@ -82,10 +82,10 @@
     },
 
     "tempete": {
-      "x": 1194,
-      "y": 730,
-      "w": 220,
-      "h": 110,
+      "x": 1174,
+      "y": 715,
+      "w": 260,
+      "h": 140,
       "type": "navigation",
       "label": "⛈ Tempête",
       "action": "goto",
