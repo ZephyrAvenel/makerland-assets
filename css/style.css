@@ -22,6 +22,10 @@ body{
     width:100%;
     height:100%;
     display:none;
+    --screen-content-width:min(100vw, 150vh);
+    --screen-content-height:min(100vh, 66.6667vw);
+    --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
+    --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
 }
 
 .screen-bg{
@@ -59,6 +63,34 @@ body{
     z-index:30;
 }
 
+.meteo-intro{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .16);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .105);
+    width:calc(var(--screen-content-width) * .68);
+    z-index:35;
+    color:#fff;
+    text-align:center;
+    pointer-events:none;
+    text-shadow:0 2px 18px rgba(0,0,0,.55);
+}
+
+.meteo-intro h1{
+    margin:0;
+    font-size:clamp(18px, calc(var(--screen-content-width) * .034), 40px);
+    font-weight:700;
+    line-height:1.1;
+}
+
+.meteo-intro p{
+    margin:clamp(6px, calc(var(--screen-content-height) * .014), 12px) auto 0;
+    max-width:760px;
+    font-size:clamp(10px, calc(var(--screen-content-width) * .014), 17px);
+    font-weight:400;
+    line-height:1.35;
+    color:rgba(255,255,255,.82);
+}
+
 .makerland-zone{
     position:absolute;
     -webkit-tap-highlight-color:transparent;
@@ -68,8 +100,10 @@ body{
     width:100%;
     height:100%;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
+    gap:clamp(2px, calc(var(--makerland-zone-scale) * 8px), 6px);
     pointer-events:none;
     box-sizing:border-box;
 }
@@ -95,6 +129,53 @@ body{
         background .22s ease,
         border-color .22s ease,
         box-shadow .22s ease;
+}
+
+#e02_meteo .makerland-zone-visual-button{
+    padding:clamp(4px, calc(var(--makerland-zone-scale) * 18px), 12px);
+    font-size:clamp(8px, calc(var(--makerland-zone-scale) * 31px), 25px);
+}
+
+#e02_meteo .makerland-zone-visual-button::after{
+    display:block;
+    max-width:92%;
+    font-size:clamp(6px, calc(var(--makerland-zone-scale) * 15px), 13px);
+    font-weight:500;
+    line-height:1.18;
+    color:rgba(255,255,255,.82);
+    text-shadow:0 1px 8px rgba(0,0,0,.45);
+}
+
+#e02_meteo .makerland-zone[data-id="eclaircie"] .makerland-zone-visual-button::after{
+    content:"Je distingue un chemin.";
+}
+
+#e02_meteo .makerland-zone[data-id="transition"] .makerland-zone-visual-button::after{
+    content:"Quelque chose change.";
+}
+
+#e02_meteo .makerland-zone[data-id="je_ne_sais_pas"] .makerland-zone-visual-button::after{
+    content:"Je ne parviens pas encore à nommer.";
+}
+
+#e02_meteo .makerland-zone[data-id="brouillard"] .makerland-zone-visual-button::after{
+    content:"Je cherche un repère.";
+}
+
+#e02_meteo .makerland-zone[data-id="tempete"] .makerland-zone-visual-button::after{
+    content:"Beaucoup traverse mon paysage intérieur.";
+}
+
+@media (orientation:portrait) {
+    .meteo-intro{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
+        width:calc(var(--screen-content-width) * .84);
+    }
+
+    .meteo-intro p{
+        display:none;
+    }
 }
 
 .makerland-zone:hover .makerland-zone-visual-button{
