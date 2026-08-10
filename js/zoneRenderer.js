@@ -9,11 +9,36 @@ const ZoneRenderer = (() => {
  CONFIG
 ****************************************/
 
-const BASE_WIDTH = 1536;
+let BASE_WIDTH = null;
 
-const BASE_HEIGHT = 1024;
+let BASE_HEIGHT = null;
 
 const DEBUG_ZONES = false;
+
+const ZONES_SOURCE =
+    "data/zones-v3-final-beta.json";
+
+const ACTION_ALIASES = {
+
+    external: "openURL",
+
+    navigation: "goto"
+
+};
+
+const EVENT_ACTION_TYPES = [
+
+    "openBook",
+
+    "openPack",
+
+    "showDialog",
+
+    "playAudio",
+
+    "launchNFC"
+
+];
 
 /****************************************
  STATE
@@ -22,6 +47,52 @@ const DEBUG_ZONES = false;
 let zonesData = null;
 
 let currentScreen = null;
+
+const actionHandlers = {
+
+    goto(action) {
+
+        if (
+            typeof Navigation !== "undefined" &&
+            Navigation.goTo
+        ) {
+
+            Navigation.goTo(
+                action.target
+            );
+
+        }
+
+    },
+
+    openURL(action) {
+
+        if (
+            typeof Navigation !== "undefined" &&
+            Navigation.openExternal
+        ) {
+
+            Navigation.openExternal(
+                action.url || action.target
+            );
+
+        }
+
+    },
+
+};
+
+EVENT_ACTION_TYPES.forEach(
+    type => {
+
+        actionHandlers[type] =
+            action => dispatchZoneAction(
+                type,
+                action
+            );
+
+    }
+);
 
 /****************************************
  LOAD JSON
@@ -33,7 +104,7 @@ async function load() {
 
         const response =
             await fetch(
-                "data/zones-v3-final-beta.json"
+                ZONES_SOURCE
             );
 
         const data =
@@ -41,6 +112,10 @@ async function load() {
 
         zonesData =
             data.screens;
+
+        syncBaseResolution(
+            data.resolution
+        );
 
         console.log(
             "Zones chargées"
@@ -140,22 +215,14 @@ function createZone(
     element.dataset.id =
         id;
 
-    if (
-        DEBUG_ZONES
-    ) {
-
-        element.style.border =
-            "2px solid red";
-
-        element.style.background =
-            "rgba(255,0,0,.15)";
-
-    }
-
     positionZone(
         container,
         element,
         zone
+    );
+
+    applyDebugStyle(
+        element
     );
 
     attachAction(
@@ -178,6 +245,19 @@ function positionZone(
     element,
     zone
 ) {
+
+    if (
+        !BASE_WIDTH ||
+        !BASE_HEIGHT
+    ) {
+
+        console.warn(
+            "Resolution zones manquante"
+        );
+
+        return;
+
+    }
 
     const rect =
         container.getBoundingClientRect();
@@ -218,6 +298,29 @@ function positionZone(
 }
 
 /****************************************
+ DEBUG STYLE
+****************************************/
+
+function applyDebugStyle(
+    element
+) {
+
+    element.style.border =
+        DEBUG_ZONES
+            ? "2px solid orange"
+            : "0";
+
+    element.style.background =
+        DEBUG_ZONES
+            ? "rgba(255, 165, 0, .22)"
+            : "transparent";
+
+    element.style.boxSizing =
+        "border-box";
+
+}
+
+/****************************************
  ACTIONS
 ****************************************/
 
@@ -231,7 +334,7 @@ function attachAction(
         () => {
 
             executeAction(
-                zone.action
+                zone
             );
 
         }
@@ -240,29 +343,201 @@ function attachAction(
 }
 
 function executeAction(
-    action
+    zone
 ) {
+
+    const action =
+        normalizeAction(
+            zone
+        );
 
     if (!action) return;
 
-    if (
-        action.startsWith(
-            "http"
-        )
-    ) {
+    const handler =
+        actionHandlers[
+            action.type
+        ];
 
-        Navigation
-            .openExternal(
-                action
-            );
+    if (handler) {
+
+        handler(
+            action
+        );
 
         return;
 
     }
 
-    Navigation.goTo(
+    dispatchZoneAction(
+        action.type,
         action
     );
+
+}
+
+function normalizeAction(
+    zone
+) {
+
+    if (
+        !zone ||
+        !zone.action
+    ) return null;
+
+    if (
+        typeof zone.action === "object"
+    ) {
+
+        return {
+            ...zone.action,
+            type:
+                zone.action.type ||
+                ACTION_ALIASES[zone.type] ||
+                zone.type ||
+                "custom",
+            zone
+        };
+
+    }
+
+    if (
+        zone.type === "external" ||
+        zone.action.startsWith("http")
+    ) {
+
+        return {
+            type: "openURL",
+            url: zone.action,
+            zone
+        };
+
+    }
+
+    if (
+        zone.type === "navigation"
+    ) {
+
+        return {
+            type: "goto",
+            target: zone.action,
+            zone
+        };
+
+    }
+
+    const parsedAction =
+        parseActionString(
+            zone.action
+        );
+
+    if (
+        parsedAction &&
+        actionHandlers[parsedAction.type]
+    ) {
+
+        return {
+            ...parsedAction,
+            zone
+        };
+
+    }
+
+    return {
+        type: zone.type || "custom",
+        target: zone.action,
+        zone
+    };
+
+}
+
+function parseActionString(
+    value
+) {
+
+    const separatorIndex =
+        value.indexOf(":");
+
+    if (separatorIndex <= 0) return null;
+
+    const type =
+        value.slice(
+            0,
+            separatorIndex
+        );
+
+    const target =
+        value.slice(
+            separatorIndex + 1
+        );
+
+    return {
+        type,
+        target,
+        url:
+            type === "openURL"
+                ? target
+                : undefined
+    };
+
+}
+
+function dispatchZoneAction(
+    type,
+    action
+) {
+
+    window.dispatchEvent(
+
+        new CustomEvent(
+            "zoneAction",
+            {
+                detail: {
+                    type,
+                    action,
+                    screen:
+                        currentScreen
+                }
+            }
+        )
+
+    );
+
+}
+
+function registerAction(
+    type,
+    handler
+) {
+
+    if (
+        !type ||
+        typeof handler !== "function"
+    ) return;
+
+    actionHandlers[type] =
+        handler;
+
+}
+
+function syncBaseResolution(
+    resolution
+) {
+
+    if (!resolution) return;
+
+    if (resolution.width) {
+
+        BASE_WIDTH =
+            resolution.width;
+
+    }
+
+    if (resolution.height) {
+
+        BASE_HEIGHT =
+            resolution.height;
+
+    }
 
 }
 
@@ -347,6 +622,8 @@ return {
     bindEvents,
 
     enableDebug,
+
+    registerAction,
 
     clear
 

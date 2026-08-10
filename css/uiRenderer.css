@@ -1,41 +1,4 @@
 .ui-panel{
     position:absolute;
-    left:50%;
-    transform:translateX(-50%);
     z-index:999;
-}
-
-.meteo-panel{
-
-    bottom:80px;
-
-    display:flex;
-    gap:12px;
-
-    justify-content:center;
-
-    width:auto;
-
-    max-width:90%;
-}
-
-.ui-button{
-
-    border:none;
-
-    border-radius:18px;
-
-    padding:14px 18px;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    background:rgba(255,255,255,0.90);
-
-    color:#222;
-
-    backdrop-filter:blur(8px);
 }
