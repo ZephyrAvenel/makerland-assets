@@ -20,10 +20,10 @@
       "w": 500,
       "h": 120,
       "type": "navigation",
-      "action": "e02_meteo",
+      "label": "✦ Entrer",
+      "action": "goto",
+      "target": "e02_meteo",
       "render": {
-        "type": "button",
-        "label": "✦ Entrer",
         "variant": "glass"
       }
     }
@@ -43,7 +43,9 @@
       "w": 220,
       "h": 110,
       "type": "navigation",
-      "action": "e03_boussole"
+      "label": "☀ Éclaircie",
+      "action": "goto",
+      "target": "e03_boussole"
     },
 
     "transition": {
@@ -52,7 +54,9 @@
       "w": 220,
       "h": 110,
       "type": "navigation",
-      "action": "e03_boussole"
+      "label": "🌤 Transition",
+      "action": "goto",
+      "target": "e03_boussole"
     },
 
     "je_ne_sais_pas": {
@@ -61,7 +65,9 @@
       "w": 220,
       "h": 110,
       "type": "navigation",
-      "action": "e03_boussole"
+      "label": "❓ Je ne sais pas",
+      "action": "goto",
+      "target": "e03_boussole"
     },
 
     "brouillard": {
@@ -70,7 +76,9 @@
       "w": 220,
       "h": 110,
       "type": "navigation",
-      "action": "e03_boussole"
+      "label": "🌫 Brouillard",
+      "action": "goto",
+      "target": "e03_boussole"
     },
 
     "tempete": {
@@ -79,7 +87,9 @@
       "w": 220,
       "h": 110,
       "type": "navigation",
-      "action": "e03_boussole"
+      "label": "⛈ Tempête",
+      "action": "goto",
+      "target": "e03_boussole"
     }
 
   }
