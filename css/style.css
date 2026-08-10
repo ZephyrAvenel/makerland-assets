@@ -329,6 +329,8 @@ body{
     top:var(--screen-content-top);
     width:var(--screen-content-width);
     height:var(--screen-content-height);
+    --compass-edge-margin:30px;
+    --compass-safe-bottom:calc(30px + env(safe-area-inset-bottom));
     opacity:0;
     transform:scale(.992);
     transition:
@@ -392,12 +394,12 @@ body{
 }
 
 .living-compass-direction[data-direction="creer"]{
-    left:34%;
+    left:max(var(--compass-edge-margin), 34%);
     top:61%;
 }
 
 .living-compass-direction[data-direction="contempler"]{
-    left:66%;
+    left:min(calc(100% - var(--compass-edge-margin)), 66%);
     top:61%;
 }
 
@@ -408,7 +410,7 @@ body{
 
 .living-compass-direction[data-direction="repere"]{
     left:50%;
-    top:84%;
+    top:min(84%, calc(100% - var(--compass-safe-bottom)));
 }
 
 .living-compass-direction.is-suggested{
@@ -499,12 +501,12 @@ body{
     }
 
     .living-compass-direction[data-direction="creer"]{
-        left:18%;
+        left:max(var(--compass-edge-margin), 18%);
         top:64%;
     }
 
     .living-compass-direction[data-direction="contempler"]{
-        left:82%;
+        left:min(calc(100% - var(--compass-edge-margin)), 82%);
         top:64%;
     }
 
@@ -515,14 +517,14 @@ body{
 
     .living-compass-direction[data-direction="repere"]{
         left:50%;
-        top:88%;
+        top:min(88%, calc(100% - var(--compass-safe-bottom)));
         width:92px;
     }
 }
 
 @media (max-height:480px) and (orientation:landscape) {
     .living-compass-welcome{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .05);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
     }
 
     .living-compass-kicker{
@@ -536,8 +538,8 @@ body{
     }
 
     .living-compass-light{
-        width:300px;
-        height:300px;
+        width:clamp(220px, 70vh, 300px);
+        height:clamp(220px, 70vh, 300px);
     }
 
     .living-compass-direction{
@@ -548,26 +550,72 @@ body{
     }
 
     .living-compass-direction[data-direction="explorer"]{
-        top:42%;
+        top:40%;
     }
 
     .living-compass-direction[data-direction="creer"]{
-        left:34%;
-        top:62%;
+        left:max(var(--compass-edge-margin), 35%);
+        top:60%;
     }
 
     .living-compass-direction[data-direction="contempler"]{
-        left:66%;
-        top:62%;
+        left:min(calc(100% - var(--compass-edge-margin)), 65%);
+        top:60%;
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
-        top:74%;
+        top:69%;
     }
 
     .living-compass-direction[data-direction="repere"]{
-        top:84%;
+        top:min(79%, calc(100% - var(--compass-safe-bottom)));
         width:116px;
+    }
+}
+
+@media (max-height:380px) and (orientation:landscape) {
+    .living-compass-welcome{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .035);
+    }
+
+    .living-compass-kicker{
+        margin-bottom:3px;
+        font-size:9px;
+    }
+
+    .living-compass-message{
+        font-size:15px;
+        line-height:1.08;
+    }
+
+    .living-compass-light{
+        width:clamp(190px, 62vh, 240px);
+        height:clamp(190px, 62vh, 240px);
+    }
+
+    .living-compass-direction{
+        width:96px;
+        min-height:28px;
+        padding:4px 7px;
+        font-size:10px;
+    }
+
+    .living-compass-direction[data-direction="explorer"]{
+        top:38%;
+    }
+
+    .living-compass-direction[data-direction="creer"],
+    .living-compass-direction[data-direction="contempler"]{
+        top:58%;
+    }
+
+    .living-compass-direction[data-direction="decouvrir"]{
+        top:66%;
+    }
+
+    .living-compass-direction[data-direction="repere"]{
+        top:min(75%, calc(100% - var(--compass-safe-bottom)));
+        width:108px;
     }
 }
 
