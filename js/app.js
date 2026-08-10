@@ -280,6 +280,22 @@ function bindEvents() {
 
         "click",
 
+        handleCompassDirectionClick
+
+    );
+
+    document.addEventListener(
+
+        "keydown",
+
+        handleCompassDirectionKeydown
+
+    );
+
+    document.addEventListener(
+
+        "click",
+
         captureWeatherSelection,
 
         true
@@ -299,6 +315,102 @@ function bindEvents() {
 
         }
 
+    );
+
+}
+
+function handleCompassDirectionClick(event) {
+
+    const direction =
+        event.target.closest(
+            ".living-compass-direction"
+        );
+
+    if (!direction) return;
+
+    openCompassDirection(
+        direction
+    );
+
+}
+
+function handleCompassDirectionKeydown(event) {
+
+    if (
+        event.key !== "Enter" &&
+        event.key !== " "
+    ) return;
+
+    const direction =
+        event.target.closest(
+            ".living-compass-direction"
+        );
+
+    if (!direction) return;
+
+    event.preventDefault();
+
+    openCompassDirection(
+        direction
+    );
+
+}
+
+function openCompassDirection(direction) {
+
+    if (
+        state.currentScreen !==
+        "e03_boussole"
+    ) return;
+
+    const target =
+        direction.dataset.targetScreen;
+
+    if (
+        !target ||
+        typeof Navigation === "undefined" ||
+        !Navigation.goTo
+    ) return;
+
+    const compass =
+        document.querySelector(
+            "#e03_boussole .living-compass"
+        );
+
+    if (
+        compass &&
+        compass.classList.contains(
+            "living-compass-passing"
+        )
+    ) return;
+
+    clearLivingEcho();
+
+    if (compass) {
+
+        compass.classList.add(
+            "living-compass-passing"
+        );
+
+    }
+
+    window.setTimeout(
+        () => {
+
+            Navigation.goTo(
+                target
+            );
+
+            if (compass) {
+
+                compass.classList.remove(
+                    "living-compass-passing"
+                );
+
+            }
+
+        },
+        260
     );
 
 }
