@@ -7,6 +7,8 @@ const Books = {
 
 data: null,
 
+layout: null,
+
 rooms: [
 
     {
@@ -51,16 +53,29 @@ async load() {
 
     try {
 
-        const response =
-            await fetch(
+        const [
+            booksResponse,
+            layoutResponse
+        ] = await Promise.all([
+
+            fetch(
                 "data/livres-v2.json"
-            );
+            ),
+
+            fetch(
+                "data/library-layout.json"
+            )
+
+        ]);
 
         this.data =
-            await response.json();
+            await booksResponse.json();
+
+        this.layout =
+            await layoutResponse.json();
 
         console.log(
-            "Livres charges"
+            "Bibliotheque chargee"
         );
 
         return this.data;
@@ -68,7 +83,7 @@ async load() {
     } catch (error) {
 
         console.error(
-            "Erreur chargement livres",
+            "Erreur chargement bibliotheque",
             error
         );
 
@@ -111,6 +126,16 @@ getRoomByCategory(category) {
     return this.rooms.find(
         room => room.category === category
     );
+
+},
+
+getLayout(category) {
+
+    return (
+        this.layout &&
+        this.layout.rooms &&
+        this.layout.rooms[category]
+    ) || null;
 
 },
 
@@ -157,52 +182,70 @@ renderRoom(room) {
             room.containerId
         );
 
-    if (!container) return;
+    const layout =
+        this.getLayout(
+            room.category
+        );
+
+    if (
+        !container ||
+        !layout
+    ) return;
 
     container.innerHTML =
         "";
 
-    container.classList.add(
-        "living-library-room"
-    );
+    container.className =
+        "books-container living-library-room";
 
     container.dataset.room =
         room.category;
+
+    const contentZone =
+        document.createElement(
+            "div"
+        );
+
+    contentZone.className =
+        "living-library-content-zone";
+
+    this.applyImageBox(
+        contentZone,
+        layout.contentZone
+    );
 
     const books =
         this.getByCategory(
             room.category
         );
 
-    const shelf =
-        document.createElement(
-            "div"
-        );
-
-    shelf.className =
-        "living-library-shelf";
-
     books.forEach(
         (book, index) => {
 
-            shelf.appendChild(
+            const slot =
+                layout.slots[index];
+
+            if (!slot) return;
+
+            contentZone.appendChild(
                 this.renderBook(
                     book,
-                    index
+                    slot
                 )
             );
 
         }
     );
 
-    container.appendChild(
-        shelf
+    contentZone.appendChild(
+        this.renderRoomNavigation(
+            room,
+            layout.navigation
+        )
     );
 
     container.appendChild(
-        this.renderRoomNavigation(
-            room
-        )
+        contentZone
     );
 
     if (!room.next) {
@@ -217,103 +260,186 @@ renderRoom(room) {
 
 renderBook(
     book,
-    index = 0
+    slot
 ) {
 
-    const card =
+    const volume =
         document.createElement(
             "article"
         );
 
-    card.className =
+    volume.className =
         "living-library-volume";
 
-    card.dataset.index =
-        String(index + 1);
+    const coverButton =
+        document.createElement(
+            "button"
+        );
 
-    card.innerHTML = `
+    coverButton.className =
+        "living-library-cover-button";
 
-        <button
-            class="living-library-cover-button"
-            type="button"
-            aria-label="Ouvrir ${book.title}"
-        >
+    coverButton.type =
+        "button";
 
-            <span class="living-library-cover">
+    coverButton.setAttribute(
+        "aria-label",
+        "Ouvrir " + book.title
+    );
 
-            ${
-                book.cover
-                ? `<img src="${book.cover}" alt="${book.title}">`
-                : `<span>${book.title}</span>`
-            }
+    this.applySlotBox(
+        coverButton,
+        slot.cover
+    );
 
-            </span>
+    const cover =
+        document.createElement(
+            "span"
+        );
 
-        </button>
+    cover.className =
+        "living-library-cover";
 
-        <button
-            class="living-library-qr-button"
-            type="button"
-            aria-label="Afficher le QR ${book.title}"
-        >
+    if (book.cover) {
 
-            ${
+        const image =
+            document.createElement(
+                "img"
+            );
+
+        image.src =
+            book.cover;
+
+        image.alt =
+            book.title;
+
+        cover.appendChild(
+            image
+        );
+
+    } else {
+
+        const title =
+            document.createElement(
+                "span"
+            );
+
+        title.textContent =
+            book.title;
+
+        cover.appendChild(
+            title
+        );
+
+    }
+
+    coverButton.appendChild(
+        cover
+    );
+
+    coverButton.addEventListener(
+        "click",
+        () => {
+
+            this.openBook(
+                book,
+                volume
+            );
+
+        }
+    );
+
+    const qrButton =
+        document.createElement(
+            "button"
+        );
+
+    qrButton.className =
+        "living-library-qr-button";
+
+    qrButton.type =
+        "button";
+
+    qrButton.setAttribute(
+        "aria-label",
+        "Afficher le QR " + book.title
+    );
+
+    this.applySlotBox(
+        qrButton,
+        slot.qr
+    );
+
+    if (book.qr) {
+
+        const qr =
+            document.createElement(
+                "img"
+            );
+
+        qr.src =
+            book.qr;
+
+        qr.alt =
+            "";
+
+        qrButton.appendChild(
+            qr
+        );
+
+    } else {
+
+        qrButton.textContent =
+            "QR";
+
+    }
+
+    qrButton.addEventListener(
+        "click",
+        () => {
+
+            this.showQR(
                 book.qr
-                ? `<img src="${book.qr}" alt="">`
-                : `<span>QR</span>`
-            }
+            );
 
-        </button>
+        }
+    );
 
-        <h3>${book.title}</h3>
-
-    `;
-
-    card
-        .querySelector(".living-library-cover-button")
-        .addEventListener(
-            "click",
-            () => {
-
-                this.openBook(
-                    book,
-                    card
-                );
-
-            }
+    const heading =
+        document.createElement(
+            "h3"
         );
 
-    card
-        .querySelector(".living-library-qr-button")
-        .addEventListener(
-            "click",
-            () => {
+    heading.textContent =
+        book.title;
 
-                this.showQR(
-                    book.qr
-                );
-
-            }
-        );
+    volume.append(
+        coverButton,
+        qrButton,
+        heading
+    );
 
     this.trackView(
         book.id
     );
 
-    return card;
+    return volume;
 
 },
 
 openBook(
     book,
-    card
+    volume
 ) {
 
-    if (!book || !book.url) return;
+    if (
+        !book ||
+        !book.url
+    ) return;
 
-    if (card) {
+    if (volume) {
 
-        card.classList.add(
+        volume.classList.add(
             "living-library-volume-opening"
         );
 
@@ -331,9 +457,9 @@ openBook(
                 "_blank"
             );
 
-            if (card) {
+            if (volume) {
 
-                card.classList.remove(
+                volume.classList.remove(
                     "living-library-volume-opening"
                 );
 
@@ -345,7 +471,10 @@ openBook(
 
 },
 
-renderRoomNavigation(room) {
+renderRoomNavigation(
+    room,
+    navigationLayout = {}
+) {
 
     const navigation =
         document.createElement(
@@ -355,38 +484,47 @@ renderRoomNavigation(room) {
     navigation.className =
         "living-library-navigation";
 
-    if (room.previous) {
+    if (
+        room.previous &&
+        navigationLayout.previous
+    ) {
 
         navigation.appendChild(
             this.renderRoomButton(
                 "previous",
                 "Salle precedente",
-                room.previous
+                room.previous,
+                navigationLayout.previous
             )
-        );
-
-    } else {
-
-        navigation.appendChild(
-            this.renderRoomSpacer()
         );
 
     }
 
-    if (room.next) {
+    if (
+        room.next &&
+        navigationLayout.next
+    ) {
 
         navigation.appendChild(
             this.renderRoomButton(
                 "next",
                 "Salle suivante",
-                room.next
+                room.next,
+                navigationLayout.next
             )
         );
 
-    } else {
+    }
+
+    if (
+        !room.next &&
+        navigationLayout.next
+    ) {
 
         navigation.appendChild(
-            this.renderFinishButton()
+            this.renderFinishButton(
+                navigationLayout.next
+            )
         );
 
     }
@@ -395,7 +533,7 @@ renderRoomNavigation(room) {
 
 },
 
-renderFinishButton() {
+renderFinishButton(layoutBox) {
 
     const button =
         document.createElement(
@@ -411,6 +549,11 @@ renderFinishButton() {
 
     button.textContent =
         "Terminer la visite";
+
+    this.applyNavBox(
+        button,
+        layoutBox
+    );
 
     button.addEventListener(
         "click",
@@ -428,7 +571,8 @@ renderFinishButton() {
 renderRoomButton(
     direction,
     label,
-    target
+    target,
+    layoutBox
 ) {
 
     const button =
@@ -452,6 +596,11 @@ renderRoomButton(
             ? "< " + label
             : label + " >";
 
+    this.applyNavBox(
+        button,
+        layoutBox
+    );
+
     button.addEventListener(
         "click",
         () => {
@@ -464,25 +613,6 @@ renderRoomButton(
     );
 
     return button;
-
-},
-
-renderRoomSpacer() {
-
-    const spacer =
-        document.createElement(
-            "span"
-        );
-
-    spacer.className =
-        "living-library-room-spacer";
-
-    spacer.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    return spacer;
 
 },
 
@@ -614,6 +744,70 @@ goToRoom(target) {
 
         },
         260
+    );
+
+},
+
+applyImageBox(
+    element,
+    box
+) {
+
+    if (!box) return;
+
+    element.style.left =
+        "calc(var(--screen-content-left) + " +
+        "var(--screen-content-width) * " +
+        (box.left / 100) +
+        ")";
+
+    element.style.top =
+        "calc(var(--screen-content-top) + " +
+        "var(--screen-content-height) * " +
+        (box.top / 100) +
+        ")";
+
+    element.style.width =
+        "calc(var(--screen-content-width) * " +
+        (box.width / 100) +
+        ")";
+
+    element.style.height =
+        "calc(var(--screen-content-height) * " +
+        (box.height / 100) +
+        ")";
+
+},
+
+applySlotBox(
+    element,
+    box
+) {
+
+    if (!box) return;
+
+    element.style.left =
+        box.x + "%";
+
+    element.style.top =
+        box.y + "%";
+
+    element.style.width =
+        box.w + "%";
+
+    element.style.height =
+        box.h + "%";
+
+},
+
+applyNavBox(
+    element,
+    box
+) {
+
+    this.applySlotBox(
+        element,
+        box
     );
 
 },
