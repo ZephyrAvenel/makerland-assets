@@ -817,7 +817,7 @@ renderExtensionNavigation(room) {
         navigation.appendChild(
             this.renderRoomButton(
                 "return",
-                "Retour Bibliotheque principale",
+                "< Retour a la Bibliotheque principale",
                 room.returnTo,
                 {}
             )
