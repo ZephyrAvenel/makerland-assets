@@ -16,14 +16,16 @@ Romans
 
 Chaque salle conserve son illustration existante.
 Les livres sont poses dans l'image sous forme de volumes integres, avec ombres, eclairage et proportions adaptees.
+La couverture devient la porte principale.
+Le QR devient une autre maniere d'emporter cette porte avec soi.
 
 ## Organisation des salles
 
 | Salle | Ecran | Categorie de donnees |
 | --- | --- | --- |
-| Romans | `e06_fiction` | `fiction` |
+| Fictions symboliques | `e06_fiction` | `fiction` |
 | Essais | `e06_essais` | `essais` |
-| Atlas | `e06_atlas` | `atlas` |
+| Atlas des Recits Vivants | `e06_atlas` | `atlas` |
 | Ressources | `e06_portes` | `portes_ouvertes` |
 
 La mission utilise les ecrans deja presents.
@@ -48,7 +50,10 @@ Chaque ouvrage utilise les champs existants:
 - `id`.
 
 Aucun lien de livre n'est code en dur dans `BookRenderer`.
-Les boutons `Ouvrir` et `QR` utilisent uniquement les donnees de configuration existantes.
+La couverture ouvre `url`.
+Le QR affiche `qr`.
+
+Il n'y a plus de boutons `Ouvrir` ou `QR` sous forme de controles separes.
 
 ## Navigation
 
@@ -58,10 +63,26 @@ Chaque salle possede une navigation douce en bas de l'ecran:
 - `Salle suivante`.
 
 La premiere salle ne montre pas de precedent.
-La derniere salle ne montre pas de suivant.
+La derniere salle affiche `Terminer la visite`.
 
 Le passage entre deux salles applique un fondu court avant d'appeler `Navigation.goTo(...)`.
 Le moteur `Navigation` n'est pas modifie.
+
+## Fin de visite
+
+Dans la salle Ressources, `Terminer la visite` revele un message doux:
+
+```text
+Vous avez parcouru cette partie de la Bibliotheque Vivante.
+Chaque livre demeure une porte.
+Vous pourrez toujours revenir explorer d'autres chemins.
+```
+
+Le visiteur peut ensuite revenir vers:
+
+- l'Oeuvre;
+- la Boussole Vivante;
+- l'Accueil.
 
 ## Responsive
 
@@ -98,4 +119,3 @@ Cette mission ne cree pas encore de nouvelles ressources.
 Elle ne corrige pas les contenus manquants signales par RV-006.
 
 Certaines salles affichent donc uniquement les ouvrages deja presents dans `livres-v2.json`.
-
