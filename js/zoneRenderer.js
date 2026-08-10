@@ -215,6 +215,11 @@ function createZone(
     element.dataset.id =
         id;
 
+    renderZoneVisual(
+        element,
+        zone
+    );
+
     positionZone(
         container,
         element,
@@ -232,6 +237,48 @@ function createZone(
 
     container.appendChild(
         element
+    );
+
+}
+
+/****************************************
+ VISUAL RENDER
+****************************************/
+
+function renderZoneVisual(
+    element,
+    zone
+) {
+
+    if (
+        !zone.render ||
+        !zone.render.label
+    ) return;
+
+    const visual =
+        document.createElement(
+            "div"
+        );
+
+    visual.className =
+        [
+            "makerland-zone-visual",
+            "makerland-zone-visual-" +
+                (zone.render.type || "default"),
+            "makerland-zone-visual-" +
+                (zone.render.variant || "default")
+        ].join(" ");
+
+    visual.textContent =
+        zone.render.label;
+
+    element.setAttribute(
+        "aria-label",
+        zone.render.label
+    );
+
+    element.appendChild(
+        visual
     );
 
 }
@@ -293,6 +340,11 @@ function positionZone(
     element.style.height =
         (zone.h * scale)
         + "px";
+
+    element.style.setProperty(
+        "--makerland-zone-scale",
+        scale
+    );
 
     element.style.cursor =
         "pointer";
