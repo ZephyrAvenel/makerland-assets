@@ -786,32 +786,6 @@ renderExtensionNavigation(room) {
         "living-library-navigation " +
         "living-library-extension-navigation";
 
-    if (room.previous) {
-
-        navigation.appendChild(
-            this.renderRoomButton(
-                "previous",
-                "Salle precedente",
-                room.previous,
-                {}
-            )
-        );
-
-    }
-
-    if (room.next) {
-
-        navigation.appendChild(
-            this.renderRoomButton(
-                "next",
-                "Salle suivante",
-                room.next,
-                {}
-            )
-        );
-
-    }
-
     if (room.returnTo) {
 
         navigation.appendChild(

@@ -245,12 +245,12 @@ bookRenderer.css
 
 .living-library-extension-hall{
     position:absolute;
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .13);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
-    z-index:2;
-    width:calc(var(--screen-content-width) * .74);
-    height:calc(var(--screen-content-height) * .73);
-    padding:calc(var(--screen-content-height) * .035) calc(var(--screen-content-width) * .035);
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .14);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+    z-index:74;
+    width:calc(var(--screen-content-width) * .72);
+    height:calc(var(--screen-content-height) * .895);
+    padding:calc(var(--screen-content-height) * .052) calc(var(--screen-content-width) * .045) calc(var(--screen-content-height) * .09);
     box-sizing:border-box;
     color:#ffe7b7;
     background:
@@ -262,14 +262,14 @@ bookRenderer.css
         ),
         linear-gradient(
             180deg,
-            rgba(4,11,20,.94),
-            rgba(3,8,16,.90) 54%,
-            rgba(2,5,11,.94)
+            rgba(4,11,20,.985),
+            rgba(3,8,16,.97) 54%,
+            rgba(2,5,11,.985)
         );
     box-shadow:
         inset 0 1px 0 rgba(255,222,156,.22),
         inset 0 -1px 0 rgba(255,177,68,.16),
-        0 0 42px rgba(0,0,0,.52);
+        0 0 60px rgba(0,0,0,.68);
     pointer-events:auto;
 }
 
@@ -309,9 +309,9 @@ bookRenderer.css
         ),
         linear-gradient(
             180deg,
-            rgba(8,14,20,.94),
-            rgba(7,11,15,.91) 52%,
-            rgba(3,7,12,.95)
+            rgba(8,14,20,.985),
+            rgba(7,11,15,.97) 52%,
+            rgba(3,7,12,.99)
         );
 }
 
@@ -325,9 +325,9 @@ bookRenderer.css
         ),
         linear-gradient(
             180deg,
-            rgba(4,10,18,.96),
-            rgba(5,8,13,.92) 54%,
-            rgba(2,5,10,.96)
+            rgba(4,10,18,.99),
+            rgba(5,8,13,.975) 54%,
+            rgba(2,5,10,.99)
         );
 }
 
@@ -341,9 +341,9 @@ bookRenderer.css
         ),
         linear-gradient(
             180deg,
-            rgba(5,12,20,.95),
-            rgba(4,9,16,.92) 54%,
-            rgba(2,5,10,.96)
+            rgba(5,12,20,.99),
+            rgba(4,9,16,.975) 54%,
+            rgba(2,5,10,.99)
         );
 }
 
@@ -657,11 +657,11 @@ bookRenderer.css
     .living-library-extension-hall{
         left:0;
         right:0;
-        top:56px;
-        bottom:calc(82px + env(safe-area-inset-bottom));
+        top:50px;
+        bottom:calc(68px + env(safe-area-inset-bottom));
         width:auto;
         height:auto;
-        padding:12px 18px;
+        padding:14px 18px calc(18px + env(safe-area-inset-bottom));
     }
 
     .living-library-extension-header{
@@ -697,11 +697,11 @@ bookRenderer.css
 
 @media (max-height:460px) and (orientation:landscape) {
     .living-library-extension-hall{
-        left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
-        top:36px;
-        width:calc(var(--screen-content-width) * .84);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .105);
+        top:28px;
+        width:calc(var(--screen-content-width) * .79);
         height:auto;
-        bottom:calc(58px + env(safe-area-inset-bottom));
+        bottom:calc(50px + env(safe-area-inset-bottom));
         padding:10px calc(var(--screen-content-width) * .025);
     }
 
