@@ -260,33 +260,38 @@ function positionZone(
     }
 
     const rect =
-        container.getBoundingClientRect();
+        getContentRect(
+            container
+        );
 
-    const ratioX =
-        rect.width /
-        BASE_WIDTH;
+    const scale =
+        rect.scale;
 
-    const ratioY =
-        rect.height /
-        BASE_HEIGHT;
+    const left =
+        rect.left +
+        (zone.x * scale);
+
+    const top =
+        rect.top +
+        (zone.y * scale);
 
     element.style.position =
         "absolute";
 
     element.style.left =
-        (zone.x * ratioX)
+        left
         + "px";
 
     element.style.top =
-        (zone.y * ratioY)
+        top
         + "px";
 
     element.style.width =
-        (zone.w * ratioX)
+        (zone.w * scale)
         + "px";
 
     element.style.height =
-        (zone.h * ratioY)
+        (zone.h * scale)
         + "px";
 
     element.style.cursor =
@@ -294,6 +299,37 @@ function positionZone(
 
     element.style.zIndex =
         "50";
+
+}
+
+function getContentRect(
+    container
+) {
+
+    const containerRect =
+        container.getBoundingClientRect();
+
+    const scale =
+        Math.min(
+            containerRect.width / BASE_WIDTH,
+            containerRect.height / BASE_HEIGHT
+        );
+
+    const width =
+        BASE_WIDTH * scale;
+
+    const height =
+        BASE_HEIGHT * scale;
+
+    return {
+        left:
+            (containerRect.width - width) / 2,
+        top:
+            (containerRect.height - height) / 2,
+        width,
+        height,
+        scale
+    };
 
 }
 
