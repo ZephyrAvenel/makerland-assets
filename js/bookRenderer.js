@@ -263,6 +263,15 @@ renderBook(
     slot
 ) {
 
+    const canOpen =
+        Boolean(book.url) &&
+        book.available !== false &&
+        book.status !== "coming_soon";
+
+    const hasQR =
+        Boolean(book.qr) &&
+        canOpen;
+
     const volume =
         document.createElement(
             "article"
@@ -284,8 +293,24 @@ renderBook(
 
     coverButton.setAttribute(
         "aria-label",
-        "Ouvrir " + book.title
+        canOpen
+            ? "Ouvrir " + book.title
+            : book.title + " a venir"
     );
+
+    coverButton.setAttribute(
+        "title",
+        canOpen
+            ? "Ouvrir " + book.title
+            : book.title + " a venir"
+    );
+
+    if (!canOpen) {
+
+        coverButton.disabled =
+            true;
+
+    }
 
     this.applySlotBox(
         coverButton,
@@ -337,17 +362,21 @@ renderBook(
         cover
     );
 
-    coverButton.addEventListener(
-        "click",
-        () => {
+    if (canOpen) {
 
-            this.openBook(
-                book,
-                volume
-            );
+        coverButton.addEventListener(
+            "click",
+            () => {
 
-        }
-    );
+                this.openBook(
+                    book,
+                    volume
+                );
+
+            }
+        );
+
+    }
 
     const qrButton =
         document.createElement(
@@ -365,12 +394,17 @@ renderBook(
         "Afficher le QR " + book.title
     );
 
+    qrButton.setAttribute(
+        "title",
+        "Afficher le QR " + book.title
+    );
+
     this.applySlotBox(
         qrButton,
         slot.qr
     );
 
-    if (book.qr) {
+    if (hasQR) {
 
         const qr =
             document.createElement(
@@ -394,16 +428,20 @@ renderBook(
 
     }
 
-    qrButton.addEventListener(
-        "click",
-        () => {
+    if (hasQR) {
 
-            this.showQR(
-                book.qr
-            );
+        qrButton.addEventListener(
+            "click",
+            () => {
 
-        }
-    );
+                this.showQR(
+                    book.qr
+                );
+
+            }
+        );
+
+    }
 
     const heading =
         document.createElement(
@@ -415,9 +453,16 @@ renderBook(
 
     volume.append(
         coverButton,
-        qrButton,
         heading
     );
+
+    if (hasQR) {
+
+        volume.appendChild(
+            qrButton
+        );
+
+    }
 
     this.trackView(
         book.id
