@@ -129,6 +129,17 @@
       "clicks": 0
     },
     {
+      "id": "atlas_v3",
+      "title": "Atlas des Recits Vivants III",
+      "category": "atlas",
+      "status": "coming_soon",
+      "available": false,
+      "featured": false,
+      "visible": true,
+      "views": 0,
+      "clicks": 0
+    },
+    {
       "id": "bestiaire",
       "title": "Le Grand Bestiaire Anti‑Agressivité",
       "category": "portes_ouvertes",
