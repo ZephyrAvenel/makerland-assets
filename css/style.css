@@ -59,11 +59,7 @@ body{
     z-index:30;
 }
 
-/* =====================================
-DEBUG ZONES MAKERLAND
-===================================== */
-
 .makerland-zone{
-    border:3px solid red !important;
-    background:rgba(255,0,0,.25);
+    position:absolute;
+    -webkit-tap-highlight-color:transparent;
 }

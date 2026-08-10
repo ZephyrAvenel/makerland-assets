@@ -1,51 +1,58 @@
 const UIRenderer = (() => {
 
-function clear() {  
-    document.querySelectorAll('.ui-panel').forEach(el => el.remove());  
-}   
-function render(screenId) {  
-    clear();  
+const renderers = {};
 
-    switch(screenId) {  
-        case 'e02_meteo': 
-            break;  
-        case 'e08_constellation':  
-            renderConstellation(screenId);  
-            break;  
-        case 'e09_voyage':  
-            renderVoyage(screenId);  
-            break;  
-    }  
-}  
+function clear() {
 
-function renderMeteo(screenId) {  
-    const screen = document.getElementById(screenId);  
-    if (!screen) return;  
+    document
+        .querySelectorAll(".ui-panel")
+        .forEach(
+            element => element.remove()
+        );
 
-    const panel = document.createElement('div');  
-    panel.className = 'ui-panel meteo-panel';  
+}
 
-    ['☀ Éclaircie','🌤 Transition','❓ Je ne sais pas','🌫 Brouillard','⛈ Tempête']  
-    .forEach(label => {  
-        const btn = document.createElement('button');  
-        btn.className = 'ui-button';  
-        btn.textContent = label;  
-        btn.addEventListener('click', () => {  
-            if (typeof Navigation !== 'undefined') {  
-                Navigation.goTo('e03_boussole');  
-            }  
-        });  
-        panel.appendChild(btn);  
-    });  
+function render(screenId) {
 
-    screen.appendChild(panel);  
-}  
+    clear();
 
-function renderConstellation(screenId) {}  
-function renderVoyage(screenId) {}  
+    const renderer =
+        renderers[screenId];
 
-console.log('UIRenderer chargé');  
+    if (renderer) {
 
-return { render, clear };
+        renderer(
+            screenId
+        );
+
+    }
+
+}
+
+function register(screenId, renderer) {
+
+    if (
+        !screenId ||
+        typeof renderer !== "function"
+    ) return;
+
+    renderers[screenId] =
+        renderer;
+
+}
+
+console.log(
+    "UIRenderer charge"
+);
+
+return {
+
+    render,
+
+    clear,
+
+    register
+
+};
 
 })();
