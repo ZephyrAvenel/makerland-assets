@@ -250,10 +250,17 @@ function renderZoneVisual(
     zone
 ) {
 
+    const label =
+        getZoneLabel(
+            zone
+        );
+
     if (
-        !zone.render ||
-        !zone.render.label
+        !label
     ) return;
+
+    const renderConfig =
+        zone.render || {};
 
     const visual =
         document.createElement(
@@ -264,22 +271,47 @@ function renderZoneVisual(
         [
             "makerland-zone-visual",
             "makerland-zone-visual-" +
-                (zone.render.type || "default"),
+                (renderConfig.type || "button"),
             "makerland-zone-visual-" +
-                (zone.render.variant || "default")
+                (renderConfig.variant || "glass")
         ].join(" ");
 
     visual.textContent =
-        zone.render.label;
+        label;
 
     element.setAttribute(
         "aria-label",
-        zone.render.label
+        label
     );
 
     element.appendChild(
         visual
     );
+
+}
+
+function getZoneLabel(
+    zone
+) {
+
+    if (!zone) return null;
+
+    if (zone.label) {
+
+        return zone.label;
+
+    }
+
+    if (
+        zone.render &&
+        zone.render.label
+    ) {
+
+        return zone.render.label;
+
+    }
+
+    return null;
 
 }
 
@@ -483,6 +515,19 @@ function normalizeAction(
                 ACTION_ALIASES[zone.type] ||
                 zone.type ||
                 "custom",
+            zone
+        };
+
+    }
+
+    if (
+        zone.target &&
+        actionHandlers[zone.action]
+    ) {
+
+        return {
+            type: zone.action,
+            target: zone.target,
             zone
         };
 
