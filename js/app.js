@@ -348,6 +348,12 @@ function prepareLivingCompass() {
             LIVING_COMPASS_DEFAULT_WEATHER
         ];
 
+    const memory =
+        getLivingCompassMemory(
+            selectedWeather,
+            config.direction
+        );
+
     const message =
         compass.querySelector(
             "#livingCompassMessage"
@@ -356,8 +362,31 @@ function prepareLivingCompass() {
     if (message) {
 
         const messageLines =
-            config.message
+            [
+
+                ...config.message
                 .split("\n")
+                .map(line => ({
+
+                    text:
+                        line,
+
+                    className:
+                        ""
+
+                })),
+
+                ...memory.whispers.map(line => ({
+
+                    text:
+                        line,
+
+                    className:
+                        "living-compass-memory"
+
+                }))
+
+            ]
                 .map(line => {
 
                     const span =
@@ -366,7 +395,14 @@ function prepareLivingCompass() {
                         );
 
                     span.textContent =
-                        line + " ";
+                        line.text + " ";
+
+                    if (line.className) {
+
+                        span.className =
+                            line.className;
+
+                    }
 
                     return span;
 
@@ -378,8 +414,13 @@ function prepareLivingCompass() {
 
         message.setAttribute(
             "aria-label",
-            config.message.replace(
-                /\n/g,
+            [
+
+                config.message,
+
+                ...memory.whispers
+
+            ].join(
                 " "
             )
         );
@@ -429,6 +470,54 @@ function prepareLivingCompass() {
         },
         420
         );
+
+}
+
+function getLivingCompassMemory(
+    selectedWeather,
+    suggestedDirection
+) {
+
+    if (
+        typeof NarrativeMemory === "undefined" ||
+        !NarrativeMemory.rememberVisit
+    ) {
+
+        return {
+
+            memory: null,
+
+            whispers: []
+
+        };
+
+    }
+
+    const memory =
+        NarrativeMemory.rememberVisit({
+
+            weather:
+                selectedWeather,
+
+            direction:
+                suggestedDirection
+
+        });
+
+    const whispers =
+        NarrativeMemory.getCompassWhispers
+            ? NarrativeMemory.getCompassWhispers(
+                memory
+            )
+            : [];
+
+    return {
+
+        memory,
+
+        whispers
+
+    };
 
 }
 
