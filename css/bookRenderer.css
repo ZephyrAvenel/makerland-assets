@@ -245,13 +245,106 @@ bookRenderer.css
 
 .living-library-extension-hall{
     position:absolute;
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .17);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .16);
-    width:calc(var(--screen-content-width) * .66);
-    height:calc(var(--screen-content-height) * .66);
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .13);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    z-index:2;
+    width:calc(var(--screen-content-width) * .74);
+    height:calc(var(--screen-content-height) * .73);
+    padding:calc(var(--screen-content-height) * .035) calc(var(--screen-content-width) * .035);
     box-sizing:border-box;
     color:#ffe7b7;
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(255,208,125,.12) 0%,
+            rgba(255,208,125,.05) 32%,
+            rgba(3,9,17,0) 58%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(4,11,20,.94),
+            rgba(3,8,16,.90) 54%,
+            rgba(2,5,11,.94)
+        );
+    box-shadow:
+        inset 0 1px 0 rgba(255,222,156,.22),
+        inset 0 -1px 0 rgba(255,177,68,.16),
+        0 0 42px rgba(0,0,0,.52);
     pointer-events:auto;
+}
+
+.living-library-extension-hall::before,
+.living-library-extension-hall::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    height:1px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,186,82,0),
+            rgba(255,207,123,.72),
+            rgba(255,186,82,0)
+        );
+    box-shadow:0 0 16px rgba(255,195,102,.28);
+    pointer-events:none;
+}
+
+.living-library-extension-hall::before{
+    top:0;
+}
+
+.living-library-extension-hall::after{
+    bottom:0;
+}
+
+.living-library-extension-room[data-room="carnets"] .living-library-extension-hall{
+    background:
+        radial-gradient(
+            ellipse at 42% 15%,
+            rgba(255,216,150,.16) 0%,
+            rgba(255,197,110,.05) 36%,
+            rgba(3,9,17,0) 62%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(8,14,20,.94),
+            rgba(7,11,15,.91) 52%,
+            rgba(3,7,12,.95)
+        );
+}
+
+.living-library-extension-room[data-room="manifestes"] .living-library-extension-hall{
+    background:
+        radial-gradient(
+            ellipse at 50% 18%,
+            rgba(238,206,150,.13) 0%,
+            rgba(194,170,122,.05) 35%,
+            rgba(3,9,17,0) 62%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(4,10,18,.96),
+            rgba(5,8,13,.92) 54%,
+            rgba(2,5,10,.96)
+        );
+}
+
+.living-library-extension-room[data-room="ressources_libres"] .living-library-extension-hall{
+    background:
+        radial-gradient(
+            ellipse at 58% 16%,
+            rgba(255,203,124,.14) 0%,
+            rgba(255,203,124,.05) 36%,
+            rgba(3,9,17,0) 62%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(5,12,20,.95),
+            rgba(4,9,16,.92) 54%,
+            rgba(2,5,10,.96)
+        );
 }
 
 .living-library-extension-header{
@@ -562,12 +655,13 @@ bookRenderer.css
 
 @media (max-width:700px) {
     .living-library-extension-hall{
-        left:18px;
-        right:18px;
-        top:72px;
-        bottom:calc(88px + env(safe-area-inset-bottom));
+        left:0;
+        right:0;
+        top:56px;
+        bottom:calc(82px + env(safe-area-inset-bottom));
         width:auto;
         height:auto;
+        padding:12px 18px;
     }
 
     .living-library-extension-header{
@@ -603,11 +697,12 @@ bookRenderer.css
 
 @media (max-height:460px) and (orientation:landscape) {
     .living-library-extension-hall{
-        left:calc(var(--screen-content-left) + var(--screen-content-width) * .12);
-        top:44px;
-        width:calc(var(--screen-content-width) * .76);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
+        top:36px;
+        width:calc(var(--screen-content-width) * .84);
         height:auto;
-        bottom:calc(62px + env(safe-area-inset-bottom));
+        bottom:calc(58px + env(safe-area-inset-bottom));
+        padding:10px calc(var(--screen-content-width) * .025);
     }
 
     .living-library-extension-header{
