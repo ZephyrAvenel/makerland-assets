@@ -191,3 +191,271 @@ body{
     transform:translateY(1px) scale(.985);
     background:rgba(255,255,255,.20);
 }
+
+.living-compass{
+    position:absolute;
+    inset:0;
+    z-index:35;
+    pointer-events:none;
+    color:#fff;
+    opacity:0;
+    transition:opacity 1.5s ease;
+}
+
+.living-compass-ready{
+    opacity:1;
+}
+
+.living-compass-light{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .29);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .15);
+    width:calc(var(--screen-content-width) * .42);
+    height:calc(var(--screen-content-height) * .46);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,245,214,.20) 0%,
+            rgba(255,226,178,.12) 32%,
+            rgba(255,255,255,.06) 52%,
+            rgba(255,255,255,0) 72%
+        );
+    filter:blur(6px);
+    opacity:.75;
+    animation:living-compass-breathe 8s ease-in-out infinite;
+}
+
+.living-compass[data-weather="eclaircie"] .living-compass-light{
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,246,204,.24) 0%,
+            rgba(255,224,160,.13) 36%,
+            rgba(255,255,255,.05) 58%,
+            rgba(255,255,255,0) 74%
+        );
+}
+
+.living-compass[data-weather="transition"] .living-compass-light{
+    background:
+        radial-gradient(
+            circle,
+            rgba(232,240,255,.20) 0%,
+            rgba(255,226,184,.10) 34%,
+            rgba(255,255,255,.05) 56%,
+            rgba(255,255,255,0) 72%
+        );
+}
+
+.living-compass[data-weather="je_ne_sais_pas"] .living-compass-light{
+    background:
+        radial-gradient(
+            circle,
+            rgba(240,235,255,.19) 0%,
+            rgba(225,218,242,.10) 34%,
+            rgba(255,255,255,.05) 56%,
+            rgba(255,255,255,0) 72%
+        );
+}
+
+.living-compass[data-weather="brouillard"] .living-compass-light{
+    background:
+        radial-gradient(
+            circle,
+            rgba(225,235,232,.18) 0%,
+            rgba(210,220,215,.10) 34%,
+            rgba(255,255,255,.05) 58%,
+            rgba(255,255,255,0) 74%
+        );
+}
+
+.living-compass[data-weather="tempete"] .living-compass-light{
+    background:
+        radial-gradient(
+            circle,
+            rgba(226,232,255,.18) 0%,
+            rgba(196,204,226,.10) 36%,
+            rgba(255,255,255,.04) 58%,
+            rgba(255,255,255,0) 74%
+        );
+}
+
+.living-compass-welcome{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .18);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .105);
+    width:calc(var(--screen-content-width) * .64);
+    text-align:center;
+    text-shadow:0 2px 20px rgba(0,0,0,.62);
+    transform:translateY(8px);
+    opacity:0;
+    transition:
+        opacity 1.25s ease .18s,
+        transform 1.25s ease .18s;
+}
+
+.living-compass-ready .living-compass-welcome{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.living-compass-kicker{
+    margin:0 0 clamp(5px, calc(var(--screen-content-height) * .012), 12px);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.68);
+}
+
+.living-compass-message{
+    margin:0 auto;
+    max-width:720px;
+    font-size:24px;
+    font-weight:600;
+    line-height:1.26;
+    color:rgba(255,255,255,.94);
+}
+
+.living-compass-message span{
+    display:block;
+}
+
+.living-compass-directions{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .17);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .745);
+    width:calc(var(--screen-content-width) * .66);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(6px, calc(var(--screen-content-width) * .014), 18px);
+    opacity:0;
+    transform:translateY(10px);
+    transition:
+        opacity 1.35s ease .35s,
+        transform 1.35s ease .35s;
+}
+
+.living-compass-ready .living-compass-directions{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.living-compass-direction{
+    position:relative;
+    min-width:clamp(72px, calc(var(--screen-content-width) * .105), 150px);
+    padding:clamp(7px, calc(var(--screen-content-height) * .014), 13px)
+        clamp(9px, calc(var(--screen-content-width) * .014), 16px);
+    border:1px solid rgba(255,255,255,.24);
+    border-radius:8px;
+    background:rgba(8,13,18,.46);
+    box-shadow:0 12px 28px rgba(0,0,0,.22);
+    backdrop-filter:blur(9px);
+    color:rgba(255,255,255,.76);
+    font-size:13px;
+    font-weight:600;
+    line-height:1.15;
+    text-align:center;
+    transition:
+        color .9s ease,
+        border-color .9s ease,
+        background .9s ease,
+        box-shadow .9s ease,
+        transform .9s ease;
+}
+
+.living-compass-direction.is-suggested{
+    color:rgba(255,255,255,.96);
+    border-color:rgba(255,246,215,.52);
+    background:rgba(255,255,255,.22);
+    box-shadow:
+        0 16px 36px rgba(0,0,0,.28),
+        0 0 30px rgba(255,236,194,.16),
+        inset 0 0 0 1px rgba(255,255,255,.18);
+    transform:translateY(-1px);
+}
+
+.living-compass-direction.is-suggested::before{
+    content:"";
+    position:absolute;
+    left:22%;
+    right:22%;
+    top:-5px;
+    height:1px;
+    background:rgba(255,246,215,.72);
+    box-shadow:0 0 12px rgba(255,236,194,.34);
+}
+
+@keyframes living-compass-breathe {
+    0%,
+    100%{
+        transform:scale(.985);
+        opacity:.62;
+    }
+
+    50%{
+        transform:scale(1.025);
+        opacity:.82;
+    }
+}
+
+@media (orientation:portrait) {
+    .living-compass-welcome{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
+        width:calc(var(--screen-content-width) * .86);
+    }
+
+    .living-compass-message{
+        font-size:16px;
+    }
+
+    .living-compass-directions{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .06);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .74);
+        width:calc(var(--screen-content-width) * .88);
+        gap:4px;
+    }
+
+    .living-compass-direction{
+        min-width:auto;
+        flex:1;
+        padding:5px 3px;
+        font-size:9px;
+    }
+}
+
+@media (max-height:480px) and (orientation:landscape) {
+    .living-compass-welcome{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .06);
+    }
+
+    .living-compass-message{
+        font-size:17px;
+        line-height:1.18;
+    }
+
+    .living-compass-directions{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .77);
+    }
+
+    .living-compass-direction{
+        padding:5px 7px;
+        font-size:10px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .living-compass,
+    .living-compass-welcome,
+    .living-compass-directions,
+    .living-compass-direction{
+        transition:none;
+    }
+
+    .living-compass-light{
+        animation:none;
+    }
+}

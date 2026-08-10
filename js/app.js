@@ -27,6 +27,48 @@ const WEATHER_ZONE_IDS = [
 
 ];
 
+const LIVING_COMPASS_DEFAULT_WEATHER =
+    "je_ne_sais_pas";
+
+const LIVING_COMPASS_TEXTS = {
+
+    eclaircie: {
+        message:
+            "Vous commencez sous une éclaircie.\nLes chemins sont ouverts.\nPrenez celui qui vous appelle.",
+        direction:
+            "creer"
+    },
+
+    transition: {
+        message:
+            "Vous commencez au cœur d'un passage.\nRien n'oblige à tout comprendre avant d'avancer.",
+        direction:
+            "explorer"
+    },
+
+    je_ne_sais_pas: {
+        message:
+            "Vous commencez sans réponse définitive.\nLa curiosité est déjà une direction.",
+        direction:
+            "decouvrir"
+    },
+
+    brouillard: {
+        message:
+            "Vous commencez dans le brouillard.\nCherchons simplement un premier repère.",
+        direction:
+            "repere"
+    },
+
+    tempete: {
+        message:
+            "Vous commencez au milieu de la tempête.\nRien ne presse.\nLa boussole reste disponible.",
+        direction:
+            "contempler"
+    }
+
+};
+
 /****************************************
  STATE
 ****************************************/
@@ -44,6 +86,8 @@ const state = {
     storiesLoaded: false,
 
     selectedWeather: null,
+
+    livingCompassTimer: null,
 
     startedAt: null
 
@@ -211,6 +255,15 @@ function bindEvents() {
                 state.currentScreen
             );
 
+            if (
+                state.currentScreen ===
+                "e03_boussole"
+            ) {
+
+                prepareLivingCompass();
+
+            }
+
         }
 
     );
@@ -258,10 +311,124 @@ function captureWeatherSelection(event) {
     state.selectedWeather =
         zone.dataset.id;
 
+    if (
+        typeof NarrativeMemory !== "undefined" &&
+        NarrativeMemory.rememberWeather
+    ) {
+
+        NarrativeMemory.rememberWeather(
+            state.selectedWeather
+        );
+
+    }
+
     log(
         "Météo intérieure :",
         state.selectedWeather
     );
+
+}
+
+function prepareLivingCompass() {
+
+    const compass =
+        document.querySelector(
+            "#e03_boussole .living-compass"
+        );
+
+    if (!compass) return;
+
+    const selectedWeather =
+        state.selectedWeather ||
+        LIVING_COMPASS_DEFAULT_WEATHER;
+
+    const config =
+        LIVING_COMPASS_TEXTS[selectedWeather] ||
+        LIVING_COMPASS_TEXTS[
+            LIVING_COMPASS_DEFAULT_WEATHER
+        ];
+
+    const message =
+        compass.querySelector(
+            "#livingCompassMessage"
+        );
+
+    if (message) {
+
+        const messageLines =
+            config.message
+                .split("\n")
+                .map(line => {
+
+                    const span =
+                        document.createElement(
+                            "span"
+                        );
+
+                    span.textContent =
+                        line + " ";
+
+                    return span;
+
+                });
+
+        message.replaceChildren(
+            ...messageLines
+        );
+
+        message.setAttribute(
+            "aria-label",
+            config.message.replace(
+                /\n/g,
+                " "
+            )
+        );
+
+    }
+
+    compass.dataset.weather =
+        selectedWeather;
+
+    compass.dataset.suggestedDirection =
+        config.direction;
+
+    compass.classList.remove(
+        "living-compass-ready"
+    );
+
+    if (state.livingCompassTimer) {
+
+        window.clearTimeout(
+            state.livingCompassTimer
+        );
+
+    }
+
+    compass
+        .querySelectorAll(
+            ".living-compass-direction"
+        )
+        .forEach(direction => {
+
+            direction.classList.toggle(
+                "is-suggested",
+                direction.dataset.direction ===
+                    config.direction
+            );
+
+        });
+
+    state.livingCompassTimer =
+        window.setTimeout(
+        () => {
+
+            compass.classList.add(
+                "living-compass-ready"
+            );
+
+        },
+        420
+        );
 
 }
 
