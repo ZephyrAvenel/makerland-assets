@@ -878,6 +878,324 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     font-size:17px;
 }
 
+/****************************************
+ ARCHWAY PASSAGE
+****************************************/
+
+#e04_oeuvre{
+    overflow:hidden;
+}
+
+#e04_oeuvre .screen-bg{
+    transition:
+        transform .98s ease,
+        filter .98s ease,
+        opacity .98s ease;
+}
+
+#e04_oeuvre.archway-screen-active .screen-bg{
+    opacity:0;
+    transform:scale(1.006);
+    filter:brightness(.78) saturate(.94);
+    animation:archwayForestArrive 1.3s ease .18s forwards;
+}
+
+#e04_oeuvre.archway-screen-passing .screen-bg{
+    transform:scale(1.03);
+    filter:brightness(1.12) saturate(1.03);
+    transition:
+        transform .98s ease,
+        filter .98s ease;
+}
+
+.archway-passage{
+    position:absolute;
+    inset:0;
+    z-index:34;
+    pointer-events:none;
+    color:#fff4d2;
+}
+
+.archway-ambient{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity 1.45s ease;
+    pointer-events:none;
+}
+
+.archway-forest-visible .archway-ambient{
+    opacity:1;
+}
+
+.archway-halo{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .52);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .445);
+    width:calc(var(--screen-content-width) * .24);
+    height:calc(var(--screen-content-height) * .34);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,235,176,.32) 0%,
+            rgba(255,207,113,.16) 30%,
+            rgba(255,207,113,.06) 54%,
+            rgba(255,207,113,0) 78%
+        );
+    filter:blur(10px);
+    transform:translate(-50%, -50%) scale(.96);
+    animation:archwayHaloBreathe 7.5s ease-in-out infinite;
+}
+
+.archway-mist{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .63);
+    width:calc(var(--screen-content-width) * .34);
+    height:calc(var(--screen-content-height) * .16);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(245,238,210,.18) 0%,
+            rgba(220,228,214,.08) 46%,
+            rgba(220,228,214,0) 78%
+        );
+    filter:blur(18px);
+    transform:translate(-50%, -50%);
+    animation:archwayMistDrift 11s ease-in-out infinite;
+}
+
+.archway-particles{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 43% 50%, rgba(255,226,145,.38) 0 1px, rgba(255,226,145,0) 2px),
+        radial-gradient(circle at 48% 42%, rgba(255,240,195,.26) 0 1px, rgba(255,240,195,0) 2px),
+        radial-gradient(circle at 57% 45%, rgba(255,226,145,.24) 0 1px, rgba(255,226,145,0) 2px),
+        radial-gradient(circle at 61% 58%, rgba(255,232,170,.22) 0 1px, rgba(255,232,170,0) 2px),
+        radial-gradient(circle at 38% 63%, rgba(255,226,145,.2) 0 1px, rgba(255,226,145,0) 2px);
+    opacity:.56;
+    filter:blur(.1px);
+    animation:archwayParticlesFloat 14s ease-in-out infinite;
+}
+
+.archway-whisper{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .23);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .13);
+    width:calc(var(--screen-content-width) * .54);
+    margin:0;
+    z-index:3;
+    opacity:0;
+    transform:translateY(10px);
+    color:rgba(255,246,222,.92);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(15px, calc(var(--screen-content-width) * .018), 27px);
+    line-height:1.38;
+    text-align:center;
+    text-shadow:
+        0 2px 22px rgba(0,0,0,.78),
+        0 0 22px rgba(255,216,142,.16);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.archway-whisper span{
+    display:block;
+}
+
+.archway-whisper span + span{
+    margin-top:clamp(5px, 1vh, 12px);
+}
+
+.archway-whisper-visible .archway-whisper{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.archway-gate{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .515);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .49);
+    width:calc(var(--screen-content-width) * .2);
+    height:calc(var(--screen-content-height) * .42);
+    z-index:5;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding-bottom:calc(var(--screen-content-height) * .045);
+    box-sizing:border-box;
+    opacity:0;
+    transform:translate(-50%, -50%) scale(.985);
+    pointer-events:none;
+    cursor:pointer;
+    transition:
+        opacity 1.15s ease,
+        transform 1.15s ease,
+        filter .28s ease;
+}
+
+.archway-ready .archway-gate{
+    opacity:1;
+    transform:translate(-50%, -50%) scale(1);
+    pointer-events:auto;
+}
+
+.archway-gate:focus-visible{
+    outline:1px solid rgba(255,239,196,.76);
+    outline-offset:8px;
+}
+
+.archway-invitation{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:min(260px, calc(var(--screen-content-width) * .18));
+    padding:clamp(8px, calc(var(--screen-content-height) * .014), 14px)
+        clamp(14px, calc(var(--screen-content-width) * .018), 26px);
+    border:1px solid rgba(255,226,164,.62);
+    border-radius:999px;
+    color:rgba(255,246,219,.94);
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,220,145,.18) 0%,
+            rgba(20,18,12,.22) 56%,
+            rgba(20,18,12,.08) 100%
+        );
+    box-shadow:
+        0 0 28px rgba(255,212,126,.16),
+        inset 0 1px 0 rgba(255,255,255,.2);
+    backdrop-filter:blur(4px);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(12px, calc(var(--screen-content-width) * .014), 20px);
+    line-height:1;
+    text-align:center;
+    text-shadow:0 2px 16px rgba(0,0,0,.68);
+    transition:
+        transform .26s ease,
+        filter .26s ease,
+        box-shadow .26s ease;
+}
+
+.archway-gate:hover .archway-invitation,
+.archway-gate:focus-visible .archway-invitation{
+    transform:translateY(-2px) scale(1.012);
+    filter:brightness(1.08);
+    box-shadow:
+        0 0 36px rgba(255,222,150,.22),
+        inset 0 1px 0 rgba(255,255,255,.24);
+}
+
+.archway-gate:active .archway-invitation{
+    transform:translateY(1px) scale(.994);
+    filter:brightness(1.12);
+}
+
+.archway-veil{
+    position:absolute;
+    inset:0;
+    z-index:8;
+    opacity:0;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            circle at 51% 44%,
+            rgba(255,242,197,.82) 0%,
+            rgba(255,223,150,.42) 18%,
+            rgba(255,223,150,.12) 38%,
+            rgba(4,8,12,.86) 100%
+        );
+    filter:brightness(1.05);
+    transition:opacity .98s ease;
+}
+
+.archway-passing .archway-veil{
+    opacity:1;
+}
+
+.archway-passing .archway-halo{
+    animation:archwayCrossingLight .98s ease both;
+}
+
+.archway-passing .archway-gate{
+    transform:translate(-50%, -50%) scale(1.035);
+    filter:brightness(1.16);
+    transition:
+        transform .98s ease,
+        filter .98s ease;
+}
+
+@keyframes archwayForestArrive{
+    from{
+        opacity:0;
+        transform:scale(1.012);
+        filter:brightness(.68) saturate(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+        filter:brightness(1) saturate(1);
+    }
+}
+
+@keyframes archwayHaloBreathe{
+    0%,
+    100%{
+        opacity:.54;
+        transform:translate(-50%, -50%) scale(.96);
+    }
+
+    50%{
+        opacity:.82;
+        transform:translate(-50%, -50%) scale(1.035);
+    }
+}
+
+@keyframes archwayMistDrift{
+    0%,
+    100%{
+        opacity:.38;
+        transform:translate(-51%, -50%) scale(.98);
+    }
+
+    50%{
+        opacity:.58;
+        transform:translate(-49%, -52%) scale(1.04);
+    }
+}
+
+@keyframes archwayParticlesFloat{
+    0%,
+    100%{
+        opacity:.28;
+        transform:translate3d(0, 3px, 0);
+    }
+
+    50%{
+        opacity:.52;
+        transform:translate3d(.25%, -3px, 0);
+    }
+}
+
+@keyframes archwayCrossingLight{
+    from{
+        opacity:.64;
+        transform:translate(-50%, -50%) scale(1);
+        filter:blur(10px) brightness(1);
+    }
+
+    to{
+        opacity:1;
+        transform:translate(-50%, -50%) scale(1.22);
+        filter:blur(12px) brightness(1.28);
+    }
+}
+
 .living-compass-direction.is-suggested{
     color:rgba(255,255,255,.96);
     background:
@@ -1083,6 +1401,26 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     .living-echo[data-intensity="3"]{
         font-size:10px;
     }
+
+    .archway-whisper{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .06);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .24);
+        width:calc(var(--screen-content-width) * .52);
+        font-size:clamp(12px, calc(var(--screen-content-width) * .015), 18px);
+        line-height:1.22;
+    }
+
+    .archway-gate{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .51);
+        width:calc(var(--screen-content-width) * .2);
+        height:calc(var(--screen-content-height) * .45);
+        padding-bottom:calc(var(--screen-content-height) * .035);
+    }
+
+    .archway-invitation{
+        font-size:clamp(10px, calc(var(--screen-content-width) * .012), 15px);
+        padding:7px 14px;
+    }
 }
 
 @media (max-width:480px) and (orientation:portrait) {
@@ -1152,6 +1490,22 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     .living-echo[data-intensity="2"],
     .living-echo[data-intensity="3"]{
         font-size:9px;
+    }
+
+    .archway-whisper{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
+        font-size:clamp(10px, calc(var(--screen-content-width) * .013), 14px);
+        line-height:1.14;
+    }
+
+    .archway-whisper span + span{
+        margin-top:3px;
+    }
+
+    .archway-gate{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
+        height:calc(var(--screen-content-height) * .45);
+        padding-bottom:calc(var(--screen-content-height) * .03);
     }
 }
 
@@ -1370,5 +1724,42 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-compass-direction.is-suggested{
         animation:none;
+    }
+
+    #e04_oeuvre.archway-screen-active .screen-bg,
+    .archway-halo,
+    .archway-mist,
+    .archway-particles,
+    .archway-passing .archway-halo{
+        animation:none;
+    }
+
+    #e04_oeuvre .screen-bg,
+    .archway-ambient,
+    .archway-whisper,
+    .archway-gate,
+    .archway-invitation,
+    .archway-veil{
+        transition:none;
+    }
+
+    #e04_oeuvre.archway-screen-active .screen-bg,
+    #e04_oeuvre.archway-screen-passing .screen-bg{
+        opacity:1;
+        transform:none;
+        filter:none;
+    }
+
+    .archway-forest-visible .archway-ambient,
+    .archway-whisper-visible .archway-whisper,
+    .archway-ready .archway-gate{
+        opacity:1;
+        transform:none;
+    }
+
+    .archway-halo,
+    .archway-mist,
+    .archway-particles{
+        opacity:.42;
     }
 }

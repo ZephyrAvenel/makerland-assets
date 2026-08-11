@@ -662,6 +662,8 @@ return {
 
     openExternal,
 
+    getWhisperReadingDuration,
+
     getCurrent,
 
     getHistory,
