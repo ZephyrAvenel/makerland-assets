@@ -1,6 +1,6 @@
 {
-  "name": "Bibliothèque Vivante",
-  "short_name": "Bibliothèque",
+  "name": "Récits Vivants",
+  "short_name": "Récits",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
