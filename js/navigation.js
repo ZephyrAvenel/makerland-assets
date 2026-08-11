@@ -17,9 +17,13 @@ const ENTRY_RITE_FROM = "e01_accueil";
 
 const ENTRY_RITE_TO = "e02_meteo";
 
-const ENTRY_RITE_SWITCH_DELAY = 1150;
+const ENTRY_RITE_WELCOME_DELAY = 360;
 
-const ENTRY_RITE_TOTAL_DURATION = 2450;
+const ENTRY_RITE_WELCOME_HIDE_DELAY = 4200;
+
+const ENTRY_RITE_SWITCH_DELAY = 5100;
+
+const ENTRY_RITE_TOTAL_DURATION = 6250;
 
 const ENTRY_RITE_AUDIO_HOOKS = {
 
@@ -236,7 +240,7 @@ function startEntryRite(screenId) {
             );
 
         },
-        220
+        ENTRY_RITE_WELCOME_DELAY
     );
 
     window.setTimeout(
@@ -245,6 +249,13 @@ function startEntryRite(screenId) {
             document.body.classList.remove(
                 "entry-rite-welcome-visible"
             );
+
+        },
+        ENTRY_RITE_WELCOME_HIDE_DELAY
+    );
+
+    window.setTimeout(
+        () => {
 
             show(
                 screenId

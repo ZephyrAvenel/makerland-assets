@@ -119,18 +119,25 @@ body{
     content:"";
     position:absolute;
     left:50%;
-    top:clamp(66px, calc(var(--screen-content-height) * .14), 150px);
-    width:min(620px, 74%);
-    height:clamp(54px, calc(var(--screen-content-height) * .1), 112px);
+    top:clamp(54px, calc(var(--screen-content-height) * .13), 138px);
+    width:min(760px, 86%);
+    height:clamp(94px, calc(var(--screen-content-height) * .18), 190px);
     background:
         radial-gradient(
             ellipse at center,
-            rgba(255,217,141,.26) 0%,
-            rgba(255,217,141,.1) 42%,
-            rgba(255,217,141,0) 72%
+            rgba(3,7,13,.42) 0%,
+            rgba(3,7,13,.28) 34%,
+            rgba(3,7,13,.1) 58%,
+            rgba(3,7,13,0) 78%
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(255,218,146,.24) 0%,
+            rgba(255,218,146,.09) 38%,
+            rgba(255,218,146,0) 70%
         );
     opacity:0;
-    filter:blur(16px);
+    filter:blur(18px);
     transform:translate3d(-50%, 8px, 0) scale(.94);
     animation:entryTitleGlow 1.55s ease 1.55s forwards;
 }
@@ -174,6 +181,10 @@ body{
     line-height:.98;
     letter-spacing:0;
     animation-delay:1.92s;
+    text-shadow:
+        0 2px 18px rgba(0,0,0,.86),
+        0 0 24px rgba(255,213,137,.24),
+        0 0 46px rgba(255,220,154,.16);
 }
 
 .entry-intro-subtitle{
@@ -286,7 +297,7 @@ body{
     pointer-events:none;
     text-align:center;
     text-shadow:0 2px 20px rgba(0,0,0,.76);
-    transition:opacity .58s ease;
+    transition:opacity 1s ease;
 }
 
 #entryRiteWelcome p{
@@ -479,7 +490,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 @media (orientation:portrait) {
     .entry-intro{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .025);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .015);
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
         width:calc(var(--screen-content-width) * .84);
     }
@@ -506,9 +517,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .entry-intro-threshold{
-        margin-top:12px !important;
-        font-size:11px;
-        line-height:1.22;
+        margin-top:8px !important;
+        font-size:10px;
+        line-height:1.16;
     }
 
     .meteo-intro{
