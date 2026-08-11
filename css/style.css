@@ -322,11 +322,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro h1{
-    animation:meteoIntroTitleReveal 1.3s cubic-bezier(.22,1,.36,1) 2s both;
+    animation:meteoIntroTitleReveal 1.45s cubic-bezier(.22,.72,.18,1) 2.5s both;
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro p{
-    animation:meteoIntroSubtitleReveal 1.4s cubic-bezier(.22,1,.36,1) 4.5s both;
+    animation:meteoIntroSubtitleReveal 1.45s cubic-bezier(.22,.72,.18,1) 5s both;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone{
@@ -336,27 +336,27 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 #e02_meteo.entry-rite-arriving .makerland-zone-visual-button{
     filter:brightness(.88);
-    animation:meteoZoneHaloReady .9s ease 9.72s forwards;
+    animation:meteoZoneHaloReady .9s ease 10.15s forwards;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="eclaircie"]{
-    animation-delay:9s;
+    animation-delay:8.5s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="transition"]{
-    animation-delay:9.14s;
+    animation-delay:8.82s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="je_ne_sais_pas"]{
-    animation-delay:9.28s;
+    animation-delay:9.14s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="brouillard"]{
-    animation-delay:9.42s;
+    animation-delay:9.46s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="tempete"]{
-    animation-delay:9.56s;
+    animation-delay:9.78s;
 }
 
 #loadingScreen{
@@ -432,9 +432,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .meteo-intro{
     position:absolute;
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .16);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .105);
-    width:calc(var(--screen-content-width) * .68);
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .12);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .115);
+    width:calc(var(--screen-content-width) * .76);
     z-index:35;
     color:#fff7df;
     text-align:center;
@@ -464,9 +464,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .meteo-intro h1{
     margin:0;
-    font-size:clamp(21px, calc(var(--screen-content-width) * .037), 44px);
+    font-size:clamp(26px, calc(var(--screen-content-width) * .046), 68px);
     font-weight:700;
-    line-height:1.1;
+    line-height:1.02;
     color:#fff1cf;
     text-shadow:
         0 3px 20px rgba(0,0,0,.82),
@@ -474,11 +474,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 .meteo-intro p{
-    margin:clamp(6px, calc(var(--screen-content-height) * .014), 12px) auto 0;
-    max-width:760px;
-    font-size:clamp(12px, calc(var(--screen-content-width) * .016), 19px);
+    margin:clamp(12px, calc(var(--screen-content-height) * .022), 28px) auto 0;
+    max-width:780px;
+    font-size:clamp(13px, calc(var(--screen-content-width) * .017), 24px);
     font-weight:500;
-    line-height:1.35;
+    line-height:1.38;
     color:rgba(255,246,226,.9);
     text-shadow:
         0 2px 16px rgba(0,0,0,.78),
@@ -602,7 +602,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .meteo-intro p{
         display:block;
-        font-size:12px;
+        font-size:clamp(12px, calc(var(--screen-content-width) * .035), 15px);
         line-height:1.28;
     }
 }
