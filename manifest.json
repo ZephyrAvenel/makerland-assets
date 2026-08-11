@@ -1,0 +1,16 @@
+{
+  "name": "Makerland - Recits Vivants",
+  "short_name": "Makerland",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08142b",
+  "theme_color": "#08142b",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
