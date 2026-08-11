@@ -1,39 +1,69 @@
-# RV-054 - Renommage final de la PWA
+# RV-054 - Actualisation forcee du manifest PWA
 
 Date: 2026-08-11
 
-Branche: `agent/rv-054-final-pwa-rename`
+Branche: `agent/rv-054-manifest-cache-bust`
 
 ## Objectif
 
-Faire de l'application le lecteur immersif officiel des Recits Vivants en mettant a jour uniquement le nom public de la PWA.
+Forcer Chrome / Android a recharger le manifest PWA apres le renommage final de l'application.
 
-## Champs modifies
+## Verification du manifest
 
-Fichier modifie: `manifest.json`
+Le manifest reellement reference est `manifest.json`.
 
-- `name`: `Bibliothèque Vivante` -> `Récits Vivants`
-- `short_name`: `Bibliothèque` -> `Récits`
+- `name`: `Récits Vivants`
+- `short_name`: `Récits`
 
-## Nom final
+Les champs suivants sont restes inchanges:
 
-- Nom complet: `Récits Vivants`
-- Nom court: `Récits`
+- `start_url`
+- `scope`
+- `display`
+- `background_color`
+- `theme_color`
+- `icons`
+
+## Reference HTML modifiee
+
+Fichier modifie: `index.html`
+
+Avant:
+
+`<link rel="manifest" href="manifest.json">`
+
+Apres:
+
+`<link rel="manifest" href="manifest.json?v=2">`
+
+## Manifest unique
+
+Recherche effectuee:
+
+- `manifest.json`
+- `manifest.webmanifest`
+- `rel="manifest"`
+
+Resultat:
+
+- Une seule reference active `<link rel="manifest">` dans `index.html`.
+- Aucun `manifest.webmanifest` utilise par l'application.
+- Aucune autre page HTML ne reference un ancien manifest.
 
 ## Perimetre respecte
 
+- Aucun JavaScript modifie.
+- Aucun CSS modifie.
+- Aucun JSON metier modifie.
+- Aucun service worker ajoute.
+- Icones conservees.
 - `start_url` conserve.
 - `scope` conserve.
 - `display` conserve.
-- `background_color` conserve.
 - `theme_color` conserve.
-- Icones conservees.
-- Aucun HTML modifie.
-- Aucun CSS modifie.
-- Aucun JavaScript modifie.
-- Aucun JSON metier modifie.
 
 ## Validation
 
 - `manifest.json` valide en JSON.
+- Le lien HTML pointe vers `manifest.json?v=2`.
 - `git diff --check` OK.
