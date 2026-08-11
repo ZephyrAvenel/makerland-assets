@@ -12,7 +12,7 @@ La logique est :
 Boussole Vivante
   |
   v
-Decouvrir
+Explorer
   |
   v
 e05_cartes
@@ -30,7 +30,7 @@ Destination :
 
 ## Lien avec la Boussole
 
-La direction `Decouvrir` de la Boussole pointe deja vers `e05_cartes`. RV-030 conserve cette architecture. La Boussole ne devient pas un menu externe : elle ouvre un lieu intermediaire qui accueille le visiteur avant l'ouverture de l'Atlas.
+La direction `Explorer` de la Boussole pointe vers `e05_cartes`. RV-031 actualise cette cartographie afin que le Passage Atlas devienne la branche naturelle de l'exploration. La Boussole ne devient pas un menu externe : elle ouvre un lieu intermediaire qui accueille le visiteur avant l'ouverture de l'Atlas.
 
 Le visiteur ne quitte donc pas brutalement Makerland. Il traverse une carte, lit un Murmure, puis choisit le moment d'ouvrir l'Atlas.
 
