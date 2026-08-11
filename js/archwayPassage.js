@@ -20,14 +20,16 @@ const CONFIG = {
         url: "https://wood-demonstrate.unicornplatform.page/zephyr_avenel/"
     },
 
-    invitation: "Franchir le seuil",
+    invitation: "✦ Franchir le seuil",
 
     timings: {
         forestSettle: 420,
         whisperShow: 1180,
-        whisperFadeIn: 1000,
-        whisperFadeOut: 800,
-        invitationBuffer: 220,
+        whisperFadeIn: 820,
+        whisperMinReading: 6500,
+        whisperMaxReading: 9000,
+        whisperFadeOut: 1500,
+        invitationBuffer: 360,
         passageDuration: 980
     }
 
@@ -310,6 +312,10 @@ function activate() {
     setTimer(
         () => {
 
+            passage.classList.add(
+                "archway-whisper-leaving"
+            );
+
             passage.classList.remove(
                 "archway-whisper-visible"
             );
@@ -502,6 +508,23 @@ function getSelectedWeather() {
 
 function getReadingDuration(text) {
 
+    const baseDuration =
+        getBaseReadingDuration(
+            text
+        );
+
+    return Math.min(
+        Math.max(
+            baseDuration,
+            CONFIG.timings.whisperMinReading
+        ),
+        CONFIG.timings.whisperMaxReading
+    );
+
+}
+
+function getBaseReadingDuration(text) {
+
     if (
         typeof Navigation !== "undefined" &&
         Navigation.getWhisperReadingDuration
@@ -519,13 +542,7 @@ function getReadingDuration(text) {
             .filter(Boolean)
             .length;
 
-    return Math.min(
-        Math.max(
-            wordCount * 90,
-            4000
-        ),
-        8000
-    );
+    return wordCount * 90;
 
 }
 

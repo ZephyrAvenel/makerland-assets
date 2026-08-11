@@ -924,6 +924,28 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     pointer-events:none;
 }
 
+.archway-ambient::after{
+    content:"";
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .685);
+    width:calc(var(--screen-content-width) * .24);
+    height:calc(var(--screen-content-height) * .34);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,221,142,.22) 0%,
+            rgba(255,201,102,.12) 34%,
+            rgba(255,201,102,.04) 58%,
+            rgba(255,201,102,0) 80%
+        );
+    filter:blur(12px);
+    opacity:.38;
+    transform:translate(-50%, -50%) scale(.96);
+    animation:archwayPathPulse 9s ease-in-out infinite;
+}
+
 .archway-forest-visible .archway-ambient{
     opacity:1;
 }
@@ -940,12 +962,12 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
             ellipse at center,
             rgba(255,235,176,.32) 0%,
             rgba(255,207,113,.16) 30%,
-            rgba(255,207,113,.06) 54%,
+            rgba(255,207,113,.08) 54%,
             rgba(255,207,113,0) 78%
         );
     filter:blur(10px);
     transform:translate(-50%, -50%) scale(.96);
-    animation:archwayHaloBreathe 7.5s ease-in-out infinite;
+    animation:archwayHaloBreathe 10.5s ease-in-out infinite;
 }
 
 .archway-mist{
@@ -990,21 +1012,52 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     z-index:3;
     opacity:0;
     transform:translateY(10px);
-    color:rgba(255,246,222,.92);
+    color:rgba(255,249,232,.96);
     font-family:Georgia, "Times New Roman", serif;
     font-size:clamp(15px, calc(var(--screen-content-width) * .018), 27px);
     line-height:1.38;
     text-align:center;
     text-shadow:
-        0 2px 22px rgba(0,0,0,.78),
-        0 0 22px rgba(255,216,142,.16);
+        0 2px 18px rgba(0,0,0,.92),
+        0 0 28px rgba(0,0,0,.62),
+        0 0 22px rgba(255,216,142,.18);
     transition:
-        opacity 1s ease,
-        transform 1s ease;
+        opacity .82s ease,
+        transform .82s ease;
+}
+
+.archway-whisper::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:112%;
+    height:138%;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(4,8,10,.38) 0%,
+            rgba(4,8,10,.22) 44%,
+            rgba(4,8,10,.08) 66%,
+            rgba(4,8,10,0) 82%
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(255,226,162,.12) 0%,
+            rgba(255,226,162,.05) 46%,
+            rgba(255,226,162,0) 74%
+        );
+    filter:blur(12px);
+    opacity:.82;
+    transform:translate(-50%, -50%);
+    pointer-events:none;
 }
 
 .archway-whisper span{
     display:block;
+    position:relative;
+    z-index:1;
 }
 
 .archway-whisper span + span{
@@ -1014,6 +1067,12 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .archway-whisper-visible .archway-whisper{
     opacity:1;
     transform:translateY(0);
+}
+
+.archway-whisper-leaving .archway-whisper{
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
 }
 
 .archway-gate{
@@ -1044,6 +1103,10 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     pointer-events:auto;
 }
 
+.archway-ready .archway-invitation{
+    animation:archwayInvitationBreathe 8s ease-in-out infinite;
+}
+
 .archway-gate:focus-visible{
     outline:1px solid rgba(255,239,196,.76);
     outline-offset:8px;
@@ -1067,7 +1130,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
             rgba(20,18,12,.08) 100%
         );
     box-shadow:
-        0 0 28px rgba(255,212,126,.16),
+        0 0 22px rgba(255,212,126,.18),
+        0 0 46px rgba(255,212,126,.08),
         inset 0 1px 0 rgba(255,255,255,.2);
     backdrop-filter:blur(4px);
     font-family:Georgia, "Times New Roman", serif;
@@ -1086,7 +1150,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     transform:translateY(-2px) scale(1.012);
     filter:brightness(1.08);
     box-shadow:
-        0 0 36px rgba(255,222,150,.22),
+        0 0 38px rgba(255,222,150,.24),
+        0 0 58px rgba(255,222,150,.1),
         inset 0 1px 0 rgba(255,255,255,.24);
 }
 
@@ -1151,8 +1216,42 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     50%{
-        opacity:.82;
-        transform:translate(-50%, -50%) scale(1.035);
+        opacity:.76;
+        transform:translate(-50%, -50%) scale(1.028);
+    }
+}
+
+@keyframes archwayPathPulse{
+    0%,
+    100%{
+        opacity:.24;
+        transform:translate(-50%, -50%) scale(.97);
+        filter:blur(12px) brightness(.96);
+    }
+
+    50%{
+        opacity:.42;
+        transform:translate(-50%, -50%) scale(1.025);
+        filter:blur(13px) brightness(1.08);
+    }
+}
+
+@keyframes archwayInvitationBreathe{
+    0%,
+    100%{
+        filter:brightness(1);
+        box-shadow:
+            0 0 22px rgba(255,212,126,.16),
+            0 0 46px rgba(255,212,126,.07),
+            inset 0 1px 0 rgba(255,255,255,.2);
+    }
+
+    50%{
+        filter:brightness(1.06);
+        box-shadow:
+            0 0 30px rgba(255,222,150,.22),
+            0 0 58px rgba(255,222,150,.1),
+            inset 0 1px 0 rgba(255,255,255,.22);
     }
 }
 
@@ -1729,7 +1828,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     #e04_oeuvre.archway-screen-active .screen-bg,
     .archway-halo,
     .archway-mist,
+    .archway-ambient::after,
     .archway-particles,
+    .archway-ready .archway-invitation,
     .archway-passing .archway-halo{
         animation:none;
     }
@@ -1759,6 +1860,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .archway-halo,
     .archway-mist,
+    .archway-ambient::after,
     .archway-particles{
         opacity:.42;
     }
