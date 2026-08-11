@@ -650,6 +650,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
         width:clamp(68px, 19vw, 86px) !important;
         height:clamp(126px, 18vh, 168px) !important;
         margin-left:clamp(-6px, -1.2vw, -3px);
+        margin-top:clamp(-46px, -5.5vh, -26px);
     }
 }
 
