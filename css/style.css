@@ -384,7 +384,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     position:absolute;
     left:50%;
     bottom:calc(18px + env(safe-area-inset-bottom));
-    z-index:90;
+    z-index:120;
     transform:translateX(-50%);
     padding:10px 18px;
     border:1px solid rgba(255,225,166,.44);
@@ -452,7 +452,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .meteo-intro h1{
     margin:0;
-    font-size:clamp(18px, calc(var(--screen-content-width) * .034), 40px);
+    font-size:clamp(21px, calc(var(--screen-content-width) * .037), 44px);
     font-weight:700;
     line-height:1.1;
     color:#fff1cf;
@@ -464,7 +464,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .meteo-intro p{
     margin:clamp(6px, calc(var(--screen-content-height) * .014), 12px) auto 0;
     max-width:760px;
-    font-size:clamp(10px, calc(var(--screen-content-width) * .014), 17px);
+    font-size:clamp(12px, calc(var(--screen-content-width) * .016), 19px);
     font-weight:500;
     line-height:1.35;
     color:rgba(255,246,226,.9);
@@ -589,7 +589,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .meteo-intro p{
-        display:none;
+        display:block;
+        font-size:12px;
+        line-height:1.28;
     }
 }
 
@@ -1069,7 +1071,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     transform:translateY(10px);
     color:rgba(255,246,222,.92);
     font-family:Georgia, "Times New Roman", serif;
-    font-size:clamp(15px, calc(var(--screen-content-width) * .018), 27px);
+    font-size:clamp(17px, calc(var(--screen-content-width) * .02), 30px);
     line-height:1.38;
     text-align:center;
     text-shadow:
