@@ -13,6 +13,14 @@ const HOME_SCREEN = "e01_accueil";
 
 const IDLE_TIMEOUT = 180000;
 
+const ENTRY_RITE_FROM = "e01_accueil";
+
+const ENTRY_RITE_TO = "e02_meteo";
+
+const ENTRY_RITE_SWITCH_DELAY = 900;
+
+const ENTRY_RITE_TOTAL_DURATION = 2100;
+
 /****************************************
  STATE
 ****************************************/
@@ -24,6 +32,8 @@ let historyStack = [];
 let idleTimer = null;
 
 let listeners = [];
+
+let entryRiteRunning = false;
 
 /****************************************
  INIT
@@ -99,6 +109,33 @@ function show(screenId) {
 function goTo(screenId) {
 
     if (
+        shouldPlayEntryRite(
+            screenId
+        )
+    ) {
+
+        startEntryRite(
+            screenId
+        );
+
+        return;
+
+    }
+
+    navigateTo(
+        screenId,
+        true
+    );
+
+}
+
+function navigateTo(
+    screenId,
+    pushHistory
+) {
+
+    if (
+        pushHistory &&
         currentScreen &&
         currentScreen !== screenId
        ) {
@@ -109,7 +146,9 @@ function goTo(screenId) {
 
     }
 
-    show(screenId);
+    show(
+        screenId
+    );
 
     if (
         typeof UIRenderer !== "undefined"
@@ -118,6 +157,155 @@ function goTo(screenId) {
 }
 
 resetIdleTimer();
+
+}
+
+/****************************************
+ ENTRY RITE
+****************************************/
+
+function shouldPlayEntryRite(screenId) {
+
+    if (
+        entryRiteRunning ||
+        currentScreen !== ENTRY_RITE_FROM ||
+        screenId !== ENTRY_RITE_TO
+    ) {
+
+        return false;
+
+    }
+
+    return !window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+}
+
+function startEntryRite(screenId) {
+
+    entryRiteRunning =
+        true;
+
+    historyStack.push(
+        currentScreen
+    );
+
+    const current =
+        document.getElementById(
+            currentScreen
+        );
+
+    document.body.classList.add(
+        "entry-rite-running"
+    );
+
+    if (current) {
+
+        current.classList.add(
+            "entry-rite-departing"
+        );
+
+    }
+
+    window.setTimeout(
+        () => {
+
+            document.body.classList.add(
+                "entry-rite-voice-visible"
+            );
+
+        },
+        220
+    );
+
+    window.setTimeout(
+        () => {
+
+            document.body.classList.remove(
+                "entry-rite-voice-visible"
+            );
+
+            show(
+                screenId
+            );
+
+            if (
+                typeof UIRenderer !== "undefined"
+            ) {
+
+                UIRenderer.render(
+                    screenId
+                );
+
+            }
+
+            const target =
+                document.getElementById(
+                    screenId
+                );
+
+            if (target) {
+
+                target.classList.add(
+                    "entry-rite-arriving"
+                );
+
+            }
+
+        },
+        ENTRY_RITE_SWITCH_DELAY
+    );
+
+    window.setTimeout(
+        () => {
+
+            cleanupEntryRite(
+                current,
+                screenId
+            );
+
+        },
+        ENTRY_RITE_TOTAL_DURATION
+    );
+
+    resetIdleTimer();
+
+}
+
+function cleanupEntryRite(
+    previous,
+    screenId
+) {
+
+    document.body.classList.remove(
+        "entry-rite-running",
+        "entry-rite-voice-visible"
+    );
+
+    if (previous) {
+
+        previous.classList.remove(
+            "entry-rite-departing"
+        );
+
+    }
+
+    const target =
+        document.getElementById(
+            screenId
+        );
+
+    if (target) {
+
+        target.classList.remove(
+            "entry-rite-arriving"
+        );
+
+    }
+
+    entryRiteRunning =
+        false;
 
 }
 
