@@ -322,11 +322,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro h1{
-    animation:meteoIntroTitleReveal 1.3s cubic-bezier(.22,1,.36,1) .9s both;
+    animation:meteoIntroTitleReveal 1.3s cubic-bezier(.22,1,.36,1) 2.2s both;
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro p{
-    animation:meteoIntroSubtitleReveal 1.4s cubic-bezier(.22,1,.36,1) 2.8s both;
+    animation:meteoIntroSubtitleReveal 1.4s cubic-bezier(.22,1,.36,1) 4.2s both;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone{
@@ -336,27 +336,27 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 #e02_meteo.entry-rite-arriving .makerland-zone-visual-button{
     filter:brightness(.88);
-    animation:meteoZoneHaloReady .9s ease 1.36s forwards;
+    animation:meteoZoneHaloReady .9s ease 6.18s forwards;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="eclaircie"]{
-    animation-delay:.72s;
+    animation-delay:5.72s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="transition"]{
-    animation-delay:.84s;
+    animation-delay:5.84s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="je_ne_sais_pas"]{
-    animation-delay:.96s;
+    animation-delay:5.96s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="brouillard"]{
-    animation-delay:1.08s;
+    animation-delay:6.08s;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone[data-id="tempete"]{
-    animation-delay:1.2s;
+    animation-delay:6.2s;
 }
 
 #loadingScreen{
