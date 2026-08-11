@@ -286,6 +286,14 @@ function bindEvents() {
 
     document.addEventListener(
 
+        "click",
+
+        handleLivingReturnClick
+
+    );
+
+    document.addEventListener(
+
         "keydown",
 
         handleCompassDirectionKeydown
@@ -330,6 +338,32 @@ function handleCompassDirectionClick(event) {
 
     openCompassDirection(
         direction
+    );
+
+}
+
+function handleLivingReturnClick(event) {
+
+    const button =
+        event.target.closest(
+            "[data-return-screen]"
+        );
+
+    if (!button) return;
+
+    const target =
+        button.dataset.returnScreen;
+
+    if (
+        !target ||
+        typeof Navigation === "undefined" ||
+        !Navigation.goTo
+    ) return;
+
+    event.preventDefault();
+
+    Navigation.goTo(
+        target
     );
 
 }

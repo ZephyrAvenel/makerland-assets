@@ -13,7 +13,7 @@ RV-031 clarifie la correspondance entre les cinq directions organiques, les ecra
 | Direction | Destination directe | Lieu ouvert | Passage Vivant associe | Connexions secondaires |
 | --- | --- | --- | --- | --- |
 | Explorer | `e05_cartes` | Cartes narratives / Passage vers l'Atlas | `AtlasPassage` | Atlas des Recits Vivants externe |
-| Decouvrir | `e06_essais` | Bibliotheque Vivante - Essais | Navigation immersive BookRenderer | `e06_fiction`, `e06_atlas`, `e06_portes`, sous-bibliotheques |
+| Decouvrir | `e04_oeuvre` | Foret de l'Arche | `ArchwayPassage` | Oeuvre immersive externe |
 | Creer | `e07_atelier` | Atelier | Aucun passage dedie dans l'etat actuel | Zones JSON d'atelier declarees |
 | Contempler | `e04_oeuvre` | Foret de l'Arche | `ArchwayPassage` | Oeuvre immersive externe |
 | Trouver un repere | `e08_constellation` | Constellation | Aucun passage dedie dans l'etat actuel | Recit commun, aide et partage |
@@ -42,16 +42,13 @@ e03_boussole
   |-- Decouvrir
   |     |
   |     v
-  |   e06_essais
+  |   e04_oeuvre
   |     |
   |     v
-  |   e06_atlas
+  |   Passage de l'Arche
   |     |
   |     v
-  |   e06_portes
-  |     |-- e06_carnets
-  |     |-- e06_manifestes
-  |     `-- e06_ressources_libres
+  |   Oeuvre immersive externe
   |
   |-- Creer
   |     |
@@ -81,9 +78,9 @@ e03_boussole
 
 Le Passage Atlas cree en RV-030 transforme `e05_cartes` en seuil vivant vers l'Atlas publie. RV-031 place donc la direction `Explorer` sur ce passage, car l'Atlas est le territoire naturel de l'exploration.
 
-### Decouvrir vers `e06_essais`
+### Decouvrir vers `e04_oeuvre`
 
-La Bibliotheque Vivante est deja un reseau de salles. La direction `Decouvrir` entre directement dans les Essais, tout en conservant les connexions internes vers Fictions, Atlas, Portes ouvertes et sous-bibliotheques.
+La direction `Decouvrir` retrouve la Foret de l'Arche afin que le passage vers l'oeuvre immersive reste directement accessible depuis la Boussole.
 
 ### Contempler vers `e04_oeuvre`
 
@@ -102,6 +99,7 @@ La Constellation est le lieu le plus coherent pour la recherche de reperes. Elle
 Ces territoires existent, mais ne sont pas des directions directes de la Boussole :
 
 - `e06_fiction` : salle precedente de la Bibliotheque Vivante ;
+- `e06_essais` : salle interne de la Bibliotheque Vivante ;
 - `e06_atlas` : salle interne de la Bibliotheque Vivante ;
 - `e06_portes` : carrefour vers les sous-bibliotheques ;
 - `e06_carnets` : sous-bibliotheque des carnets ;
@@ -116,7 +114,7 @@ Chaque direction de la Boussole doit posseder un `data-target-screen` correspond
 La carte finale respecte cette contrainte :
 
 - `e05_cartes` existe ;
-- `e06_essais` existe ;
+- `e04_oeuvre` existe ;
 - `e07_atelier` existe ;
 - `e04_oeuvre` existe ;
 - `e08_constellation` existe.
