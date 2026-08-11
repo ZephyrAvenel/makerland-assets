@@ -3,65 +3,7 @@ MAKERLAND V3.0-C
 archwayPassage.js
 ****************************************************/
 
-const ArchwayPassage = (() => {
-
-/****************************************
- CONFIG
-****************************************/
-
-const CONFIG = {
-
-    screenId: "e04_oeuvre",
-
-    useWeatherWhispers: false,
-
-    destination: {
-        label: "Oeuvre immersive des Recits Vivants",
-        url: "https://wood-demonstrate.unicornplatform.page/zephyr_avenel/"
-    },
-
-    invitation: "Franchir le seuil",
-
-    timings: {
-        forestSettle: 420,
-        whisperShow: 1180,
-        whisperFadeIn: 1000,
-        whisperFadeOut: 800,
-        invitationBuffer: 220,
-        passageDuration: 980
-    }
-
-};
-
-const WHISPERS = {
-
-    default: [
-        "Tous les chemins ne demandent pas d'etre compris.",
-        "Certains demandent seulement d'etre empruntes."
-    ],
-
-    eclaircie: [
-        "Certaines lumieres revelent des chemins deja presents."
-    ],
-
-    brouillard: [
-        "Lorsque les reperes disparaissent, un premier pas peut suffire."
-    ],
-
-    tempete: [
-        "Meme les arbres plient parfois.",
-        "Les racines, elles, continuent de tenir."
-    ],
-
-    transition: [
-        "Les passages ont leur propre rythme."
-    ],
-
-    je_ne_sais_pas: [
-        "Il n'est pas necessaire de nommer le seuil avant de le franchir."
-    ]
-
-};
+function createLivingPassage(config) {
 
 /****************************************
  STATE
@@ -89,7 +31,7 @@ function init() {
 
     screen =
         document.getElementById(
-            CONFIG.screenId
+            config.screenId
         );
 
     if (!screen) return;
@@ -108,7 +50,8 @@ function createPassage() {
         );
 
     passage.className =
-        "archway-passage";
+        "archway-passage " +
+        config.className;
 
     passage.setAttribute(
         "aria-live",
@@ -154,20 +97,20 @@ function createPassage() {
     if (invitation) {
 
         invitation.textContent =
-            CONFIG.invitation;
+            config.invitation;
 
     }
 
     gate.setAttribute(
         "aria-label",
-        CONFIG.invitation +
+        config.invitation +
             " vers " +
-            CONFIG.destination.label
+            config.destination.label
     );
 
     gate.setAttribute(
         "title",
-        CONFIG.destination.label
+        config.destination.label
     );
 
     screen.appendChild(
@@ -184,7 +127,7 @@ function bindEvents() {
 
             if (
                 event.detail.screen ===
-                CONFIG.screenId
+                config.screenId
             ) {
 
                 activate();
@@ -252,7 +195,7 @@ function activate() {
         getSelectedWeather();
 
     screen.classList.add(
-        "archway-screen-active"
+        config.activeScreenClass
     );
 
     passage.classList.add(
@@ -275,11 +218,11 @@ function activate() {
             );
 
             dispatchCue(
-                "forest"
+                config.placeCue
             );
 
         },
-        CONFIG.timings.forestSettle
+        config.timings.forestSettle
     );
 
     setTimer(
@@ -294,7 +237,7 @@ function activate() {
             );
 
         },
-        CONFIG.timings.whisperShow
+        config.timings.whisperShow
     );
 
     const readingDuration =
@@ -303,8 +246,8 @@ function activate() {
         );
 
     const hideWhisperAt =
-        CONFIG.timings.whisperShow +
-        CONFIG.timings.whisperFadeIn +
+        config.timings.whisperShow +
+        config.timings.whisperFadeIn +
         readingDuration;
 
     setTimer(
@@ -321,8 +264,8 @@ function activate() {
     setTimer(
         revealInvitation,
         hideWhisperAt +
-            CONFIG.timings.whisperFadeOut +
-            CONFIG.timings.invitationBuffer
+            config.timings.whisperFadeOut +
+            config.timings.invitationBuffer
     );
 
 }
@@ -334,8 +277,8 @@ function deactivate() {
     if (screen) {
 
         screen.classList.remove(
-            "archway-screen-active",
-            "archway-screen-passing"
+            config.activeScreenClass,
+            config.passingScreenClass
         );
 
     }
@@ -391,7 +334,8 @@ function reset() {
     if (passage) {
 
         passage.className =
-            "archway-passage";
+            "archway-passage " +
+            config.className;
 
     }
 
@@ -416,7 +360,7 @@ function triggerPassage() {
     );
 
     screen.classList.add(
-        "archway-screen-passing"
+        config.passingScreenClass
     );
 
     dispatchCue(
@@ -433,7 +377,7 @@ function triggerPassage() {
 
     setTimer(
         openDestination,
-        CONFIG.timings.passageDuration
+        config.timings.passageDuration
     );
 
 }
@@ -446,7 +390,7 @@ function openDestination() {
     ) {
 
         Navigation.openExternal(
-            CONFIG.destination.url
+            config.destination.url
         );
 
     }
@@ -463,15 +407,15 @@ function getWhisperLines() {
         getSelectedWeather();
 
     if (
-        CONFIG.useWeatherWhispers &&
-        WHISPERS[selectedWeather]
+        config.useWeatherWhispers &&
+        config.whispers[selectedWeather]
     ) {
 
-        return WHISPERS[selectedWeather];
+        return config.whispers[selectedWeather];
 
     }
 
-    return WHISPERS.default;
+    return config.whispers.default;
 
 }
 
@@ -570,14 +514,14 @@ function dispatchCue(cue) {
 
     window.dispatchEvent(
         new CustomEvent(
-            "archwayPassageCue",
+            config.cueEventName,
             {
                 detail: {
                     cue,
                     screen:
-                        CONFIG.screenId,
+                        config.screenId,
                     destination:
-                        CONFIG.destination.label
+                        config.destination.label
                 }
             }
         )
@@ -595,13 +539,113 @@ return {
 
 };
 
-})();
+}
+
+const ArchwayPassage = createLivingPassage({
+
+    screenId: "e04_oeuvre",
+
+    className: "archway-passage-forest",
+
+    activeScreenClass: "archway-screen-active",
+
+    passingScreenClass: "archway-screen-passing",
+
+    cueEventName: "archwayPassageCue",
+
+    placeCue: "forest",
+
+    useWeatherWhispers: false,
+
+    destination: {
+        label: "Oeuvre immersive des Recits Vivants",
+        url: "https://wood-demonstrate.unicornplatform.page/zephyr_avenel/"
+    },
+
+    invitation: "Franchir le seuil",
+
+    timings: {
+        forestSettle: 420,
+        whisperShow: 1180,
+        whisperFadeIn: 1000,
+        whisperFadeOut: 800,
+        invitationBuffer: 220,
+        passageDuration: 980
+    },
+
+    whispers: {
+        default: [
+            "Tous les chemins ne demandent pas d'etre compris.",
+            "Certains demandent seulement d'etre empruntes."
+        ],
+        eclaircie: [
+            "Certaines lumieres revelent des chemins deja presents."
+        ],
+        brouillard: [
+            "Lorsque les reperes disparaissent, un premier pas peut suffire."
+        ],
+        tempete: [
+            "Meme les arbres plient parfois.",
+            "Les racines, elles, continuent de tenir."
+        ],
+        transition: [
+            "Les passages ont leur propre rythme."
+        ],
+        je_ne_sais_pas: [
+            "Il n'est pas necessaire de nommer le seuil avant de le franchir."
+        ]
+    }
+
+});
+
+const AtlasPassage = createLivingPassage({
+
+    screenId: "e05_cartes",
+
+    className: "atlas-passage",
+
+    activeScreenClass: "atlas-passage-screen-active",
+
+    passingScreenClass: "atlas-passage-screen-passing",
+
+    cueEventName: "atlasPassageCue",
+
+    placeCue: "atlas",
+
+    useWeatherWhispers: false,
+
+    destination: {
+        label: "Atlas des Recits Vivants",
+        url: "https://zephyravenel.github.io/atlas-recits-vivants/"
+    },
+
+    invitation: "\u2726 Ouvrir l'Atlas",
+
+    timings: {
+        forestSettle: 420,
+        whisperShow: 1180,
+        whisperFadeIn: 1000,
+        whisperFadeOut: 1500,
+        invitationBuffer: 220,
+        passageDuration: 980
+    },
+
+    whispers: {
+        default: [
+            "Les cartes n'enferment pas le monde.",
+            "Elles ouvrent des chemins pour le regarder autrement."
+        ]
+    }
+
+});
 
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
         ArchwayPassage.init();
+
+        AtlasPassage.init();
 
     }
 );
