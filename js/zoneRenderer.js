@@ -48,6 +48,10 @@ let zonesData = null;
 
 let currentScreen = null;
 
+let refreshFrame = null;
+
+let refreshTimeout = null;
+
 const actionHandlers = {
 
     goto(action) {
@@ -684,11 +688,117 @@ function refresh() {
         currentScreen
     ) {
 
+        repositionCurrentZones();
+
+    }
+
+}
+
+function scheduleRefresh() {
+
+    if (
+        refreshFrame
+    ) {
+
+        cancelAnimationFrame(
+            refreshFrame
+        );
+
+    }
+
+    if (
+        refreshTimeout
+    ) {
+
+        clearTimeout(
+            refreshTimeout
+        );
+
+    }
+
+    refreshFrame =
+        requestAnimationFrame(
+            () => {
+
+                refreshFrame =
+                    null;
+
+                refresh();
+
+            }
+        );
+
+    refreshTimeout =
+        window.setTimeout(
+            () => {
+
+                refreshTimeout =
+                    null;
+
+                refresh();
+
+            },
+            180
+        );
+
+}
+
+function repositionCurrentZones() {
+
+    if (
+        !zonesData ||
+        !currentScreen
+    ) return;
+
+    const screen =
+        document.getElementById(
+            currentScreen
+        );
+
+    const config =
+        zonesData[currentScreen];
+
+    if (
+        !screen ||
+        !config ||
+        !config.zones
+    ) return;
+
+    const zones =
+        screen.querySelectorAll(
+            ".makerland-zone"
+        );
+
+    if (
+        zones.length === 0
+    ) {
+
         render(
             currentScreen
         );
 
+        return;
+
     }
+
+    zones.forEach(
+        element => {
+
+            const zone =
+                config.zones[
+                    element.dataset.id
+                ];
+
+            if (!zone) return;
+
+            positionZone(
+                screen,
+                element,
+                zone
+            );
+
+        }
+    );
 
 }
 
@@ -704,11 +814,53 @@ function bindEvents() {
 
         () => {
 
-            refresh();
+            scheduleRefresh();
 
         }
 
     );
+
+    window.addEventListener(
+
+        "orientationchange",
+
+        () => {
+
+            scheduleRefresh();
+
+        }
+
+    );
+
+    if (
+        window.visualViewport
+    ) {
+
+        window.visualViewport.addEventListener(
+
+            "resize",
+
+            () => {
+
+                scheduleRefresh();
+
+            }
+
+        );
+
+        window.visualViewport.addEventListener(
+
+            "scroll",
+
+            () => {
+
+                scheduleRefresh();
+
+            }
+
+        );
+
+    }
 
     window.addEventListener(
 
