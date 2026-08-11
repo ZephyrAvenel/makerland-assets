@@ -322,11 +322,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro h1{
-    animation:entryTextReveal .72s ease both;
+    animation:meteoIntroTitleReveal .9s cubic-bezier(.22,.72,.18,1) .5s both;
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro p{
-    animation:entryTextReveal .72s ease .28s both;
+    animation:meteoIntroSubtitleReveal .9s cubic-bezier(.22,.72,.18,1) 1.7s both;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone{
@@ -391,10 +391,30 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .105);
     width:calc(var(--screen-content-width) * .68);
     z-index:35;
-    color:#fff;
+    color:#fff7df;
     text-align:center;
     pointer-events:none;
-    text-shadow:0 2px 18px rgba(0,0,0,.55);
+    text-shadow:
+        0 2px 18px rgba(0,0,0,.72),
+        0 0 26px rgba(255,220,154,.14);
+    isolation:isolate;
+}
+
+.meteo-intro::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:48%;
+    z-index:-1;
+    width:min(860px, 116%);
+    height:clamp(96px, calc(var(--screen-content-height) * .22), 210px);
+    border-radius:50%;
+    background:
+        linear-gradient(180deg, rgba(1,7,13,.42), rgba(3,8,15,.24) 52%, rgba(3,8,15,0)),
+        radial-gradient(ellipse at center, rgba(255,225,165,.16), rgba(255,225,165,.05) 42%, rgba(255,225,165,0) 76%);
+    opacity:.78;
+    filter:blur(18px);
+    transform:translate(-50%, -50%);
 }
 
 .meteo-intro h1{
@@ -402,15 +422,22 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     font-size:clamp(18px, calc(var(--screen-content-width) * .034), 40px);
     font-weight:700;
     line-height:1.1;
+    color:#fff1cf;
+    text-shadow:
+        0 3px 20px rgba(0,0,0,.82),
+        0 0 24px rgba(255,224,160,.24);
 }
 
 .meteo-intro p{
     margin:clamp(6px, calc(var(--screen-content-height) * .014), 12px) auto 0;
     max-width:760px;
     font-size:clamp(10px, calc(var(--screen-content-width) * .014), 17px);
-    font-weight:400;
+    font-weight:500;
     line-height:1.35;
-    color:rgba(255,255,255,.82);
+    color:rgba(255,246,226,.9);
+    text-shadow:
+        0 2px 16px rgba(0,0,0,.78),
+        0 0 20px rgba(255,224,160,.11);
 }
 
 .makerland-zone{
@@ -1654,6 +1681,34 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
         opacity:0;
         transform:translateY(12px);
         filter:brightness(.86);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:brightness(1);
+    }
+}
+
+@keyframes meteoIntroTitleReveal{
+    from{
+        opacity:0;
+        transform:translateY(16px);
+        filter:brightness(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:brightness(1);
+    }
+}
+
+@keyframes meteoIntroSubtitleReveal{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+        filter:brightness(.9);
     }
 
     to{
