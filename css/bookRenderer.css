@@ -19,6 +19,28 @@ bookRenderer.css
     opacity:0;
 }
 
+.living-library-extension-room::before{
+    content:"";
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .055);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .025);
+    z-index:70;
+    width:calc(var(--screen-content-width) * .89);
+    height:calc(var(--screen-content-height) * .95);
+    background:
+        radial-gradient(
+            ellipse at 50% 42%,
+            rgba(2,5,11,.88) 0%,
+            rgba(2,6,12,.78) 36%,
+            rgba(2,6,12,.52) 62%,
+            rgba(2,6,12,.22) 82%,
+            rgba(2,6,12,0) 100%
+        );
+    backdrop-filter:blur(1.4px) saturate(.88) brightness(.86);
+    -webkit-backdrop-filter:blur(1.4px) saturate(.88) brightness(.86);
+    pointer-events:none;
+}
+
 .living-library-content-zone{
     position:absolute;
     overflow:visible;
@@ -555,6 +577,40 @@ bookRenderer.css
     transform:translateX(-50%);
 }
 
+.living-library-extension-navigation .living-library-room-button-return{
+    z-index:78;
+    border-color:rgba(255,207,124,.72);
+    color:#ffe9b9;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,25,26,.94),
+            rgba(7,13,22,.9)
+        );
+    box-shadow:
+        0 12px 26px rgba(0,0,0,.46),
+        0 0 18px rgba(255,187,82,.16),
+        inset 0 1px 0 rgba(255,235,190,.18);
+}
+
+.living-library-extension-navigation .living-library-room-button-return::after{
+    content:"";
+    position:absolute;
+    left:18%;
+    right:18%;
+    bottom:-11px;
+    height:1px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,196,95,0),
+            rgba(255,210,128,.54),
+            rgba(255,196,95,0)
+        );
+    box-shadow:0 0 14px rgba(255,197,98,.2);
+    pointer-events:none;
+}
+
 .living-library-room-button-return:hover{
     transform:translateX(-50%) translateY(-1px);
 }
@@ -654,6 +710,21 @@ bookRenderer.css
 }
 
 @media (max-width:700px) {
+    .living-library-extension-room::before{
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background:
+            radial-gradient(
+                ellipse at 50% 44%,
+                rgba(2,5,11,.9) 0%,
+                rgba(2,6,12,.8) 42%,
+                rgba(2,6,12,.46) 74%,
+                rgba(2,6,12,.18) 100%
+            );
+    }
+
     .living-library-extension-hall{
         left:0;
         right:0;
@@ -696,6 +767,21 @@ bookRenderer.css
 }
 
 @media (max-height:460px) and (orientation:landscape) {
+    .living-library-extension-room::before{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
+        top:0;
+        width:calc(var(--screen-content-width) * .9);
+        height:100%;
+        background:
+            radial-gradient(
+                ellipse at 50% 50%,
+                rgba(2,5,11,.9) 0%,
+                rgba(2,6,12,.8) 38%,
+                rgba(2,6,12,.42) 72%,
+                rgba(2,6,12,.12) 100%
+            );
+    }
+
     .living-library-room-button-return{
         top:max(10px, env(safe-area-inset-top)) !important;
         height:clamp(34px, 9vh, 42px) !important;
