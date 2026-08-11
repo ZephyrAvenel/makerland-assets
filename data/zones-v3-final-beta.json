@@ -107,7 +107,8 @@
       "w": 235,
       "h": 575,
       "type": "navigation",
-      "action": "e04_oeuvre"
+      "action": "goto",
+      "target": "e05_cartes"
     }
 
   }
