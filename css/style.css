@@ -41,6 +41,13 @@ body{
     overflow:hidden;
 }
 
+#e02_meteo{
+    height:100dvh;
+    overflow:visible;
+    --screen-content-height:min(100dvh, 66.6667vw);
+    --screen-content-top:calc((100dvh - var(--screen-content-height)) / 2);
+}
+
 #e01_accueil::before,
 #e01_accueil::after{
     content:"";
