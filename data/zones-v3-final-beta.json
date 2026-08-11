@@ -99,19 +99,7 @@
   "status": "beta",
   "background": "ecran-3-boussole.png",
 
-  "zones": {
-
-    "porte_principale": {
-      "x": 655,
-      "y": 190,
-      "w": 235,
-      "h": 575,
-      "type": "navigation",
-      "action": "goto",
-      "target": "e05_cartes"
-    }
-
-  }
+  "zones": {}
 },
 
 "e04_oeuvre": {
