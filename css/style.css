@@ -322,11 +322,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro h1{
-    animation:meteoIntroTitleReveal .9s cubic-bezier(.22,.72,.18,1) .5s both;
+    animation:meteoIntroTitleReveal 1.3s cubic-bezier(.22,1,.36,1) .9s both;
 }
 
 #e02_meteo.entry-rite-arriving .meteo-intro p{
-    animation:meteoIntroSubtitleReveal .9s cubic-bezier(.22,.72,.18,1) 1.7s both;
+    animation:meteoIntroSubtitleReveal 1.4s cubic-bezier(.22,1,.36,1) 2.8s both;
 }
 
 #e02_meteo.entry-rite-arriving .makerland-zone{
