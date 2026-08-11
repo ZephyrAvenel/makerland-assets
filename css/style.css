@@ -882,11 +882,13 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
  ARCHWAY PASSAGE
 ****************************************/
 
-#e04_oeuvre{
+#e04_oeuvre,
+#e05_cartes{
     overflow:hidden;
 }
 
-#e04_oeuvre .screen-bg{
+#e04_oeuvre .screen-bg,
+#e05_cartes .screen-bg{
     transition:
         transform .98s ease,
         filter .98s ease,
@@ -903,6 +905,21 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 #e04_oeuvre.archway-screen-passing .screen-bg{
     transform:scale(1.03);
     filter:brightness(1.12) saturate(1.03);
+    transition:
+        transform .98s ease,
+        filter .98s ease;
+}
+
+#e05_cartes.atlas-passage-screen-active .screen-bg{
+    opacity:0;
+    transform:scale(1.006);
+    filter:brightness(.8) saturate(.94) contrast(1.02);
+    animation:archwayForestArrive 1.3s ease .18s forwards;
+}
+
+#e05_cartes.atlas-passage-screen-passing .screen-bg{
+    transform:scale(1.026);
+    filter:brightness(1.1) saturate(1.04) contrast(1.04);
     transition:
         transform .98s ease,
         filter .98s ease;
@@ -1001,9 +1018,39 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     transition:
         opacity 1s ease,
         transform 1s ease;
+    isolation:isolate;
+}
+
+.atlas-passage .archway-whisper::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:-1;
+    width:112%;
+    height:128%;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(4,8,14,.44) 0%,
+            rgba(4,8,14,.24) 42%,
+            rgba(4,8,14,0) 76%
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(255,222,154,.14) 0%,
+            rgba(255,222,154,.05) 44%,
+            rgba(255,222,154,0) 72%
+        );
+    filter:blur(16px);
+    opacity:.82;
+    transform:translate(-50%, -50%);
+    pointer-events:none;
 }
 
 .archway-whisper span{
+    position:relative;
     display:block;
 }
 
@@ -1127,6 +1174,76 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     transition:
         transform .98s ease,
         filter .98s ease;
+}
+
+.atlas-passage .archway-halo{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .48);
+    width:calc(var(--screen-content-width) * .48);
+    height:calc(var(--screen-content-height) * .46);
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,235,177,.24) 0%,
+            rgba(255,202,103,.12) 34%,
+            rgba(255,202,103,.05) 58%,
+            rgba(255,202,103,0) 80%
+        );
+    filter:blur(14px);
+}
+
+.atlas-passage .archway-mist{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .66);
+    width:calc(var(--screen-content-width) * .58);
+    height:calc(var(--screen-content-height) * .18);
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(242,226,184,.16) 0%,
+            rgba(188,204,220,.07) 52%,
+            rgba(188,204,220,0) 82%
+        );
+}
+
+.atlas-passage .archway-particles{
+    background:
+        radial-gradient(circle at 34% 34%, rgba(255,226,145,.3) 0 1px, rgba(255,226,145,0) 2px),
+        radial-gradient(circle at 43% 58%, rgba(255,240,195,.24) 0 1px, rgba(255,240,195,0) 2px),
+        radial-gradient(circle at 55% 40%, rgba(255,226,145,.26) 0 1px, rgba(255,226,145,0) 2px),
+        radial-gradient(circle at 67% 63%, rgba(255,232,170,.2) 0 1px, rgba(255,232,170,0) 2px),
+        radial-gradient(circle at 74% 28%, rgba(255,226,145,.18) 0 1px, rgba(255,226,145,0) 2px);
+}
+
+.atlas-passage .archway-whisper{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .21);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    width:calc(var(--screen-content-width) * .58);
+}
+
+.atlas-passage .archway-gate{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .72);
+    width:calc(var(--screen-content-width) * .38);
+    height:auto;
+    min-height:calc(var(--screen-content-height) * .12);
+    align-items:center;
+    padding-bottom:0;
+}
+
+.atlas-passage .archway-invitation{
+    min-width:min(280px, calc(var(--screen-content-width) * .26));
+}
+
+.atlas-passage .archway-veil{
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(255,238,186,.76) 0%,
+            rgba(255,214,132,.36) 20%,
+            rgba(32,42,54,.18) 48%,
+            rgba(5,8,14,.88) 100%
+        );
 }
 
 @keyframes archwayForestArrive{
@@ -1421,6 +1538,17 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
         font-size:clamp(10px, calc(var(--screen-content-width) * .012), 15px);
         padding:7px 14px;
     }
+
+    .atlas-passage .archway-whisper{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+        font-size:clamp(11px, calc(var(--screen-content-width) * .014), 17px);
+        line-height:1.2;
+    }
+
+    .atlas-passage .archway-gate{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .76);
+        min-height:calc(var(--screen-content-height) * .1);
+    }
 }
 
 @media (max-width:480px) and (orientation:portrait) {
@@ -1506,6 +1634,18 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
         height:calc(var(--screen-content-height) * .45);
         padding-bottom:calc(var(--screen-content-height) * .03);
+    }
+
+    .atlas-passage .archway-whisper{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .04);
+        font-size:clamp(10px, calc(var(--screen-content-width) * .012), 14px);
+        line-height:1.12;
+    }
+
+    .atlas-passage .archway-gate{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .77);
+        min-height:calc(var(--screen-content-height) * .1);
+        padding-bottom:0;
     }
 }
 
@@ -1727,6 +1867,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     #e04_oeuvre.archway-screen-active .screen-bg,
+    #e05_cartes.atlas-passage-screen-active .screen-bg,
     .archway-halo,
     .archway-mist,
     .archway-particles,
@@ -1735,6 +1876,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     #e04_oeuvre .screen-bg,
+    #e05_cartes .screen-bg,
     .archway-ambient,
     .archway-whisper,
     .archway-gate,
@@ -1744,7 +1886,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     #e04_oeuvre.archway-screen-active .screen-bg,
-    #e04_oeuvre.archway-screen-passing .screen-bg{
+    #e04_oeuvre.archway-screen-passing .screen-bg,
+    #e05_cartes.atlas-passage-screen-active .screen-bg,
+    #e05_cartes.atlas-passage-screen-passing .screen-bg{
         opacity:1;
         transform:none;
         filter:none;
