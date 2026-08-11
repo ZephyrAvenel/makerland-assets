@@ -1,6 +1,6 @@
 {
-  "name": "Makerland - Recits Vivants",
-  "short_name": "Makerland",
+  "name": "Bibliothèque Vivante",
+  "short_name": "Bibliothèque",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
