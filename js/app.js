@@ -97,6 +97,119 @@ const state = {
 
 };
 
+let immersiveFullscreenRequested = false;
+
+/****************************************
+ IMMERSIVE MODE
+****************************************/
+
+function bindImmersiveMode() {
+
+    const activate =
+        () => {
+
+            requestImmersiveFullscreen();
+
+        };
+
+    document.addEventListener(
+
+        "pointerdown",
+
+        activate,
+
+        {
+            once: true,
+            capture: true
+        }
+
+    );
+
+    document.addEventListener(
+
+        "touchstart",
+
+        activate,
+
+        {
+            once: true,
+            capture: true,
+            passive: true
+        }
+
+    );
+
+    document.addEventListener(
+
+        "click",
+
+        activate,
+
+        {
+            once: true,
+            capture: true
+        }
+
+    );
+
+}
+
+function requestImmersiveFullscreen() {
+
+    if (
+        immersiveFullscreenRequested ||
+        isFullscreenActive()
+    ) return;
+
+    immersiveFullscreenRequested =
+        true;
+
+    const target =
+        document.documentElement;
+
+    const request =
+        target.requestFullscreen ||
+        target.webkitRequestFullscreen;
+
+    if (
+        !request
+    ) return;
+
+    try {
+
+        const result =
+            request.call(
+                target
+            );
+
+        if (
+            result &&
+            result.catch
+        ) {
+
+            result.catch(
+                () => {}
+            );
+
+        }
+
+    } catch(error) {
+
+        // Fullscreen can be refused by the browser; Makerland continues normally.
+
+    }
+
+}
+
+function isFullscreenActive() {
+
+    return Boolean(
+        document.fullscreenElement ||
+        document.webkitFullscreenElement
+    );
+
+}
+
 /****************************************
  HELPERS
 ****************************************/
@@ -244,6 +357,8 @@ function initModules() {
 ****************************************/
 
 function bindEvents() {
+
+    bindImmersiveMode();
 
     window.addEventListener(
 
