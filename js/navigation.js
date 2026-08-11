@@ -19,11 +19,19 @@ const ENTRY_RITE_TO = "e02_meteo";
 
 const ENTRY_RITE_WELCOME_DELAY = 360;
 
-const ENTRY_RITE_WELCOME_HIDE_DELAY = 4200;
+const WHISPER_FADE_IN_DURATION = 1000;
 
-const ENTRY_RITE_SWITCH_DELAY = 5100;
+const WHISPER_MIN_READING_DURATION = 4000;
 
-const ENTRY_RITE_TOTAL_DURATION = 6250;
+const WHISPER_READING_DURATION_PER_WORD = 90;
+
+const WHISPER_MAX_READING_DURATION = 8000;
+
+const WHISPER_FADE_OUT_DURATION = 800;
+
+const ENTRY_RITE_SCREEN_REVEAL_BUFFER = 100;
+
+const ENTRY_RITE_CLEANUP_DURATION = 1150;
 
 const ENTRY_RITE_AUDIO_HOOKS = {
 
@@ -203,6 +211,9 @@ function startEntryRite(screenId) {
     entryRiteRunning =
         true;
 
+    const timing =
+        getEntryRiteTiming();
+
     historyStack.push(
         currentScreen
     );
@@ -251,7 +262,7 @@ function startEntryRite(screenId) {
             );
 
         },
-        ENTRY_RITE_WELCOME_HIDE_DELAY
+        timing.hideWelcomeAt
     );
 
     window.setTimeout(
@@ -289,7 +300,7 @@ function startEntryRite(screenId) {
             }
 
         },
-        ENTRY_RITE_SWITCH_DELAY
+        timing.showNextScreenAt
     );
 
     window.setTimeout(
@@ -301,10 +312,112 @@ function startEntryRite(screenId) {
             );
 
         },
-        ENTRY_RITE_TOTAL_DURATION
+        timing.cleanupAt
     );
 
     resetIdleTimer();
+
+}
+
+function getEntryRiteTiming() {
+
+    const whisper =
+        document.getElementById(
+            "entryRiteWelcome"
+        );
+
+    const readingDuration =
+        getWhisperReadingDuration(
+            getWhisperText(
+                whisper
+            )
+        );
+
+    const hideWelcomeAt =
+        ENTRY_RITE_WELCOME_DELAY +
+        WHISPER_FADE_IN_DURATION +
+        readingDuration;
+
+    const showNextScreenAt =
+        hideWelcomeAt +
+        WHISPER_FADE_OUT_DURATION +
+        ENTRY_RITE_SCREEN_REVEAL_BUFFER;
+
+    return {
+
+        readingDuration,
+
+        hideWelcomeAt,
+
+        showNextScreenAt,
+
+        cleanupAt:
+            showNextScreenAt +
+            ENTRY_RITE_CLEANUP_DURATION
+
+    };
+
+}
+
+function getWhisperText(element) {
+
+    if (!element) return "";
+
+    return element
+        .textContent
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim();
+
+}
+
+function getWhisperReadingDuration(text) {
+
+    const wordCount =
+        countWords(
+            text
+        );
+
+    const calculatedDuration =
+        wordCount *
+        WHISPER_READING_DURATION_PER_WORD;
+
+    return clamp(
+        calculatedDuration,
+        WHISPER_MIN_READING_DURATION,
+        WHISPER_MAX_READING_DURATION
+    );
+
+}
+
+function countWords(text) {
+
+    if (!text) return 0;
+
+    return text
+        .split(
+            /\s+/
+        )
+        .filter(Boolean)
+        .length;
+
+}
+
+function clamp(
+    value,
+    min,
+    max
+) {
+
+    return Math.min(
+        Math.max(
+            value,
+            min
+        ),
+        max
+    );
 
 }
 
