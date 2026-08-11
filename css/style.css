@@ -382,21 +382,21 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .living-return-button{
     position:fixed;
-    left:50%;
+    left:calc(16px + env(safe-area-inset-left));
     top:calc(14px + env(safe-area-inset-top));
     z-index:120;
-    transform:translateX(-50%);
-    max-width:calc(100vw - 32px);
-    padding:10px 18px;
-    border:1px solid rgba(255,225,166,.44);
+    max-width:calc(100vw - 32px - env(safe-area-inset-left));
+    padding:8px 13px;
+    border:1px solid rgba(255,225,166,.34);
     border-radius:999px;
-    background:rgba(8,14,22,.42);
-    color:rgba(255,244,216,.92);
-    font:600 13px/1.1 Georgia, "Times New Roman", serif;
+    background:rgba(8,14,22,.34);
+    color:rgba(255,244,216,.86);
+    font:600 0/1 Georgia, "Times New Roman", serif;
     letter-spacing:0;
     text-shadow:0 1px 12px rgba(0,0,0,.62);
     text-align:center;
-    box-shadow:0 10px 28px rgba(0,0,0,.28);
+    white-space:nowrap;
+    box-shadow:0 8px 22px rgba(0,0,0,.22);
     backdrop-filter:blur(10px);
     cursor:pointer;
     transition:
@@ -406,12 +406,18 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
         box-shadow .24s ease;
 }
 
+.living-return-button::before{
+    content:"\2190 Boussole";
+    font-size:12px;
+    line-height:1.1;
+}
+
 .living-return-button:hover,
 .living-return-button:focus-visible{
-    transform:translateX(-50%) translateY(-2px);
-    border-color:rgba(255,230,174,.68);
-    background:rgba(17,24,34,.52);
-    box-shadow:0 14px 34px rgba(0,0,0,.34);
+    transform:translateY(-1px);
+    border-color:rgba(255,230,174,.56);
+    background:rgba(17,24,34,.46);
+    box-shadow:0 10px 26px rgba(0,0,0,.3);
     outline:none;
 }
 
