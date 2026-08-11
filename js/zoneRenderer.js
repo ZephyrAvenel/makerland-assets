@@ -52,6 +52,8 @@ let refreshFrame = null;
 
 let refreshTimeout = null;
 
+let lastViewportSignature = null;
+
 const actionHandlers = {
 
     goto(action) {
@@ -696,6 +698,9 @@ function refresh() {
 
 function scheduleRefresh() {
 
+    const viewportSignature =
+        getViewportSignature();
+
     if (
         refreshFrame
     ) {
@@ -725,6 +730,9 @@ function scheduleRefresh() {
 
                 refresh();
 
+                lastViewportSignature =
+                    getViewportSignature();
+
             }
         );
 
@@ -735,11 +743,60 @@ function scheduleRefresh() {
                 refreshTimeout =
                     null;
 
-                refresh();
+                const nextViewportSignature =
+                    getViewportSignature();
+
+                if (
+                    nextViewportSignature !==
+                    lastViewportSignature ||
+                    nextViewportSignature !==
+                    viewportSignature
+                ) {
+
+                    refresh();
+
+                    lastViewportSignature =
+                        nextViewportSignature;
+
+                }
 
             },
-            180
+            72
         );
+
+}
+
+function getViewportSignature() {
+
+    const visualViewport =
+        window.visualViewport;
+
+    const width =
+        visualViewport ?
+            visualViewport.width :
+            window.innerWidth;
+
+    const height =
+        visualViewport ?
+            visualViewport.height :
+            window.innerHeight;
+
+    return [
+        Math.round(
+            window.innerWidth
+        ),
+        Math.round(
+            window.innerHeight
+        ),
+        Math.round(
+            width
+        ),
+        Math.round(
+            height
+        )
+    ].join(
+        "x"
+    );
 
 }
 
