@@ -317,45 +317,55 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     opacity:1;
 }
 
-#e02_meteo.entry-rite-arriving .screen-bg{
+#e02_meteo.entry-rite-arriving .screen-bg,
+#e02_meteo[style*="display: block"] .screen-bg{
     animation:meteoLandscapeAwaken 1.1s ease both;
 }
 
-#e02_meteo.entry-rite-arriving .meteo-intro h1{
+#e02_meteo.entry-rite-arriving .meteo-intro h1,
+#e02_meteo[style*="display: block"] .meteo-intro h1{
     animation:meteoIntroTitleReveal 1.45s cubic-bezier(.22,.72,.18,1) 2.5s both;
 }
 
-#e02_meteo.entry-rite-arriving .meteo-intro p{
+#e02_meteo.entry-rite-arriving .meteo-intro p,
+#e02_meteo[style*="display: block"] .meteo-intro p{
     animation:meteoIntroSubtitleReveal 1.45s cubic-bezier(.22,.72,.18,1) 5s both;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone{
+#e02_meteo.entry-rite-arriving .makerland-zone,
+#e02_meteo[style*="display: block"] .makerland-zone{
     opacity:0;
     animation:entryTextReveal .78s ease forwards;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone-visual-button{
+#e02_meteo.entry-rite-arriving .makerland-zone-visual-button,
+#e02_meteo[style*="display: block"] .makerland-zone-visual-button{
     filter:brightness(.88);
-    animation:meteoZoneHaloReady .9s ease 10.15s forwards;
+    animation:meteoZoneHaloReady .9s ease 10.75s forwards;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone[data-id="eclaircie"]{
+#e02_meteo.entry-rite-arriving .makerland-zone[data-id="eclaircie"],
+#e02_meteo[style*="display: block"] .makerland-zone[data-id="eclaircie"]{
     animation-delay:8.5s;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone[data-id="transition"]{
+#e02_meteo.entry-rite-arriving .makerland-zone[data-id="transition"],
+#e02_meteo[style*="display: block"] .makerland-zone[data-id="transition"]{
     animation-delay:8.82s;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone[data-id="je_ne_sais_pas"]{
+#e02_meteo.entry-rite-arriving .makerland-zone[data-id="je_ne_sais_pas"],
+#e02_meteo[style*="display: block"] .makerland-zone[data-id="je_ne_sais_pas"]{
     animation-delay:9.14s;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone[data-id="brouillard"]{
+#e02_meteo.entry-rite-arriving .makerland-zone[data-id="brouillard"],
+#e02_meteo[style*="display: block"] .makerland-zone[data-id="brouillard"]{
     animation-delay:9.46s;
 }
 
-#e02_meteo.entry-rite-arriving .makerland-zone[data-id="tempete"]{
+#e02_meteo.entry-rite-arriving .makerland-zone[data-id="tempete"],
+#e02_meteo[style*="display: block"] .makerland-zone[data-id="tempete"]{
     animation-delay:9.78s;
 }
 
@@ -526,16 +536,16 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 #e02_meteo .makerland-zone-visual-button{
-    padding:clamp(4px, calc(var(--makerland-zone-scale) * 18px), 12px);
-    font-size:clamp(8px, calc(var(--makerland-zone-scale) * 31px), 25px);
+    padding:clamp(6px, calc(var(--makerland-zone-scale) * 19px), 13px);
+    font-size:clamp(11px, calc(var(--makerland-zone-scale) * 33px), 25px);
 }
 
 #e02_meteo .makerland-zone-visual-button::after{
     display:block;
-    max-width:92%;
-    font-size:clamp(6px, calc(var(--makerland-zone-scale) * 15px), 13px);
+    max-width:96%;
+    font-size:clamp(9px, calc(var(--makerland-zone-scale) * 17px), 14px);
     font-weight:500;
-    line-height:1.18;
+    line-height:1.25;
     color:rgba(255,255,255,.82);
     text-shadow:0 1px 8px rgba(0,0,0,.45);
 }
@@ -1923,7 +1933,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     #e02_meteo.entry-rite-arriving .screen-bg,
     #e02_meteo.entry-rite-arriving .meteo-intro h1,
     #e02_meteo.entry-rite-arriving .meteo-intro p,
-    #e02_meteo.entry-rite-arriving .makerland-zone{
+    #e02_meteo.entry-rite-arriving .makerland-zone,
+    #e02_meteo[style*="display: block"] .screen-bg,
+    #e02_meteo[style*="display: block"] .meteo-intro h1,
+    #e02_meteo[style*="display: block"] .meteo-intro p,
+    #e02_meteo[style*="display: block"] .makerland-zone{
         animation:none;
     }
 
@@ -1937,6 +1951,19 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     #e01_accueil .makerland-zone[data-id="entrer"] .makerland-zone-visual-button{
+        opacity:1;
+        transform:none;
+        filter:none;
+    }
+
+    #e02_meteo.entry-rite-arriving .meteo-intro h1,
+    #e02_meteo.entry-rite-arriving .meteo-intro p,
+    #e02_meteo.entry-rite-arriving .makerland-zone,
+    #e02_meteo.entry-rite-arriving .makerland-zone-visual-button,
+    #e02_meteo[style*="display: block"] .meteo-intro h1,
+    #e02_meteo[style*="display: block"] .meteo-intro p,
+    #e02_meteo[style*="display: block"] .makerland-zone,
+    #e02_meteo[style*="display: block"] .makerland-zone-visual-button{
         opacity:1;
         transform:none;
         filter:none;
