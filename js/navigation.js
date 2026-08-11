@@ -17,9 +17,21 @@ const ENTRY_RITE_FROM = "e01_accueil";
 
 const ENTRY_RITE_TO = "e02_meteo";
 
-const ENTRY_RITE_SWITCH_DELAY = 900;
+const ENTRY_RITE_SWITCH_DELAY = 1150;
 
-const ENTRY_RITE_TOTAL_DURATION = 2100;
+const ENTRY_RITE_TOTAL_DURATION = 2450;
+
+const ENTRY_RITE_AUDIO_HOOKS = {
+
+    wind: "entry-rite:wind",
+
+    birds: "entry-rite:birds",
+
+    pages: "entry-rite:pages",
+
+    distantBell: "entry-rite:distant-bell"
+
+};
 
 /****************************************
  STATE
@@ -200,6 +212,10 @@ function startEntryRite(screenId) {
         "entry-rite-running"
     );
 
+    dispatchEntryRiteCue(
+        "threshold"
+    );
+
     if (current) {
 
         current.classList.add(
@@ -212,7 +228,11 @@ function startEntryRite(screenId) {
         () => {
 
             document.body.classList.add(
-                "entry-rite-voice-visible"
+                "entry-rite-welcome-visible"
+            );
+
+            dispatchEntryRiteCue(
+                "welcome"
             );
 
         },
@@ -223,11 +243,15 @@ function startEntryRite(screenId) {
         () => {
 
             document.body.classList.remove(
-                "entry-rite-voice-visible"
+                "entry-rite-welcome-visible"
             );
 
             show(
                 screenId
+            );
+
+            dispatchEntryRiteCue(
+                "meteo"
             );
 
             if (
@@ -273,6 +297,23 @@ function startEntryRite(screenId) {
 
 }
 
+function dispatchEntryRiteCue(cue) {
+
+    window.dispatchEvent(
+        new CustomEvent(
+            "entryRiteCue",
+            {
+                detail: {
+                    cue,
+                    audioHooks:
+                        ENTRY_RITE_AUDIO_HOOKS
+                }
+            }
+        )
+    );
+
+}
+
 function cleanupEntryRite(
     previous,
     screenId
@@ -280,7 +321,7 @@ function cleanupEntryRite(
 
     document.body.classList.remove(
         "entry-rite-running",
-        "entry-rite-voice-visible"
+        "entry-rite-welcome-visible"
     );
 
     if (previous) {
