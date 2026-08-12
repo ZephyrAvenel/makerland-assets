@@ -1,0 +1,233 @@
+{
+  "screens": {
+    "e07_atelier": [
+      {
+        "id": "atelier_dialogue",
+        "label": "Dialogue avec l'IA",
+        "x": 10.4,
+        "y": 36,
+        "w": 15.7,
+        "h": 39.2,
+        "href": "atelier/dialogue/"
+      },
+      {
+        "id": "atelier_cartographie",
+        "label": "Cartographie des idees",
+        "x": 27,
+        "y": 36,
+        "w": 15.6,
+        "h": 39.2,
+        "href": "atelier/cartographie/"
+      },
+      {
+        "id": "atelier_images",
+        "label": "Generation d'images",
+        "x": 43.4,
+        "y": 36,
+        "w": 15.5,
+        "h": 39.2,
+        "href": "atelier/images/"
+      },
+      {
+        "id": "atelier_clarification",
+        "label": "Clarification et affinage",
+        "x": 59.1,
+        "y": 36,
+        "w": 15.6,
+        "h": 39.2,
+        "href": "atelier/clarification/"
+      },
+      {
+        "id": "atelier_evolution",
+        "label": "Evolution de l'oeuvre",
+        "x": 75.6,
+        "y": 36,
+        "w": 15.6,
+        "h": 39.2,
+        "href": "atelier/evolution/"
+      },
+      {
+        "id": "atelier_start",
+        "label": "Entrer dans l'Atelier",
+        "x": 30.2,
+        "y": 76.8,
+        "w": 40,
+        "h": 8.3,
+        "href": "atelier/"
+      },
+      {
+        "id": "atelier_retour_bibliotheque",
+        "label": "Retour Bibliotheque",
+        "x": 4.2,
+        "y": 87.8,
+        "w": 20.8,
+        "h": 9.6,
+        "screen": "e06_fiction"
+      },
+      {
+        "id": "atelier_retour_oeuvre",
+        "label": "Retour Oeuvre",
+        "x": 74.5,
+        "y": 88.4,
+        "w": 21.8,
+        "h": 9.4,
+        "screen": "e04_oeuvre"
+      }
+    ],
+    "e08_constellation": [
+      {
+        "id": "constellation_recit_001",
+        "label": "Recit 001",
+        "x": 4.2,
+        "y": 5.5,
+        "w": 9.8,
+        "h": 20.4,
+        "href": "constellation/recit-001/"
+      },
+      {
+        "id": "constellation_recit_002",
+        "label": "Recit 002",
+        "x": 16.5,
+        "y": 7.3,
+        "w": 9.4,
+        "h": 19.2,
+        "href": "constellation/recit-002/"
+      },
+      {
+        "id": "constellation_recit_003",
+        "label": "Recit 003",
+        "x": 4,
+        "y": 28,
+        "w": 10,
+        "h": 16.7,
+        "href": "constellation/recit-003/"
+      },
+      {
+        "id": "constellation_recit_004",
+        "label": "Recit 004",
+        "x": 19,
+        "y": 28.4,
+        "w": 8.9,
+        "h": 18,
+        "href": "constellation/recit-004/"
+      },
+      {
+        "id": "constellation_recit_005",
+        "label": "Recit 005",
+        "x": 5.2,
+        "y": 46.7,
+        "w": 10.8,
+        "h": 16.7,
+        "href": "constellation/recit-005/"
+      },
+      {
+        "id": "constellation_recit_006",
+        "label": "Recit 006",
+        "x": 18.9,
+        "y": 49,
+        "w": 9,
+        "h": 18.2,
+        "href": "constellation/recit-006/"
+      },
+      {
+        "id": "constellation_recit_007",
+        "label": "Recit 007",
+        "x": 75.8,
+        "y": 5.3,
+        "w": 9.4,
+        "h": 18.6,
+        "href": "constellation/recit-007/"
+      },
+      {
+        "id": "constellation_recit_008",
+        "label": "Recit 008",
+        "x": 86.9,
+        "y": 8.5,
+        "w": 9.6,
+        "h": 19.3,
+        "href": "constellation/recit-008/"
+      },
+      {
+        "id": "constellation_recit_009",
+        "label": "Recit 009",
+        "x": 72.4,
+        "y": 24.8,
+        "w": 9.8,
+        "h": 18.5,
+        "href": "constellation/recit-009/"
+      },
+      {
+        "id": "constellation_recit_010",
+        "label": "Recit 010",
+        "x": 83.3,
+        "y": 28.4,
+        "w": 10.6,
+        "h": 19.4,
+        "href": "constellation/recit-010/"
+      },
+      {
+        "id": "constellation_recit_011",
+        "label": "Recit 011",
+        "x": 72.8,
+        "y": 45,
+        "w": 9.6,
+        "h": 18.8,
+        "href": "constellation/recit-011/"
+      },
+      {
+        "id": "constellation_recit_012",
+        "label": "Recit 012",
+        "x": 83.5,
+        "y": 48,
+        "w": 10.3,
+        "h": 18,
+        "href": "constellation/recit-012/"
+      },
+      {
+        "id": "constellation_carnet",
+        "label": "Carnet du voyageur",
+        "x": 0,
+        "y": 79,
+        "w": 17,
+        "h": 20,
+        "href": "constellation/carnet/"
+      },
+      {
+        "id": "constellation_collectif",
+        "label": "Vos mots. Une constellation.",
+        "x": 7.8,
+        "y": 66.7,
+        "w": 25,
+        "h": 20,
+        "href": "constellation/collectif/"
+      },
+      {
+        "id": "constellation_comment",
+        "label": "Comment ca fonctionne",
+        "x": 67.1,
+        "y": 66.8,
+        "w": 23.8,
+        "h": 18.5,
+        "href": "constellation/comment/"
+      },
+      {
+        "id": "constellation_retour_bibliotheque",
+        "label": "Retour Bibliotheque",
+        "x": 11.2,
+        "y": 88.4,
+        "w": 18.4,
+        "h": 9.6,
+        "screen": "e06_fiction"
+      },
+      {
+        "id": "constellation_retour_oeuvre",
+        "label": "Retour Oeuvre",
+        "x": 71.1,
+        "y": 88.6,
+        "w": 18.5,
+        "h": 9.4,
+        "screen": "e04_oeuvre"
+      }
+    ]
+  }
+}
