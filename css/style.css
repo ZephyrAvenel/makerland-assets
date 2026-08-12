@@ -751,7 +751,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     filter:blur(8px);
     opacity:.8;
     transform:translate(-50%, -50%);
-    animation:living-compass-breathe 10s ease-in-out infinite;
+    animation:living-compass-breathe 12s ease-in-out infinite;
 }
 
 .living-compass[data-weather="eclaircie"] .living-compass-light{
@@ -951,18 +951,18 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 .living-compass-direction[data-direction="creer"]{
-    left:max(var(--compass-edge-margin), 24%);
+    left:max(var(--compass-edge-margin), 22%);
     top:65%;
 }
 
 .living-compass-direction[data-direction="contempler"]{
-    left:min(calc(100% - var(--compass-edge-margin)), 76%);
+    left:min(calc(100% - var(--compass-edge-margin)), 78%);
     top:65%;
 }
 
 .living-compass-direction[data-direction="decouvrir"]{
     left:50%;
-    top:80%;
+    top:78%;
 }
 
 .living-compass-direction[data-direction="repere"]{
@@ -973,14 +973,14 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .living-echo{
     position:absolute;
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .53);
     z-index:42;
-    width:min(520px, calc(var(--screen-content-width) * .42));
+    width:min(520px, calc(var(--screen-content-width) * .44));
     margin:0;
     color:rgba(255,250,235,.88);
-    font-size:15px;
+    font-size:16px;
     font-weight:500;
-    line-height:1.35;
+    line-height:1.6;
     text-align:center;
     text-shadow:
         0 0 18px rgba(255,240,210,.22),
@@ -1025,11 +1025,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 .living-echo[data-intensity="2"]{
-    font-size:16px;
+    font-size:17px;
 }
 
 .living-echo[data-intensity="3"]{
-    font-size:17px;
+    font-size:18px;
 }
 
 /****************************************
@@ -1495,7 +1495,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .living-compass-ready .living-compass-direction.is-suggested{
     animation:
         living-compass-suggestion-arrive 1.1s cubic-bezier(.22,1,.36,1) both,
-        living-compass-marker-breathe 5.4s ease-in-out 1.1s infinite;
+        living-compass-marker-breathe 6.8s ease-in-out 1.1s infinite;
 }
 
 .living-compass[data-weather="eclaircie"] .living-compass-direction.is-suggested{
@@ -1584,7 +1584,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .living-compass-ready .living-compass-direction.is-suggested::before{
     animation:
         living-compass-suggestion-halo-arrive 1.1s cubic-bezier(.22,1,.36,1) both,
-        living-compass-suggestion-halo-breathe 5.4s ease-in-out 1.1s infinite;
+        living-compass-suggestion-halo-breathe 6.8s ease-in-out 1.1s infinite;
 }
 
 @keyframes living-compass-breathe {
@@ -1710,18 +1710,18 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .living-compass-direction[data-direction="creer"]{
-        left:max(var(--compass-edge-margin), 14%);
+        left:max(var(--compass-edge-margin), 13%);
         top:68%;
     }
 
     .living-compass-direction[data-direction="contempler"]{
-        left:min(calc(100% - var(--compass-edge-margin)), 86%);
+        left:min(calc(100% - var(--compass-edge-margin)), 87%);
         top:68%;
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
         left:50%;
-        top:81%;
+        top:79%;
     }
 
     .living-compass-direction[data-direction="repere"]{
@@ -1732,14 +1732,14 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-echo{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .57);
-        width:min(220px, calc(var(--screen-content-width) * .58));
-        font-size:8.5px;
-        line-height:1.1;
+        width:min(260px, calc(var(--screen-content-width) * .66));
+        font-size:10px;
+        line-height:1.38;
     }
 
     .living-echo[data-intensity="2"],
     .living-echo[data-intensity="3"]{
-        font-size:9px;
+        font-size:10.5px;
     }
 }
 
@@ -1786,17 +1786,17 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .living-compass-direction[data-direction="creer"]{
-        left:max(var(--compass-edge-margin), 28%);
+        left:max(var(--compass-edge-margin), 26%);
         top:62%;
     }
 
     .living-compass-direction[data-direction="contempler"]{
-        left:min(calc(100% - var(--compass-edge-margin)), 72%);
+        left:min(calc(100% - var(--compass-edge-margin)), 74%);
         top:62%;
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
-        top:72%;
+        top:70%;
     }
 
     .living-compass-direction[data-direction="repere"]{
@@ -1807,14 +1807,14 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     .living-echo{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .86);
-        width:min(320px, calc(var(--screen-content-width) * .42));
-        font-size:10px;
-        line-height:1.12;
+        width:min(420px, calc(var(--screen-content-width) * .52));
+        font-size:11.5px;
+        line-height:1.32;
     }
 
     .living-echo[data-intensity="2"],
     .living-echo[data-intensity="3"]{
-        font-size:10px;
+        font-size:12px;
     }
 
     .archway-whisper{
@@ -1898,7 +1898,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
-        top:69%;
+        top:68%;
     }
 
     .living-compass-direction[data-direction="repere"]{
@@ -1908,14 +1908,14 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-echo{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .86);
-        width:min(260px, calc(var(--screen-content-width) * .42));
-        font-size:9px;
-        line-height:1.08;
+        width:min(360px, calc(var(--screen-content-width) * .50));
+        font-size:10.5px;
+        line-height:1.22;
     }
 
     .living-echo[data-intensity="2"],
     .living-echo[data-intensity="3"]{
-        font-size:9px;
+        font-size:11px;
     }
 
     .archway-whisper{
