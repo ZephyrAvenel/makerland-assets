@@ -204,12 +204,13 @@ body{
 
 .entry-intro-signature{
     margin-top:clamp(8px, calc(var(--screen-content-height) * .016), 18px) !important;
-    color:rgba(255,238,210,.84);
+    color:rgba(255,238,210,.94);
     font-family:Georgia, "Times New Roman", serif;
-    font-size:clamp(10px, calc(var(--screen-content-width) * .012), 16px);
+    font-size:clamp(12px, calc(var(--screen-content-width) * .014), 19px);
+    font-weight:500;
     text-shadow:
-        0 1px 10px rgba(0,0,0,.62),
-        0 0 12px rgba(255,225,178,.14);
+        0 1px 12px rgba(0,0,0,.70),
+        0 0 14px rgba(255,225,178,.18);
     animation-delay:3.05s;
 }
 
@@ -620,7 +621,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .entry-intro-signature{
         margin-top:5px !important;
-        font-size:9px;
+        font-size:11px;
     }
 
     .entry-intro-threshold{
@@ -852,10 +853,10 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .living-compass-message .living-compass-memory{
     margin-top:10px;
-    font-size:.62em;
-    font-weight:500;
-    line-height:1.28;
-    color:rgba(255,255,255,.70);
+    font-size:.74em;
+    font-weight:550;
+    line-height:1.34;
+    color:rgba(255,255,255,.82);
 }
 
 .living-compass-message .living-compass-memory +
@@ -1159,19 +1160,19 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     position:absolute;
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .23);
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .13);
-    width:calc(var(--screen-content-width) * .54);
+    width:calc(var(--screen-content-width) * .62);
     margin:0;
     z-index:3;
     opacity:0;
     transform:translateY(10px);
     color:rgba(255,246,222,.92);
     font-family:Georgia, "Times New Roman", serif;
-    font-size:clamp(17px, calc(var(--screen-content-width) * .02), 30px);
-    line-height:1.38;
+    font-size:clamp(20px, calc(var(--screen-content-width) * .023), 34px);
+    line-height:1.52;
     text-align:center;
     text-shadow:
-        0 2px 22px rgba(0,0,0,.78),
-        0 0 22px rgba(255,216,142,.16);
+        0 2px 24px rgba(0,0,0,.82),
+        0 0 24px rgba(255,216,142,.18);
     transition:
         opacity 1s ease,
         transform 1s ease;
@@ -1375,7 +1376,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .atlas-passage .archway-whisper{
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .21);
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
-    width:calc(var(--screen-content-width) * .58);
+    width:calc(var(--screen-content-width) * .66);
 }
 
 .atlas-passage .archway-gate{
@@ -1685,8 +1686,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-compass-message .living-compass-memory{
         margin-top:6px;
-        font-size:.58em;
-        line-height:1.12;
+        font-size:.70em;
+        line-height:1.2;
     }
 
     .living-compass-message .living-compass-memory +
@@ -1763,8 +1764,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-compass-message .living-compass-memory{
         margin-top:3px;
-        font-size:.52em;
-        line-height:1;
+        font-size:.64em;
+        line-height:1.08;
     }
 
     .living-compass-message .living-compass-memory +
@@ -1823,9 +1824,9 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     .archway-whisper{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .06);
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .24);
-        width:calc(var(--screen-content-width) * .52);
-        font-size:clamp(12px, calc(var(--screen-content-width) * .015), 18px);
-        line-height:1.22;
+        width:calc(var(--screen-content-width) * .58);
+        font-size:clamp(14px, calc(var(--screen-content-width) * .018), 21px);
+        line-height:1.34;
     }
 
     .archway-gate{
@@ -1842,8 +1843,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .atlas-passage .archway-whisper{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
-        font-size:clamp(11px, calc(var(--screen-content-width) * .014), 17px);
-        line-height:1.2;
+        font-size:clamp(13px, calc(var(--screen-content-width) * .017), 20px);
+        line-height:1.32;
     }
 
     .atlas-passage .archway-gate{
@@ -1875,8 +1876,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-compass-message .living-compass-memory{
         margin-top:3px;
-        font-size:.54em;
-        line-height:1;
+        font-size:.66em;
+        line-height:1.08;
     }
 
     .living-compass-light{
@@ -1923,8 +1924,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .archway-whisper{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
-        font-size:clamp(10px, calc(var(--screen-content-width) * .013), 14px);
-        line-height:1.14;
+        font-size:clamp(12px, calc(var(--screen-content-width) * .016), 16px);
+        line-height:1.26;
     }
 
     .archway-whisper span + span{
@@ -1939,8 +1940,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .atlas-passage .archway-whisper{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .04);
-        font-size:clamp(10px, calc(var(--screen-content-width) * .012), 14px);
-        line-height:1.12;
+        font-size:clamp(12px, calc(var(--screen-content-width) * .015), 16px);
+        line-height:1.24;
     }
 
     .atlas-passage .archway-gate{
