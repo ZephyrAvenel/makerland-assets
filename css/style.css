@@ -973,7 +973,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 .living-echo{
     position:absolute;
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .53);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .49);
     z-index:42;
     width:min(520px, calc(var(--screen-content-width) * .44));
     margin:0;
@@ -988,13 +988,14 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     opacity:0;
     transform:translate(-50%, 10px);
     transition:
-        opacity 2.4s ease,
-        transform 2.4s ease;
+        opacity 2.8s ease 3.2s,
+        transform 2.8s ease 3.2s;
 }
 
 .living-echo-visible{
     opacity:1;
     transform:translate(-50%, 0);
+    transition-delay:0s;
 }
 
 .living-echo[data-glow~="warm"]{
@@ -1468,15 +1469,15 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 .living-compass-direction.is-suggested{
-    --compass-suggestion-core:rgba(255,225,170,.20);
-    --compass-suggestion-mid:rgba(255,225,170,.10);
+    --compass-suggestion-core:rgba(255,225,170,.17);
+    --compass-suggestion-mid:rgba(255,225,170,.085);
     --compass-suggestion-edge:rgba(28,22,15,0);
-    --compass-suggestion-shadow-soft:rgba(255,229,176,.34);
-    --compass-suggestion-shadow-strong:rgba(255,229,176,.56);
+    --compass-suggestion-shadow-soft:rgba(255,229,176,.29);
+    --compass-suggestion-shadow-strong:rgba(255,229,176,.48);
     --compass-suggestion-line:rgba(255,246,215,.82);
     --compass-suggestion-line-shadow:rgba(255,236,194,.42);
-    --compass-suggestion-ring:rgba(255,229,176,.32);
-    --compass-suggestion-ring-strong:rgba(255,229,176,.52);
+    --compass-suggestion-ring:rgba(255,229,176,.27);
+    --compass-suggestion-ring-strong:rgba(255,229,176,.44);
     color:rgba(255,252,240,.98);
     z-index:2;
     box-sizing:border-box;
@@ -1499,53 +1500,53 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 .living-compass[data-weather="eclaircie"] .living-compass-direction.is-suggested{
-    --compass-suggestion-core:rgba(255,216,128,.18);
-    --compass-suggestion-mid:rgba(255,216,128,.08);
+    --compass-suggestion-core:rgba(255,216,128,.15);
+    --compass-suggestion-mid:rgba(255,216,128,.068);
     --compass-suggestion-edge:rgba(90,66,22,0);
-    --compass-suggestion-shadow-soft:rgba(255,218,132,.32);
-    --compass-suggestion-shadow-strong:rgba(255,218,132,.5);
-    --compass-suggestion-ring:rgba(255,218,132,.31);
-    --compass-suggestion-ring-strong:rgba(255,218,132,.48);
+    --compass-suggestion-shadow-soft:rgba(255,218,132,.27);
+    --compass-suggestion-shadow-strong:rgba(255,218,132,.43);
+    --compass-suggestion-ring:rgba(255,218,132,.26);
+    --compass-suggestion-ring-strong:rgba(255,218,132,.41);
 }
 
 .living-compass[data-weather="transition"] .living-compass-direction.is-suggested{
-    --compass-suggestion-core:rgba(255,182,92,.18);
-    --compass-suggestion-mid:rgba(255,182,92,.08);
+    --compass-suggestion-core:rgba(255,182,92,.15);
+    --compass-suggestion-mid:rgba(255,182,92,.068);
     --compass-suggestion-edge:rgba(86,54,22,0);
-    --compass-suggestion-shadow-soft:rgba(255,184,96,.33);
-    --compass-suggestion-shadow-strong:rgba(255,184,96,.52);
-    --compass-suggestion-ring:rgba(255,184,96,.32);
-    --compass-suggestion-ring-strong:rgba(255,184,96,.5);
+    --compass-suggestion-shadow-soft:rgba(255,184,96,.28);
+    --compass-suggestion-shadow-strong:rgba(255,184,96,.44);
+    --compass-suggestion-ring:rgba(255,184,96,.27);
+    --compass-suggestion-ring-strong:rgba(255,184,96,.43);
 }
 
 .living-compass[data-weather="je_ne_sais_pas"] .living-compass-direction.is-suggested{
-    --compass-suggestion-core:rgba(255,255,246,.15);
-    --compass-suggestion-mid:rgba(255,255,246,.07);
+    --compass-suggestion-core:rgba(255,255,246,.13);
+    --compass-suggestion-mid:rgba(255,255,246,.06);
     --compass-suggestion-edge:rgba(96,98,106,0);
-    --compass-suggestion-shadow-soft:rgba(255,255,246,.28);
-    --compass-suggestion-shadow-strong:rgba(255,255,246,.46);
-    --compass-suggestion-ring:rgba(255,255,246,.28);
-    --compass-suggestion-ring-strong:rgba(255,255,246,.44);
+    --compass-suggestion-shadow-soft:rgba(255,255,246,.24);
+    --compass-suggestion-shadow-strong:rgba(255,255,246,.39);
+    --compass-suggestion-ring:rgba(255,255,246,.24);
+    --compass-suggestion-ring-strong:rgba(255,255,246,.37);
 }
 
 .living-compass[data-weather="brouillard"] .living-compass-direction.is-suggested{
-    --compass-suggestion-core:rgba(160,190,210,.17);
-    --compass-suggestion-mid:rgba(160,190,210,.08);
+    --compass-suggestion-core:rgba(160,190,210,.14);
+    --compass-suggestion-mid:rgba(160,190,210,.068);
     --compass-suggestion-edge:rgba(44,62,75,0);
-    --compass-suggestion-shadow-soft:rgba(160,190,210,.3);
-    --compass-suggestion-shadow-strong:rgba(160,190,210,.48);
-    --compass-suggestion-ring:rgba(160,190,210,.29);
-    --compass-suggestion-ring-strong:rgba(160,190,210,.46);
+    --compass-suggestion-shadow-soft:rgba(160,190,210,.26);
+    --compass-suggestion-shadow-strong:rgba(160,190,210,.41);
+    --compass-suggestion-ring:rgba(160,190,210,.25);
+    --compass-suggestion-ring-strong:rgba(160,190,210,.39);
 }
 
 .living-compass[data-weather="tempete"] .living-compass-direction.is-suggested{
-    --compass-suggestion-core:rgba(210,128,62,.18);
-    --compass-suggestion-mid:rgba(210,128,62,.08);
+    --compass-suggestion-core:rgba(210,128,62,.15);
+    --compass-suggestion-mid:rgba(210,128,62,.068);
     --compass-suggestion-edge:rgba(74,43,22,0);
-    --compass-suggestion-shadow-soft:rgba(218,138,70,.34);
-    --compass-suggestion-shadow-strong:rgba(218,138,70,.54);
-    --compass-suggestion-ring:rgba(218,138,70,.33);
-    --compass-suggestion-ring-strong:rgba(218,138,70,.52);
+    --compass-suggestion-shadow-soft:rgba(218,138,70,.29);
+    --compass-suggestion-shadow-strong:rgba(218,138,70,.46);
+    --compass-suggestion-ring:rgba(218,138,70,.28);
+    --compass-suggestion-ring-strong:rgba(218,138,70,.44);
 }
 
 .living-compass-direction.is-suggested::after{
@@ -1612,10 +1613,10 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     50%{
         box-shadow:none;
-        filter:brightness(1.15);
+        filter:brightness(1.12);
         text-shadow:
             0 1px 12px rgba(0,0,0,.68),
-            0 0 26px var(--compass-suggestion-shadow-strong);
+            0 0 22px var(--compass-suggestion-shadow-strong);
     }
 }
 
@@ -1653,12 +1654,12 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 @keyframes living-compass-suggestion-halo-breathe {
     0%,
     100%{
-        opacity:.7;
+        opacity:.6;
         transform:scale(.96);
     }
 
     50%{
-        opacity:.96;
+        opacity:.82;
         transform:scale(1.16);
     }
 }
