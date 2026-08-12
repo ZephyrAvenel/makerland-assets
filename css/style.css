@@ -1487,17 +1487,10 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     color:rgba(255,252,240,.98);
     z-index:2;
     box-sizing:border-box;
-    border:1px solid var(--compass-suggestion-border);
-    background:
-        radial-gradient(
-            ellipse at center,
-            var(--compass-suggestion-core) 0%,
-            var(--compass-suggestion-mid) 48%,
-            var(--compass-suggestion-edge) 82%
-        );
-    box-shadow:
-        0 0 18px var(--compass-suggestion-shadow-soft),
-        0 0 62px var(--compass-suggestion-ring);
+    border:1px solid rgba(255,230,178,0);
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
     text-shadow:
         0 1px 12px rgba(0,0,0,.65),
         0 0 14px var(--compass-suggestion-shadow-soft);
@@ -1616,17 +1609,21 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 @keyframes living-compass-marker-breathe {
     0%,
     100%{
-        border-color:var(--compass-suggestion-border);
-        box-shadow:
-            0 0 18px var(--compass-suggestion-shadow-soft),
-            0 0 66px var(--compass-suggestion-ring);
+        border-color:rgba(255,230,178,0);
+        box-shadow:none;
+        filter:brightness(1.06);
+        text-shadow:
+            0 1px 12px rgba(0,0,0,.65),
+            0 0 14px var(--compass-suggestion-shadow-soft);
     }
 
     50%{
-        border-color:var(--compass-suggestion-border-strong);
-        box-shadow:
-            0 0 26px var(--compass-suggestion-shadow-strong),
-            0 0 92px var(--compass-suggestion-ring-strong);
+        border-color:rgba(255,230,178,.12);
+        box-shadow:none;
+        filter:brightness(1.12);
+        text-shadow:
+            0 1px 12px rgba(0,0,0,.68),
+            0 0 20px var(--compass-suggestion-shadow-strong);
     }
 }
 
@@ -1638,11 +1635,11 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     66%{
-        border-color:var(--compass-suggestion-border);
+        border-color:rgba(255,230,178,.08);
     }
 
     100%{
-        border-color:var(--compass-suggestion-border);
+        border-color:rgba(255,230,178,0);
         filter:brightness(1.08);
     }
 }
