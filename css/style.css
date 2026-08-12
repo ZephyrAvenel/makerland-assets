@@ -988,14 +988,16 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     opacity:0;
     transform:translate(-50%, 10px);
     transition:
-        opacity 2.8s ease 3.2s,
-        transform 2.8s ease 3.2s;
+        opacity 2s ease 10s,
+        transform 2s ease 10s;
 }
 
 .living-echo-visible{
     opacity:1;
     transform:translate(-50%, 0);
-    transition-delay:0s;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 .living-echo[data-glow~="warm"]{
