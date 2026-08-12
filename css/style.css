@@ -204,9 +204,12 @@ body{
 
 .entry-intro-signature{
     margin-top:clamp(8px, calc(var(--screen-content-height) * .016), 18px) !important;
-    color:rgba(255,232,196,.72);
+    color:rgba(255,238,210,.84);
     font-family:Georgia, "Times New Roman", serif;
     font-size:clamp(10px, calc(var(--screen-content-width) * .012), 16px);
+    text-shadow:
+        0 1px 10px rgba(0,0,0,.62),
+        0 0 12px rgba(255,225,178,.14);
     animation-delay:3.05s;
 }
 
@@ -1466,18 +1469,65 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 }
 
 .living-compass-direction.is-suggested{
+    --compass-suggestion-core:rgba(255,225,170,.24);
+    --compass-suggestion-mid:rgba(28,22,15,.38);
+    --compass-suggestion-edge:rgba(28,22,15,0);
+    --compass-suggestion-shadow-soft:rgba(255,229,176,.12);
+    --compass-suggestion-shadow-strong:rgba(255,229,176,.22);
+    --compass-suggestion-line:rgba(255,246,215,.72);
+    --compass-suggestion-line-shadow:rgba(255,236,194,.34);
     color:rgba(255,255,255,.96);
     background:
         radial-gradient(
             ellipse at center,
-            rgba(255,225,170,.24) 0%,
-            rgba(28,22,15,.38) 58%,
-            rgba(28,22,15,0) 78%
+            var(--compass-suggestion-core) 0%,
+            var(--compass-suggestion-mid) 58%,
+            var(--compass-suggestion-edge) 78%
         );
     box-shadow:
-        0 0 34px rgba(255,229,176,.18);
+        0 0 34px var(--compass-suggestion-shadow-soft);
     transform:translate(-50%, -50%) translateY(-2px);
     animation:living-compass-marker-breathe 6.5s ease-in-out infinite;
+}
+
+.living-compass[data-weather="eclaircie"] .living-compass-direction.is-suggested{
+    --compass-suggestion-core:rgba(255,216,128,.22);
+    --compass-suggestion-mid:rgba(90,66,22,.24);
+    --compass-suggestion-edge:rgba(90,66,22,0);
+    --compass-suggestion-shadow-soft:rgba(255,218,132,.14);
+    --compass-suggestion-shadow-strong:rgba(255,218,132,.26);
+}
+
+.living-compass[data-weather="transition"] .living-compass-direction.is-suggested{
+    --compass-suggestion-core:rgba(255,182,92,.2);
+    --compass-suggestion-mid:rgba(86,54,22,.24);
+    --compass-suggestion-edge:rgba(86,54,22,0);
+    --compass-suggestion-shadow-soft:rgba(255,184,96,.13);
+    --compass-suggestion-shadow-strong:rgba(255,184,96,.25);
+}
+
+.living-compass[data-weather="je_ne_sais_pas"] .living-compass-direction.is-suggested{
+    --compass-suggestion-core:rgba(255,255,246,.18);
+    --compass-suggestion-mid:rgba(96,98,106,.2);
+    --compass-suggestion-edge:rgba(96,98,106,0);
+    --compass-suggestion-shadow-soft:rgba(255,255,246,.12);
+    --compass-suggestion-shadow-strong:rgba(255,255,246,.22);
+}
+
+.living-compass[data-weather="brouillard"] .living-compass-direction.is-suggested{
+    --compass-suggestion-core:rgba(160,190,210,.18);
+    --compass-suggestion-mid:rgba(44,62,75,.24);
+    --compass-suggestion-edge:rgba(44,62,75,0);
+    --compass-suggestion-shadow-soft:rgba(160,190,210,.12);
+    --compass-suggestion-shadow-strong:rgba(160,190,210,.23);
+}
+
+.living-compass[data-weather="tempete"] .living-compass-direction.is-suggested{
+    --compass-suggestion-core:rgba(210,128,62,.2);
+    --compass-suggestion-mid:rgba(74,43,22,.26);
+    --compass-suggestion-edge:rgba(74,43,22,0);
+    --compass-suggestion-shadow-soft:rgba(218,138,70,.14);
+    --compass-suggestion-shadow-strong:rgba(218,138,70,.27);
 }
 
 .living-compass-direction.is-suggested::before{
@@ -1487,8 +1537,8 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     right:22%;
     top:-5px;
     height:1px;
-    background:rgba(255,246,215,.72);
-    box-shadow:0 0 12px rgba(255,236,194,.34);
+    background:var(--compass-suggestion-line);
+    box-shadow:0 0 12px var(--compass-suggestion-line-shadow);
 }
 
 @keyframes living-compass-breathe {
@@ -1508,12 +1558,12 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     0%,
     100%{
         box-shadow:
-            0 0 22px rgba(255,229,176,.12);
+            0 0 22px var(--compass-suggestion-shadow-soft);
     }
 
     50%{
         box-shadow:
-            0 0 36px rgba(255,229,176,.22);
+            0 0 36px var(--compass-suggestion-shadow-strong);
     }
 }
 
