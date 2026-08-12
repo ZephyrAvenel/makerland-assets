@@ -36,7 +36,7 @@ const LIVING_COMPASS_TEXTS = {
         message:
             "Vous commencez sous une éclaircie.\nLes chemins sont ouverts.\nPrenez celui qui vous appelle.",
         direction:
-            "creer"
+            "contempler"
     },
 
     transition: {
@@ -64,7 +64,7 @@ const LIVING_COMPASS_TEXTS = {
         message:
             "Vous commencez au milieu de la tempête.\nRien ne presse.\nLa boussole reste disponible.",
         direction:
-            "contempler"
+            "creer"
     }
 
 };

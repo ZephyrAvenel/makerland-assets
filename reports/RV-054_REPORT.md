@@ -1,69 +1,62 @@
-# RV-054 - Actualisation forcee du manifest PWA
+# RV-054 - Continuite narrative accueil / meteo / Boussole
 
-Date: 2026-08-11
+Date: 2026-08-12
 
-Branche: `agent/rv-054-manifest-cache-bust`
+Branche: `agent/rv-054-narrative-continuity`
 
 ## Objectif
 
-Forcer Chrome / Android a recharger le manifest PWA apres le renommage final de l'application.
+Ameliorer discretement la lisibilite de la signature de la page d'accueil et retablir une continuite visuelle entre la meteo interieure choisie et la Boussole Vivante.
 
-## Verification du manifest
+## Page d'accueil
 
-Le manifest reellement reference est `manifest.json`.
+La ligne `Une oeuvre immersive de Zephyr Avenel` conserve:
 
-- `name`: `Récits Vivants`
-- `short_name`: `Récits`
+- sa position;
+- sa taille;
+- sa police;
+- son animation existante.
 
-Les champs suivants sont restes inchanges:
+Ajustements appliques:
 
-- `start_url`
-- `scope`
-- `display`
-- `background_color`
-- `theme_color`
-- `icons`
+- opacite legerement renforcee;
+- contraste legerement augmente;
+- ombre portee diffuse tres discrete;
+- glow chaud tres faible pour rester dans l'esthetique existante.
 
-## Reference HTML modifiee
+## Boussole Vivante
 
-Fichier modifie: `index.html`
+La Boussole conserve son fonctionnement existant:
 
-Avant:
+- aucune destination modifiee;
+- aucune navigation automatique ajoutee;
+- aucun texte modifie;
+- aucun JSON metier modifie.
 
-`<link rel="manifest" href="manifest.json">`
+La direction deja marquee par `.is-suggested` recoit maintenant une couleur de halo adaptee a la meteo:
 
-Apres:
+| Meteo | Direction suggeree | Halo |
+| --- | --- | --- |
+| Eclaircie | Contempler | dore tres leger |
+| Transition | Explorer | ambre discret |
+| Je ne sais pas | Decouvrir | blanc doux |
+| Brouillard | Trouver un repere | bleu-gris discret |
+| Tempete | Creer | cuivre / or profond |
 
-`<link rel="manifest" href="manifest.json?v=2">`
+Le halo respire lentement avec l'animation existante, sans clignotement et sans masquer les directions.
 
-## Manifest unique
+## Fichiers modifies
 
-Recherche effectuee:
-
-- `manifest.json`
-- `manifest.webmanifest`
-- `rel="manifest"`
-
-Resultat:
-
-- Une seule reference active `<link rel="manifest">` dans `index.html`.
-- Aucun `manifest.webmanifest` utilise par l'application.
-- Aucune autre page HTML ne reference un ancien manifest.
-
-## Perimetre respecte
-
-- Aucun JavaScript modifie.
-- Aucun CSS modifie.
-- Aucun JSON metier modifie.
-- Aucun service worker ajoute.
-- Icones conservees.
-- `start_url` conserve.
-- `scope` conserve.
-- `display` conserve.
-- `theme_color` conserve.
+- `css/style.css`
+- `js/app.js`
+- `reports/RV-054_REPORT.md`
 
 ## Validation
 
-- `manifest.json` valide en JSON.
-- Le lien HTML pointe vers `manifest.json?v=2`.
+- `node --check js/app.js` OK.
 - `git diff --check` OK.
+- Aucun script lint local detecte (`package.json` absent).
+- Aucun HTML modifie.
+- Aucun JSON modifie.
+- Aucune destination `data-target-screen` modifiee.
+- Aucun parcours utilisateur modifie.
