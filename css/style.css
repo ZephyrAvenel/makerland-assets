@@ -947,27 +947,27 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .living-compass-direction[data-direction="explorer"]{
     left:50%;
-    top:39%;
+    top:36%;
 }
 
 .living-compass-direction[data-direction="creer"]{
-    left:max(var(--compass-edge-margin), 28%);
-    top:63%;
+    left:max(var(--compass-edge-margin), 24%);
+    top:65%;
 }
 
 .living-compass-direction[data-direction="contempler"]{
-    left:min(calc(100% - var(--compass-edge-margin)), 72%);
-    top:63%;
+    left:min(calc(100% - var(--compass-edge-margin)), 76%);
+    top:65%;
 }
 
 .living-compass-direction[data-direction="decouvrir"]{
     left:50%;
-    top:76%;
+    top:80%;
 }
 
 .living-compass-direction[data-direction="repere"]{
     left:50%;
-    top:min(88%, calc(100% - var(--compass-safe-bottom)));
+    top:min(92%, calc(100% - var(--compass-safe-bottom)));
 }
 
 .living-echo{
@@ -1706,27 +1706,27 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
     .living-compass-direction[data-direction="explorer"]{
         left:50%;
-        top:47%;
+        top:45%;
     }
 
     .living-compass-direction[data-direction="creer"]{
-        left:max(var(--compass-edge-margin), 16%);
-        top:66%;
+        left:max(var(--compass-edge-margin), 14%);
+        top:68%;
     }
 
     .living-compass-direction[data-direction="contempler"]{
-        left:min(calc(100% - var(--compass-edge-margin)), 84%);
-        top:66%;
+        left:min(calc(100% - var(--compass-edge-margin)), 86%);
+        top:68%;
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
         left:50%;
-        top:78%;
+        top:81%;
     }
 
     .living-compass-direction[data-direction="repere"]{
         left:50%;
-        top:min(90%, calc(100% - var(--compass-safe-bottom)));
+        top:min(92%, calc(100% - var(--compass-safe-bottom)));
         width:92px;
     }
 
@@ -1782,25 +1782,25 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .living-compass-direction[data-direction="explorer"]{
-        top:37%;
+        top:35%;
     }
 
     .living-compass-direction[data-direction="creer"]{
-        left:max(var(--compass-edge-margin), 31%);
-        top:61%;
+        left:max(var(--compass-edge-margin), 28%);
+        top:62%;
     }
 
     .living-compass-direction[data-direction="contempler"]{
-        left:min(calc(100% - var(--compass-edge-margin)), 69%);
-        top:61%;
+        left:min(calc(100% - var(--compass-edge-margin)), 72%);
+        top:62%;
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
-        top:70%;
+        top:72%;
     }
 
     .living-compass-direction[data-direction="repere"]{
-        top:min(80%, calc(100% - var(--compass-safe-bottom)));
+        top:min(82%, calc(100% - var(--compass-safe-bottom)));
         width:116px;
     }
 
@@ -1889,20 +1889,20 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     }
 
     .living-compass-direction[data-direction="explorer"]{
-        top:36%;
+        top:34%;
     }
 
     .living-compass-direction[data-direction="creer"],
     .living-compass-direction[data-direction="contempler"]{
-        top:59%;
+        top:60%;
     }
 
     .living-compass-direction[data-direction="decouvrir"]{
-        top:67%;
+        top:69%;
     }
 
     .living-compass-direction[data-direction="repere"]{
-        top:min(76%, calc(100% - var(--compass-safe-bottom)));
+        top:min(78%, calc(100% - var(--compass-safe-bottom)));
         width:108px;
     }
 
