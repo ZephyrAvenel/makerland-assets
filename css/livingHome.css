@@ -19,7 +19,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 .living-home__threshold{
     position:absolute;
     left:50%;
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .385);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .405);
     width:min(620px, calc(var(--screen-content-width) * .58));
     text-align:center;
     transform:translateX(-50%);
@@ -88,17 +88,17 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 .living-home__doors{
     position:absolute;
     left:50%;
-    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .105);
     display:grid;
     grid-template-columns:repeat(3, minmax(150px, 1fr));
-    gap:12px;
-    width:min(720px, calc(var(--screen-content-width) * .68));
+    gap:18px;
+    width:min(760px, calc(var(--screen-content-width) * .72));
     transform:translateX(-50%);
     pointer-events:auto;
 }
 
 .living-home__door{
-    min-height:118px;
+    min-height:106px;
     border-radius:20px;
     padding:14px 15px;
     color:inherit;
@@ -258,7 +258,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
 @media (max-width:768px){
     .living-home__threshold{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .34);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .36);
         width:calc(var(--screen-content-width) * .74);
     }
 
@@ -282,7 +282,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     .living-home__doors{
         bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
         grid-template-columns:1fr;
-        gap:7px;
+        gap:10px;
         width:calc(var(--screen-content-width) * .74);
     }
 
@@ -302,7 +302,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
 @media (max-width:768px) and (orientation:portrait){
     .living-home__threshold{
-        top:24vh;
+        top:25vh;
         width:82vw;
     }
 
@@ -317,14 +317,14 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 
     .living-home__doors{
-        bottom:96px;
+        bottom:88px;
         width:76vw;
     }
 }
 
 @media (max-height:520px) and (orientation:landscape){
     .living-home__threshold{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .3);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .32);
     }
 
     .living-home__guide,
@@ -334,9 +334,10 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 
     .living-home__doors{
-        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
         grid-template-columns:repeat(3, minmax(120px, 1fr));
         width:calc(var(--screen-content-width) * .7);
+        gap:14px;
     }
 
     .living-home__door{
