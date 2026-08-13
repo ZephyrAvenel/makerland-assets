@@ -1,0 +1,234 @@
+.living-exhibitions{
+    position:absolute;
+    inset:0;
+    z-index:59;
+    pointer-events:none;
+    color:rgba(255,243,218,.9);
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+.living-exhibitions__entry{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .065);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .095);
+    max-width:min(300px, calc(var(--screen-content-width) * .28));
+    padding:13px 15px;
+    border:1px solid rgba(255,224,166,.24);
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(8,15,25,.54), rgba(4,8,15,.28));
+    box-shadow:0 18px 36px rgba(0,0,0,.26), 0 0 30px rgba(255,207,130,.08);
+    backdrop-filter:blur(8px);
+    pointer-events:auto;
+}
+
+.living-exhibitions__entry p,
+.living-exhibitions__entry h2{
+    margin:0;
+}
+
+.living-exhibitions__entry h2{
+    color:#ffe2a3;
+    font-size:clamp(14px, calc(var(--screen-content-width) * .014), 21px);
+    line-height:1.22;
+}
+
+.living-exhibitions__entry p{
+    margin-top:7px;
+    color:rgba(255,242,218,.76);
+    font-size:clamp(10px, calc(var(--screen-content-width) * .009), 13px);
+    line-height:1.4;
+}
+
+.living-exhibitions__entry button,
+.living-exhibitions__close{
+    margin-top:10px;
+    border:1px solid rgba(255,224,166,.28);
+    border-radius:999px;
+    padding:7px 10px;
+    color:rgba(255,241,218,.88);
+    background:rgba(255,230,180,.07);
+    font-family:Georgia, "Times New Roman", serif;
+    cursor:pointer;
+}
+
+.living-exhibitions__panel{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .12);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    width:calc(var(--screen-content-width) * .76);
+    max-height:calc(var(--screen-content-height) * .76);
+    display:none;
+    grid-template-columns:minmax(170px, .7fr) minmax(0, 1.3fr);
+    gap:14px;
+    padding:16px;
+    box-sizing:border-box;
+    border:1px solid rgba(255,224,166,.26);
+    border-radius:24px;
+    background:radial-gradient(ellipse at top, rgba(255,222,155,.13), rgba(7,13,23,.78) 58%, rgba(3,7,13,.62));
+    box-shadow:0 26px 58px rgba(0,0,0,.38), 0 0 42px rgba(255,205,125,.12);
+    backdrop-filter:blur(12px);
+    pointer-events:auto;
+    overflow:hidden;
+}
+
+.living-exhibitions.is-open .living-exhibitions__panel{
+    display:grid;
+    animation:livingExhibitionsReveal .75s cubic-bezier(.22,1,.36,1) both;
+}
+
+.living-exhibitions__list{
+    display:grid;
+    gap:7px;
+    align-content:start;
+    overflow:auto;
+}
+
+.living-exhibitions__tab{
+    border:1px solid rgba(255,224,166,.18);
+    border-radius:14px;
+    padding:9px 10px;
+    color:rgba(255,242,218,.78);
+    background:rgba(255,230,180,.04);
+    text-align:left;
+    font-family:Georgia, "Times New Roman", serif;
+    cursor:pointer;
+}
+
+.living-exhibitions__tab.is-active{
+    color:#ffe4ab;
+    border-color:rgba(255,224,166,.42);
+    box-shadow:0 0 24px rgba(255,207,130,.12);
+}
+
+.living-exhibitions__detail{
+    overflow:auto;
+    padding-right:4px;
+}
+
+.living-exhibitions__detail h2,
+.living-exhibitions__detail h3,
+.living-exhibitions__detail p{
+    margin:0;
+}
+
+.living-exhibitions__detail h2{
+    color:#ffe2a3;
+    font-size:clamp(20px, calc(var(--screen-content-width) * .026), 38px);
+    line-height:1.08;
+}
+
+.living-exhibitions__detail p{
+    margin-top:9px;
+    max-width:720px;
+    color:rgba(255,242,218,.8);
+    font-size:clamp(12px, calc(var(--screen-content-width) * .011), 16px);
+    line-height:1.5;
+}
+
+.living-exhibitions__grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:9px;
+    margin-top:14px;
+}
+
+.living-exhibitions__block{
+    min-height:86px;
+    padding:10px 11px;
+    border:1px solid rgba(255,224,166,.18);
+    border-radius:15px;
+    background:rgba(8,14,23,.36);
+}
+
+.living-exhibitions__block h3{
+    color:rgba(255,226,174,.82);
+    font-size:12px;
+    line-height:1.2;
+    text-transform:uppercase;
+}
+
+.living-exhibitions__block ul{
+    margin:8px 0 0;
+    padding:0;
+    list-style:none;
+    color:rgba(255,244,224,.78);
+    font-size:12px;
+    line-height:1.38;
+}
+
+.living-exhibitions__path{
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.living-exhibitions__path span{
+    border:1px solid rgba(255,224,166,.22);
+    border-radius:999px;
+    padding:6px 9px;
+    color:rgba(255,243,218,.82);
+    background:rgba(255,230,180,.06);
+    font-size:11px;
+}
+
+.living-exhibitions__stats{
+    margin-top:12px;
+    color:rgba(255,229,185,.74);
+    font-size:12px;
+    line-height:1.45;
+}
+
+@keyframes livingExhibitionsReveal{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media (max-width:768px){
+    .living-exhibitions__entry{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .045);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .065);
+        max-width:calc(var(--screen-content-width) * .24);
+        padding:8px 9px;
+    }
+
+    .living-exhibitions__entry p{
+        display:none;
+    }
+
+    .living-exhibitions__panel{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .06);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        width:calc(var(--screen-content-width) * .88);
+        max-height:calc(var(--screen-content-height) * .84);
+        grid-template-columns:1fr;
+        padding:11px;
+    }
+
+    .living-exhibitions__list{
+        grid-template-columns:repeat(4, minmax(0, 1fr));
+        max-height:74px;
+    }
+
+    .living-exhibitions__tab{
+        padding:7px 6px;
+        font-size:11px;
+    }
+
+    .living-exhibitions__grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:7px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .living-exhibitions.is-open .living-exhibitions__panel{
+        animation:none;
+    }
+}

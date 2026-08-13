@@ -1,39 +1,96 @@
-# RV-100 Report - Charte des rythmes vivants
+# RV-100 - Les Grandes Constellations Vivantes
 
-## Resume
+## Objectif
 
-RV-100 ajoute une charte documentaire consacree au rythme des ecrans, passages et apparitions dans Makerland.
-
-Cette mission ne modifie aucune fonctionnalite.
+Transformer les regroupements du Ciel Vivant en huit expositions editoriales permanentes, sans creer de nouvelles relations et sans modifier les moteurs existants.
 
 ## Fichiers crees
 
-- `docs/LIVING_RHYTHM_CHARTER.md`
-- `reports/RV-100_REPORT.md`
+- `js/livingExhibitions.js`
+- `css/livingExhibitions.css`
+- `docs/patrimoine/LIVING_EXHIBITIONS.md`
 
-## Principes formalises
+## Fichier modifie
 
-- Rien n'apparait instantanement.
-- Chaque ecran accueille, respire, revele et invite.
-- Le silence precede les informations importantes.
-- Le titre est la premiere parole de l'ecran.
-- Le sous-titre complete sans concurrencer.
-- Les choix apparaissent apres la lecture.
-- Chaque passage prepare un franchissement.
-- Chaque lieu conserve son propre rythme.
+- `index.html`
 
-## Valeurs de reference
+La modification se limite au chargement du CSS et du module autonome.
 
-- silence initial : 600 a 1000 ms ;
-- apparition du titre : 1200 a 1400 ms ;
-- respiration apres le titre : 500 a 700 ms ;
-- apparition du sous-titre : 1200 a 1500 ms ;
-- courbe recommandee : `cubic-bezier(.22, 1, .36, 1)`.
+## Grandes Constellations
+
+Huit expositions sont disponibles :
+
+1. Dialogue
+2. Liberte
+3. Monde commun
+4. Transformation
+5. Transmission
+6. Esperance
+7. Seuil
+8. Vivant
+
+## Ressources reliees
+
+Chaque exposition calcule automatiquement :
+
+- concepts associes ;
+- Archives Vivantes ;
+- oeuvres et livres ;
+- images patrimoniales ;
+- figures ;
+- articles ;
+- salles Makerland ;
+- packs narratifs lorsqu'ils existent ;
+- objets NFC lorsqu'ils seront disponibles dans les catalogues.
+
+## Couverture patrimoniale
+
+La couverture calculee a partir des catalogues locaux est :
+
+| Ressource | Nombre |
+| --- | ---: |
+| Grandes Constellations | 8 |
+| Archives Vivantes reliees | 8 |
+| Oeuvres et livres relies | 8 |
+| Concepts relies | 19 |
+| Images patrimoniales reliees | 21 |
+| Figures reliees | 14 |
+| Salles Makerland reliees | 5 |
+| Articles / blocs relies | 93 |
+
+Ces chiffres sont egalement recalculables au runtime par `LivingExhibitions.statistics()`.
+
+Les expositions s'appuient sur :
+
+- `data/constellation-themes.json`
+- `data/living-graph.json`
+- `data/concept-network.json`
+- `data/work-network.json`
+- `data/archive-assets.json`
+- `data/archive-mapping.json`
+
+## Integration
+
+Le module lit les etoiles locales de `makerland:traveler-constellation` et inscrit l'exposition mise a l'honneur dans `makerland:living-cycle`.
+
+## Contraintes respectees
+
+- Aucun moteur global modifie.
+- Aucune navigation globale modifiee.
+- Aucun `BookRenderer`, `ZoneRenderer`, `NarrativeMemory` ou `LivingEcho` modifie.
+- Aucun JSON metier existant modifie.
+- Aucune API.
+- Aucun serveur.
+- Aucune IA.
 
 ## Validation
 
-- Mission documentaire uniquement.
-- Aucun JS modifie.
-- Aucun CSS modifie.
-- Aucun HTML modifie.
-- Aucun JSON modifie.
+- `node --check js/livingExhibitions.js` : OK.
+- `git diff --check` : OK sur les fichiers de travail.
+- `git diff --cached --check` : OK.
+
+## Note historique
+
+Le numero RV-100 avait deja ete utilise pour la Charte des rythmes vivants, livree dans `docs/LIVING_RHYTHM_CHARTER.md`.
+
+Cette trace reste conservee dans le depot. La presente mission reutilise le meme numero pour les Grandes Constellations Vivantes et ne modifie pas la charte existante.
