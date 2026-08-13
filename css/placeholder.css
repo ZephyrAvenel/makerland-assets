@@ -16,12 +16,62 @@ body{
         radial-gradient(circle at 50% 18%, rgba(255,211,128,.2), transparent 30%),
         radial-gradient(circle at 50% 58%, rgba(112,169,255,.08), transparent 42%),
         linear-gradient(180deg, #091421, #03070d 74%);
+    --season-halo:rgba(255,210,132,.1);
+    --season-border:rgba(255,224,158,.18);
+    --season-glow:rgba(255,198,96,.14);
+}
+
+body.season-spring{
+    --season-halo:rgba(174,226,165,.1);
+    --season-border:rgba(218,239,177,.22);
+    --season-glow:rgba(174,226,165,.14);
+}
+
+body.season-summer{
+    --season-halo:rgba(255,219,130,.13);
+    --season-border:rgba(255,224,158,.26);
+    --season-glow:rgba(255,203,91,.18);
+}
+
+body.season-autumn{
+    --season-halo:rgba(211,139,77,.12);
+    --season-border:rgba(229,177,121,.24);
+    --season-glow:rgba(211,139,77,.15);
+}
+
+body.season-winter{
+    --season-halo:rgba(150,190,224,.12);
+    --season-border:rgba(190,220,246,.22);
+    --season-glow:rgba(150,190,224,.16);
 }
 
 main{
     width:min(960px, 100%);
     text-align:center;
     animation:placeholderArrive .9s cubic-bezier(.22,1,.36,1) both;
+}
+
+body.living-season-ready main::before{
+    border-color:var(--season-border);
+    box-shadow:
+        0 0 34px var(--season-glow),
+        inset 0 0 22px var(--season-halo);
+}
+
+.seasonal-whisper{
+    width:min(680px, 100%);
+    margin:0 auto 26px;
+    padding:15px 20px;
+    border:1px solid var(--season-border);
+    border-radius:22px;
+    color:rgba(255,238,202,.84);
+    font-size:clamp(15px, 2.5vw, 19px);
+    font-style:italic;
+    line-height:1.55;
+    background:
+        radial-gradient(circle at 50% 0, var(--season-halo), transparent 48%),
+        rgba(255,255,255,.028);
+    box-shadow:0 18px 38px rgba(0,0,0,.16), 0 0 28px var(--season-glow);
 }
 
 main::before{
@@ -85,7 +135,7 @@ blockquote{
 
 .placeholder-card{
     padding:18px;
-    border:1px solid rgba(255,224,158,.18);
+    border:1px solid var(--season-border);
     border-radius:18px;
     background:rgba(7,16,29,.42);
     box-shadow:0 18px 38px rgba(0,0,0,.2);
@@ -683,6 +733,20 @@ blockquote{
     border-radius:50%;
     background:#ffe1a3;
     box-shadow:0 0 18px rgba(255,204,107,.44);
+}
+
+body.season-winter .object-node__spark{
+    box-shadow:0 0 24px rgba(190,220,246,.5);
+}
+
+body.season-spring .object-node__spark{
+    background:#d9efb1;
+    box-shadow:0 0 20px rgba(174,226,165,.42);
+}
+
+body.season-autumn .object-node__spark{
+    background:#e5b179;
+    box-shadow:0 0 20px rgba(211,139,77,.38);
 }
 
 .object-node__label,
