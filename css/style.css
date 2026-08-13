@@ -624,6 +624,96 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     animation:immersiveStarReveal 1.8s ease both;
 }
 
+.screen.journey-arriving .screen-bg{
+    animation:journeyPlaceArrive var(--journey-arrival-duration, .64s) ease both;
+}
+
+.screen.journey-arriving::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:18;
+    pointer-events:none;
+    opacity:0;
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(255,232,174, var(--journey-halo-strength, .14)),
+            rgba(255,232,174,0) 44%
+        );
+    animation:journeyLightPass var(--journey-arrival-duration, .64s) ease both;
+}
+
+.screen.journey-returning{
+    --journey-arrival-duration:.48s;
+}
+
+body[data-journey-place="bibliotheque"]{
+    --journey-halo-strength:.12;
+    --journey-camera-shift:12px;
+}
+
+body[data-journey-place="boussole"]{
+    --journey-halo-strength:.16;
+    --journey-camera-shift:14px;
+}
+
+body[data-journey-place="meteo"]{
+    --journey-halo-strength:.14;
+    --journey-camera-shift:12px;
+}
+
+body[data-journey-place="cartes"]{
+    --journey-halo-strength:.18;
+    --journey-camera-shift:16px;
+}
+
+body[data-journey-place="oeuvre"]{
+    --journey-halo-strength:.16;
+    --journey-camera-shift:18px;
+}
+
+body[data-journey-place="atelier"]{
+    --journey-halo-strength:.2;
+    --journey-camera-shift:15px;
+}
+
+body[data-journey-place="constellation"]{
+    --journey-halo-strength:.18;
+    --journey-camera-shift:10px;
+}
+
+.journey-notice{
+    position:fixed;
+    left:50%;
+    bottom:calc(26px + env(safe-area-inset-bottom));
+    z-index:150;
+    max-width:min(520px, calc(100vw - 40px));
+    margin:0;
+    padding:10px 16px;
+    border:1px solid rgba(255,225,166,.26);
+    border-radius:999px;
+    color:rgba(255,246,222,.86);
+    background:rgba(6,11,18,.34);
+    box-shadow:0 10px 30px rgba(0,0,0,.22);
+    backdrop-filter:blur(12px);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(12px, 2.4vw, 16px);
+    line-height:1.25;
+    text-align:center;
+    opacity:0;
+    transform:translate(-50%, 10px);
+    pointer-events:none;
+    transition:
+        opacity .58s ease,
+        transform .58s ease;
+}
+
+.journey-notice-visible{
+    opacity:1;
+    transform:translate(-50%, 0);
+}
+
 @keyframes immersiveCardSway{
     0%{ transform:translateY(-3px) scale(1.01) rotate(0deg); }
     35%{ transform:translateY(-3px) scale(1.01) rotate(.45deg); }
@@ -635,6 +725,36 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     0%{ opacity:0; transform:translate(-50%, -50%) scale(.76); }
     30%{ opacity:.88; transform:translate(-50%, -50%) scale(1); }
     100%{ opacity:0; transform:translate(-50%, -50%) scale(1.16); }
+}
+
+@keyframes journeyPlaceArrive{
+    from{
+        opacity:.72;
+        transform:translateY(var(--journey-camera-shift, 14px)) scale(1.006);
+        filter:brightness(1.04);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:brightness(1);
+    }
+}
+
+@keyframes journeyLightPass{
+    0%{
+        opacity:0;
+        transform:scale(.98);
+    }
+
+    42%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.03);
+    }
 }
 
 .meteo-intro{
@@ -2387,9 +2507,21 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     .immersive-zone,
     .immersive-zone::before,
     .immersive-zone-whisper,
-    .immersive-constellation-star{
+    .immersive-constellation-star,
+    .journey-notice{
         transition:none;
         animation:none;
+    }
+
+    .screen.journey-arriving .screen-bg,
+    .screen.journey-arriving::after{
+        animation:none;
+    }
+
+    .screen.journey-arriving .screen-bg{
+        opacity:1;
+        transform:none;
+        filter:none;
     }
 
     .immersive-zone:hover,
