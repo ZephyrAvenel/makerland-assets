@@ -50,7 +50,16 @@
 
     function hasSeen(id) {
         try {
-            return sessionStorage.getItem(STORAGE_PREFIX + id) === "1";
+            const memory = JSON.parse(
+                localStorage.getItem("makerland:living-cycle") || "{}"
+            );
+            const objects = Array.isArray(memory.atelierObjectIds)
+                ? memory.atelierObjectIds
+                : [];
+            return (
+                sessionStorage.getItem(STORAGE_PREFIX + id) === "1" ||
+                objects.includes(id)
+            );
         } catch (error) {
             return false;
         }

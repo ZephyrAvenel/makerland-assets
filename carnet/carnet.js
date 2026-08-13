@@ -12,12 +12,29 @@
 
     const PLACES = [
         "Bibliotheque",
-        "Boussole",
-        "Cartes Narratives",
-        "Oeuvre immersive",
         "Atelier",
-        "Constellation"
+        "Carnet",
+        "Constellation",
+        "Transmission",
+        "Oeuvres",
+        "Boussole",
+        "Cartes Narratives"
     ];
+
+    const PLACE_LABELS = {
+        "atelier:atelier": "l'Atelier",
+        "atelier:dialogue": "la chambre Dialogue",
+        "atelier:cartographie": "la chambre Cartographie",
+        "atelier:images": "la chambre Images",
+        "atelier:clarification": "la chambre Clarification",
+        "atelier:evolution": "la chambre Evolution",
+        "constellation:constellation": "la Constellation",
+        "constellation:chemin": "le Chemin",
+        "constellation:fonctionnement": "le Fonctionnement",
+        "constellation:transmission": "la Transmission",
+        "constellation:temoignages": "les Temoignages",
+        "carnet:carnet": "le Carnet"
+    };
 
     const OBJECT_LABELS = {
         "carnet-dialogue": "Carnet de dialogue",
@@ -48,6 +65,39 @@
         } catch (error) {
             return {};
         }
+    }
+
+    function writeJson(key, value) {
+        try {
+            localStorage.setItem(key, JSON.stringify(value));
+        } catch (error) {
+            return;
+        }
+    }
+
+    function addUnique(list, value) {
+        const values = Array.isArray(list) ? list : [];
+        return values.includes(value) ? values : values.concat(value);
+    }
+
+    function rememberCarnet(cycle) {
+        const places = Array.isArray(cycle.visitedPlaces)
+            ? cycle.visitedPlaces
+            : [];
+
+        if (!places.some(place => place.id === "carnet:carnet")) {
+            places.push({
+                id: "carnet:carnet",
+                label: "Carnet",
+                firstSeen: new Date().toISOString()
+            });
+        }
+
+        cycle.visitedPlaces = places;
+        cycle.visitedPlaceIds = addUnique(cycle.visitedPlaceIds, "carnet:carnet");
+        cycle.milestones = addUnique(cycle.milestones, "Carnet ouvert");
+        writeJson(CYCLE_KEY, cycle);
+        return cycle;
     }
 
     function getBookStats() {
@@ -142,32 +192,100 @@
             ]),
             createCard("Objets vivants", [
                 "Objets explores : " + objects.length
+            ]),
+            createCard("Premiers souvenirs", [
+                (cycle.milestones || []).join(", ") ||
+                    "Les premiers souvenirs s'inscriront au fil du voyage"
             ])
         ].forEach(card => target.appendChild(card));
     }
 
-    function renderPath(cycle) {
+    function hasVisitedPlace(cycle, id) {
+        return (cycle.visitedPlaceIds || []).includes(id);
+    }
+
+    function hasVisitedPath(memory, cycle, place) {
+        if (place === "Bibliotheque") {
+            return true;
+        }
+
+        if (place === "Atelier") {
+            return (cycle.atelierRooms || []).length > 0;
+        }
+
+        if (place === "Carnet") {
+            return hasVisitedPlace(cycle, "carnet:carnet");
+        }
+
+        if (place === "Constellation") {
+            return (cycle.constellationFragments || []).length > 0;
+        }
+
+        if (place === "Transmission") {
+            return hasVisitedPlace(cycle, "constellation:transmission");
+        }
+
+        if (place === "Oeuvres") {
+            return Boolean(cycle.lastImmersiveWork);
+        }
+
+        if (place === "Boussole") {
+            return Boolean(memory.lastDirection || memory.lastWeather);
+        }
+
+        if (place === "Cartes Narratives") {
+            return (cycle.cartes || []).length > 0;
+        }
+
+        return false;
+    }
+
+    function renderPath(memory, cycle) {
         const target = document.querySelector("[data-journal-path]");
 
         if (!target) {
             return;
         }
 
-        const visited = new Set([
-            "Bibliotheque",
-            "Boussole",
-            (cycle.atelierRooms || []).length ? "Atelier" : "",
-            (cycle.constellationFragments || []).length ? "Constellation" : ""
-        ]);
-
         PLACES.forEach(place => {
             const node = document.createElement("span");
-            node.className = visited.has(place)
+            node.className = hasVisitedPath(memory, cycle, place)
                 ? "journal-path-node is-lit"
                 : "journal-path-node";
             node.textContent = place;
             target.appendChild(node);
         });
+    }
+
+    function renderFirstSteps(cycle) {
+        const target = document.querySelector("[data-journal-first-steps]");
+
+        if (!target) {
+            return;
+        }
+
+        const places = Array.isArray(cycle.visitedPlaces)
+            ? cycle.visitedPlaces
+            : [];
+        const steps = places
+            .filter(place => place.id !== "carnet:carnet")
+            .slice(0, 5)
+            .map(place => PLACE_LABELS[place.id] || place.label || place.id);
+        const lines = ["Vous avez commence votre voyage dans la Bibliotheque."];
+
+        steps.forEach((label, index) => {
+            lines.push(
+                (index === 0 ? "Puis vous avez decouvert " : "Puis ") +
+                    label +
+                    "."
+            );
+        });
+
+        if (steps.length === 0) {
+            lines.push("Les prochains lieux traverses viendront doucement s'y inscrire.");
+        }
+
+        target.innerHTML = lines.map(line => "<p>" + line + "</p>").join("");
     }
 
     function renderObjects(cycle) {
@@ -224,12 +342,13 @@
 
     function init() {
         const memory = readJson(NARRATIVE_KEY);
-        const cycle = readJson(CYCLE_KEY);
+        const cycle = rememberCarnet(readJson(CYCLE_KEY));
         const books = getBookStats();
 
         renderResonance();
         renderTraces(memory, cycle, books);
-        renderPath(cycle);
+        renderFirstSteps(cycle);
+        renderPath(memory, cycle);
         renderObjects(cycle);
         renderEncounters(cycle, books);
     }
