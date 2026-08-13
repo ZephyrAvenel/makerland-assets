@@ -13,6 +13,7 @@
         "journal-versions": ["Ce journal rejoint Transmission", "../../constellation/transmission/"],
         "jalon-rv": ["Ce jalon ouvre Evolution", "../evolution/"]
     };
+    let drawerHistoryOpen = false;
 
     function getRoomId() {
         const host = document.querySelector("[data-atelier-objects]");
@@ -98,12 +99,17 @@
         document.body.appendChild(overlay);
         overlay.addEventListener("click", event => {
             if (event.target.matches("[data-object-close]")) {
-                closeOverlay(overlay);
+                closeOverlay(overlay, true);
             }
         });
         document.addEventListener("keydown", event => {
             if (event.key === "Escape" && !overlay.hidden) {
-                closeOverlay(overlay);
+                closeOverlay(overlay, true);
+            }
+        });
+        window.addEventListener("popstate", () => {
+            if (drawerHistoryOpen && !overlay.hidden) {
+                closeOverlay(overlay, false);
             }
         });
 
@@ -138,15 +144,25 @@
 
         overlay.hidden = false;
         overlay.classList.add("is-open");
+        if (!drawerHistoryOpen && window.history && window.history.pushState) {
+            window.history.pushState({ atelierObjectDrawer: true }, "", window.location.href);
+            drawerHistoryOpen = true;
+        }
         remember(item.id);
         trigger.classList.add("is-explored");
         trigger.querySelector(".object-node__status").textContent = "Explore";
         overlay.querySelector(".object-drawer__close").focus();
     }
 
-    function closeOverlay(overlay) {
+    function closeOverlay(overlay, useHistoryBack) {
         overlay.classList.remove("is-open");
         overlay.hidden = true;
+        if (useHistoryBack && drawerHistoryOpen && window.history) {
+            drawerHistoryOpen = false;
+            window.history.back();
+            return;
+        }
+        drawerHistoryOpen = false;
     }
 
     function createNode(item, overlay) {
