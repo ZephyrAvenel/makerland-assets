@@ -1,0 +1,370 @@
+.living-home{
+    position:absolute;
+    inset:0;
+    z-index:82;
+    pointer-events:none;
+    --screen-content-width:min(100vw, 150vh);
+    --screen-content-height:min(100vh, 66.6667vw);
+    --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
+    --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
+    color:rgba(255,243,222,.92);
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
+    opacity:0;
+    pointer-events:none;
+}
+
+.living-home__threshold{
+    position:absolute;
+    left:50%;
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .385);
+    width:min(620px, calc(var(--screen-content-width) * .58));
+    text-align:center;
+    transform:translateX(-50%);
+    pointer-events:none;
+    animation:livingHomeAppear 1s cubic-bezier(.22,1,.36,1) both;
+}
+
+.living-home__threshold p{
+    margin:0;
+    color:rgba(255,244,226,.84);
+    font-size:clamp(14px, calc(var(--screen-content-width) * .013), 19px);
+    line-height:1.45;
+    text-shadow:0 4px 22px rgba(0,0,0,.72), 0 0 18px rgba(255,221,158,.12);
+}
+
+.living-home__promise{
+    display:block;
+    margin-top:10px;
+    color:rgba(255,224,166,.82);
+    font-size:clamp(12px, calc(var(--screen-content-width) * .01), 15px);
+    line-height:1.36;
+}
+
+.living-home__daily,
+.living-home__season,
+.living-home__return,
+.living-home__guide,
+.living-home__door{
+    border:1px solid rgba(255,224,166,.24);
+    background:linear-gradient(180deg, rgba(8,15,25,.46), rgba(4,8,15,.24));
+    box-shadow:0 18px 42px rgba(0,0,0,.25), 0 0 30px var(--season-glow, rgba(255,207,130,.08));
+    backdrop-filter:blur(9px);
+}
+
+.living-home__daily{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    width:min(270px, calc(var(--screen-content-width) * .25));
+    border-radius:18px;
+    padding:11px 13px;
+    pointer-events:none;
+    animation:livingHomeAppear 1.2s cubic-bezier(.22,1,.36,1) .2s both;
+}
+
+.living-home__daily p,
+.living-home__season p,
+.living-home__return p,
+.living-home__guide p{
+    margin:0;
+    color:rgba(255,243,222,.78);
+    font-size:clamp(11px, calc(var(--screen-content-width) * .01), 14px);
+    line-height:1.42;
+}
+
+.living-home__season{
+    position:absolute;
+    right:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    border-radius:999px;
+    padding:8px 12px;
+    pointer-events:none;
+    animation:livingHomeAppear 1.2s cubic-bezier(.22,1,.36,1) .35s both;
+}
+
+.living-home__doors{
+    position:absolute;
+    left:50%;
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    display:grid;
+    grid-template-columns:repeat(3, minmax(150px, 1fr));
+    gap:12px;
+    width:min(720px, calc(var(--screen-content-width) * .68));
+    transform:translateX(-50%);
+    pointer-events:auto;
+}
+
+.living-home__door{
+    min-height:118px;
+    border-radius:20px;
+    padding:14px 15px;
+    color:inherit;
+    font:inherit;
+    text-align:left;
+    cursor:pointer;
+    transition:transform .35s cubic-bezier(.22,1,.36,1), border-color .35s ease, background .35s ease, box-shadow .35s ease;
+    animation:livingHomeDoor 1s cubic-bezier(.22,1,.36,1) both;
+}
+
+.living-home__door:nth-child(2){
+    animation-delay:.12s;
+}
+
+.living-home__door:nth-child(3){
+    animation-delay:.24s;
+}
+
+.living-home__door strong{
+    display:block;
+    color:#ffe3aa;
+    font-size:clamp(15px, calc(var(--screen-content-width) * .014), 19px);
+    line-height:1.15;
+}
+
+.living-home__door span{
+    display:block;
+    margin-top:8px;
+    color:rgba(255,244,226,.76);
+    font-size:clamp(11px, calc(var(--screen-content-width) * .01), 14px);
+    line-height:1.35;
+}
+
+.living-home__door:hover,
+.living-home__door:focus-visible{
+    outline:none;
+    transform:translateY(-2px);
+    border-color:rgba(255,224,166,.46);
+    background:linear-gradient(180deg, rgba(255,224,166,.12), rgba(8,15,25,.34));
+    box-shadow:0 22px 50px rgba(0,0,0,.3), 0 0 36px rgba(255,207,130,.14);
+}
+
+.living-home__guide{
+    position:absolute;
+    left:50%;
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .31);
+    width:min(620px, calc(var(--screen-content-width) * .58));
+    border-radius:18px;
+    padding:11px 14px;
+    text-align:center;
+    transform:translateX(-50%);
+    pointer-events:none;
+    animation:livingHomeAppear 1.2s cubic-bezier(.22,1,.36,1) .45s both;
+}
+
+.living-home__guide p + p{
+    margin-top:4px;
+}
+
+.living-home__places{
+    position:absolute;
+    left:50%;
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .315);
+    display:grid;
+    grid-template-columns:repeat(5, minmax(86px, 1fr));
+    gap:7px;
+    width:min(720px, calc(var(--screen-content-width) * .68));
+    transform:translateX(-50%);
+    pointer-events:none;
+    animation:livingHomePlaces 9s ease both;
+}
+
+.living-home__place{
+    border:1px solid rgba(255,224,166,.18);
+    border-radius:14px;
+    padding:8px 9px;
+    background:rgba(7,13,23,.34);
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+    backdrop-filter:blur(7px);
+}
+
+.living-home__place strong{
+    display:block;
+    color:rgba(255,230,183,.86);
+    font-size:clamp(10px, calc(var(--screen-content-width) * .009), 13px);
+    line-height:1.15;
+}
+
+.living-home__place span{
+    display:block;
+    margin-top:4px;
+    color:rgba(255,243,222,.66);
+    font-size:clamp(9px, calc(var(--screen-content-width) * .008), 11px);
+    line-height:1.22;
+}
+
+.living-home__return{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .32);
+    width:min(270px, calc(var(--screen-content-width) * .25));
+    border-radius:18px;
+    padding:12px 14px;
+    pointer-events:auto;
+    animation:livingHomeAppear 1s cubic-bezier(.22,1,.36,1) .45s both;
+}
+
+.living-home__return button{
+    margin-top:9px;
+    border:1px solid rgba(255,224,166,.28);
+    border-radius:999px;
+    padding:7px 11px;
+    color:rgba(255,244,226,.9);
+    background:rgba(255,230,180,.08);
+    font:inherit;
+    font-size:12px;
+    cursor:pointer;
+}
+
+@keyframes livingHomeAppear{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes livingHomeDoor{
+    from{
+        opacity:0;
+        transform:translateY(14px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes livingHomePlaces{
+    0%{
+        opacity:0;
+        transform:translate(-50%, 10px);
+    }
+    14%, 76%{
+        opacity:.92;
+        transform:translate(-50%, 0);
+    }
+    100%{
+        opacity:0;
+        transform:translate(-50%, -6px);
+        visibility:hidden;
+    }
+}
+
+@media (max-width:768px){
+    .living-home__threshold{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .34);
+        width:calc(var(--screen-content-width) * .74);
+    }
+
+    .living-home__daily,
+    .living-home__season{
+        display:none;
+    }
+
+    .living-home__guide{
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .36);
+        width:calc(var(--screen-content-width) * .72);
+        padding:8px 10px;
+    }
+
+    .living-home__places{
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .34);
+        grid-template-columns:repeat(3, minmax(62px, 1fr));
+        width:calc(var(--screen-content-width) * .76);
+    }
+
+    .living-home__doors{
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        grid-template-columns:1fr;
+        gap:7px;
+        width:calc(var(--screen-content-width) * .74);
+    }
+
+    .living-home__door{
+        min-height:0;
+        padding:9px 11px;
+    }
+
+    .living-home__door span{
+        margin-top:4px;
+    }
+
+    .living-home__return{
+        display:none;
+    }
+}
+
+@media (max-width:768px) and (orientation:portrait){
+    .living-home__threshold{
+        top:24vh;
+        width:82vw;
+    }
+
+    .living-home__guide{
+        bottom:38vh;
+        width:78vw;
+    }
+
+    .living-home__places{
+        bottom:36vh;
+        width:78vw;
+    }
+
+    .living-home__doors{
+        bottom:96px;
+        width:76vw;
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    .living-home__threshold{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .3);
+    }
+
+    .living-home__guide,
+    .living-home__places,
+    .living-home__return{
+        display:none;
+    }
+
+    .living-home__doors{
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        grid-template-columns:repeat(3, minmax(120px, 1fr));
+        width:calc(var(--screen-content-width) * .7);
+    }
+
+    .living-home__door{
+        min-height:0;
+        padding:8px 9px;
+    }
+
+    .living-home__door strong{
+        font-size:12px;
+    }
+
+    .living-home__door span{
+        font-size:10px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .living-home__threshold,
+    .living-home__daily,
+    .living-home__season,
+    .living-home__guide,
+    .living-home__door,
+    .living-home__return,
+    .living-home__places{
+        animation:none;
+    }
+
+    .living-home__door{
+        transition:none;
+    }
+}
