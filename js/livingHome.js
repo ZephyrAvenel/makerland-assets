@@ -59,10 +59,6 @@
         const known = isKnownVisitor();
         root.innerHTML = [
             renderThreshold(),
-            renderDaily(),
-            renderSeason(),
-            known ? renderReturn() : renderGuide(),
-            !known ? renderPlaces() : "",
             renderDoors(known)
         ].join("");
         bindActions();

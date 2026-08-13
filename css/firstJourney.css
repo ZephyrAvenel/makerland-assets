@@ -46,10 +46,34 @@
 
 .first-journey__replay{
     position:absolute;
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .04);
-    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
-    padding:9px 12px;
-    opacity:.86;
+    left:50%;
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .025);
+    padding:0;
+    opacity:.74;
+    text-align:center;
+    transform:translateX(-50%);
+    border:0;
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
+}
+
+.first-journey__replay::before{
+    content:"Vous connaissez deja Makerland ?";
+    display:block;
+    margin-bottom:5px;
+    color:rgba(255,244,226,.54);
+    font-size:11px;
+    line-height:1.2;
+    text-shadow:0 2px 12px rgba(0,0,0,.65);
+}
+
+.first-journey__replay button{
+    padding:6px 10px;
+    border-color:rgba(255,224,166,.2);
+    color:rgba(255,244,226,.74);
+    background:rgba(5,9,16,.18);
+    font-size:11px;
 }
 
 .first-journey h2,
@@ -192,6 +216,11 @@
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
         width:calc(var(--screen-content-width) * .82);
     }
+
+    .first-journey__replay{
+        bottom:34px;
+        width:84vw;
+    }
 }
 
 @media (max-width:768px) and (orientation:landscape){
@@ -201,6 +230,19 @@
         width:calc(var(--screen-content-width) * .42);
         max-height:76vh;
     }
+
+    .first-journey__replay{
+        bottom:8px;
+    }
+
+    .first-journey__replay::before{
+        display:none;
+    }
+
+    .first-journey__replay button{
+        padding:4px 9px;
+        font-size:10px;
+    }
 }
 
 @media (max-height:520px) and (orientation:landscape){
@@ -209,6 +251,19 @@
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
         width:calc(var(--screen-content-width) * .46);
         max-height:76vh;
+    }
+
+    .first-journey__replay{
+        bottom:8px;
+    }
+
+    .first-journey__replay::before{
+        display:none;
+    }
+
+    .first-journey__replay button{
+        padding:4px 9px;
+        font-size:10px;
     }
 }
 
