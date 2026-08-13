@@ -7,43 +7,43 @@
     const STEPS = [
         {
             screen: "e02_meteo",
-            title: "Ecouter la Meteo interieure",
+            title: "Pourquoi ce territoire existe-t-il ?",
             place: "Meteo",
             subtitle: "Votre premier climat.",
-            text: "La Meteo ne vous demande pas de repondre juste. Elle vous invite a reconnaitre le paysage interieur avec lequel vous entrez.",
+            text: "Vous vous demandez peut-etre pourquoi Makerland commence par un paysage interieur. Parce que les Recits Vivants ne cherchent pas seulement a etre compris. Ils demandent d'abord depuis quel climat vous les rencontrez.",
             quote: "Choisir un climat, c'est deja commencer a habiter le territoire."
         },
         {
             screen: "e06_fiction",
-            title: "Rencontrer une oeuvre",
+            title: "A quoi ressemblent les oeuvres qui naissent ici ?",
             place: "Les Marges Vivantes",
             subtitle: "Un livre comme premiere porte.",
-            text: "Une oeuvre n'est pas seulement un contenu a consulter. Elle ouvre un climat, une question, parfois une maniere differente de regarder le monde.",
+            text: "Vous vous demandez peut-etre ce que l'on trouve dans cette bibliotheque. Des oeuvres qui ne donnent pas seulement un recit a lire, mais un lieu a traverser, une question a habiter, une facon de regarder autrement.",
             quote: "Lire, ici, c'est deja entrer dans un territoire."
         },
         {
             screen: "e07_atelier",
-            title: "Entrer dans l'Atelier IA",
+            title: "Comment naissent-elles ?",
             place: "Atelier IA",
             subtitle: "La ou les idees prennent forme.",
-            text: "L'Atelier montre les coulisses de la creation. On y decouvre comment une question devient carte, image, brouillon, puis oeuvre.",
+            text: "Vous vous demandez peut-etre comment une idee devient une oeuvre. L'Atelier montre les questions, les dialogues, les cartes, les images et les reprises qui transforment peu a peu une intuition en forme partageable.",
             quote: "L'intelligence artificielle n'est pas une autorite. Elle devient un compagnon de recherche."
         },
         {
             screen: "e07_atelier",
-            title: "Ouvrir une Archive Vivante",
+            title: "Peut-on voir leurs coulisses ?",
             place: "Archive D001",
             subtitle: "Les coulisses de la creation.",
-            text: "Les Archives racontent la naissance des oeuvres. Elles gardent les traces des dialogues, des intuitions et des decisions qui ont rendu Makerland possible.",
+            text: "Vous vous demandez peut-etre si l'on peut voir la naissance d'une oeuvre. Les Archives Vivantes conservent les traces : intuitions, conversations, hesitations et decisions qui ont rendu Makerland possible.",
             quote: "D001 ouvre la question fondatrice : pourquoi les Recits Vivants ?",
             href: "atelier/archives/d001.html"
         },
         {
             screen: "e08_constellation",
-            title: "Comprendre la Constellation",
+            title: "Comment toutes ces oeuvres dialoguent-elles entre elles ?",
             place: "Constellation",
             subtitle: "Les liens entre les oeuvres.",
-            text: "La Constellation relie les oeuvres, les idees, les archives et les fragments partages. Elle montre que rien n'existe seul dans Makerland.",
+            text: "Vous vous demandez peut-etre ce qui relie tout cela. La Constellation montre que les oeuvres, les archives, les images, les concepts et les lecteurs se repondent dans un meme ciel.",
             quote: "Chaque recit peut devenir une etoile, puis rejoindre d'autres chemins."
         }
     ];
@@ -273,8 +273,10 @@
         writeMemory(state.memory);
         state.root.innerHTML = [
             "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage termine\">",
-            "<h3>Vous venez de parcourir votre premier Recit Vivant.</h3>",
-            "<p>Vous pouvez maintenant explorer librement, revenir plus tard, ou poursuivre un chemin.</p>",
+            "<h3>Vous connaissez maintenant les cinq lieux fondateurs de Makerland.</h3>",
+            "<p>Le reste du territoire vous appartient desormais.</p>",
+            "<p>Chaque oeuvre, chaque archive et chaque chemin pourra etre explore librement, a votre rythme.</p>",
+            "<p>Bienvenue dans les Recits Vivants.</p>",
             "<div class=\"first-journey__actions\">",
             "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-free>Explorer librement</button>",
             "<button type=\"button\" data-first-journey-replay>Refaire le Premier Voyage</button>",
