@@ -1,4 +1,4 @@
-# D009 — Naissance de l'Atelier IA
+# D009 - Naissance de l'Atelier des Recits
 
 ## Statut
 Archive fondatrice — Volume I

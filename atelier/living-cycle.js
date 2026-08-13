@@ -171,7 +171,7 @@
 
         if (type === "constellation") {
             target.textContent =
-                "Ce recit est ne dans l'Atelier IA.";
+                "Ce recit est ne dans l'Atelier des Recits.";
         }
     }
 

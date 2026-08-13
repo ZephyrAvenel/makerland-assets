@@ -65,10 +65,10 @@
         ["D003", "Naissance de la Cosmologie des Recits Vivants"],
         ["D004", "Naissance des Cartes Narratives"],
         ["D005", "Naissance de l'Oeuvre immersive"],
-        ["D006", "Naissance de Makerland"],
+        ["D006", "Naissance du Territoire des Recits Vivants"],
         ["D007", "Naissance de la Bibliotheque Vivante"],
         ["D008", "Naissance de la Boussole Vivante"],
-        ["D009", "Naissance de l'Atelier IA"],
+        ["D009", "Naissance de l'Atelier des Recits"],
         ["D010", "Naissance des Archives Vivantes"]
     ];
 
@@ -201,7 +201,7 @@
             createCard("Cartes Narratives", [
                 "Cartes rencontrees : " + ((cycle.cartes || []).length || "a venir")
             ]),
-            createCard("Atelier IA", [
+            createCard("Atelier des Recits", [
                 "Chambres visitees : " + atelierRooms.length,
                 atelierRooms.map(formatValue).join(", ") || "Aucune chambre inscrite"
             ]),

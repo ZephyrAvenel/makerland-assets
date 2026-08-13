@@ -4,7 +4,7 @@
             id: "accueil",
             name: "Accueil",
             role: "Ici commence la traversee.",
-            why: "Ce seuil vous aide a choisir comment entrer dans Makerland.",
+            why: "Ce seuil vous aide a choisir comment entrer dans les Recits Vivants.",
             next: [
                 ["Commencer par la Meteo", "e02_meteo"],
                 ["Faire le Premier Voyage", "first"]
@@ -12,8 +12,8 @@
         },
         e02_meteo: {
             id: "meteo",
-            name: "Meteo interieure",
-            role: "Ici vous choisissez votre premier climat.",
+            name: "Le Seuil des Climats",
+            role: "Une premiere rencontre.",
             why: "Cette salle ne juge pas votre etat. Elle aide simplement la Boussole a vous accueillir.",
             next: [["Continuer vers la Boussole", "e03_boussole"]]
         },
@@ -57,8 +57,8 @@
         },
         e07_atelier: {
             id: "atelier",
-            name: "Atelier IA",
-            role: "Ici les idees prennent forme.",
+            name: "Atelier des Recits",
+            role: "La ou les oeuvres prennent forme.",
             why: "Cette salle montre comment les dialogues deviennent progressivement des oeuvres.",
             next: [
                 ["Ouvrir les Archives", "archive"],
@@ -171,6 +171,7 @@
     function renderRole(place) {
         return [
             "<aside class=\"narrative-thread__role\" aria-label=\"Role du lieu\">",
+            "<span class=\"narrative-thread__kicker\">Lieu vivant</span>",
             `<strong>${escapeHtml(place.name)}</strong>`,
             `<span>${escapeHtml(place.role)}</span>`,
             "</aside>"

@@ -57,7 +57,7 @@ const PLACES = {
 
     e07_atelier: {
         id: "atelier",
-        name: "Atelier IA",
+        name: "Atelier des Recits",
         signature: "creation"
     },
 

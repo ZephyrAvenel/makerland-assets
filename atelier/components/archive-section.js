@@ -80,7 +80,7 @@
             ],
             documents: [
                 ["D006", "Naissance du Territoire des Recits Vivants", "../archives/d006.html"],
-                ["D009", "Naissance de l'Atelier IA", "../archives/d009.html"]
+                ["D009", "Naissance de l'Atelier des Recits", "../archives/d009.html"]
             ],
             quote: "Une oeuvre vivante avance moins par ajout que par fidelite progressive a ce qu'elle pressent.",
             fragment: "Chaque version laisse une trace, meme lorsqu'elle disparait de l'ecran."
@@ -148,7 +148,7 @@
             title: "Le dialogue comme atelier de pensee",
             type: "Dialogue fondateur",
             date: "Archive vivante",
-            origin: "Atelier IA",
+            origin: "Atelier des Recits",
             status: "Ouvert",
             summary: [
                 "Les Recits Vivants ne sont pas nes d'une reponse instantanee.",
