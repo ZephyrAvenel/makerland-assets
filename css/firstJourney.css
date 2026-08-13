@@ -12,6 +12,7 @@
 }
 
 .first-journey__welcome,
+.first-journey__intro,
 .first-journey__step,
 .first-journey__replay{
     border:1px solid rgba(255,224,166,.26);
@@ -27,6 +28,16 @@
     left:50%;
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .54);
     width:min(560px, calc(var(--screen-content-width) * .52));
+    padding:24px 28px;
+    transform:translate(-50%, -50%);
+    animation:firstJourneyAppear .9s cubic-bezier(.22,1,.36,1) both;
+}
+
+.first-journey__intro{
+    position:absolute;
+    left:50%;
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .53);
+    width:min(540px, calc(var(--screen-content-width) * .5));
     padding:24px 28px;
     transform:translate(-50%, -50%);
     animation:firstJourneyAppear .9s cubic-bezier(.22,1,.36,1) both;
@@ -164,6 +175,12 @@
     box-shadow:0 0 22px rgba(255,207,130,.12);
 }
 
+body.first-journey-intro-ready .living-home{
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .45s ease;
+}
+
 @keyframes firstJourneyAppear{
     from{
         opacity:0;
@@ -175,7 +192,8 @@
     }
 }
 
-.first-journey__welcome{
+.first-journey__welcome,
+.first-journey__intro{
     animation-name:firstJourneyWelcomeAppear;
 }
 
@@ -191,7 +209,8 @@
 }
 
 @media (max-width:768px){
-    .first-journey__welcome{
+    .first-journey__welcome,
+    .first-journey__intro{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
         width:calc(var(--screen-content-width) * .78);
         padding:18px 19px;
@@ -269,6 +288,7 @@
 
 @media (prefers-reduced-motion:reduce){
     .first-journey__welcome,
+    .first-journey__intro,
     .first-journey__step{
         animation:none;
     }
