@@ -4,6 +4,7 @@
       {
         "id": "atelier_dialogue",
         "label": "Dialogue avec l'IA",
+        "whisper": "Chaque oeuvre commence par une conversation.",
         "x": 10.4,
         "y": 36,
         "w": 15.7,
@@ -13,6 +14,7 @@
       {
         "id": "atelier_cartographie",
         "label": "Cartographie des idees",
+        "whisper": "Les idees deviennent des territoires.",
         "x": 27,
         "y": 36,
         "w": 15.6,
@@ -22,6 +24,7 @@
       {
         "id": "atelier_images",
         "label": "Generation d'images",
+        "whisper": "Une intuition peut prendre une forme.",
         "x": 43.4,
         "y": 36,
         "w": 15.5,
@@ -31,6 +34,7 @@
       {
         "id": "atelier_clarification",
         "label": "Clarification et affinage",
+        "whisper": "Comprendre, c'est souvent relier.",
         "x": 59.1,
         "y": 36,
         "w": 15.6,
@@ -40,6 +44,7 @@
       {
         "id": "atelier_evolution",
         "label": "Evolution de l'oeuvre",
+        "whisper": "Une oeuvre n'est jamais completement terminee.",
         "x": 75.6,
         "y": 36,
         "w": 15.6,

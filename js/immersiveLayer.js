@@ -10,6 +10,10 @@ const SOURCE =
 
 let zoneData = {};
 
+let whisperTimer = null;
+
+let starTimer = null;
+
 /****************************************
  INIT
 ****************************************/
@@ -73,6 +77,9 @@ function render(screenId) {
     layer.className =
         "immersive-zone-layer";
 
+    layer.dataset.screen =
+        screenId;
+
     layer.setAttribute(
         "aria-label",
         "Zones interactives du lieu"
@@ -86,6 +93,20 @@ function render(screenId) {
 
     });
 
+    if (
+        screenId === "e08_constellation"
+    ) {
+
+        const star =
+            document.createElement("div");
+
+        star.className =
+            "immersive-constellation-star";
+
+        layer.appendChild(star);
+
+    }
+
     screen.appendChild(layer);
 
 }
@@ -98,7 +119,10 @@ function createZone(zone) {
             document.createElement("button");
 
     element.className =
-        "immersive-zone";
+        [
+            "immersive-zone",
+            getZoneKind(zone)
+        ].join(" ");
 
     element.dataset.zoneId =
         zone.id;
@@ -110,6 +134,24 @@ function createZone(zone) {
 
     element.title =
         zone.label || "";
+
+    if (zone.whisper) {
+
+        element.dataset.whisper =
+            zone.whisper;
+
+        const whisper =
+            document.createElement("span");
+
+        whisper.className =
+            "immersive-zone-whisper";
+
+        whisper.textContent =
+            zone.whisper;
+
+        element.appendChild(whisper);
+
+    }
 
     element.style.left =
         zone.x + "%";
@@ -140,7 +182,144 @@ function createZone(zone) {
 
     }
 
+    bindZonePresence(
+        element,
+        zone
+    );
+
     return element;
+
+}
+
+function getZoneKind(zone) {
+
+    if (
+        zone.id &&
+        zone.id.indexOf("atelier_") === 0
+    ) {
+
+        return "immersive-zone-atelier";
+
+    }
+
+    if (
+        zone.id &&
+        zone.id.indexOf("constellation_recit_") === 0
+    ) {
+
+        return "immersive-zone-constellation-card";
+
+    }
+
+    return "immersive-zone-generic";
+
+}
+
+function bindZonePresence(
+    element,
+    zone
+) {
+
+    [
+        "pointerenter",
+        "focus",
+        "pointerdown"
+    ].forEach(eventName => {
+
+        element.addEventListener(
+            eventName,
+            () => activateZone(element, zone)
+        );
+
+    });
+
+}
+
+function activateZone(
+    element,
+    zone
+) {
+
+    element.classList.add(
+        "is-awake"
+    );
+
+    if (whisperTimer) {
+
+        window.clearTimeout(
+            whisperTimer
+        );
+
+    }
+
+    whisperTimer =
+        window.setTimeout(
+            () => {
+
+                element.classList.remove(
+                    "is-awake"
+                );
+
+                whisperTimer =
+                    null;
+
+            },
+            3000
+        );
+
+    if (
+        zone.id &&
+        zone.id.indexOf("constellation_recit_") === 0
+    ) {
+
+        revealConstellationStar(element);
+
+    }
+
+}
+
+function revealConstellationStar(element) {
+
+    const layer =
+        element.closest(
+            ".immersive-zone-layer"
+        );
+
+    if (!layer) return;
+
+    const star =
+        layer.querySelector(
+            ".immersive-constellation-star"
+        );
+
+    if (!star) return;
+
+    star.classList.add(
+        "is-visible"
+    );
+
+    if (starTimer) {
+
+        window.clearTimeout(
+            starTimer
+        );
+
+    }
+
+    starTimer =
+        window.setTimeout(
+            () => {
+
+                star.classList.remove(
+                    "is-visible"
+                );
+
+                starTimer =
+                    null;
+
+            },
+            1800
+        );
 
 }
 

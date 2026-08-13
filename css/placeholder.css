@@ -13,13 +13,32 @@ body{
     padding:32px;
     box-sizing:border-box;
     background:
-        radial-gradient(circle at 50% 22%, rgba(255,199,99,.16), transparent 32%),
+        radial-gradient(circle at 50% 18%, rgba(255,211,128,.2), transparent 30%),
+        radial-gradient(circle at 50% 58%, rgba(112,169,255,.08), transparent 42%),
         linear-gradient(180deg, #091421, #03070d 74%);
 }
 
 main{
     width:min(720px, 100%);
     text-align:center;
+    animation:placeholderArrive .9s cubic-bezier(.22,1,.36,1) both;
+}
+
+main::before{
+    content:"\2726";
+    display:grid;
+    place-items:center;
+    width:clamp(54px, 12vw, 86px);
+    height:clamp(54px, 12vw, 86px);
+    margin:0 auto 22px;
+    border:1px solid rgba(255,224,158,.42);
+    border-radius:50%;
+    color:#ffe0a0;
+    font-size:clamp(24px, 5vw, 42px);
+    background:rgba(9,17,27,.26);
+    box-shadow:
+        0 0 34px rgba(255,199,99,.18),
+        inset 0 0 22px rgba(255,234,178,.08);
 }
 
 p{
@@ -48,9 +67,8 @@ h1{
 
 .placeholder-note{
     margin-top:18px;
-    color:rgba(255,255,255,.68);
-    font-family:Arial, sans-serif;
-    font-size:clamp(14px, 2.4vw, 17px);
+    color:rgba(255,255,255,.72);
+    font-size:clamp(15px, 2.5vw, 18px);
 }
 
 .placeholder-return{
@@ -71,4 +89,22 @@ h1{
 .placeholder-return:focus-visible{
     background:rgba(23,31,43,.5);
     outline:none;
+}
+
+@keyframes placeholderArrive{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    main{
+        animation:none;
+    }
 }
