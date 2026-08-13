@@ -168,6 +168,7 @@
         const atelierRooms = cycle.atelierRooms || [];
         const fragments = cycle.constellationFragments || [];
         const objects = cycle.atelierObjectIds || [];
+        const seasonalFragments = cycle.seasonalFragments || [];
 
         [
             createCard("Bibliotheque", [
@@ -196,6 +197,10 @@
             createCard("Premiers souvenirs", [
                 (cycle.milestones || []).join(", ") ||
                     "Les premiers souvenirs s'inscriront au fil du voyage"
+            ]),
+            createCard("Fragments saisonniers", [
+                seasonalFragments.slice(-3).join(", ") ||
+                    "Les saisons inscriront parfois une phrase ici"
             ])
         ].forEach(card => target.appendChild(card));
     }
