@@ -191,6 +191,8 @@
         quotes.appendChild(quoteGrid);
 
         host.appendChild(intro);
+        host.appendChild(createSummary(ROOMS.dialogue));
+        host.appendChild(createDocumentModels(ROOMS.dialogue));
         host.appendChild(fragments);
         host.appendChild(components.createTimeline([
             { date: "Dialogue", title: "La conversation commence", text: "Une question ouvre un espace de recherche." },
