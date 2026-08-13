@@ -1063,6 +1063,10 @@ renderVisitEnd() {
                     Retour a l'Accueil
                 </button>
 
+                <button type="button" data-journal-link="carnet/">
+                    Ouvrir le Carnet de Voyage
+                </button>
+
             </div>
 
         </div>
@@ -1083,6 +1087,26 @@ renderVisitEnd() {
                         this.goToRoom(
                             button.dataset.targetScreen
                         );
+
+                    }
+                );
+
+            }
+            );
+
+    panel
+        .querySelectorAll(
+            "[data-journal-link]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        window.location.href =
+                            button.dataset.journalLink;
 
                     }
                 );
