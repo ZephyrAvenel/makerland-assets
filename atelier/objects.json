@@ -1,0 +1,154 @@
+{
+  "dialogue": [
+    {
+      "id": "carnet-dialogue",
+      "label": "Carnet de dialogue",
+      "title": "Le carnet de dialogue",
+      "intro": "Un carnet garde la trace des questions avant qu'elles deviennent des formes.",
+      "content": "Dans cette chambre, le carnet represente le moment ou l'auteur accepte de ne pas tout savoir. Les premieres phrases y restent ouvertes, inachevees, disponibles.",
+      "moreLabel": "Explorer davantage",
+      "moreHref": "#dialogue-carnet"
+    },
+    {
+      "id": "premiere-question",
+      "label": "Premiere question",
+      "title": "La premiere question",
+      "intro": "Une question juste deplace souvent plus qu'une reponse.",
+      "content": "La question fondatrice n'etait pas technique: quel lieu permet au visiteur d'arriver avant d'agir ? Elle a transforme une interface en seuil narratif."
+    },
+    {
+      "id": "conversation-fondatrice",
+      "label": "Conversation fondatrice",
+      "title": "Conversation fondatrice",
+      "intro": "Le dialogue devient un atelier lorsqu'il transforme le point de depart.",
+      "content": "L'echange entre l'auteur et l'outil ne sert pas a valider une idee. Il sert a faire apparaitre ce que l'idee demandait sans encore pouvoir le nommer."
+    },
+    {
+      "id": "intuition-marquante",
+      "label": "Intuition marquante",
+      "title": "Une intuition marquante",
+      "intro": "La Bibliotheque Vivante est nee comme une sensation de lieu.",
+      "content": "Avant les salles, les cartes et les passages, il y avait une intuition simple: les livres pouvaient attendre le visiteur comme des portes."
+    }
+  ],
+  "cartographie": [
+    {
+      "id": "carte-narrative",
+      "label": "Carte narrative",
+      "title": "Carte narrative",
+      "intro": "Une carte ne ferme pas le monde. Elle rend visibles des relations.",
+      "content": "Les cartes narratives relient les seuils, les lieux, les passages et les retours pour que l'oeuvre demeure habitable."
+    },
+    {
+      "id": "spirale",
+      "label": "Spirale",
+      "title": "La spirale",
+      "intro": "Certains chemins reviennent sans se repeter.",
+      "content": "La spirale represente les retours dans Makerland: revenir a la Boussole, a la Bibliotheque ou a l'Atelier, mais avec une attention legerement differente."
+    },
+    {
+      "id": "constellation",
+      "label": "Constellation",
+      "title": "Constellation de liens",
+      "intro": "Chaque lieu prend du sens dans sa relation aux autres.",
+      "content": "La Constellation n'est pas seulement un espace collectif. C'est aussi une maniere de penser les correspondances entre les recits."
+    },
+    {
+      "id": "polarite",
+      "label": "Polarite",
+      "title": "Une polarite active",
+      "intro": "Une tension peut devenir une force d'orientation.",
+      "content": "Clarte et brume, silence et parole, solitude et monde commun: ces polarites donnent aux Recits Vivants leur profondeur."
+    }
+  ],
+  "images": [
+    {
+      "id": "image-retenue",
+      "label": "Image retenue",
+      "title": "Image retenue",
+      "intro": "Une image est retenue lorsqu'elle ouvre un seuil.",
+      "content": "Elle ne decrit pas seulement un contenu. Elle propose une atmosphere dans laquelle le visiteur peut entrer sans explication prealable."
+    },
+    {
+      "id": "image-abandonnee",
+      "label": "Image abandonnee",
+      "title": "Image abandonnee",
+      "intro": "Certaines images sont justes mais ne servent pas le lieu.",
+      "content": "L'Atelier conserve aussi les pistes abandonnees. Elles montrent que la creation avance par choix, retrait et discernement."
+    },
+    {
+      "id": "prompt-creatif",
+      "label": "Prompt creatif",
+      "title": "Prompt creatif",
+      "intro": "Le prompt est une hypothese de paysage.",
+      "content": "Il ne commande pas une image definitive. Il propose une direction sensible: lumiere, silence, seuil, profondeur, presence."
+    },
+    {
+      "id": "variantes",
+      "label": "Variantes",
+      "title": "Variantes",
+      "intro": "Les variantes permettent de reconnaitre ce qui doit rester.",
+      "content": "Comparer plusieurs images aide a distinguer l'effet decoratif de la presence narrative."
+    }
+  ],
+  "clarification": [
+    {
+      "id": "brouillon",
+      "label": "Brouillon",
+      "title": "Le brouillon",
+      "intro": "Le brouillon porte encore trop de choses a la fois.",
+      "content": "Il contient l'elan, les repetitions, les exces et les pistes. Le travail consiste a ne pas perdre l'elan en retirant le bruit."
+    },
+    {
+      "id": "annotation",
+      "label": "Annotation",
+      "title": "Annotation",
+      "intro": "Une annotation indique souvent ou le texte resiste.",
+      "content": "Elle ne juge pas le fragment. Elle signale simplement ce qui demande a etre relie, simplifie ou deplace."
+    },
+    {
+      "id": "correction",
+      "label": "Correction",
+      "title": "Correction",
+      "intro": "Corriger, ici, signifie rendre l'accueil plus juste.",
+      "content": "Une phrase est corrigee lorsqu'elle cesse d'imposer une interpretation et laisse davantage de place au lecteur."
+    },
+    {
+      "id": "structure",
+      "label": "Changement de structure",
+      "title": "Changement de structure",
+      "intro": "Parfois le probleme n'est pas une phrase, mais l'ordre du lieu.",
+      "content": "Deplacer une section peut transformer la lecture: le visiteur comprend d'abord, respire ensuite, puis agit."
+    }
+  ],
+  "evolution": [
+    {
+      "id": "journal-versions",
+      "label": "Journal des versions",
+      "title": "Journal des versions",
+      "intro": "Chaque version laisse une trace dans l'oeuvre.",
+      "content": "Le journal permet de comprendre comment Makerland s'est transforme sans effacer ses intuitions precedentes."
+    },
+    {
+      "id": "jalon-rv",
+      "label": "Jalon RV",
+      "title": "Jalon RV",
+      "intro": "Un jalon marque un changement de langage.",
+      "content": "RV-001 a consolide le moteur. Les missions suivantes ont progressivement deplace l'attention vers l'hospitalite, les passages et les lieux."
+    },
+    {
+      "id": "grande-evolution",
+      "label": "Grande evolution",
+      "title": "Grande evolution",
+      "intro": "La grande evolution est le passage d'une application a un monde.",
+      "content": "Les ecrans ne sont plus seulement des destinations. Ils deviennent des espaces que l'on peut habiter, quitter et retrouver."
+    },
+    {
+      "id": "perspective",
+      "label": "Perspective",
+      "title": "Perspective",
+      "intro": "Une oeuvre vivante reste ouverte.",
+      "content": "Les prochaines versions pourront accueillir de nouveaux carnets, cartes, images, dialogues et contributions sans changer le coeur de l'Atelier."
+    }
+  ]
+}
