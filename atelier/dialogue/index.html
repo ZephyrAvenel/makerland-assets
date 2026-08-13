@@ -6,8 +6,9 @@
 <title>Dialogue vivant</title>
 <link rel="stylesheet" href="../../css/placeholder.css">
 </head>
-<body class="dialogue-room" data-depth="sub">
+<body class="dialogue-room" data-depth="sub" data-cycle-type="atelier" data-cycle-page="dialogue" data-cycle-breadcrumb="Bibliotheque -> Atelier -> Dialoguer">
 <main>
+<p class="living-breadcrumb" data-cycle-breadcrumb></p>
 <p class="placeholder-kicker">Atelier IA</p>
 <h1>Le Dialogue vivant</h1>
 <p>Cette salle raconte comment une intuition devient peu a peu une oeuvre. Le dialogue n'y remplace jamais l'auteur: il agrandit le paysage dans lequel l'auteur peut chercher.</p>
@@ -87,9 +88,11 @@
 <p>Certains fragments de cette salle gardent une histoire propre. Touchez un objet pour ouvrir sa fiche sans quitter le lieu.</p>
 </section>
 
+<aside class="cycle-echo" data-cycle-echo></aside>
 <a class="placeholder-return" data-atelier-return href="../../index.html">Revenir au voyage</a>
 </main>
 <script src="../atelier-return.js"></script>
 <script src="../atelier-objects.js"></script>
+<script src="../living-cycle.js"></script>
 </body>
 </html>

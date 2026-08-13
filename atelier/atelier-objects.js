@@ -14,6 +14,35 @@
     function remember(id) {
         try {
             sessionStorage.setItem(STORAGE_PREFIX + id, "1");
+            updateCycleMemory(id);
+        } catch (error) {
+            return;
+        }
+    }
+
+    function updateCycleMemory(id) {
+        const key = "makerland:living-cycle";
+        let memory = {};
+
+        try {
+            memory = JSON.parse(localStorage.getItem(key) || "{}");
+        } catch (error) {
+            memory = {};
+        }
+
+        const objects = Array.isArray(memory.atelierObjectIds)
+            ? memory.atelierObjectIds
+            : [];
+
+        if (!objects.includes(id)) {
+            objects.push(id);
+        }
+
+        memory.atelierObjectIds = objects;
+        memory.atelierObjects = objects.length;
+
+        try {
+            localStorage.setItem(key, JSON.stringify(memory));
         } catch (error) {
             return;
         }
