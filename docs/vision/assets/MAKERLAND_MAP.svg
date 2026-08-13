@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Cosmologie de Makerland</title>
+  <desc id="desc">Carte narrative des lieux, cycles et relations des Recits Vivants.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#172943"/>
+      <stop offset="58%" stop-color="#091421"/>
+      <stop offset="100%" stop-color="#03070d"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe4aa" stop-opacity="0.32"/>
+      <stop offset="62%" stop-color="#8fb9ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#d8b66b"/>
+    </marker>
+    <style>
+      .title{font:700 46px Georgia,serif;fill:#ffe3a8;text-anchor:middle}
+      .subtitle{font:18px Georgia,serif;fill:#f8e9c3;text-anchor:middle;opacity:.78}
+      .place-title{font:700 20px Georgia,serif;fill:#fff4d8;text-anchor:middle}
+      .place-text{font:14px Arial,sans-serif;fill:#f6e8c8;text-anchor:middle;opacity:.82}
+      .level{font:700 14px Arial,sans-serif;fill:#ffe3a8;text-anchor:middle;letter-spacing:.08em}
+      .verb{font:700 18px Georgia,serif;fill:#f8d993;text-anchor:middle;opacity:.86}
+      .cycle-text{font:13px Arial,sans-serif;fill:#f8e9c3;text-anchor:middle;opacity:.9}
+      .line{fill:none;stroke:#d8b66b;stroke-width:2;stroke-opacity:.48;marker-end:url(#arrow)}
+      .soft-line{fill:none;stroke:#8fb9ff;stroke-width:1.5;stroke-opacity:.28}
+      .cycle-line{fill:none;stroke:#ffe3a8;stroke-width:2;stroke-opacity:.35;stroke-dasharray:8 10}
+      .node{stroke:#ffe3a8;stroke-opacity:.42;stroke-width:1.4;filter:url(#softGlow)}
+      .node-bg{fill:#0a1728;fill-opacity:.88}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <circle cx="800" cy="555" r="430" fill="url(#centerGlow)"/>
+
+  <text class="title" x="800" y="82">Cosmologie de Makerland</text>
+  <text class="subtitle" x="800" y="116">Territoire narratif des Recits Vivants</text>
+
+  <ellipse cx="800" cy="555" rx="610" ry="390" class="cycle-line"/>
+  <text class="level" x="800" y="178">NIVEAU 1 - DECOUVRIR</text>
+  <text class="level" x="800" y="534">NIVEAU 2 - EXPLORER</text>
+  <text class="level" x="800" y="924">NIVEAU 3 - CREER ET TRANSMETTRE</text>
+
+  <g id="places">
+    <g transform="translate(460 240)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#128218; Bibliotheque Vivante</text>
+      <text class="place-text" y="10">Memoire vivante des oeuvres</text>
+      <text class="place-text" y="34">Rencontrer les portes du monde</text>
+    </g>
+    <g transform="translate(800 240)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#129517; Boussole Vivante</text>
+      <text class="place-text" y="10">Orientation douce</text>
+      <text class="place-text" y="34">Choisir sans etre dirige</text>
+    </g>
+    <g transform="translate(1140 420)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#128506; Cartes Narratives</text>
+      <text class="place-text" y="10">Lire les chemins possibles</text>
+      <text class="place-text" y="34">Explorer les territoires</text>
+    </g>
+    <g transform="translate(1040 680)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#127756; Oeuvres immersives</text>
+      <text class="place-text" y="10">Franchir les passages</text>
+      <text class="place-text" y="34">Entrer dans les recits</text>
+    </g>
+    <g transform="translate(560 790)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#128736; Atelier IA</text>
+      <text class="place-text" y="10">Coulisses de creation</text>
+      <text class="place-text" y="34">Dialoguer et transformer</text>
+    </g>
+    <g transform="translate(880 850)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#10024; Constellation</text>
+      <text class="place-text" y="10">Resonances des lecteurs</text>
+      <text class="place-text" y="34">Partager sans classer</text>
+    </g>
+    <g transform="translate(420 560)">
+      <rect class="node node-bg" x="-130" y="-58" width="260" height="116" rx="24"/>
+      <text class="place-title" y="-20">&#128214; Carnet de Voyage</text>
+      <text class="place-text" y="10">Memoire locale du chemin</text>
+      <text class="place-text" y="34">Garder trace sans mesurer</text>
+    </g>
+  </g>
+
+  <path class="line" d="M590 240 C650 220 710 220 670 240"/>
+  <path class="line" d="M800 300 C870 350 1010 360 1020 410"/>
+  <path class="line" d="M1130 480 C1130 560 1100 610 1050 620"/>
+  <path class="line" d="M1000 735 C960 780 930 805 900 795"/>
+  <path class="line" d="M750 850 C690 850 630 830 610 795"/>
+  <path class="line" d="M500 745 C430 700 390 640 410 620"/>
+
+  <path class="soft-line" d="M560 730 C660 650 790 650 920 790"/>
+  <path class="soft-line" d="M880 790 C830 700 700 650 590 735"/>
+  <path class="soft-line" d="M430 505 C500 430 620 330 760 285"/>
+  <path class="soft-line" d="M420 620 C530 720 680 825 820 850"/>
+
+  <g id="cycle" transform="translate(800 555)">
+    <circle r="175" fill="none" stroke="#ffe3a8" stroke-opacity=".22" stroke-width="1.5"/>
+    <text class="cycle-text" x="0" y="-190">Une intuition</text>
+    <text class="cycle-text" x="112" y="-145">Dialogue</text>
+    <text class="cycle-text" x="185" y="-42">Cartographie</text>
+    <text class="cycle-text" x="164" y="82">Imaginaire</text>
+    <text class="cycle-text" x="58" y="174">Clarification</text>
+    <text class="cycle-text" x="-76" y="174">Oeuvre</text>
+    <text class="cycle-text" x="-170" y="82">Lecture</text>
+    <text class="cycle-text" x="-188" y="-42">Resonance</text>
+    <text class="cycle-text" x="-116" y="-145">Transmission</text>
+    <text class="cycle-text" x="0" y="6" style="font:700 22px Georgia,serif;fill:#ffe3a8;text-anchor:middle">Cycle Vivant</text>
+    <path class="cycle-line" d="M0,-165 C130,-130 185,-20 145,96 C92,202 -92,202 -145,96 C-185,-20 -130,-130 0,-165" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="verbs">
+    <text class="verb" x="190" y="235">Habiter</text>
+    <text class="verb" x="220" y="530">Dialoguer</text>
+    <text class="verb" x="260" y="858">Explorer</text>
+    <text class="verb" x="800" y="1005">Creer</text>
+    <text class="verb" x="1320" y="858">Relier</text>
+    <text class="verb" x="1370" y="530">Transmettre</text>
+    <text class="verb" x="1320" y="235">Revenir</text>
+  </g>
+</svg>
