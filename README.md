@@ -25,3 +25,9 @@ La Cosmologie de Makerland est la representation officielle du territoire des Re
 Elle permet de voir comment les lieux, les passages, les cycles et les intentions du projet sont relies.
 
 Voir [MAKERLAND_COSMOLOGY](docs/vision/MAKERLAND_COSMOLOGY.md).
+
+## Histoire du projet
+
+Les [Chroniques de Makerland](docs/history/MAKERLAND_CHRONICLES.md) constituent la memoire officielle de l'evolution du territoire.
+
+Elles racontent comment Makerland s'est construit progressivement, non comme un changelog technique, mais comme l'histoire d'un territoire culturel numerique en maturation.
