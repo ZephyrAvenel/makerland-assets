@@ -462,6 +462,12 @@
         renderLists($("[data-graph-search]")?.value || "");
         renderMap(model);
         renderDetail(model);
+        document.dispatchEvent(new CustomEvent("living-graph:selected", {
+            detail: {
+                id,
+                model
+            }
+        }));
     }
 
     function initSearch() {
@@ -470,6 +476,14 @@
             return;
         }
         input.addEventListener("input", () => renderLists(input.value));
+    }
+
+    function initGuideRequests() {
+        document.addEventListener("living-graph:request-selection", event => {
+            if (event.detail && event.detail.id && state.index.has(event.detail.id)) {
+                selectNode(event.detail.id);
+            }
+        });
     }
 
     function init() {
@@ -484,6 +498,7 @@
                 state = { ...state, graph, concepts, works, assets, mapping };
                 buildIndex();
                 initSearch();
+                initGuideRequests();
                 renderLists();
                 const marginWork = state.works.works.find(work => normalize(work.title).includes("marges vivantes"));
                 selectNode(marginWork ? marginWork.id : "TERM-ECOLOGIE-NARRATIVE");
