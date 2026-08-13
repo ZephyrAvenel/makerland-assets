@@ -269,6 +269,7 @@ function showJourneyMessage(
         getPlace(toScreen);
 
     if (
+        document.body.classList.contains("first-journey-active") ||
         !to ||
         !noticeElement
     ) return;

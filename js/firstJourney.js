@@ -52,6 +52,7 @@
         root: null,
         currentScreen: null,
         syncingScreen: false,
+        transitioning: false,
         memory: readMemory()
     };
 
@@ -98,6 +99,7 @@
 
         if (state.memory.active && !state.memory.completed) {
             document.body.classList.remove("first-journey-intro-ready");
+            document.body.classList.add("first-journey-active");
             const step = STEPS[state.memory.step] || STEPS[0];
             if (screenId !== step.screen && !state.syncingScreen) {
                 state.syncingScreen = true;
@@ -112,10 +114,12 @@
         }
 
         if (screenId === "e01_accueil") {
+            document.body.classList.remove("first-journey-active");
             clearRoot();
             return;
         }
 
+        document.body.classList.remove("first-journey-active");
         clearRoot();
     }
 
@@ -171,12 +175,13 @@
     function renderStep() {
         const step = STEPS[state.memory.step] || STEPS[0];
         const isLast = state.memory.step >= STEPS.length - 1;
+        const transitionClass = state.transitioning ? " is-transitioning" : "";
         const action = step.href
             ? `<a href="${step.href}">Ouvrir D001</a>`
             : `<button type="button" data-first-journey-open>Voir ce lieu</button>`;
 
         state.root.innerHTML = [
-            "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage\">",
+            `<aside class="first-journey__step${transitionClass}" aria-label="Premier Voyage">`,
             `<p class=\"first-journey__progress\">Etape ${state.memory.step + 1} / ${STEPS.length}</p>`,
             `<h3>${escapeHtml(step.title)}</h3>`,
             `<span class=\"first-journey__subtitle\">${escapeHtml(step.place)} - ${escapeHtml(step.subtitle)}</span>`,
@@ -234,6 +239,7 @@
 
     function startJourney() {
         document.body.classList.remove("first-journey-intro-ready");
+        document.body.classList.add("first-journey-active");
         state.memory = {
             choice: "guided",
             active: true,
@@ -258,6 +264,7 @@
     }
 
     function pauseJourney() {
+        document.body.classList.remove("first-journey-active");
         state.memory.active = false;
         state.memory.updatedAt = new Date().toISOString();
         writeMemory(state.memory);
@@ -265,6 +272,7 @@
     }
 
     function finishJourney() {
+        document.body.classList.remove("first-journey-active");
         state.memory.active = false;
         state.memory.completed = true;
         state.memory.completedAt = new Date().toISOString();
@@ -273,13 +281,13 @@
         state.root.innerHTML = [
             "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage termine\">",
             "<h3>Vous connaissez maintenant les cinq portes des Recits Vivants.</h3>",
-            "<p>Le premier voyage est termine.</p>",
+            "<p>Le seuil est desormais derriere vous.</p>",
             "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
             "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
-            "<p>Vous pouvez desormais explorer librement ce territoire.</p>",
+            "<p>Chaque lecteur compose desormais sa propre traversee.</p>",
             "<div class=\"first-journey__actions\">",
             "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-library>Explorer les oeuvres</button>",
-            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-free>Explorer librement</button>",
+            "<button type=\"button\" data-first-journey-free>Explorer librement</button>",
             "<button type=\"button\" data-first-journey-replay>Refaire le premier voyage</button>",
             "</div>",
             "</aside>"
@@ -291,12 +299,18 @@
 
     function moveStep(direction) {
         const nextStep = Math.max(0, Math.min(STEPS.length - 1, state.memory.step + direction));
-        state.memory.step = nextStep;
-        state.memory.active = true;
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
-        navigateTo(STEPS[nextStep].screen);
+        state.transitioning = true;
         renderStep();
+
+        window.setTimeout(() => {
+            state.memory.step = nextStep;
+            state.memory.active = true;
+            state.memory.updatedAt = new Date().toISOString();
+            writeMemory(state.memory);
+            state.transitioning = false;
+            navigateTo(STEPS[nextStep].screen);
+            renderStep();
+        }, 300);
     }
 
     function navigateTo(screenId) {
@@ -307,6 +321,7 @@
 
     function clearRoot() {
         document.body.classList.remove("first-journey-intro-ready");
+        document.body.classList.remove("first-journey-active");
         state.root.innerHTML = "";
     }
 

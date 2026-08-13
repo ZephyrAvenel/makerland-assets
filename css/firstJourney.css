@@ -50,9 +50,15 @@
     width:min(390px, calc(var(--screen-content-width) * .34));
     max-height:min(520px, 76vh);
     padding:17px 19px;
+    min-height:342px;
     box-sizing:border-box;
     overflow:auto;
     animation:firstJourneyAppear .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+.first-journey__step.is-transitioning{
+    animation:firstJourneyStepLeave .3s cubic-bezier(.22,1,.36,1) both;
+    pointer-events:none;
 }
 
 .first-journey__replay{
@@ -192,6 +198,17 @@ body.first-journey-intro-ready .living-home{
     }
 }
 
+@keyframes firstJourneyStepLeave{
+    from{
+        opacity:1;
+        transform:translateY(0);
+    }
+    to{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+}
+
 .first-journey__welcome,
 .first-journey__intro{
     animation-name:firstJourneyWelcomeAppear;
@@ -221,6 +238,7 @@ body.first-journey-intro-ready .living-home{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
         width:calc(var(--screen-content-width) * .48);
         padding:13px 14px;
+        min-height:310px;
     }
 
     .first-journey p{
@@ -234,6 +252,7 @@ body.first-journey-intro-ready .living-home{
         right:auto;
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
         width:calc(var(--screen-content-width) * .82);
+        min-height:320px;
     }
 
     .first-journey__replay{
@@ -248,6 +267,7 @@ body.first-journey-intro-ready .living-home{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
         width:calc(var(--screen-content-width) * .42);
         max-height:76vh;
+        min-height:0;
     }
 
     .first-journey__replay{
@@ -270,6 +290,7 @@ body.first-journey-intro-ready .living-home{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
         width:calc(var(--screen-content-width) * .46);
         max-height:76vh;
+        min-height:0;
     }
 
     .first-journey__replay{
