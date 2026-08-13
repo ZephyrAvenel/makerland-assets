@@ -14,6 +14,7 @@
 .first-journey__welcome,
 .first-journey__intro,
 .first-journey__step,
+.first-journey__forest,
 .first-journey__replay{
     border:1px solid rgba(255,224,166,.26);
     border-radius:22px;
@@ -59,6 +60,47 @@
 .first-journey__step.is-transitioning{
     animation:firstJourneyStepLeave .3s cubic-bezier(.22,1,.36,1) both;
     pointer-events:none;
+}
+
+.first-journey__forest{
+    position:absolute;
+    left:50%;
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
+    width:min(720px, calc(var(--screen-content-width) * .68));
+    max-height:min(620px, 82vh);
+    padding:clamp(22px, 3vw, 34px);
+    box-sizing:border-box;
+    overflow:auto;
+    text-align:center;
+    transform:translate(-50%, -50%);
+    animation:firstJourneyForestAppear 1s cubic-bezier(.22,1,.36,1) both;
+}
+
+.first-journey__forest::before{
+    content:"";
+    display:block;
+    width:72px;
+    height:1px;
+    margin:0 auto 18px;
+    background:linear-gradient(90deg, transparent, rgba(255,224,166,.62), transparent);
+    box-shadow:0 0 22px rgba(255,207,130,.18);
+}
+
+.first-journey__forest-subtitle{
+    display:block;
+    margin-top:8px;
+    color:rgba(255,224,166,.82);
+    font-size:clamp(14px, calc(var(--screen-content-width) * .012), 18px);
+    line-height:1.35;
+}
+
+.first-journey__forest-text{
+    margin:20px auto 0;
+    max-width:620px;
+}
+
+.first-journey__forest .first-journey__actions{
+    justify-content:center;
 }
 
 .first-journey__replay{
@@ -243,9 +285,21 @@ body.first-journey-intro-ready .living-home{
     }
 }
 
+@keyframes firstJourneyForestAppear{
+    from{
+        opacity:0;
+        transform:translate(-50%, calc(-50% + 18px));
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%, -50%);
+    }
+}
+
 @media (max-width:768px){
     .first-journey__welcome,
-    .first-journey__intro{
+    .first-journey__intro,
+    .first-journey__forest{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
         width:calc(var(--screen-content-width) * .78);
         padding:18px 19px;
@@ -277,6 +331,12 @@ body.first-journey-intro-ready .living-home{
         bottom:34px;
         width:84vw;
     }
+
+    .first-journey__forest{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
+        width:calc(var(--screen-content-width) * .86);
+        max-height:78vh;
+    }
 }
 
 @media (max-width:768px) and (orientation:landscape){
@@ -299,6 +359,12 @@ body.first-journey-intro-ready .living-home{
     .first-journey__replay button{
         padding:4px 9px;
         font-size:10px;
+    }
+
+    .first-journey__forest{
+        width:calc(var(--screen-content-width) * .58);
+        max-height:80vh;
+        padding:14px 16px;
     }
 }
 
@@ -323,12 +389,19 @@ body.first-journey-intro-ready .living-home{
         padding:4px 9px;
         font-size:10px;
     }
+
+    .first-journey__forest{
+        width:calc(var(--screen-content-width) * .62);
+        max-height:82vh;
+        padding:13px 15px;
+    }
 }
 
 @media (prefers-reduced-motion:reduce){
     .first-journey__welcome,
     .first-journey__intro,
-    .first-journey__step{
+    .first-journey__step,
+    .first-journey__forest{
         animation:none;
     }
 
