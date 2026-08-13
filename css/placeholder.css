@@ -381,6 +381,142 @@ blockquote{
         rgba(255,255,255,.026);
 }
 
+.place-resonance,
+.personal-constellation{
+    position:relative;
+    width:min(820px, 100%);
+    margin-left:auto;
+    margin-right:auto;
+    padding:22px;
+    border:1px solid rgba(255,224,158,.14);
+    border-radius:22px;
+    background:
+        radial-gradient(circle at 50% 0, rgba(255,214,139,.08), transparent 50%),
+        rgba(255,255,255,.024);
+    overflow:hidden;
+}
+
+.place-resonance > p{
+    max-width:640px;
+}
+
+.resonance-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+    gap:12px;
+    margin-top:18px;
+    text-align:left;
+}
+
+.resonance-card{
+    position:relative;
+    display:grid;
+    gap:8px;
+    min-height:84px;
+    padding:16px;
+    border:1px solid rgba(255,224,158,.18);
+    border-radius:18px;
+    color:#fff4d8;
+    text-decoration:none;
+    background:rgba(255,255,255,.026);
+    box-shadow:0 16px 34px rgba(0,0,0,.16);
+    transition:
+        transform .28s cubic-bezier(.22,1,.36,1),
+        border-color .28s ease,
+        box-shadow .28s ease;
+}
+
+.resonance-card span{
+    color:rgba(255,224,158,.82);
+}
+
+.resonance-card strong{
+    font-size:clamp(15px, 2.4vw, 18px);
+    line-height:1.25;
+}
+
+.resonance-card:hover,
+.resonance-card:focus-visible{
+    transform:translateY(-2px);
+    border-color:rgba(255,224,158,.36);
+    outline:none;
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.2),
+        0 0 28px rgba(255,198,96,.1);
+}
+
+.personal-constellation__path{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-top:18px;
+}
+
+.personal-constellation__path span{
+    position:relative;
+    padding:10px 14px;
+    border:1px solid rgba(255,224,158,.22);
+    border-radius:999px;
+    color:rgba(255,239,204,.84);
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:.04em;
+    background:rgba(255,255,255,.026);
+    box-shadow:0 0 22px rgba(255,198,96,.08);
+}
+
+.personal-constellation__path span:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:100%;
+    top:50%;
+    width:12px;
+    height:1px;
+    background:linear-gradient(90deg, rgba(255,224,158,.36), transparent);
+}
+
+.traveling-fragment{
+    width:min(680px, 100%);
+    margin:32px auto 0;
+    padding:18px 22px;
+    border:1px solid rgba(255,224,158,.14);
+    border-radius:22px;
+    color:rgba(255,238,202,.84);
+    font-size:clamp(16px, 2.6vw, 21px);
+    font-style:italic;
+    line-height:1.55;
+    background:rgba(255,255,255,.026);
+    box-shadow:0 18px 38px rgba(0,0,0,.16);
+}
+
+.resonance-threads{
+    position:absolute;
+    inset:auto 8% 12px;
+    height:28px;
+    pointer-events:none;
+}
+
+.resonance-threads span{
+    position:absolute;
+    left:8%;
+    right:8%;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,224,158,.28), transparent);
+    opacity:.45;
+    animation:resonanceThread 8s ease-in-out infinite;
+}
+
+.resonance-threads span:nth-child(2){
+    top:10px;
+    animation-delay:1.8s;
+}
+
+.resonance-threads span:nth-child(3){
+    top:20px;
+    animation-delay:3.2s;
+}
+
 .travel-journal main{
     width:min(1080px, 100%);
 }
@@ -651,6 +787,26 @@ blockquote{
     font-size:13px;
     text-decoration:none;
     background:rgba(255,255,255,.04);
+}
+
+.object-drawer__resonance{
+    display:inline-flex;
+    margin-top:18px;
+    padding:9px 14px;
+    border:1px solid rgba(255,224,158,.28);
+    border-radius:999px;
+    color:#ffe3a8;
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:.04em;
+    text-decoration:none;
+    background:rgba(255,255,255,.035);
+}
+
+.object-drawer__resonance:hover,
+.object-drawer__resonance:focus-visible{
+    outline:none;
+    box-shadow:0 0 26px rgba(255,198,96,.12);
 }
 
 .dialogue-room main{
@@ -928,6 +1084,19 @@ h1{
     }
 }
 
+@keyframes resonanceThread{
+    0%,
+    100%{
+        opacity:.18;
+        transform:translateX(-8px);
+    }
+
+    50%{
+        opacity:.52;
+        transform:translateX(8px);
+    }
+}
+
 @media (prefers-reduced-motion:reduce) {
     main{
         animation:none;
@@ -942,6 +1111,14 @@ h1{
     }
 
     .object-drawer__card{
+        animation:none;
+    }
+
+    .resonance-card{
+        transition:none;
+    }
+
+    .resonance-threads span{
         animation:none;
     }
 }
