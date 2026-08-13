@@ -58,7 +58,6 @@
         document.body.classList.add("living-home-ready");
         const known = isKnownVisitor();
         root.innerHTML = [
-            renderThreshold(),
             renderDoors(known)
         ].join("");
         bindActions();
@@ -66,9 +65,9 @@
 
     function renderThreshold() {
         return [
-            "<section class=\"living-home__threshold\" aria-label=\"Seuil de Makerland\">",
-            "<p>Un territoire ou l'on explore comment naissent les idees, les recits et les oeuvres.</p>",
-            "<span class=\"living-home__promise\">Entrez. Les oeuvres sont ici. Mais surtout, vous allez decouvrir comment elles sont nees.</span>",
+            "<section class=\"living-home__threshold\" aria-label=\"Seuil des Recits Vivants\">",
+            "<p>Chaque recit ouvre une porte.<br>Chaque porte conduit vers un territoire.<br>Le voyage commence toujours par une premiere rencontre.</p>",
+            "<span class=\"living-home__promise\">Une oeuvre immersive de Zephyr Avenel</span>",
             "</section>"
         ].join("");
     }
@@ -127,7 +126,7 @@
 
     function renderDoors(known) {
         return [
-            "<nav class=\"living-home__doors\" aria-label=\"Facons d'entrer dans Makerland\">",
+            "<nav class=\"living-home__doors\" aria-label=\"Facons d'entrer dans les Recits Vivants\">",
             "<button type=\"button\" class=\"living-home__door\" data-living-home-first>",
             "<strong>Je decouvre</strong>",
             "<span>Un premier voyage d'environ cinq minutes.</span>",
@@ -138,7 +137,7 @@
             "</button>",
             "<button type=\"button\" class=\"living-home__door\" data-living-home-free>",
             "<strong>J'explore librement</strong>",
-            "<span>Entrer sans guidage, au rythme de la Boussole.</span>",
+            "<span>Entrer sans guidage, au rythme des Recits Vivants.</span>",
             "</button>",
             "</nav>"
         ].join("");
@@ -207,12 +206,12 @@
             e04_oeuvre: "Foret de l'Arche",
             e05_cartes: "Cartes Narratives",
             e06_fiction: "Bibliotheque Vivante",
-            e07_atelier: "Atelier IA",
+            e07_atelier: "L'Atelier des Recits",
             e08_constellation: "Constellation",
             e09_voyage: "Carnet de Voyage"
         };
 
-        return places[memory.lastScreen] || places[memory.lastPlace] || "Makerland";
+        return places[memory.lastScreen] || places[memory.lastPlace] || "Les Recits Vivants";
     }
 
     function readablePath(value) {
