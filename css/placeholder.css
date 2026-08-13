@@ -158,6 +158,91 @@ blockquote{
     margin-top:42px;
 }
 
+.editorial-flow{
+    display:grid;
+    gap:22px;
+    margin:42px auto 0;
+    width:min(900px, 100%);
+}
+
+.editorial-card{
+    text-align:left;
+}
+
+.editorial-card h2{
+    margin-bottom:14px;
+}
+
+.editorial-card blockquote{
+    text-align:center;
+}
+
+.room-next{
+    margin-top:30px;
+}
+
+.revision-stack{
+    display:grid;
+    gap:12px;
+    margin-top:18px;
+}
+
+.revision-stack p{
+    max-width:none;
+    padding:14px 16px;
+    border:1px solid rgba(255,224,158,.14);
+    border-radius:14px;
+    background:rgba(255,255,255,.035);
+}
+
+.revision-stack strong{
+    display:block;
+    margin-bottom:6px;
+    color:rgba(255,220,154,.88);
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+.compact-gallery{
+    margin-top:20px;
+}
+
+.compact-timeline{
+    margin-top:18px;
+}
+
+.path-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:16px;
+    margin-top:20px;
+    text-align:left;
+}
+
+.path-cards .placeholder-card{
+    position:relative;
+}
+
+.path-cards .placeholder-card::after{
+    content:"";
+    position:absolute;
+    right:-9px;
+    top:50%;
+    width:12px;
+    height:1px;
+    background:rgba(255,224,158,.34);
+}
+
+.path-cards .placeholder-card:last-child::after{
+    display:none;
+}
+
+.testimony-grid .placeholder-card{
+    min-height:180px;
+}
+
 .living-breadcrumb{
     margin:0 auto 18px;
     max-width:none;
@@ -715,6 +800,19 @@ blockquote{
         bottom:-7px;
         width:1px;
         height:10px;
+    }
+
+    .path-cards{
+        grid-template-columns:1fr;
+    }
+
+    .path-cards .placeholder-card::after{
+        left:50%;
+        right:auto;
+        top:auto;
+        bottom:-9px;
+        width:1px;
+        height:12px;
     }
 }
 
