@@ -6,11 +6,23 @@
 <title>Atelier IA</title>
 <link rel="stylesheet" href="../css/placeholder.css">
 </head>
-<body data-depth="root">
+<body data-depth="root" data-cycle-type="atelier" data-cycle-page="atelier" data-cycle-breadcrumb="Bibliotheque -> Atelier">
 <main>
+<p class="living-breadcrumb" data-cycle-breadcrumb></p>
 <p class="placeholder-kicker">Atelier IA</p>
 <h1>Entrer dans l'Atelier</h1>
 <p>L'Atelier est le lieu ou les Recits Vivants montrent leurs coulisses: intuitions, cartes, dialogues, images et versions en mouvement.</p>
+<section class="room-section">
+<h2>Le Cycle Vivant</h2>
+<ol class="living-cycle">
+<li><span>&#128172; Dialoguer</span></li>
+<li><span>&#128506; Cartographier</span></li>
+<li><span>&#127912; Imaginer</span></li>
+<li><span>&#9997; Clarifier</span></li>
+<li><span>&#127793; Faire evoluer</span></li>
+<li><a href="../constellation/">&#10024; Partager dans la Constellation</a></li>
+</ol>
+</section>
 <section>
 <h2>Cinq chambres de creation</h2>
 <div class="placeholder-grid">
@@ -22,8 +34,10 @@
 </div>
 </section>
 <p class="placeholder-note">Ce lieu continuera de s'enrichir au fil des prochaines versions des Recits Vivants.</p>
+<aside class="journey-memory" data-cycle-memory></aside>
 <a class="placeholder-return" data-atelier-return href="../index.html">Revenir au voyage</a>
 </main>
 <script src="atelier-return.js"></script>
+<script src="living-cycle.js"></script>
 </body>
 </html>
