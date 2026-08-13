@@ -233,6 +233,52 @@
     box-shadow:0 0 24px rgba(255,198,96,.12);
 }
 
+.archive-markdown{
+    width:min(780px, 100%);
+    margin:28px auto 0;
+    padding:22px;
+    border:1px solid rgba(255,224,158,.16);
+    border-radius:22px;
+    background:rgba(255,255,255,.026);
+}
+
+.archive-markdown h1,
+.archive-markdown h2{
+    text-align:left;
+}
+
+.archive-markdown h1{
+    font-size:clamp(28px, 5vw, 48px);
+}
+
+.archive-markdown h2{
+    margin-top:22px;
+}
+
+.archive-markdown p,
+.archive-markdown li{
+    max-width:none;
+    color:rgba(255,246,222,.78);
+    font-size:clamp(15px, 2.5vw, 18px);
+    line-height:1.65;
+}
+
+.archive-markdown blockquote{
+    margin:22px auto;
+}
+
+.archive-volume-nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-top:30px;
+}
+
+.archive-volume-nav .placeholder-return{
+    margin-top:0;
+}
+
 @media (max-width:680px) {
     .archive-shell{
         margin-top:34px;
