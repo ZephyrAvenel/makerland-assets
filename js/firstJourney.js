@@ -62,6 +62,8 @@
     }
 
     function bindEvents() {
+        document.addEventListener("makerland:firstJourney:start", startJourney);
+
         window.addEventListener("screenChanged", event => {
             renderForCurrentScreen(event.detail.screen);
         });
@@ -116,6 +118,10 @@
     }
 
     function shouldShowWelcome(screenId) {
+        if (document.querySelector("[data-living-home]")) {
+            return false;
+        }
+
         return screenId === "e01_accueil" &&
             !state.memory.choice &&
             !state.memory.completed &&
