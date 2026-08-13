@@ -1,0 +1,2256 @@
+{
+  "generatedAt": "2026-08-13T12:34:27.759Z",
+  "source": "oeuvre-immersive-sauvegarde-13-08-26.zip",
+  "assets": [
+    {
+      "id": "IMG-0001",
+      "name": "backblue.gif",
+      "origin": "Œuvre immersive",
+      "extractedPath": "backblue.gif",
+      "format": "GIF",
+      "width": 501,
+      "height": 456,
+      "bytes": 4243,
+      "sha256": "5ecd3c65a71650f10ddc799403b682af2d866e50fc1ea30e972fd8c7df3f77e7",
+      "subject": "Texture ou élément technique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": false,
+      "isTechnicalTexture": true
+    },
+    {
+      "id": "IMG-0002",
+      "name": "fade.gif",
+      "origin": "Œuvre immersive",
+      "extractedPath": "fade.gif",
+      "format": "GIF",
+      "width": 8,
+      "height": 8,
+      "bytes": 828,
+      "sha256": "90d1006a9e216e01d7c5abc9fd812ee537b8caedc55a1ad885dded4e6520a5a1",
+      "subject": "Texture ou élément technique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": false,
+      "isTechnicalTexture": true
+    },
+    {
+      "id": "IMG-0003",
+      "name": "Carte-Sceau-Atlas-des-Récits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/atlas-recits-vivants/main/Carte-Sceau-Atlas-des-Récits-vivants.png",
+      "format": "PNG",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2263457,
+      "sha256": "cbd948266e9ea05e0323d59e998e1980696c9f069bea9e677d8086ce10108ec3",
+      "subject": "Récits Vivants, Atlas, Cartes narratives, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Atlas",
+        "Cartes narratives",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D004",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0001"
+    },
+    {
+      "id": "IMG-0004",
+      "name": "Atlas-des-récits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/main/Atlas-des-récits-vivants.png",
+      "format": "PNG",
+      "width": 327,
+      "height": 352,
+      "bytes": 136415,
+      "sha256": "410f5b6a73c52a81d8ce8e378e1b20ecc0e87b4e0e6ef9a967aca292463bc54c",
+      "subject": "Récits Vivants, Atlas, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Atlas",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D004",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0002"
+    },
+    {
+      "id": "IMG-0005",
+      "name": "COUVERTURE-LES-MARGES-VIVANTES.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/main/COUVERTURE-LES-MARGES-VIVANTES.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3050366,
+      "sha256": "4de9ffdf7053c9ccb197eeeeafe25d85f586d66ac4f761d496a8d428417906f9",
+      "subject": "Marge vivante, Vivant",
+      "concepts": [
+        "Marge vivante",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0001"
+    },
+    {
+      "id": "IMG-0006",
+      "name": "Amina Yusuf.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Amina Yusuf.png",
+      "format": "PNG",
+      "width": 928,
+      "height": 1232,
+      "bytes": 1724897,
+      "sha256": "baf74f4ebbcbdf6acd8b8c6df9b9fa4963b86d973f5fd5800d3457b2fd309897",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0003"
+    },
+    {
+      "id": "IMG-0007",
+      "name": "arbre-des-recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/arbre-des-recits-vivants.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2653044,
+      "sha256": "939d52f0b7a99caecccf408faa45c199a70bdb048b6b1ca4850ff9648af53ba2",
+      "subject": "Récits Vivants, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0004"
+    },
+    {
+      "id": "IMG-0008",
+      "name": "AU SEUIL DES ÉTOILES.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/AU SEUIL DES ÉTOILES.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2180219,
+      "sha256": "2f9806975733db5da4ddf36fe2c888fcc3c3dc380da29748d351118fc3825475",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0002"
+    },
+    {
+      "id": "IMG-0009",
+      "name": "Au-dela-des-epines.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Au-dela-des-epines.png",
+      "format": "PNG",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2369697,
+      "sha256": "4193c9157e4c8d8316fd5fb967ccf5854c2f2f07ce58a0b018a4288823764c39",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0005"
+    },
+    {
+      "id": "IMG-0010",
+      "name": "au-seuil-des-etoile-portee-immersive.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/au-seuil-des-etoile-portee-immersive.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3110544,
+      "sha256": "b8a87a844c65cd5e00345852545ca7fd4b9352ba484a17b71e0b7243a6ef204f",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0006"
+    },
+    {
+      "id": "IMG-0011",
+      "name": "BANNIERE_RECITS_VIVANTS.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/BANNIERE_RECITS_VIVANTS.png",
+      "format": "PNG",
+      "width": 1794,
+      "height": 876,
+      "bytes": 1925542,
+      "sha256": "375382c7482b14b43b36c95e1b85813d6e7a96308b81d3e13e802e9b95932d12",
+      "subject": "Récits Vivants, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0007"
+    },
+    {
+      "id": "IMG-0012",
+      "name": "BEAUTE.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/BEAUTE.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2241332,
+      "sha256": "933be5810b1b70855e29a428601a5361764fd2f03232c50ce4c539f9ee0830d2",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0008"
+    },
+    {
+      "id": "IMG-0013",
+      "name": "BOUSSOLE-DES-RECITS-HABITABLES.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/BOUSSOLE-DES-RECITS-HABITABLES.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3304078,
+      "sha256": "27ef04f66c0cb9a13445a8be08f43b7b381b56d3c924dfd055945cda74d86b6a",
+      "subject": "Récits Vivants, Boussole",
+      "concepts": [
+        "Récits Vivants",
+        "Boussole"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D002",
+        "D008"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0009"
+    },
+    {
+      "id": "IMG-0014",
+      "name": "boussole-humanite.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/boussole-humanite.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2157125,
+      "sha256": "0cadf1194e28e2d6caceab311b9d03dc01379ab6b084be89cc437df64d29bb2c",
+      "subject": "Boussole, Humanité",
+      "concepts": [
+        "Boussole",
+        "Humanité"
+      ],
+      "archiveCandidates": [
+        "D002",
+        "D008"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0010"
+    },
+    {
+      "id": "IMG-0015",
+      "name": "boussole-interieure.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/boussole-interieure.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 4158652,
+      "sha256": "5e34efda4ce1cd6fa9a1d4e8d34fe4bb30a3bf9a72b576163f2870958ad1a7bc",
+      "subject": "Boussole",
+      "concepts": [
+        "Boussole"
+      ],
+      "archiveCandidates": [
+        "D002",
+        "D008"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0011"
+    },
+    {
+      "id": "IMG-0016",
+      "name": "Carré Auteur Image.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Carré Auteur Image.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 449899,
+      "sha256": "8240e2d9ff59bee5adb3f1fff2ebf6d407e1b23d22d4153b840d11011813748b",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D009"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0012"
+    },
+    {
+      "id": "IMG-0017",
+      "name": "carte_le_seuil_A6-Verso.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/carte_le_seuil_A6-Verso.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2101784,
+      "sha256": "55a7aee3853373e5f29d44780aa991fb7f6d8db957a9dadde982149c7b2ddb38",
+      "subject": "Cartes narratives, Seuil",
+      "concepts": [
+        "Cartes narratives",
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D004",
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0013"
+    },
+    {
+      "id": "IMG-0018",
+      "name": "carte-de-resonnance.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/carte-de-resonnance.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2812659,
+      "sha256": "7eb0c738da8b068bfd4a835fdc08167f1475af32650c859c5a2e26a9635d004f",
+      "subject": "Cartes narratives, Résonance",
+      "concepts": [
+        "Cartes narratives",
+        "Résonance"
+      ],
+      "archiveCandidates": [
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0014"
+    },
+    {
+      "id": "IMG-0019",
+      "name": "charte-recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/charte-recits-vivants.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3931747,
+      "sha256": "de188eb99421a2e539613cf2c952a770792e0b182b30918525174bb0e3bf6711",
+      "subject": "Récits Vivants, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0015"
+    },
+    {
+      "id": "IMG-0020",
+      "name": "Colonel Rajiv.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Colonel Rajiv.png",
+      "format": "PNG",
+      "width": 928,
+      "height": 1232,
+      "bytes": 1260069,
+      "sha256": "e3491dc98c0c0514ddb2889ea08caa48f3fd9b680ac3f68d452bef7e291ffc04",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0016"
+    },
+    {
+      "id": "IMG-0021",
+      "name": "CONCENTRATION-NARRATIVE-DU-POUVOIR.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/CONCENTRATION-NARRATIVE-DU-POUVOIR.png",
+      "format": "PNG",
+      "width": 1023,
+      "height": 1537,
+      "bytes": 2554378,
+      "sha256": "8648c4d0043e3cc56ca922259e0f752ede59e9c657684c60980ba24485c9dab3",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0017"
+    },
+    {
+      "id": "IMG-0022",
+      "name": "conseil-des-humains.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/conseil-des-humains.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2945304,
+      "sha256": "f45ef1d463d2fa77bd2a7ac2a7d5f5d17cc13dc0a5ef405935f9bfe320e680d1",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D002"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0018"
+    },
+    {
+      "id": "IMG-0023",
+      "name": "constellation-des-recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/constellation-des-recits-vivants.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3207991,
+      "sha256": "0db5c8aa1e173ee66636218d6fa73d69aa3080bd3207fe892ea8c7c71328d3e8",
+      "subject": "Récits Vivants, Vivant, Constellation",
+      "concepts": [
+        "Récits Vivants",
+        "Vivant",
+        "Constellation"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0019"
+    },
+    {
+      "id": "IMG-0024",
+      "name": "continuer-a-marcher.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/continuer-a-marcher.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2722639,
+      "sha256": "0ceb76446ab29db8cee3e36b9b7aa9b62bf275af35625f1f59a3d27ae396f45b",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0020"
+    },
+    {
+      "id": "IMG-0025",
+      "name": "cosmologie-recits-vivants-carte.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/cosmologie-recits-vivants-carte.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3815039,
+      "sha256": "ab3af06710049960410f6111f2ca19063cfb2893c4b0763ef612fca63ac10969",
+      "subject": "Récits Vivants, Cosmologie, Cartes narratives, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Cosmologie",
+        "Cartes narratives",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D003",
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0021"
+    },
+    {
+      "id": "IMG-0026",
+      "name": "cosmologie-recits-vivants-site-banner.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/cosmologie-recits-vivants-site-banner.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3001139,
+      "sha256": "b91ba3312d219f26026832dbc5f21f04dbf99de03542e3b705b180a754ec1fc5",
+      "subject": "Récits Vivants, Cosmologie, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Cosmologie",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D003",
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0022"
+    },
+    {
+      "id": "IMG-0027",
+      "name": "Couverture - Atlas des Récits Vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture - Atlas des Récits Vivants.png",
+      "format": "PNG",
+      "width": 2355,
+      "height": 3672,
+      "bytes": 2693850,
+      "sha256": "caa34846566ef49eb53f37cbef7d138688ae4b3a4d4d7877f7aa21894dba7d6f",
+      "subject": "Récits Vivants, Atlas, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Atlas",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D004",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0003"
+    },
+    {
+      "id": "IMG-0028",
+      "name": "Couverture Atlas V1.jpg",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture Atlas V1.jpg",
+      "format": "JPG",
+      "width": 387,
+      "height": 533,
+      "bytes": 26368,
+      "sha256": "db9c5c52dcea0302de5575e734638cce4dc9330195d91a41c9f099a7bbae7344",
+      "subject": "Atlas",
+      "concepts": [
+        "Atlas"
+      ],
+      "archiveCandidates": [
+        "D004",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0004"
+    },
+    {
+      "id": "IMG-0029",
+      "name": "Couverture Atlas V2.jpg",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture Atlas V2.jpg",
+      "format": "JPG",
+      "width": 415,
+      "height": 632,
+      "bytes": 43522,
+      "sha256": "3a02bbd48f89d6b588b561d7becfc8771eaf213b902dd47b8c5f0b711a327a10",
+      "subject": "Atlas",
+      "concepts": [
+        "Atlas"
+      ],
+      "archiveCandidates": [
+        "D004",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0005"
+    },
+    {
+      "id": "IMG-0030",
+      "name": "Couverture Atlas Vol IV.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture Atlas Vol IV.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1345591,
+      "sha256": "511d5f70749234a042b77f1c33e43f9cf0e5a414bdcff10d727558ee9c1328d3",
+      "subject": "Atlas",
+      "concepts": [
+        "Atlas"
+      ],
+      "archiveCandidates": [
+        "D004",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0006"
+    },
+    {
+      "id": "IMG-0031",
+      "name": "Couverture Cosmologie des recits vivants - VF.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture Cosmologie des recits vivants - VF.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2756119,
+      "sha256": "6ba7e98f6e9201de07e16bcb00ecfd1960fdc27b3a11eaa6bf32a2abaa28e886",
+      "subject": "Récits Vivants, Cosmologie, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Cosmologie",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D003",
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0007"
+    },
+    {
+      "id": "IMG-0032",
+      "name": "Couverture Livre L Ecriture Augmentée V2.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture Livre L Ecriture Augmentée V2.png",
+      "format": "PNG",
+      "width": 1250,
+      "height": 2000,
+      "bytes": 3435349,
+      "sha256": "3f5c7eb17b3b5933f1d8bcab09aa83806e176fbb55607296efab2324eea97fd8",
+      "subject": "Couverture ou livre",
+      "concepts": [],
+      "archiveCandidates": [
+        "D007",
+        "D009"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0008"
+    },
+    {
+      "id": "IMG-0033",
+      "name": "Couverture Lumières Fractales -A5.jpg",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Couverture Lumières Fractales -A5.jpg",
+      "format": "JPG",
+      "width": 2480,
+      "height": 3508,
+      "bytes": 1382311,
+      "sha256": "e39c3183499785cd4828e70910e494915835308b35fd1ec360487b534a772e8f",
+      "subject": "Couverture ou livre",
+      "concepts": [],
+      "archiveCandidates": [
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0009"
+    },
+    {
+      "id": "IMG-0034",
+      "name": "Elohim.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Elohim.png",
+      "format": "PNG",
+      "width": 928,
+      "height": 1232,
+      "bytes": 1763217,
+      "sha256": "3e77ccac73382e17ea681e9fedab4ae7bb2d1c2a9b63c09ea0efc552b37309ad",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0023"
+    },
+    {
+      "id": "IMG-0035",
+      "name": "Elydris.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Elydris.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3336468,
+      "sha256": "56e97d36be6ab2c42d45f33fc8ba2625a6cb04b9081d1799d70a41afe546efda",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0024"
+    },
+    {
+      "id": "IMG-0036",
+      "name": "emerveillement-face-au-vivant.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/emerveillement-face-au-vivant.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3192793,
+      "sha256": "0c9f278282c222e5f84da0b4cde31e4d645969c31df22101fe271f45b64e9128",
+      "subject": "Vivant",
+      "concepts": [
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0025"
+    },
+    {
+      "id": "IMG-0037",
+      "name": "equilibre-du-coeur.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/equilibre-du-coeur.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2299627,
+      "sha256": "830c852585e02cae271fdbd7f798df4cd5f223535844288c67eaf6c95bb47f38",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0026"
+    },
+    {
+      "id": "IMG-0038",
+      "name": "FUTUR-IMAGE-CARTE-GENERALE.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-IMAGE-CARTE-GENERALE.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 4069886,
+      "sha256": "35559ca53035680b86562e92df8ee3c1d5f587512efda8e23f1bdb221ac3d579",
+      "subject": "Cartes narratives",
+      "concepts": [
+        "Cartes narratives"
+      ],
+      "archiveCandidates": [
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0027"
+    },
+    {
+      "id": "IMG-0039",
+      "name": "FUTUR-JARDIN-CREATION.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-CREATION.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3269575,
+      "sha256": "2ff3ab6e089c2b5a4426f2a59ed439092145477ba8b042d0a1eb7d8740bae1c9",
+      "subject": "Jardins futurs",
+      "concepts": [
+        "Jardins futurs"
+      ],
+      "archiveCandidates": [
+        "D009"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0028"
+    },
+    {
+      "id": "IMG-0040",
+      "name": "FUTUR-JARDIN-DE-COOPERATION.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-DE-COOPERATION.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3311956,
+      "sha256": "14cf13f3bcca994eddd3d345b7dc82bc6cd527001452135fee5cfe79cbbec659",
+      "subject": "Jardins futurs",
+      "concepts": [
+        "Jardins futurs"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0029"
+    },
+    {
+      "id": "IMG-0041",
+      "name": "FUTUR-JARDIN-DE-SEUIL.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-DE-SEUIL.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3281783,
+      "sha256": "63de06befdc4a5e0eb21ff65e7a3bd31df6e00bc175542716a21750f6e88285d",
+      "subject": "Seuil, Jardins futurs",
+      "concepts": [
+        "Seuil",
+        "Jardins futurs"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0030"
+    },
+    {
+      "id": "IMG-0042",
+      "name": "FUTUR-JARDIN-DU-SOIN.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-DU-SOIN.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3619985,
+      "sha256": "9b407fbe1b5e364cc3f031cfcae41faaed0c5c72d77a685a3e27c8bbdfd5ae4d",
+      "subject": "Jardins futurs",
+      "concepts": [
+        "Jardins futurs"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0031"
+    },
+    {
+      "id": "IMG-0043",
+      "name": "FUTUR-JARDIN-DU-VIVANT.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-DU-VIVANT.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3402097,
+      "sha256": "013ad8e96be6f9974cb4fe81b18e0112694209c277f80bbda922acac66c854d3",
+      "subject": "Vivant, Jardins futurs",
+      "concepts": [
+        "Vivant",
+        "Jardins futurs"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0032"
+    },
+    {
+      "id": "IMG-0044",
+      "name": "FUTUR-JARDIN-METAMORPHOSE.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-METAMORPHOSE.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3212297,
+      "sha256": "73d0df9558c4d83691946be6885cd45279b575905a104958ac24209a482b34a2",
+      "subject": "Jardins futurs",
+      "concepts": [
+        "Jardins futurs"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0033"
+    },
+    {
+      "id": "IMG-0045",
+      "name": "FUTUR-JARDIN-TRANSMISSION.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/FUTUR-JARDIN-TRANSMISSION.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3247501,
+      "sha256": "1552b4e49d938000d22ea9f2f6fd105ddf29fa4ae843bb0b4384c6afececcfd7",
+      "subject": "Jardins futurs, Transmission",
+      "concepts": [
+        "Jardins futurs",
+        "Transmission"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0034"
+    },
+    {
+      "id": "IMG-0046",
+      "name": "grande-carte-des-recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/grande-carte-des-recits-vivants.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2531691,
+      "sha256": "c84c16c82c534dc5f0b06975ba2c8f7b66e61a0c0d345f0178c9449341ed66e6",
+      "subject": "Récits Vivants, Cartes narratives, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Cartes narratives",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0035"
+    },
+    {
+      "id": "IMG-0047",
+      "name": "Horizons-de-l-infini.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Horizons-de-l-infini.png",
+      "format": "PNG",
+      "width": 768,
+      "height": 1344,
+      "bytes": 2030495,
+      "sha256": "aafbac979c43bd8c8a4741cd50f3eb77d52bccf1d218b722d7dafa7e86175233",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0036"
+    },
+    {
+      "id": "IMG-0048",
+      "name": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+      "format": "PNG",
+      "width": 1250,
+      "height": 2000,
+      "bytes": 3593762,
+      "sha256": "2b380efbdf06a0ce1094124c168980bda0c11462bd3b797df4b264238e1fe66d",
+      "subject": "Couverture ou livre",
+      "concepts": [],
+      "archiveCandidates": [
+        "D007"
+      ],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": true,
+      "isTechnicalTexture": false,
+      "bookId": "BOOK-0010"
+    },
+    {
+      "id": "IMG-0049",
+      "name": "l-humanite.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/l-humanite.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2670074,
+      "sha256": "d75a6fb2297ed1c8870d10a678fa5e5f33744168b07619db05617c2afb289c4a",
+      "subject": "Humanité",
+      "concepts": [
+        "Humanité"
+      ],
+      "archiveCandidates": [
+        "D002"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0037"
+    },
+    {
+      "id": "IMG-0050",
+      "name": "LA-BOUSSOLE-DES-PASSAGES-VIVANTS.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/LA-BOUSSOLE-DES-PASSAGES-VIVANTS.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3160459,
+      "sha256": "858a963e089b85618a7d0f67e7aa9220749e033bb028589847e5790d762fe214",
+      "subject": "Boussole, Vivant, Passage",
+      "concepts": [
+        "Boussole",
+        "Vivant",
+        "Passage"
+      ],
+      "archiveCandidates": [
+        "D001",
+        "D002",
+        "D005",
+        "D008"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0038"
+    },
+    {
+      "id": "IMG-0051",
+      "name": "la-foret.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/la-foret.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2849243,
+      "sha256": "6ed42936d7895efc5812b9d731f643ce9c69eadcf4b0f081a47811cc782e8170",
+      "subject": "Forêt",
+      "concepts": [
+        "Forêt"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0039"
+    },
+    {
+      "id": "IMG-0052",
+      "name": "la-maison-commune.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/la-maison-commune.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2489482,
+      "sha256": "56041ffb0faa01291fd2eaec9dc417f235d7170771938be7b9e1ab6d2ce77c48",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0040"
+    },
+    {
+      "id": "IMG-0053",
+      "name": "la-marge-vivante.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/la-marge-vivante.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3805940,
+      "sha256": "c125d4b2176faa662b2d247ab5d144fbcfa723389b358b89f6d8307e16447de5",
+      "subject": "Marge vivante, Vivant",
+      "concepts": [
+        "Marge vivante",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0041"
+    },
+    {
+      "id": "IMG-0054",
+      "name": "La-spirale-sommaire-du-site-V2.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/La-spirale-sommaire-du-site-V2.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2919644,
+      "sha256": "0e1173d30ae1c8e8f283e6479b1c9cedc67588c714c4f47e878a9fef21d40650",
+      "subject": "Spirale",
+      "concepts": [
+        "Spirale"
+      ],
+      "archiveCandidates": [
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0042"
+    },
+    {
+      "id": "IMG-0055",
+      "name": "le-cerveau.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/le-cerveau.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2522889,
+      "sha256": "c386b397d9dedad4550f3b4febfbd3197e948846965c4ba5879c3f207e373a6e",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0043"
+    },
+    {
+      "id": "IMG-0056",
+      "name": "le-cosmos.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/le-cosmos.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2868032,
+      "sha256": "b0975ce585f647c1fcb60e107add010d5488be626c024fc645b0bdb73c94d69f",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0044"
+    },
+    {
+      "id": "IMG-0057",
+      "name": "Les_Racines_de_la_Liberté.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Les_Racines_de_la_Liberté.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3070357,
+      "sha256": "f0f561911cb5ce9b37dd389d653cae8ee7690ef13d799af429666e7c68c4a10c",
+      "subject": "Racines, Liberté",
+      "concepts": [
+        "Racines",
+        "Liberté"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0045"
+    },
+    {
+      "id": "IMG-0058",
+      "name": "les-gardiens-du-seuil.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/les-gardiens-du-seuil.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2053260,
+      "sha256": "f312525dfc01c2c2cda19e752a2befea024b22aca72c8155405a684aa85c1fe9",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0046"
+    },
+    {
+      "id": "IMG-0059",
+      "name": "LES-PORTES-DU-SEUIL-FAILLE.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/LES-PORTES-DU-SEUIL-FAILLE.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1539837,
+      "sha256": "6356fa003b8ccb238c9e61c0b3970f200b42ee6069b38e3a010c746c1e2c1440",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0047"
+    },
+    {
+      "id": "IMG-0060",
+      "name": "Mara Lindwood.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Mara Lindwood.png",
+      "format": "PNG",
+      "width": 928,
+      "height": 1232,
+      "bytes": 1714403,
+      "sha256": "016cf01eb2a18171aec1d6cbce363ef864d7fabef0681ca0ae3159923d7739dd",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0048"
+    },
+    {
+      "id": "IMG-0061",
+      "name": "METEOROLOGIE NARRATIVE-V3.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/METEOROLOGIE NARRATIVE-V3.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3347938,
+      "sha256": "ff0a888cf8d8d477a3ad2d990724d9946a350e10b4bca9d8994db34b6594699c",
+      "subject": "Météorologie narrative",
+      "concepts": [
+        "Météorologie narrative"
+      ],
+      "archiveCandidates": [
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0049"
+    },
+    {
+      "id": "IMG-0062",
+      "name": "meteorologie-narrative.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/meteorologie-narrative.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3038363,
+      "sha256": "7d39ec5a4cced9bdd5efbd6d88ea5c468de1838d6e686910281d1b225a08062e",
+      "subject": "Météorologie narrative",
+      "concepts": [
+        "Météorologie narrative"
+      ],
+      "archiveCandidates": [
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0050"
+    },
+    {
+      "id": "IMG-0063",
+      "name": "micro-cosmo-alignement.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-alignement.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2717120,
+      "sha256": "cc61d6cfea90f4279d92205d1cf28d9d82ddc8a39322d3ea23aef66b2abb7934",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0051"
+    },
+    {
+      "id": "IMG-0064",
+      "name": "micro-cosmo-deplacement.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-deplacement.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2898664,
+      "sha256": "f461b2f5784c50d85829357bdd346ee14a2cf57d8ef3433fb91ea01afaca00d7",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0052"
+    },
+    {
+      "id": "IMG-0065",
+      "name": "micro-cosmo-fracture.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-fracture.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2626126,
+      "sha256": "9310e0ee27ea4fd37216f9f3778b5e8b7e0a19546f4c4ec5f40232b205898d21",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0053"
+    },
+    {
+      "id": "IMG-0066",
+      "name": "micro-cosmo-integration.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-integration.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2716872,
+      "sha256": "29406c21d176a95575fd623b25e66e47bd1039c95b3338c90d9a7af794c1edd6",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0054"
+    },
+    {
+      "id": "IMG-0067",
+      "name": "micro-cosmo-seuil.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-seuil.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2262476,
+      "sha256": "2ed40b8ad45ccef0c82b931d64f6cca00b3950773da5866ef78ff49a27bb803f",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D003",
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0055"
+    },
+    {
+      "id": "IMG-0068",
+      "name": "micro-cosmo-stabilisation.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-stabilisation.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2828565,
+      "sha256": "9ae15cb056f0a3082b23498d8c629b14010f970348eaf4e9b6dd81a0fec9eb5d",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0056"
+    },
+    {
+      "id": "IMG-0069",
+      "name": "micro-cosmo-traversee.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-cosmo-traversee.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2803941,
+      "sha256": "cb7752d0af5d7ccbafe9146552b1cb91d6e68f88919703f62a928d9885d7ee18",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0057"
+    },
+    {
+      "id": "IMG-0070",
+      "name": "micro-ecologie-narrative.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/micro-ecologie-narrative.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3385095,
+      "sha256": "882f62aacff2b398b4df015cc0132941bfe23683c98fa04f292f34c05593f117",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0058"
+    },
+    {
+      "id": "IMG-0071",
+      "name": "Noxira.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Noxira.png",
+      "format": "PNG",
+      "width": 928,
+      "height": 1232,
+      "bytes": 1981900,
+      "sha256": "0e5d431ba0ee3c76fc0b6037108549597e4194ed8155f409ac1108875accc919",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0059"
+    },
+    {
+      "id": "IMG-0072",
+      "name": "OEUVRE-IMMERSIVE.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/OEUVRE-IMMERSIVE.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2354791,
+      "sha256": "1a56a123bb4953c101c4493dd1f98789cb07f1a40ae213d0967824b197854577",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0060"
+    },
+    {
+      "id": "IMG-0073",
+      "name": "Orientation-site.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Orientation-site.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1989875,
+      "sha256": "d7733ed593db82582f56e8cccd64d1ec162318007fabaf0c89b5e8fa8437cf92",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D004",
+        "D006",
+        "D008"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0061"
+    },
+    {
+      "id": "IMG-0074",
+      "name": "parcours-de-lecture.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/parcours-de-lecture.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2678621,
+      "sha256": "077f19051be2e96bd991539b59f428d75cfdfb3616e8226295e6308fbf764ab6",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0062"
+    },
+    {
+      "id": "IMG-0075",
+      "name": "plurivers.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/plurivers.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2696522,
+      "sha256": "2a6a3baa0fced3b3fb2a24aa93d24213186e04c152af98a44d0fe05a9e40e1de",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0063"
+    },
+    {
+      "id": "IMG-0076",
+      "name": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2226934,
+      "sha256": "ac1016fb0c2582bbf2d1f2a17d8f1b6c5aad74a760df1443c08046cb119bb779",
+      "subject": "Récits Vivants",
+      "concepts": [
+        "Récits Vivants"
+      ],
+      "archiveCandidates": [
+        "D001"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0064"
+    },
+    {
+      "id": "IMG-0077",
+      "name": "RACINES-DANS-LE-REEL-1.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/RACINES-DANS-LE-REEL-1.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2854592,
+      "sha256": "7a0b9c51c4d454705bd36a8b56fabd07ac2acb1e3fae12934d087cb797c3752a",
+      "subject": "Racines",
+      "concepts": [
+        "Racines"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0065"
+    },
+    {
+      "id": "IMG-0078",
+      "name": "recits-collectifs-cosmologie.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/recits-collectifs-cosmologie.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3810480,
+      "sha256": "cdbf0c338942480ed09a56d4e14e21d0a6483a715b7f494a4575283245960d5a",
+      "subject": "Récits Vivants, Cosmologie",
+      "concepts": [
+        "Récits Vivants",
+        "Cosmologie"
+      ],
+      "archiveCandidates": [
+        "D003"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0066"
+    },
+    {
+      "id": "IMG-0079",
+      "name": "recits-empeches.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/recits-empeches.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2931589,
+      "sha256": "98c5ba99796bf626cceaf105126b96d0faf0a917847a13e3c1f0a86c52656e56",
+      "subject": "Récits Vivants",
+      "concepts": [
+        "Récits Vivants"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0067"
+    },
+    {
+      "id": "IMG-0080",
+      "name": "recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/recits-vivants.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3143800,
+      "sha256": "4d984fc88ec97db1a5e98fca1531895d42e90c8fbab9467f2f3e4ec8fcafaeb9",
+      "subject": "Récits Vivants, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Vivant"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0068"
+    },
+    {
+      "id": "IMG-0081",
+      "name": "respiration.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/respiration.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2367162,
+      "sha256": "26e14caa09d324e0dc2c0399cb62263118ac1eec61ccf8b9ea5f0e5caf6d12a4",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0069"
+    },
+    {
+      "id": "IMG-0082",
+      "name": "seuil-de-l-identite-2.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/seuil-de-l-identite-2.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3109997,
+      "sha256": "c64aecff59d3025bf01ebfd7693f031d400e416edb7a6a754e39b6078cb3d053",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0070"
+    },
+    {
+      "id": "IMG-0083",
+      "name": "seuil-de-la-presence-5.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/seuil-de-la-presence-5.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3071159,
+      "sha256": "964ee3c6111c79464e9ff34ee159e522c9f573c93a44f90c560852a3568f6b99",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0071"
+    },
+    {
+      "id": "IMG-0084",
+      "name": "seuil-des-croyances-1.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/seuil-des-croyances-1.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3089336,
+      "sha256": "c0741b017de152490123e9cd57df919f23e1219c6697874006cff195f0cfe26f",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0072"
+    },
+    {
+      "id": "IMG-0085",
+      "name": "seuil-du-reel-4.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/seuil-du-reel-4.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3005688,
+      "sha256": "34e38c72db4970a3d18697d1b3d901fc37ab874d2f54c43e91cc0beb6e5faae7",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0073"
+    },
+    {
+      "id": "IMG-0086",
+      "name": "seuil-du-regard-3.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/seuil-du-regard-3.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2903301,
+      "sha256": "7b68e112da2e375b8040ce9e27af381883c487221efecb82ce3970b4e717828f",
+      "subject": "Seuil",
+      "concepts": [
+        "Seuil"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0074"
+    },
+    {
+      "id": "IMG-0087",
+      "name": "Seuil-Friction-Devenir-image.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Seuil-Friction-Devenir-image.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2105486,
+      "sha256": "a6dc6d19e273cf9e5e897c7baab2c7caa4eeaa9439a6ee31c60f8c02bd24ca30",
+      "subject": "Seuil, Friction, Devenir",
+      "concepts": [
+        "Seuil",
+        "Friction",
+        "Devenir"
+      ],
+      "archiveCandidates": [
+        "D005"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0075"
+    },
+    {
+      "id": "IMG-0088",
+      "name": "source-des-recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/source-des-recits-vivants.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3096887,
+      "sha256": "477a6cc42139efce671bf50dbb72d4d4f5da31bb96604dca30253c191589521c",
+      "subject": "Récits Vivants, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Vivant"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0076"
+    },
+    {
+      "id": "IMG-0089",
+      "name": "spirale-de-l-attention.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/spirale-de-l-attention.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2929978,
+      "sha256": "c1d82f1dfb068cfea17cc36d289c8ee9132aa640b47530cbb953241c709ecdc1",
+      "subject": "Spirale",
+      "concepts": [
+        "Spirale"
+      ],
+      "archiveCandidates": [
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0077"
+    },
+    {
+      "id": "IMG-0090",
+      "name": "spirale-des-recits-civilisationnels.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/spirale-des-recits-civilisationnels.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2458845,
+      "sha256": "7a37442c3a5a726178d9ca9e05920b432e52056fd8211d170da112dba0fc1129",
+      "subject": "Récits Vivants, Spirale",
+      "concepts": [
+        "Récits Vivants",
+        "Spirale"
+      ],
+      "archiveCandidates": [
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0078"
+    },
+    {
+      "id": "IMG-0091",
+      "name": "spirale-passage.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/spirale-passage.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1952883,
+      "sha256": "d0fbc8195bb9cd0a3e1c33d97644ac187b365894c460468014e06c3ba432261f",
+      "subject": "Spirale, Passage",
+      "concepts": [
+        "Spirale",
+        "Passage"
+      ],
+      "archiveCandidates": [
+        "D005",
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0079"
+    },
+    {
+      "id": "IMG-0092",
+      "name": "spirale-pensee-creative.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/spirale-pensee-creative.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 2027198,
+      "sha256": "13c958dc1f99655eeb8c76ff945ab186fbf890ac276a06994c8e100c385ae6d1",
+      "subject": "Spirale",
+      "concepts": [
+        "Spirale"
+      ],
+      "archiveCandidates": [
+        "D006",
+        "D009"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0080"
+    },
+    {
+      "id": "IMG-0093",
+      "name": "spirale-recits-vivants.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/spirale-recits-vivants.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 676735,
+      "sha256": "b3e07c1350ce66aaae00fb5084a539bd3785b5998576f551395cc2b35d858cf0",
+      "subject": "Récits Vivants, Spirale, Vivant",
+      "concepts": [
+        "Récits Vivants",
+        "Spirale",
+        "Vivant"
+      ],
+      "archiveCandidates": [
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0081"
+    },
+    {
+      "id": "IMG-0094",
+      "name": "Tableau-des-12-recits.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Tableau-des-12-recits.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2931583,
+      "sha256": "1ce346f06e979975b4462707ff2eca0a8dbdfc6722a6f9e5fabd823bc2950f21",
+      "subject": "Récits Vivants",
+      "concepts": [
+        "Récits Vivants"
+      ],
+      "archiveCandidates": [
+        "D004"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0082"
+    },
+    {
+      "id": "IMG-0095",
+      "name": "un-monde-a-l-autre.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/un-monde-a-l-autre.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2787829,
+      "sha256": "74fa009704edd1c11cea5aab1325cd45f853ded4405a6753739110855da581d7",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0083"
+    },
+    {
+      "id": "IMG-0096",
+      "name": "UNE-CASE-DE-COTE.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/UNE-CASE-DE-COTE.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2187279,
+      "sha256": "d2331b12cdcdc507c98fc333b923060eb497a3b153cc0f4e0387c53b9306b087",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0084"
+    },
+    {
+      "id": "IMG-0097",
+      "name": "Une-oeuvre-qui-se-decouvre-comme-une-foret.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Une-oeuvre-qui-se-decouvre-comme-une-foret.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3095650,
+      "sha256": "bc48303c328ceb5ac524f39c90ad98bb5c7147bb4b0caeb2a65387deb10f1883",
+      "subject": "Forêt",
+      "concepts": [
+        "Forêt"
+      ],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0085"
+    },
+    {
+      "id": "IMG-0098",
+      "name": "VERITE-JUSTICE-PAIX.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/VERITE-JUSTICE-PAIX.png",
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2325842,
+      "sha256": "ef6a020ddd9eb8f9d75703c1af1a3eaa65285fa8846ea23b19d681ed3ab881cb",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0086"
+    },
+    {
+      "id": "IMG-0099",
+      "name": "Volume III.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Volume III.png",
+      "format": "PNG",
+      "width": 1664,
+      "height": 2496,
+      "bytes": 3212618,
+      "sha256": "530777891ee282eb473621e280cdc1076f6123e4fe79ccec69f2380257456d45",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D010"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0087"
+    },
+    {
+      "id": "IMG-0100",
+      "name": "Votre-voyage-commence-ici.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "raw.githubusercontent.com/ZephyrAvenel/Stockage-PDF-Public/refs/heads/main/Votre-voyage-commence-ici.png",
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3255918,
+      "sha256": "5d384085d9f91cf834e1d4051eefb41152cc2d805b42313d3c66bf0e517c5ac4",
+      "subject": "Figure iconographique",
+      "concepts": [],
+      "archiveCandidates": [
+        "D006"
+      ],
+      "workCandidates": [],
+      "isFigure": true,
+      "isBookCover": false,
+      "isTechnicalTexture": false,
+      "figureId": "FIG-0088"
+    },
+    {
+      "id": "IMG-0101",
+      "name": "stardust.png",
+      "origin": "Œuvre immersive",
+      "extractedPath": "www.transparenttextures.com/patterns/stardust.png",
+      "format": "PNG",
+      "width": 798,
+      "height": 798,
+      "bytes": 9145,
+      "sha256": "9ab95f1bbac23474659fafa5fd3c6dcfb30d8ef2fdd30c3e0019821cd44e5edd",
+      "subject": "Texture ou élément technique",
+      "concepts": [],
+      "archiveCandidates": [],
+      "workCandidates": [],
+      "isFigure": false,
+      "isBookCover": false,
+      "isTechnicalTexture": true
+    }
+  ]
+}
