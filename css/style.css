@@ -547,15 +547,94 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
 
 .immersive-zone:hover,
 .immersive-zone:focus-visible,
-.immersive-zone:active{
+.immersive-zone:active,
+.immersive-zone.is-awake{
     transform:translateY(-3px) scale(1.01);
     outline:none;
 }
 
 .immersive-zone:hover::before,
 .immersive-zone:focus-visible::before,
-.immersive-zone:active::before{
+.immersive-zone:active::before,
+.immersive-zone.is-awake::before{
     opacity:1;
+}
+
+.immersive-zone-whisper{
+    position:absolute;
+    left:50%;
+    top:calc(100% + 8px);
+    width:145%;
+    transform:translate(-50%, 8px);
+    opacity:0;
+    color:rgba(255,245,221,.92);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(10px, calc(var(--screen-content-width) * .011), 17px);
+    line-height:1.25;
+    text-align:center;
+    text-shadow:
+        0 2px 14px rgba(0,0,0,.72),
+        0 0 16px rgba(255,218,139,.18);
+    pointer-events:none;
+    transition:
+        opacity .28s ease,
+        transform .28s ease;
+}
+
+.immersive-zone:hover .immersive-zone-whisper,
+.immersive-zone:focus-visible .immersive-zone-whisper,
+.immersive-zone.is-awake .immersive-zone-whisper{
+    opacity:1;
+    transform:translate(-50%, 0);
+}
+
+.immersive-zone-constellation-card:hover,
+.immersive-zone-constellation-card:focus-visible,
+.immersive-zone-constellation-card.is-awake{
+    animation:immersiveCardSway .9s ease both;
+}
+
+.immersive-constellation-star{
+    position:absolute;
+    left:50%;
+    top:58%;
+    width:clamp(18px, calc(var(--screen-content-width) * .026), 38px);
+    height:clamp(18px, calc(var(--screen-content-width) * .026), 38px);
+    opacity:0;
+    transform:translate(-50%, -50%) scale(.82);
+    pointer-events:none;
+}
+
+.immersive-constellation-star::before,
+.immersive-constellation-star::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255,232,166,.9);
+    clip-path:polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+    filter:drop-shadow(0 0 14px rgba(255,214,128,.45));
+}
+
+.immersive-constellation-star::after{
+    transform:rotate(45deg) scale(.62);
+    opacity:.55;
+}
+
+.immersive-constellation-star.is-visible{
+    animation:immersiveStarReveal 1.8s ease both;
+}
+
+@keyframes immersiveCardSway{
+    0%{ transform:translateY(-3px) scale(1.01) rotate(0deg); }
+    35%{ transform:translateY(-3px) scale(1.01) rotate(.45deg); }
+    70%{ transform:translateY(-3px) scale(1.01) rotate(-.32deg); }
+    100%{ transform:translateY(-3px) scale(1.01) rotate(0deg); }
+}
+
+@keyframes immersiveStarReveal{
+    0%{ opacity:0; transform:translate(-50%, -50%) scale(.76); }
+    30%{ opacity:.88; transform:translate(-50%, -50%) scale(1); }
+    100%{ opacity:0; transform:translate(-50%, -50%) scale(1.16); }
 }
 
 .meteo-intro{
@@ -2304,8 +2383,20 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     .living-compass-welcome,
     .living-compass-directions,
     .living-compass-direction,
-    .living-return-button{
+    .living-return-button,
+    .immersive-zone,
+    .immersive-zone::before,
+    .immersive-zone-whisper,
+    .immersive-constellation-star{
         transition:none;
+        animation:none;
+    }
+
+    .immersive-zone:hover,
+    .immersive-zone:focus-visible,
+    .immersive-zone:active,
+    .immersive-zone.is-awake{
+        transform:none;
     }
 
     .living-echo{
