@@ -1,0 +1,123 @@
+{
+  "generatedFor": "RV-099",
+  "description": "Themes locaux du Ciel Vivant. Chaque famille relie des fragments voyageurs a des concepts, archives et oeuvres deja presents dans Makerland.",
+  "themes": [
+    {
+      "id": "nature",
+      "label": "Nature",
+      "symbol": "🌿",
+      "color": "#b8e6a4",
+      "keywords": ["arbre", "foret", "racine", "terre", "vent", "source", "jardin", "vivant"],
+      "conceptHints": ["Vivant", "Territoire"],
+      "archiveHints": ["D001"],
+      "workHints": ["BOOK-0007"],
+      "quote": "Le vivant n'explique pas toujours. Il accueille."
+    },
+    {
+      "id": "esperance",
+      "label": "Espérance",
+      "symbol": "✨",
+      "color": "#ffe0a3",
+      "keywords": ["espoir", "esperance", "confiance", "lumiere", "tenir", "continuer", "possible"],
+      "conceptHints": ["Transformation", "Seuil"],
+      "archiveHints": ["D005"],
+      "workHints": ["BOOK-0001"],
+      "quote": "Une lumiere basse suffit parfois a rouvrir le chemin."
+    },
+    {
+      "id": "liberte",
+      "label": "Liberté",
+      "symbol": "🌊",
+      "color": "#9ed8ff",
+      "keywords": ["liberte", "choisir", "respirer", "partir", "sortir", "mouvement", "chemin"],
+      "conceptHints": ["Boussole", "Seuil"],
+      "archiveHints": ["D008"],
+      "workHints": ["BOOK-0002"],
+      "quote": "La liberte commence parfois par un pas assez petit pour etre possible."
+    },
+    {
+      "id": "monde-commun",
+      "label": "Monde commun",
+      "symbol": "🌌",
+      "color": "#c8b7ff",
+      "keywords": ["monde", "commun", "ensemble", "habiter", "relation", "relier", "nous", "territoire"],
+      "conceptHints": ["Monde commun", "Ecologie narrative"],
+      "archiveHints": ["D003"],
+      "workHints": ["BOOK-0007"],
+      "quote": "Le monde commun se tisse lorsque plusieurs chemins acceptent de se repondre."
+    },
+    {
+      "id": "transmission",
+      "label": "Transmission",
+      "symbol": "📚",
+      "color": "#f2c879",
+      "keywords": ["transmettre", "livre", "memoire", "partager", "laisser", "trace", "heritage", "lecture"],
+      "conceptHints": ["Transmission", "Bibliotheque"],
+      "archiveHints": ["D007"],
+      "workHints": ["BOOK-0003"],
+      "quote": "Transmettre, c'est laisser une phrase disponible pour quelqu'un qui arrive plus tard."
+    },
+    {
+      "id": "transformation",
+      "label": "Transformation",
+      "symbol": "🔥",
+      "color": "#ffb06b",
+      "keywords": ["changer", "devenir", "doute", "doutes", "peur", "metamorphose", "transformer", "evoluer", "clarifier"],
+      "conceptHints": ["Transformation", "Clarification"],
+      "archiveHints": ["D005"],
+      "workHints": ["BOOK-0001"],
+      "quote": "Ce qui change ne disparait pas toujours. Parfois, cela trouve sa forme."
+    },
+    {
+      "id": "seuil",
+      "label": "Seuil",
+      "symbol": "🌙",
+      "color": "#d7d5ff",
+      "keywords": ["seuil", "porte", "passage", "traverser", "entrer", "quitter", "commencer", "franchir"],
+      "conceptHints": ["Seuil", "Passage"],
+      "archiveHints": ["D008"],
+      "workHints": ["BOOK-0002"],
+      "quote": "Un seuil ne force pas le passage. Il rend le prochain pas visible."
+    },
+    {
+      "id": "dialogue",
+      "label": "Dialogue",
+      "symbol": "🕊",
+      "color": "#fff3c7",
+      "keywords": ["dialogue", "question", "ecoute", "parole", "conversation", "reponse", "voix", "rencontre"],
+      "conceptHints": ["Dialogue", "Relation"],
+      "archiveHints": ["D002"],
+      "workHints": ["BOOK-0007"],
+      "quote": "Chaque conversation peut ouvrir une chambre que l'on ne connaissait pas encore."
+    },
+    {
+      "id": "renaissance",
+      "label": "Renaissance",
+      "symbol": "🌱",
+      "color": "#a8e8bd",
+      "keywords": ["renaitre", "renaissance", "germer", "naissance", "nouveau", "premier", "graine", "recommencer"],
+      "conceptHints": ["Intuition", "Vivant"],
+      "archiveHints": ["D001"],
+      "workHints": ["BOOK-0003"],
+      "quote": "Ce qui recommence garde parfois la memoire de ce qui l'a precede."
+    },
+    {
+      "id": "resonance",
+      "label": "Résonance",
+      "symbol": "💫",
+      "color": "#ffdca8",
+      "keywords": ["resonance", "echo", "etoile", "constellation", "sens", "signe", "appel", "reconnaitre"],
+      "conceptHints": ["Resonance", "Constellation"],
+      "archiveHints": ["D006"],
+      "workHints": ["BOOK-0007"],
+      "quote": "Une resonance n'oblige pas. Elle rend simplement un lien perceptible."
+    }
+  ],
+  "thresholds": {
+    "firstLink": 2,
+    "firstConstellation": 5,
+    "developedConstellation": 10,
+    "luminousTerritory": 25
+  },
+  "fallbackTheme": "resonance"
+}
