@@ -100,15 +100,16 @@
         if (state.memory.active && !state.memory.completed) {
             document.body.classList.remove("first-journey-intro-ready");
             document.body.classList.add("first-journey-active");
-            const step = STEPS[state.memory.step] || STEPS[0];
-            if (screenId !== step.screen && !state.syncingScreen) {
-                state.syncingScreen = true;
-                window.setTimeout(() => {
-                    navigateTo(step.screen);
-                    state.syncingScreen = false;
-                }, 0);
+            if (state.memory.phase === "forest") {
+                if (syncScreen("e04_oeuvre", renderForestThreshold)) renderForestThreshold();
                 return;
             }
+            if (state.memory.phase === "conclusion") {
+                if (syncScreen("e08_constellation", renderConclusion)) renderConclusion();
+                return;
+            }
+            const step = STEPS[state.memory.step] || STEPS[0];
+            if (!syncScreen(step.screen, renderStep)) return;
             renderStep();
             return;
         }
@@ -231,7 +232,7 @@
 
         const finish = state.root.querySelector("[data-first-journey-finish]");
         if (finish) {
-            finish.addEventListener("click", finishJourney);
+            finish.addEventListener("click", showConclusion);
         }
 
         const pause = state.root.querySelector("[data-first-journey-pause]");
@@ -247,6 +248,7 @@
             choice: "guided",
             active: true,
             completed: false,
+            phase: "steps",
             step: 0,
             startedAt: state.memory.startedAt || new Date().toISOString(),
             updatedAt: new Date().toISOString()
@@ -288,16 +290,8 @@
             "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
             "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
             "<p>Chaque lecteur compose desormais sa propre traversee.</p>",
-            "<div class=\"first-journey__actions\">",
-            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-library>Explorer les oeuvres</button>",
-            "<button type=\"button\" data-first-journey-free>Explorer librement</button>",
-            "<button type=\"button\" data-first-journey-replay>Refaire le premier voyage</button>",
-            "</div>",
             "</aside>"
         ].join("");
-        state.root.querySelector("[data-first-journey-library]").addEventListener("click", () => navigateTo("e06_fiction"));
-        state.root.querySelector("[data-first-journey-free]").addEventListener("click", clearRoot);
-        state.root.querySelector("[data-first-journey-replay]").addEventListener("click", startJourney);
     }
 
     function moveStep(direction) {
@@ -308,12 +302,104 @@
         window.setTimeout(() => {
             state.memory.step = nextStep;
             state.memory.active = true;
+            state.memory.phase = "steps";
             state.memory.updatedAt = new Date().toISOString();
             writeMemory(state.memory);
             state.transitioning = false;
             navigateTo(STEPS[nextStep].screen);
             renderStep();
         }, 300);
+    }
+
+    function showConclusion() {
+        state.memory.active = true;
+        state.memory.completed = false;
+        state.memory.phase = "conclusion";
+        state.memory.updatedAt = new Date().toISOString();
+        writeMemory(state.memory);
+        renderConclusion();
+    }
+
+    function renderConclusion() {
+        state.root.innerHTML = [
+            "<aside class=\"first-journey__step first-journey__conclusion\" aria-label=\"Conclusion du Premier Voyage\">",
+            "<h3>Vous connaissez maintenant les cinq portes des Recits Vivants.</h3>",
+            "<p>Le seuil est desormais derriere vous.</p>",
+            "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
+            "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
+            "<p>Chaque lecteur compose desormais sa propre traversee.</p>",
+            "<div class=\"first-journey__actions\">",
+            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-forest>Continuer vers la Foret de l'Arche</button>",
+            "<button type=\"button\" data-first-journey-free>Explorer librement</button>",
+            "<button type=\"button\" data-first-journey-replay>Refaire le premier voyage</button>",
+            "</div>",
+            "</aside>"
+        ].join("");
+        state.root.querySelector("[data-first-journey-forest]").addEventListener("click", showForestThreshold);
+        state.root.querySelector("[data-first-journey-free]").addEventListener("click", finishAndClear);
+        state.root.querySelector("[data-first-journey-replay]").addEventListener("click", startJourney);
+    }
+
+    function showForestThreshold() {
+        state.memory.active = true;
+        state.memory.completed = false;
+        state.memory.phase = "forest";
+        state.memory.updatedAt = new Date().toISOString();
+        writeMemory(state.memory);
+        navigateTo("e04_oeuvre");
+        renderForestThreshold();
+    }
+
+    function renderForestThreshold() {
+        state.root.innerHTML = [
+            "<section class=\"first-journey__forest\" role=\"dialog\" aria-label=\"La Foret de l'Arche\">",
+            "<p class=\"first-journey__progress\">Epilogue du Premier Voyage</p>",
+            "<h2>La Foret de l'Arche</h2>",
+            "<span class=\"first-journey__forest-subtitle\">Le seuil de l'Oeuvre immersive</span>",
+            "<div class=\"first-journey__forest-text\">",
+            "<p>Vous avez parcouru les cinq lieux fondateurs des Recits Vivants.</p>",
+            "<p>Vous connaissez desormais leur origine, leurs oeuvres, leur atelier, leurs archives et les liens qui les unissent.</p>",
+            "<p>Mais un territoire ne se comprend jamais entierement depuis son seuil.</p>",
+            "<p>Il arrive un moment ou il faut accepter de le traverser.</p>",
+            "<p>La Foret de l'Arche n'est plus un lieu d'explication.</p>",
+            "<p>C'est le premier pas dans l'Oeuvre immersive.</p>",
+            "<p>A partir d'ici, le recit ne vous sera plus presente.</p>",
+            "<p>C'est vous qui le parcourrez.</p>",
+            "</div>",
+            "<div class=\"first-journey__actions\">",
+            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-enter-forest>Entrer dans l'Oeuvre immersive</button>",
+            "<button type=\"button\" data-first-journey-territory>Retour au Territoire</button>",
+            "<button type=\"button\" data-first-journey-free>Explorer librement</button>",
+            "</div>",
+            "</section>"
+        ].join("");
+        state.root.querySelector("[data-first-journey-enter-forest]").addEventListener("click", finishAndClear);
+        state.root.querySelector("[data-first-journey-territory]").addEventListener("click", returnToTerritory);
+        state.root.querySelector("[data-first-journey-free]").addEventListener("click", finishAndClear);
+    }
+
+    function finishAndClear() {
+        finishJourney();
+        clearRoot();
+    }
+
+    function returnToTerritory() {
+        finishJourney();
+        clearRoot();
+        navigateTo("e01_accueil");
+    }
+
+    function syncScreen(screenId, renderer) {
+        if (state.currentScreen !== screenId && !state.syncingScreen) {
+            state.syncingScreen = true;
+            window.setTimeout(() => {
+                navigateTo(screenId);
+                state.syncingScreen = false;
+                if (renderer) renderer();
+            }, 0);
+            return false;
+        }
+        return true;
     }
 
     function navigateTo(screenId) {
