@@ -1,0 +1,84 @@
+{
+  "generatedFor": "RV-101",
+  "description": "Chemins narratifs locaux de Makerland. Chaque chemin ne reference que des lieux, archives, oeuvres et concepts deja presents dans les catalogues du Graphe Vivant.",
+  "paths": [
+    {
+      "id": "decouvrir",
+      "title": "Je découvre",
+      "intent": "Premier passage dans le territoire.",
+      "duration": "5 à 10 minutes",
+      "seasonPriority": "ete",
+      "opening": "Commencer doucement, sans devoir tout comprendre.",
+      "steps": [
+        { "kind": "screen", "label": "Accueil", "target": "e01_accueil", "resourceHints": ["ROOM-BOUSSOLE"] },
+        { "kind": "screen", "label": "Constellation", "target": "e08_constellation", "resourceHints": ["ROOM-CONSTELLATION"] },
+        { "kind": "archive", "label": "Une Archive Vivante", "resourceHints": ["D001"] },
+        { "kind": "work", "label": "Une œuvre", "resourceHints": ["BOOK-0003"] },
+        { "kind": "screen", "label": "Bibliothèque", "target": "e06_fiction", "resourceHints": ["ROOM-BIBLIOTHEQUE"] },
+        { "kind": "page", "label": "Carnet", "href": "carnet/", "resourceHints": ["ROOM-CARNET"] }
+      ]
+    },
+    {
+      "id": "approfondir",
+      "title": "J'approfondis",
+      "intent": "Revenir dans les relations deja entrevues.",
+      "duration": "10 à 15 minutes",
+      "seasonPriority": "all",
+      "opening": "Retrouver un fil et choisir une branche moins evidente.",
+      "avoidVisited": true,
+      "steps": [
+        { "kind": "screen", "label": "Boussole", "target": "e03_boussole", "resourceHints": ["ROOM-BOUSSOLE"] },
+        { "kind": "page", "label": "Constellation Vivante", "href": "constellation/vivante/", "resourceHints": ["ROOM-CONSTELLATION"] },
+        { "kind": "archive", "label": "Archive en résonance", "resourceHints": ["D003", "D004"] },
+        { "kind": "concept", "label": "Concept traversé", "resourceHints": ["CON-0002", "CON-0004"] },
+        { "kind": "page", "label": "Carnet de Voyage", "href": "carnet/", "resourceHints": ["ROOM-CARNET"] }
+      ]
+    },
+    {
+      "id": "creer",
+      "title": "Je crée",
+      "intent": "Entrer dans les coulisses de la création.",
+      "duration": "12 minutes",
+      "seasonPriority": "printemps",
+      "opening": "Suivre le trajet d'une intuition qui cherche sa forme.",
+      "steps": [
+        { "kind": "screen", "label": "Atelier IA", "target": "e07_atelier", "resourceHints": ["ROOM-ATELIER"] },
+        { "kind": "page", "label": "Dialogues", "href": "atelier/dialogue/", "resourceHints": ["D002"] },
+        { "kind": "page", "label": "Cartographies", "href": "atelier/cartographie/", "resourceHints": ["D004"] },
+        { "kind": "page", "label": "Images", "href": "atelier/images/", "resourceHints": ["IMG-0016"] },
+        { "kind": "page", "label": "Clarifications", "href": "atelier/clarification/", "resourceHints": ["CON-0008"] },
+        { "kind": "page", "label": "Évolutions", "href": "atelier/evolution/", "resourceHints": ["D006"] }
+      ]
+    },
+    {
+      "id": "contempler",
+      "title": "Je contemple",
+      "intent": "Traverser lentement les images et les seuils.",
+      "duration": "8 minutes",
+      "seasonPriority": "hiver",
+      "opening": "Laisser les images et les figures parler avant l'action.",
+      "steps": [
+        { "kind": "screen", "label": "Œuvre immersive", "target": "e04_oeuvre", "resourceHints": ["ROOM-OEUVRE"] },
+        { "kind": "image", "label": "Image patrimoniale", "resourceHints": ["IMG-0023"] },
+        { "kind": "figure", "label": "Figure", "resourceHints": ["FIG-0019"] },
+        { "kind": "concept", "label": "Seuil", "resourceHints": ["CON-0006"] },
+        { "kind": "screen", "label": "Constellation", "target": "e08_constellation", "resourceHints": ["ROOM-CONSTELLATION"] }
+      ]
+    },
+    {
+      "id": "transmettre",
+      "title": "Je transmets",
+      "intent": "Relier les œuvres à ce qu'elles confient aux lecteurs.",
+      "duration": "10 minutes",
+      "seasonPriority": "automne",
+      "opening": "Comprendre comment une œuvre continue lorsqu'elle circule.",
+      "steps": [
+        { "kind": "screen", "label": "Bibliothèque", "target": "e06_fiction", "resourceHints": ["ROOM-BIBLIOTHEQUE"] },
+        { "kind": "archive", "label": "Archive de transmission", "resourceHints": ["D007"] },
+        { "kind": "page", "label": "Transmission", "href": "constellation/transmission/", "resourceHints": ["ROOM-CONSTELLATION"] },
+        { "kind": "concept", "label": "Monde commun", "resourceHints": ["CON-0021"] },
+        { "kind": "screen", "label": "Constellation", "target": "e08_constellation", "resourceHints": ["ROOM-CONSTELLATION"] }
+      ]
+    }
+  ]
+}
