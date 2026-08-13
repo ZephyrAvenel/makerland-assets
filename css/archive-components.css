@@ -52,12 +52,14 @@
 }
 
 .archive-explore{
+    display:inline-flex;
     margin:0 18px 18px;
     padding:9px 14px;
     border:1px solid rgba(255,224,158,.28);
     border-radius:999px;
     color:#ffe3a8;
     font:13px Arial, sans-serif;
+    text-decoration:none;
     cursor:pointer;
     background:rgba(255,255,255,.035);
 }

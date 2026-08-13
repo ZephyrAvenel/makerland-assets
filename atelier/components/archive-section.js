@@ -4,11 +4,15 @@
             title: "Archives du Dialogue",
             why: "Cette salle rassemble les conversations, questions et intuitions qui montrent comment une idee devient progressivement un espace de recherche.",
             sections: [
-                ["Dialogues fondateurs", "Les premiers echanges qui ont ouvert une direction."],
-                ["Conversations decisives", "Les moments ou une question a transforme le projet."],
-                ["Grandes questions", "Les formulations qui restent ouvertes et continuent de travailler."],
-                ["Intuitions", "Les fragments encore fragiles avant leur mise en forme."],
-                ["Fragments", "Les phrases qui pourront voyager vers d'autres lieux."]
+                ["Dialogues fondateurs", "Les premiers echanges qui ont ouvert une direction.", "../archives/d002.html"],
+                ["Conversations decisives", "Les moments ou une question a transforme le projet.", "../archives/d001.html"],
+                ["Grandes questions", "Les formulations qui restent ouvertes et continuent de travailler.", "../archives/d008.html"],
+                ["Intuitions", "Les fragments encore fragiles avant leur mise en forme.", "../archives/d003.html"],
+                ["Fragments", "Les phrases qui pourront voyager vers d'autres lieux.", "../archives/d010.html"]
+            ],
+            documents: [
+                ["D001", "Pourquoi les Recits Vivants", "../archives/d001.html"],
+                ["D002", "Naissance de la pensee dialogique", "../archives/d002.html"]
             ],
             quote: "Le dialogue n'est pas un outil de reponse. C'est une chambre ou l'intuition apprend a se deplacer.",
             fragment: "Une question juste ne ferme pas le chemin. Elle lui donne une forme habitable."
@@ -17,11 +21,15 @@
             title: "Archives Cartographiques",
             why: "Cette salle accueillera les cartes fondatrices, les cartes de livres, les polarites et les representations du territoire.",
             sections: [
-                ["Cartes fondatrices", "Les premieres formes de l'architecture narrative."],
-                ["Cartes des livres", "Les relations propres a chaque oeuvre."],
-                ["Cartes conceptuelles", "Les concepts qui structurent les Recits Vivants."],
-                ["Cosmologie", "Les representations du territoire complet."],
-                ["Territoires", "Les lieux actuels et les espaces encore a relier."]
+                ["Cartes fondatrices", "Les premieres formes de l'architecture narrative.", "../archives/d004.html"],
+                ["Cartes des livres", "Les relations propres a chaque oeuvre.", "../archives/d007.html"],
+                ["Cartes conceptuelles", "Les concepts qui structurent les Recits Vivants.", "../archives/d003.html"],
+                ["Cosmologie", "Les representations du territoire complet.", "../archives/d003.html"],
+                ["Territoires", "Les lieux actuels et les espaces encore a relier.", "../archives/d006.html"]
+            ],
+            documents: [
+                ["D003", "Naissance de la Cosmologie des Recits Vivants", "../archives/d003.html"],
+                ["D004", "Naissance des Cartes Narratives", "../archives/d004.html"]
             ],
             quote: "Une carte vivante ne remplace pas le chemin. Elle donne envie d'y entrer.",
             fragment: "Relier deux lieux suffit parfois a faire apparaitre un monde."
@@ -30,11 +38,15 @@
             title: "Archives Visuelles",
             why: "Cette salle preparera l'accueil des prompts, essais visuels, versions rejetees, images retenues et couvertures.",
             sections: [
-                ["Prompts", "Les formulations qui ont appele une image."],
-                ["Premiers essais", "Les images encore proches de l'intuition initiale."],
-                ["Versions rejetees", "Les pistes ecartees parce qu'elles ne servaient pas le lieu."],
-                ["Images retenues", "Les images qui ont trouve leur fonction narrative."],
-                ["Couvertures", "Les seuils visuels des livres et atlas."]
+                ["Prompts", "Les formulations qui ont appele une image.", "../archives/d005.html"],
+                ["Premiers essais", "Les images encore proches de l'intuition initiale.", "../archives/d006.html"],
+                ["Versions rejetees", "Les pistes ecartees parce qu'elles ne servaient pas le lieu.", "../archives/d010.html"],
+                ["Images retenues", "Les images qui ont trouve leur fonction narrative.", "../archives/d005.html"],
+                ["Couvertures", "Les seuils visuels des livres et atlas.", "../archives/d007.html"]
+            ],
+            documents: [
+                ["D005", "Naissance de l'Oeuvre immersive", "../archives/d005.html"],
+                ["D006", "Naissance de Makerland", "../archives/d006.html"]
             ],
             quote: "Une image juste ne montre pas tout. Elle laisse le visiteur sentir ou il arrive.",
             fragment: "Le climat d'une image precede souvent le sens d'un texte."
@@ -43,11 +55,15 @@
             title: "Archives de Clarification",
             why: "Cette salle accueillera les brouillons, reecritures, comparaisons, clarifications et versions finales.",
             sections: [
-                ["Brouillons", "Les formulations avant discernement."],
-                ["Reecritures", "Les passages successifs vers une phrase plus juste."],
-                ["Comparaisons", "Les avant/apres qui rendent visible le travail."],
-                ["Clarifications", "Les decisions editoriales qui retirent le bruit."],
-                ["Versions finales", "Les formes retenues apres maturation."]
+                ["Brouillons", "Les formulations avant discernement.", "../archives/d002.html"],
+                ["Reecritures", "Les passages successifs vers une phrase plus juste.", "../archives/d010.html"],
+                ["Comparaisons", "Les avant/apres qui rendent visible le travail.", "../archives/d005.html"],
+                ["Clarifications", "Les decisions editoriales qui retirent le bruit.", "../archives/d008.html"],
+                ["Versions finales", "Les formes retenues apres maturation.", "../archives/d010.html"]
+            ],
+            documents: [
+                ["D008", "Naissance de la Boussole Vivante", "../archives/d008.html"],
+                ["D010", "Naissance des Archives Vivantes", "../archives/d010.html"]
             ],
             quote: "Clarifier, c'est choisir ce qui doit rester vivant lorsque tout le reste peut tomber.",
             fragment: "Une phrase devient juste lorsqu'elle cesse de vouloir convaincre."
@@ -56,11 +72,15 @@
             title: "Archives de l'Evolution",
             why: "Cette salle preparera la chronologie des versions, bifurcations, grandes etapes et gestes de transmission.",
             sections: [
-                ["Chronologie", "Les jalons qui structurent l'histoire du projet."],
-                ["Grandes etapes", "Les moments ou Makerland a change de nature."],
-                ["Versions", "Les iterations qui ont stabilise les lieux."],
-                ["Bifurcations", "Les choix qui ont ecarte certaines directions."],
-                ["Transmission", "Les passages vers les lecteurs et la Constellation."]
+                ["Chronologie", "Les jalons qui structurent l'histoire du projet.", "../archives/d006.html"],
+                ["Grandes etapes", "Les moments ou Makerland a change de nature.", "../archives/d009.html"],
+                ["Versions", "Les iterations qui ont stabilise les lieux.", "../archives/d010.html"],
+                ["Bifurcations", "Les choix qui ont ecarte certaines directions.", "../archives/d001.html"],
+                ["Transmission", "Les passages vers les lecteurs et la Constellation.", "../archives/d007.html"]
+            ],
+            documents: [
+                ["D006", "Naissance de Makerland", "../archives/d006.html"],
+                ["D009", "Naissance de l'Atelier IA", "../archives/d009.html"]
             ],
             quote: "Une oeuvre vivante avance moins par ajout que par fidelite progressive a ce qu'elle pressent.",
             fragment: "Chaque version laisse une trace, meme lorsqu'elle disparait de l'ecran."
@@ -75,12 +95,12 @@
             const item = components.createElement("details", "archive-summary__item");
             const summary = components.createElement("summary", "", section[0]);
             const text = components.createElement("p", "", section[1]);
-            const button = components.createElement("button", "archive-explore", "Explorer");
-            button.type = "button";
-            button.setAttribute("aria-label", "Explorer la rubrique " + section[0]);
+            const link = components.createElement("a", "archive-explore", "Explorer");
+            link.href = section[2];
+            link.setAttribute("aria-label", "Explorer la rubrique " + section[0]);
             item.appendChild(summary);
             item.appendChild(text);
-            item.appendChild(button);
+            item.appendChild(link);
             details.appendChild(item);
         });
 
@@ -91,24 +111,18 @@
         const components = window.ArchiveComponents;
         const grid = components.createElement("div", "archive-model-grid");
 
-        [
-            {
-                title: "Modele de document",
-                type: "Document",
-                date: "Date future",
-                origin: "Atelier IA",
-                summary: "Ce modele pourra accueillir un titre, une date, un type, une origine, un resume et un lien."
-            },
-            {
-                title: "Entree documentaire",
-                type: "Archive",
-                date: "A renseigner",
+        (room.documents || []).forEach(item => {
+            grid.appendChild(components.createArchiveCard({
+                title: item[1],
+                type: item[0],
+                date: "Volume I",
                 origin: room.title,
-                summary: "Chaque entree pourra etre ajoutee sans reconstruire l'architecture de la salle.",
-                href: "#",
+                status: "Consultable",
+                summary: "Archive reliee a cette chambre de l'Atelier.",
+                href: item[2],
                 linkLabel: "Explorer"
-            }
-        ].forEach(item => grid.appendChild(components.createArchiveCard(item)));
+            }));
+        });
 
         return grid;
     }

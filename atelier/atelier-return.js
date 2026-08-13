@@ -60,9 +60,35 @@
             });
     }
 
+    function initAtelierHomeLink() {
+        if ((document.body.dataset.depth || "sub") !== "sub") {
+            return;
+        }
+
+        if (document.querySelector("[data-atelier-home]")) {
+            return;
+        }
+
+        const returnLink = document.querySelector("[data-atelier-return]");
+        if (!returnLink || !returnLink.parentNode) {
+            return;
+        }
+
+        const link = document.createElement("a");
+        link.className = "placeholder-return";
+        link.href = "../";
+        link.textContent = "Retour Atelier";
+        link.setAttribute("data-atelier-home", "");
+        returnLink.parentNode.insertBefore(link, returnLink);
+    }
+
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initReturnLinks);
+        document.addEventListener("DOMContentLoaded", () => {
+            initReturnLinks();
+            initAtelierHomeLink();
+        });
     } else {
         initReturnLinks();
+        initAtelierHomeLink();
     }
 })();
