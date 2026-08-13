@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Graphe Vivant de Makerland</title>
+  <desc id="desc">Visualisation documentaire des relations entre concepts, archives, oeuvres, images, salles et objets.</desc>
+  <rect width="1200" height="720" fill="#101018"/>
+  <defs>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .label{font:18px Georgia,serif;fill:#f7ead0;text-anchor:middle}
+      .small{font:13px Georgia,serif;fill:#d8c39b;text-anchor:middle}
+      .node{fill:#1f2230;stroke:#c9a45f;stroke-width:1.2;filter:url(#glow)}
+      .edge{stroke:#b99352;stroke-width:1;opacity:.34;fill:none}
+      .verb{font:14px Georgia,serif;fill:#b99352;text-anchor:middle}
+    </style>
+  </defs>
+  <path class="edge" d="M180 160 C280 110 340 120 430 160"/>
+  <path class="edge" d="M430 160 C540 120 640 120 770 160"/>
+  <path class="edge" d="M770 160 C890 180 970 230 1020 320"/>
+  <path class="edge" d="M1020 320 C950 430 860 500 720 560"/>
+  <path class="edge" d="M720 560 C590 610 450 600 310 530"/>
+  <path class="edge" d="M310 530 C190 470 140 350 180 160"/>
+  <path class="edge" d="M430 160 C420 300 430 410 310 530"/>
+  <path class="edge" d="M770 160 C680 270 620 390 720 560"/>
+  <circle class="node" cx="180" cy="160" r="66"/>
+  <text class="label" x="180" y="154">Concepts</text>
+  <text class="small" x="180" y="180">26 notions</text>
+  <circle class="node" cx="430" cy="160" r="66"/>
+  <text class="label" x="430" y="154">Archives</text>
+  <text class="small" x="430" y="180">D001-D010</text>
+  <circle class="node" cx="770" cy="160" r="66"/>
+  <text class="label" x="770" y="154">Oeuvres</text>
+  <text class="small" x="770" y="180">10 couvertures</text>
+  <circle class="node" cx="1020" cy="320" r="66"/>
+  <text class="label" x="1020" y="314">Images</text>
+  <text class="small" x="1020" y="340">98 assets</text>
+  <circle class="node" cx="720" cy="560" r="66"/>
+  <text class="label" x="720" y="554">Salles</text>
+  <text class="small" x="720" y="580">6 lieux</text>
+  <circle class="node" cx="310" cy="530" r="66"/>
+  <text class="label" x="310" y="524">Objets</text>
+  <text class="small" x="310" y="550">88 figures</text>
+  <text class="verb" x="300" y="105">incarnent</text>
+  <text class="verb" x="600" y="105">documentent</text>
+  <text class="verb" x="920" y="210">illustrent</text>
+  <text class="verb" x="900" y="520">habitent</text>
+  <text class="verb" x="500" y="650">relient</text>
+  <text class="verb" x="130" y="355">font revenir</text>
+  <text class="label" x="600" y="360" style="font-size:28px">Graphe Vivant de Makerland</text>
+  <text class="small" x="600" y="392">premiere infrastructure relationnelle patrimoniale</text>
+</svg>
