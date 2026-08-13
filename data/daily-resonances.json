@@ -1,0 +1,103 @@
+{
+  "generatedFor": "RV-098",
+  "description": "Corpus local de resonances quotidiennes pour la Constellation des Recits Vivants. La rotation est deterministe selon la date.",
+  "resonances": [
+    {
+      "id": "DR-001",
+      "quote": "Les recits ne sont pas produits. Ils sont cultives.",
+      "tone": "atelier",
+      "season": "all",
+      "conceptHints": ["Recits Vivants", "Vivant", "Transmission"]
+    },
+    {
+      "id": "DR-002",
+      "quote": "Chaque oeuvre commence par une conversation.",
+      "tone": "dialogue",
+      "season": "spring",
+      "conceptHints": ["Dialogue", "Intuition"]
+    },
+    {
+      "id": "DR-003",
+      "quote": "Les relations precedent souvent les reponses.",
+      "tone": "resonance",
+      "season": "all",
+      "conceptHints": ["Relation", "Resonance", "Monde commun"]
+    },
+    {
+      "id": "DR-004",
+      "quote": "Une carte n'enferme pas le chemin. Elle le rend habitable.",
+      "tone": "cartographie",
+      "season": "summer",
+      "conceptHints": ["Atlas", "Cartes narratives", "Territoire"]
+    },
+    {
+      "id": "DR-005",
+      "quote": "Certaines phrases deviennent des etoiles parce qu'elles ont traverse quelqu'un.",
+      "tone": "constellation",
+      "season": "all",
+      "conceptHints": ["Constellation", "Transmission"]
+    },
+    {
+      "id": "DR-006",
+      "quote": "Une oeuvre vivante ne se ferme pas. Elle continue de chercher ses lecteurs.",
+      "tone": "oeuvre",
+      "season": "autumn",
+      "conceptHints": ["Oeuvre immersive", "Recits Vivants"]
+    },
+    {
+      "id": "DR-007",
+      "quote": "Le silence garde parfois mieux les traces que la vitesse.",
+      "tone": "carnet",
+      "season": "winter",
+      "conceptHints": ["Carnet", "Memoire", "Trace"]
+    },
+    {
+      "id": "DR-008",
+      "quote": "Ce qui se partage ne quitte pas celui qui l'a porte. Cela trouve simplement une autre lumiere.",
+      "tone": "transmission",
+      "season": "all",
+      "conceptHints": ["Transmission", "Relation"]
+    },
+    {
+      "id": "DR-009",
+      "quote": "Le monde commun commence lorsque plusieurs chemins acceptent de se repondre.",
+      "tone": "monde",
+      "season": "all",
+      "conceptHints": ["Monde commun", "Ecologie narrative"]
+    },
+    {
+      "id": "DR-010",
+      "quote": "Une archive n'est pas le passe d'une oeuvre. C'est une porte demeuree ouverte.",
+      "tone": "archive",
+      "season": "all",
+      "conceptHints": ["Archive", "Seuil", "Transmission"]
+    },
+    {
+      "id": "DR-011",
+      "quote": "Revenir dans un lieu, c'est parfois decouvrir qu'il avait continue de respirer.",
+      "tone": "retour",
+      "season": "all",
+      "conceptHints": ["Lieu vivant", "Memoire", "Resonance"]
+    },
+    {
+      "id": "DR-012",
+      "quote": "Les images ne decorent pas les recits. Elles leur ouvrent un climat.",
+      "tone": "image",
+      "season": "all",
+      "conceptHints": ["Image", "Imaginaire", "Oeuvre immersive"]
+    }
+  ],
+  "seasonalPhrases": {
+    "printemps": "Une question nouvelle peut encore germer ici.",
+    "ete": "La carte s'elargit dans une lumiere plus franche.",
+    "automne": "Ce qui se transmet change doucement de forme.",
+    "hiver": "Certaines traces demandent un silence plus long."
+  },
+  "momentPhrases": {
+    "dawn": "Le territoire s'eveille avec les premieres lueurs.",
+    "morning": "La lumiere rend les liens plus lisibles.",
+    "noon": "Les chemins se rassemblent dans le jour.",
+    "dusk": "Le soir laisse remonter les resonances lentes.",
+    "night": "La nuit garde les etoiles du voyage."
+  }
+}

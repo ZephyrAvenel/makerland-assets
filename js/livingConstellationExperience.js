@@ -1,0 +1,368 @@
+(function () {
+    const MEMORY_KEY = "makerland.traveler.constellation";
+    const TRAVELER_KEY = "makerland:traveler-constellation";
+    const CYCLE_KEY = "makerland:living-cycle";
+    const SEASONS_KEY = "makerland:living-seasons";
+
+    const SCRIPT_URL = document.currentScript
+        ? document.currentScript.src
+        : window.location.href;
+
+    const DATA_PATHS = {
+        daily: new URL("../data/daily-resonances.json", SCRIPT_URL).href,
+        concepts: new URL("../data/concept-network.json", SCRIPT_URL).href,
+        works: new URL("../data/work-network.json", SCRIPT_URL).href,
+        assets: new URL("../data/archive-assets.json", SCRIPT_URL).href,
+        mapping: new URL("../data/archive-mapping.json", SCRIPT_URL).href
+    };
+
+    const state = {
+        data: null,
+        memory: null,
+        daily: null,
+        cards: null,
+        elements: {}
+    };
+
+    function fetchJson(path) {
+        return fetch(path).then(response => {
+            if (!response.ok) {
+                throw new Error("Living Constellation Experience : impossible de charger " + path);
+            }
+            return response.json();
+        });
+    }
+
+    function readJson(key, fallback) {
+        try {
+            return JSON.parse(localStorage.getItem(key)) || fallback;
+        } catch (error) {
+            return fallback;
+        }
+    }
+
+    function writeJson(key, value) {
+        try {
+            localStorage.setItem(key, JSON.stringify(value));
+        } catch (error) {
+            // Le module reste une amelioration locale non bloquante.
+        }
+    }
+
+    function dayIndex(date) {
+        return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000);
+    }
+
+    function seasonFor(date) {
+        const cycle = readJson(CYCLE_KEY, {});
+        if (cycle.currentSeason) return cycle.currentSeason;
+        const month = date.getMonth();
+        if (month >= 2 && month <= 4) return "printemps";
+        if (month >= 5 && month <= 7) return "ete";
+        if (month >= 8 && month <= 10) return "automne";
+        return "hiver";
+    }
+
+    function momentFor(date) {
+        const cycle = readJson(CYCLE_KEY, {});
+        if (cycle.currentMoment) return cycle.currentMoment;
+        const hour = date.getHours();
+        if (hour >= 5 && hour < 8) return "dawn";
+        if (hour >= 8 && hour < 12) return "morning";
+        if (hour >= 12 && hour < 17) return "noon";
+        if (hour >= 17 && hour < 21) return "dusk";
+        return "night";
+    }
+
+    function normalize(value) {
+        return String(value || "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase();
+    }
+
+    function cleanTitle(value) {
+        return String(value || "")
+            .replace(/\.(png|jpe?g|gif|webp|svg)$/i, "")
+            .replace(/^COUVERTURE[-_\s]*/i, "")
+            .replace(/^Couverture\s*-\s*/i, "")
+            .replace(/[-_]+/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function pickDaily(date) {
+        const season = seasonFor(date);
+        const candidates = state.data.daily.resonances.filter(item => {
+            return item.season === "all" || item.season === season || item.season === seasonKey(season);
+        });
+        const pool = candidates.length ? candidates : state.data.daily.resonances;
+        return pool[dayIndex(date) % pool.length];
+    }
+
+    function seasonKey(label) {
+        return {
+            printemps: "spring",
+            ete: "summer",
+            automne: "autumn",
+            hiver: "winter"
+        }[label] || label;
+    }
+
+    function readMemory() {
+        const traveler = readJson(TRAVELER_KEY, {});
+        const seasons = readJson(SEASONS_KEY, {});
+        const memory = readJson(MEMORY_KEY, {});
+        memory.visits = Number(memory.visits || 0) + 1;
+        memory.storyCount = Array.isArray(traveler.fragments)
+            ? traveler.fragments.length
+            : Number(memory.storyCount || 0);
+        memory.archivesOpened = Array.isArray(memory.archivesOpened) ? memory.archivesOpened : [];
+        memory.conceptsSeen = Array.isArray(memory.conceptsSeen) ? memory.conceptsSeen : [];
+        memory.worksDiscovered = Array.isArray(memory.worksDiscovered) ? memory.worksDiscovered : [];
+        memory.imagesMet = Array.isArray(memory.imagesMet) ? memory.imagesMet : [];
+        if (!memory.firstSeen) {
+            memory.firstSeen = seasons.firstSeen || new Date().toISOString();
+        }
+        memory.lastSeen = new Date().toISOString();
+        writeJson(MEMORY_KEY, memory);
+        return memory;
+    }
+
+    function selectCards(date, daily) {
+        const index = dayIndex(date);
+        const concept = selectConcept(index, daily);
+        const archive = selectArchive(index, concept);
+        const work = selectWork(index, concept, archive);
+        const image = selectImage(index, concept, archive, work);
+        return { archive, concept, work, image };
+    }
+
+    function selectConcept(index, daily) {
+        const hints = (daily.conceptHints || []).map(normalize);
+        const preferred = state.data.concepts.concepts.filter(concept => {
+            return hints.some(hint => normalize(concept.name).includes(hint));
+        });
+        const pool = preferred.length ? preferred : state.data.concepts.concepts;
+        return pool[index % pool.length];
+    }
+
+    function selectArchive(index, concept) {
+        const ids = concept && concept.archives && concept.archives.length
+            ? concept.archives
+            : state.data.mapping.mappings.map(item => item.id);
+        const id = ids[index % ids.length];
+        return state.data.mapping.mappings.find(item => item.id === id) || state.data.mapping.mappings[index % state.data.mapping.mappings.length];
+    }
+
+    function selectWork(index, concept, archive) {
+        const ids = []
+            .concat(concept && concept.works ? concept.works : [])
+            .concat(archive && archive.books ? archive.books : []);
+        const uniqueIds = Array.from(new Set(ids));
+        const pool = uniqueIds.length
+            ? state.data.works.works.filter(work => uniqueIds.includes(work.id))
+            : state.data.works.works;
+        return pool[index % pool.length];
+    }
+
+    function selectImage(index, concept, archive, work) {
+        const ids = []
+            .concat(concept && concept.images ? concept.images : [])
+            .concat(archive && archive.images ? archive.images : [])
+            .concat(work && work.images ? work.images : []);
+        const uniqueIds = Array.from(new Set(ids));
+        const pool = uniqueIds.length
+            ? state.data.assets.assets.filter(asset => uniqueIds.includes(asset.id))
+            : state.data.assets.assets.filter(asset => !asset.isTechnicalTexture);
+        return pool[index % pool.length];
+    }
+
+    function buildLayer() {
+        const screen = document.getElementById("e08_constellation");
+        if (!screen || screen.querySelector("[data-living-constellation-experience]")) {
+            return;
+        }
+
+        const layer = document.createElement("aside");
+        layer.className = "living-constellation-experience";
+        layer.setAttribute("data-living-constellation-experience", "");
+        layer.setAttribute("aria-label", "Experience vivante de la Constellation");
+        layer.innerHTML = [
+            "<section class=\"living-constellation-experience__quote\" data-lce-quote></section>",
+            "<section class=\"living-constellation-experience__cards\" data-lce-cards aria-label=\"Resonances du jour\"></section>",
+            "<section class=\"living-constellation-experience__response\" data-lce-response aria-live=\"polite\"></section>"
+        ].join("");
+        screen.appendChild(layer);
+        state.elements.quote = layer.querySelector("[data-lce-quote]");
+        state.elements.cards = layer.querySelector("[data-lce-cards]");
+        state.elements.response = layer.querySelector("[data-lce-response]");
+    }
+
+    function render() {
+        buildLayer();
+        renderQuote();
+        renderCards();
+    }
+
+    function renderQuote() {
+        const date = new Date();
+        const season = seasonFor(date);
+        const moment = momentFor(date);
+        const seasonal = state.data.daily.seasonalPhrases[season] || "";
+        const momentPhrase = state.data.daily.momentPhrases[moment] || "";
+        state.elements.quote.innerHTML = [
+            `<blockquote>${escapeHtml(state.daily.quote)}</blockquote>`,
+            `<p>${escapeHtml(seasonal || momentPhrase)}</p>`
+        ].join("");
+    }
+
+    function renderCards() {
+        const cards = [
+            {
+                type: "Archive Vivante",
+                title: state.cards.archive.id,
+                text: state.cards.archive.label,
+                action: "Decouvrir"
+            },
+            {
+                type: "Concept Vivant",
+                title: state.cards.concept.name,
+                text: "Une idee du Graphe Vivant revient aujourd'hui."
+            },
+            {
+                type: "Image patrimoniale",
+                title: cleanTitle(state.cards.image.name),
+                text: state.cards.image.subject || "Une image issue du patrimoine RV-090.",
+                image: assetPath(state.cards.image)
+            },
+            {
+                type: "Oeuvre en resonance",
+                title: cleanTitle(state.cards.work.title),
+                text: "Une oeuvre deja reliee au patrimoine de Makerland."
+            }
+        ];
+
+        state.elements.cards.innerHTML = cards.map(card => [
+            "<article class=\"living-constellation-experience__card\">",
+            `<span>${escapeHtml(card.type)}</span>`,
+            `<h3>${escapeHtml(card.title)}</h3>`,
+            `<p>${escapeHtml(card.text || "")}</p>`,
+            card.image ? `<img src="${escapeHtml(card.image)}" alt="">` : "",
+            "</article>"
+        ].join("")).join("");
+    }
+
+    function assetPath(asset) {
+        const path = asset && asset.extractedPath ? asset.extractedPath : "";
+        if (!path) return "";
+        if (/^https?:\/\//.test(path)) return "";
+        if (path.indexOf("raw.githubusercontent.com/") === 0) return "";
+        return path;
+    }
+
+    function bindSharing() {
+        const button = document.getElementById("shareStoryButton");
+        const textarea = document.getElementById("storyInput");
+        if (!button || !textarea) return;
+
+        button.addEventListener("click", () => {
+            const text = textarea.value.trim();
+            if (!text) return;
+            setTimeout(() => renderShareResponse(text), 80);
+        }, true);
+    }
+
+    function renderShareResponse(text) {
+        const traveler = window.TravelerConstellation && window.TravelerConstellation.readMemory
+            ? window.TravelerConstellation.readMemory()
+            : readJson(TRAVELER_KEY, {});
+        const fragment = Array.isArray(traveler.fragments) ? traveler.fragments[0] : null;
+        const chips = responseChips(fragment);
+        const stage = stageForCount(Array.isArray(traveler.fragments) ? traveler.fragments.length : state.memory.storyCount);
+
+        state.memory.storyCount = Array.isArray(traveler.fragments) ? traveler.fragments.length : state.memory.storyCount + 1;
+        state.memory.conceptsSeen = mergeIds(state.memory.conceptsSeen, fragment && fragment.concepts);
+        state.memory.archivesOpened = mergeIds(state.memory.archivesOpened, chips.archives.map(item => item.id));
+        state.memory.worksDiscovered = mergeIds(state.memory.worksDiscovered, chips.works.map(item => item.id));
+        state.memory.imagesMet = mergeIds(state.memory.imagesMet, chips.images.map(item => item.id));
+        writeJson(MEMORY_KEY, state.memory);
+
+        state.elements.response.innerHTML = [
+            `<h2>${escapeHtml(stage)}</h2>`,
+            "<p>Votre recit rejoint desormais la Constellation.</p>",
+            chips.all.length ? "<p>Ce fragment resonne avec :</p>" : "",
+            chips.all.length ? `<div class="living-constellation-experience__chips">${chips.all.map(item => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : "",
+            "<p>Le territoire garde cette trace uniquement dans ce navigateur.</p>"
+        ].join("");
+        state.elements.response.classList.add("is-visible");
+        window.clearTimeout(state.responseTimer);
+        state.responseTimer = window.setTimeout(() => {
+            state.elements.response.classList.remove("is-visible");
+        }, 9000);
+    }
+
+    function responseChips(fragment) {
+        const resonance = fragment && fragment.resonance ? fragment.resonance : {};
+        const concepts = (resonance.concepts || []).slice(0, 2);
+        const archives = (resonance.archives || []).slice(0, 1);
+        const works = (resonance.works || []).slice(0, 1);
+        const images = (resonance.images || []).slice(0, 1);
+        const rooms = (resonance.rooms || []).slice(0, 1);
+        const all = []
+            .concat(concepts.map(item => item.label || item.id))
+            .concat(archives.map(item => item.id))
+            .concat(works.map(item => cleanTitle(item.label || item.id)))
+            .concat(rooms.map(item => item.label || item.id));
+        return { concepts, archives, works, images, rooms, all };
+    }
+
+    function mergeIds(existing, incoming) {
+        return Array.from(new Set((existing || []).concat(incoming || []).filter(Boolean)));
+    }
+
+    function stageForCount(count) {
+        if (count >= 7) return "✦ Constellation personnelle";
+        if (count >= 3) return "✦ Trois etoiles";
+        return "✦ Premiere etoile";
+    }
+
+    function escapeHtml(value) {
+        return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+    }
+
+    function init() {
+        Promise.all([
+            fetchJson(DATA_PATHS.daily),
+            fetchJson(DATA_PATHS.concepts),
+            fetchJson(DATA_PATHS.works),
+            fetchJson(DATA_PATHS.assets),
+            fetchJson(DATA_PATHS.mapping)
+        ]).then(([daily, concepts, works, assets, mapping]) => {
+            const date = new Date();
+            state.data = { daily, concepts, works, assets, mapping };
+            state.memory = readMemory();
+            state.daily = pickDaily(date);
+            state.cards = selectCards(date, state.daily);
+            render();
+            bindSharing();
+        }).catch(error => {
+            console.warn(error.message);
+        });
+    }
+
+    window.LivingConstellationExperience = {
+        init,
+        readMemory
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
+})();
