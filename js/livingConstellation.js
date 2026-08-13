@@ -50,6 +50,8 @@
 
     function cleanTitle(value) {
         return String(value || "")
+            .replace(/Makerland/g, "Territoire des Recits Vivants")
+            .replace(/Atelier IA/g, "Atelier des Recits")
             .replace(/\.(png|jpe?g|gif|webp|svg)$/i, "")
             .replace(/^COUVERTURE[-_\s]*/i, "")
             .replace(/^Couverture\s*-\s*/i, "")
@@ -251,7 +253,7 @@
         return {
             id: room.id,
             title: room.name,
-            type: "Salle Makerland",
+            type: "Salle des Recits Vivants",
             summary: room.role,
             relations: {
                 Archives: room.archives,

@@ -83,6 +83,8 @@
 
     function cleanTitle(value) {
         return String(value || "")
+            .replace(/Makerland/g, "Territoire des Recits Vivants")
+            .replace(/Atelier IA/g, "Atelier des Recits")
             .replace(/\.(png|jpe?g|gif|webp|svg)$/i, "")
             .replace(/^COUVERTURE[-_\s]*/i, "")
             .replace(/^Couverture\s*-\s*/i, "")
@@ -239,7 +241,7 @@
             {
                 type: "Oeuvre en resonance",
                 title: cleanTitle(state.cards.work.title),
-                text: "Une oeuvre deja reliee au patrimoine de Makerland."
+                text: "Une oeuvre deja reliee au patrimoine des Recits Vivants."
             }
         ];
 

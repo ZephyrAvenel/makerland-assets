@@ -100,7 +100,7 @@
 
     function renderPlaces() {
         return [
-            "<section class=\"living-home__places\" aria-label=\"Lieux de Makerland\">",
+            "<section class=\"living-home__places\" aria-label=\"Lieux des Recits Vivants\">",
             PLACES.map(place => [
                 "<article class=\"living-home__place\">",
                 `<strong>${escapeHtml(place[0])}</strong>`,

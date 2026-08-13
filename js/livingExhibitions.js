@@ -64,7 +64,7 @@
         vivant: {
             title: "Vivant",
             opening: "Le vivant n'explique pas toujours. Il accueille.",
-            intro: "Cette constellation rassemble les oeuvres, concepts et images qui font respirer Makerland."
+            intro: "Cette constellation rassemble les oeuvres, concepts et images qui font respirer les Recits Vivants."
         }
     };
 
@@ -113,6 +113,8 @@
 
     function cleanTitle(value) {
         return String(value || "")
+            .replace(/Makerland/g, "Territoire des Recits Vivants")
+            .replace(/Atelier IA/g, "Atelier des Recits")
             .replace(/\.(png|jpe?g|gif|webp|svg)$/i, "")
             .replace(/^COUVERTURE[-_\s]*/i, "")
             .replace(/^Couverture\s*-\s*/i, "")
@@ -325,7 +327,7 @@
             block("Images patrimoniales", exhibition.images.map(item => item.id + " - " + cleanTitle(item.name))),
             block("Figures", exhibition.figures.map(item => item.figureId + " - " + cleanTitle(item.name))),
             block("Articles", exhibition.articles),
-            block("Salles Makerland", exhibition.rooms.map(item => item.name)),
+            block("Salles des Recits Vivants", exhibition.rooms.map(item => cleanTitle(item.name))),
             block("Packs narratifs", exhibition.packs.length ? exhibition.packs : ["Aucune relation structuree dans les catalogues actuels"]),
             block("Objets NFC", exhibition.objects.length ? exhibition.objects : ["Aucun objet NFC disponible dans les catalogues actuels"]),
             "</div>",
