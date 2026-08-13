@@ -59,6 +59,19 @@
         "perspective": "Perspective"
     };
 
+    const ARCHIVE_DIALOGUES = [
+        ["D001", "Pourquoi les Recits Vivants"],
+        ["D002", "Naissance de la pensee dialogique"],
+        ["D003", "Naissance de la Cosmologie des Recits Vivants"],
+        ["D004", "Naissance des Cartes Narratives"],
+        ["D005", "Naissance de l'Oeuvre immersive"],
+        ["D006", "Naissance de Makerland"],
+        ["D007", "Naissance de la Bibliotheque Vivante"],
+        ["D008", "Naissance de la Boussole Vivante"],
+        ["D009", "Naissance de l'Atelier IA"],
+        ["D010", "Naissance des Archives Vivantes"]
+    ];
+
     function readJson(key) {
         try {
             return JSON.parse(localStorage.getItem(key)) || {};
@@ -145,6 +158,13 @@
             "</ul>"
         ].join("");
         return card;
+    }
+
+    function formatDate(value) {
+        const date = new Date(value);
+        return Number.isNaN(date.getTime())
+            ? "Non encore visite"
+            : date.toLocaleDateString("fr-FR");
     }
 
     function renderResonance() {
@@ -312,6 +332,37 @@
         });
     }
 
+    function renderDialogues(cycle) {
+        const target = document.querySelector("[data-journal-dialogues]");
+
+        if (!target) {
+            return;
+        }
+
+        const visited = cycle.archiveDialogs && typeof cycle.archiveDialogs === "object"
+            ? cycle.archiveDialogs
+            : {};
+
+        ARCHIVE_DIALOGUES.forEach(item => {
+            const id = item[0];
+            const known = visited[id];
+            const card = document.createElement("article");
+            card.className = known
+                ? "placeholder-card journal-card journal-dialogue is-known"
+                : "placeholder-card journal-card journal-dialogue";
+            card.innerHTML = [
+                "<h3>" + id + "</h3>",
+                "<p>" + (known && known.title ? known.title : item[1]) + "</p>",
+                "<ul>",
+                "<li>Etat : " + (known ? "rencontre" : "a rencontrer") + "</li>",
+                "<li>Derniere visite : " + formatDate(known && known.lastVisited) + "</li>",
+                "</ul>",
+                "<a class=\"placeholder-return\" href=\"../atelier/archives/" + id.toLowerCase() + ".html\">Reprendre</a>"
+            ].join("");
+            target.appendChild(card);
+        });
+    }
+
     function renderEncounters(cycle, books) {
         const target = document.querySelector("[data-journal-encounters]");
 
@@ -355,6 +406,7 @@
         renderFirstSteps(cycle);
         renderPath(memory, cycle);
         renderObjects(cycle);
+        renderDialogues(cycle);
         renderEncounters(cycle, books);
     }
 

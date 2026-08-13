@@ -90,6 +90,28 @@
     transition:opacity .65s ease, transform .65s ease;
 }
 
+.living-sky__close{
+    position:absolute;
+    top:8px;
+    right:10px;
+    width:30px;
+    height:30px;
+    border:1px solid rgba(255,224,166,.22);
+    border-radius:999px;
+    color:rgba(255,242,216,.86);
+    background:rgba(7,13,23,.46);
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.living-sky__close:hover,
+.living-sky__close:focus-visible{
+    color:#ffe5aa;
+    border-color:rgba(255,224,166,.44);
+    outline:none;
+}
+
 .living-sky__panel.is-visible{
     opacity:1;
     transform:translateY(0);

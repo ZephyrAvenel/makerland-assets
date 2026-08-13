@@ -17,7 +17,8 @@
         data: null,
         stars: [],
         territories: [],
-        elements: {}
+        elements: {},
+        panelHistoryOpen: false
     };
 
     function fetchJson(path) {
@@ -242,6 +243,7 @@
         state.elements.growth = layer.querySelector("[data-sky-growth]");
         state.elements.panel = layer.querySelector("[data-sky-panel]");
         bindModes(layer);
+        bindPanelClosing(layer);
     }
 
     function bindModes(layer) {
@@ -299,6 +301,62 @@
         return { x, y };
     }
 
+    function bindPanelClosing(layer) {
+        layer.addEventListener("click", event => {
+            if (!state.elements.panel.classList.contains("is-visible")) return;
+            if (event.target.closest(".living-sky__panel")) return;
+            if (event.target.closest(".living-sky__modes")) return;
+            if (event.target.closest("[data-star-id]")) return;
+            if (event.target.closest("[data-territory-id]")) return;
+            if (event.target.closest("[data-territory-card]")) return;
+            closePanel(true);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                closePanel(true);
+            }
+        });
+
+        window.addEventListener("popstate", () => {
+            if (state.panelHistoryOpen) {
+                closePanel(false);
+            }
+        });
+    }
+
+    function panelCloseButton() {
+        return "<button class=\"living-sky__close\" type=\"button\" aria-label=\"Fermer\">×</button>";
+    }
+
+    function bindPanelButton() {
+        const button = state.elements.panel.querySelector(".living-sky__close");
+        if (button) {
+            button.addEventListener("click", () => closePanel(true));
+        }
+    }
+
+    function openPanel() {
+        state.elements.panel.classList.add("is-visible");
+        if (!state.panelHistoryOpen && window.history && window.history.pushState) {
+            window.history.pushState({ livingSkyPanel: true }, "", window.location.href);
+            state.panelHistoryOpen = true;
+        }
+    }
+
+    function closePanel(useHistoryBack) {
+        if (!state.elements.panel || !state.elements.panel.classList.contains("is-visible")) {
+            return;
+        }
+        state.elements.panel.classList.remove("is-visible");
+        if (useHistoryBack && state.panelHistoryOpen && window.history) {
+            state.panelHistoryOpen = false;
+            window.history.back();
+            return;
+        }
+        state.panelHistoryOpen = false;
+    }
+
     function renderTerritories() {
         state.elements.territories.innerHTML = state.territories.map(territory => {
             return [
@@ -343,6 +401,7 @@
             labelForWork(themeById(star.category).workHints[0]);
         const concept = star.concepts.length ? labelForConcept(star.concepts[0]) : star.categoryLabel;
         state.elements.panel.innerHTML = [
+            panelCloseButton(),
             "<h2>✦ Etoile du voyage</h2>",
             `<p>« ${escapeHtml(star.text)} »</p>`,
             `<p>${formatDate(star.date)}<br>Constellation : ${escapeHtml(star.categoryLabel)}</p>`,
@@ -352,7 +411,8 @@
             `<span>${escapeHtml(concept)}</span>`,
             "</div>"
         ].join("");
-        state.elements.panel.classList.add("is-visible");
+        bindPanelButton();
+        openPanel();
     }
 
     function showTerritory(id) {
@@ -363,12 +423,14 @@
             .concat(territory.works.slice(0, 2).map(labelForWork))
             .concat(territory.concepts.slice(0, 3).map(labelForConcept));
         state.elements.panel.innerHTML = [
+            panelCloseButton(),
             `<h2>${territory.symbol} Constellation ${escapeHtml(territory.label)}</h2>`,
             `<p>${territory.stars.length} etoiles - ${territory.stage}</p>`,
             `<p>${escapeHtml(territory.quote)}</p>`,
             chips.length ? `<div class="living-sky__chips">${chips.map(item => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : ""
         ].join("");
-        state.elements.panel.classList.add("is-visible");
+        bindPanelButton();
+        openPanel();
     }
 
     function firstLabel(items, formatter) {

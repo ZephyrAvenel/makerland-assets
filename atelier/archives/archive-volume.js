@@ -11,6 +11,7 @@
         ["d009", "markdown/D009_Naissance_de_lAtelier_IA.md"],
         ["d010", "markdown/D010_Naissance_des_Archives_Vivantes.md"]
     ];
+    const CYCLE_KEY = "makerland:living-cycle";
 
     function createElement(tag, className, text) {
         const element = document.createElement(tag);
@@ -24,6 +25,47 @@
         }
 
         return element;
+    }
+
+    function readCycle() {
+        try {
+            return JSON.parse(localStorage.getItem(CYCLE_KEY)) || {};
+        } catch (error) {
+            return {};
+        }
+    }
+
+    function writeCycle(value) {
+        try {
+            localStorage.setItem(CYCLE_KEY, JSON.stringify(value));
+        } catch (error) {
+            return;
+        }
+    }
+
+    function rememberArchive(record) {
+        const cycle = readCycle();
+        const id = record.id.toUpperCase();
+        const archives = cycle.archiveDialogs && typeof cycle.archiveDialogs === "object"
+            ? cycle.archiveDialogs
+            : {};
+
+        archives[id] = {
+            id,
+            title: record.meta.title,
+            status: record.meta.status || "Archive Vivante",
+            lastVisited: new Date().toISOString(),
+            href: "atelier/archives/" + record.id + ".html"
+        };
+
+        cycle.archiveDialogs = archives;
+        cycle.dialogues = Array.isArray(cycle.dialogues) ? cycle.dialogues : [];
+
+        if (!cycle.dialogues.includes(id)) {
+            cycle.dialogues.push(id);
+        }
+
+        writeCycle(cycle);
     }
 
     function markdownPath(path) {
@@ -249,6 +291,7 @@
 
                 const index = records.findIndex(record => record.id === detailId);
                 if (index >= 0) {
+                    rememberArchive(records[index]);
                     renderDetail(records[index], index);
                 }
             })
