@@ -8,39 +8,39 @@
         {
             screen: "e02_meteo",
             title: "Pourquoi ce territoire existe-t-il ?",
-            place: "Meteo",
-            subtitle: "Votre premier climat.",
-            text: "Vous vous demandez peut-etre pourquoi Makerland commence par un paysage interieur. Parce que les Recits Vivants ne cherchent pas seulement a etre compris. Ils demandent d'abord depuis quel climat vous les rencontrez.",
+            place: "Le Seuil des Climats",
+            subtitle: "Votre premiere rencontre.",
+            text: "Vous vous demandez peut-etre pourquoi ce voyage commence par un paysage interieur. Parce que les Recits Vivants ne cherchent pas seulement a etre compris. Ils demandent d'abord depuis quel climat vous les rencontrez.",
             quote: "Choisir un climat, c'est deja commencer a habiter le territoire."
         },
         {
             screen: "e06_fiction",
             title: "A quoi ressemblent les oeuvres qui naissent ici ?",
-            place: "Les Marges Vivantes",
-            subtitle: "Un livre comme premiere porte.",
+            place: "Bibliotheque Vivante",
+            subtitle: "Les oeuvres publiees.",
             text: "Vous vous demandez peut-etre ce que l'on trouve dans cette bibliotheque. Des oeuvres qui ne donnent pas seulement un recit a lire, mais un lieu a traverser, une question a habiter, une facon de regarder autrement.",
             quote: "Lire, ici, c'est deja entrer dans un territoire."
         },
         {
             screen: "e07_atelier",
             title: "Comment naissent-elles ?",
-            place: "Atelier IA",
+            place: "L'Atelier des Recits",
             subtitle: "La ou les idees prennent forme.",
             text: "Vous vous demandez peut-etre comment une idee devient une oeuvre. L'Atelier montre les questions, les dialogues, les cartes, les images et les reprises qui transforment peu a peu une intuition en forme partageable.",
-            quote: "L'intelligence artificielle n'est pas une autorite. Elle devient un compagnon de recherche."
+            quote: "L'intelligence artificielle devient ici un compagnon de recherche."
         },
         {
             screen: "e07_atelier",
             title: "Peut-on voir leurs coulisses ?",
-            place: "Archive D001",
+            place: "Archives Vivantes",
             subtitle: "Les coulisses de la creation.",
-            text: "Vous vous demandez peut-etre si l'on peut voir la naissance d'une oeuvre. Les Archives Vivantes conservent les traces : intuitions, conversations, hesitations et decisions qui ont rendu Makerland possible.",
+            text: "Vous vous demandez peut-etre si l'on peut voir la naissance d'une oeuvre. Les Archives Vivantes conservent les traces : intuitions, conversations, hesitations et decisions qui ont rendu les Recits Vivants possibles.",
             quote: "D001 ouvre la question fondatrice : pourquoi les Recits Vivants ?",
             href: "atelier/archives/d001.html"
         },
         {
             screen: "e08_constellation",
-            title: "Comment toutes ces oeuvres dialoguent-elles entre elles ?",
+            title: "Comment dialoguent-elles entre elles ?",
             place: "Constellation",
             subtitle: "Les liens entre les oeuvres.",
             text: "Vous vous demandez peut-etre ce qui relie tout cela. La Constellation montre que les oeuvres, les archives, les images, les concepts et les lecteurs se repondent dans un meme ciel.",
@@ -132,9 +132,9 @@
 
     function renderWelcome() {
         state.root.innerHTML = [
-            "<section class=\"first-journey__welcome\" role=\"dialog\" aria-label=\"Bienvenue dans Makerland\">",
+            "<section class=\"first-journey__welcome\" role=\"dialog\" aria-label=\"Bienvenue dans les Recits Vivants\">",
             "<h2>Bienvenue</h2>",
-            "<p>Makerland n'est ni un jeu, ni une bibliotheque classique.</p>",
+            "<p>Les Recits Vivants ne sont ni un jeu, ni une bibliotheque classique.</p>",
             "<p>C'est un territoire ou l'on explore la naissance des idees, des recits et des oeuvres.</p>",
             "<p>Vous pouvez suivre un premier voyage guide ou explorer librement.</p>",
             "<div class=\"first-journey__actions\">",
@@ -154,10 +154,9 @@
         state.root.innerHTML = [
             "<section class=\"first-journey__intro\" role=\"dialog\" aria-label=\"Votre premier voyage\">",
             "<h2>Votre premier voyage</h2>",
-            "<p>Les Recits Vivants ne se decouvrent pas en une seule fois.</p>",
-            "<p>Ils se traversent.</p>",
-            "<p>Durant quelques minutes, je vais vous faire decouvrir cinq lieux essentiels de Makerland.</p>",
-            "<p>Il ne s'agit pas de tout comprendre. Seulement de sentir comment ce territoire est construit.</p>",
+            "<p>En cinq etapes, vous allez decouvrir comment naissent les Recits Vivants.</p>",
+            "<p>Vous ne visiterez pas seulement des lieux.</p>",
+            "<p>Vous suivrez le chemin qui conduit d'une intuition a une oeuvre.</p>",
             "<div class=\"first-journey__actions\">",
             "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-start>Commencer le voyage</button>",
             "<button type=\"button\" data-first-journey-threshold>Retour au seuil</button>",
@@ -273,16 +272,19 @@
         writeMemory(state.memory);
         state.root.innerHTML = [
             "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage termine\">",
-            "<h3>Vous connaissez maintenant les cinq lieux fondateurs de Makerland.</h3>",
-            "<p>Le reste du territoire vous appartient desormais.</p>",
-            "<p>Chaque oeuvre, chaque archive et chaque chemin pourra etre explore librement, a votre rythme.</p>",
-            "<p>Bienvenue dans les Recits Vivants.</p>",
+            "<h3>Vous connaissez maintenant les cinq portes des Recits Vivants.</h3>",
+            "<p>Le premier voyage est termine.</p>",
+            "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
+            "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
+            "<p>Vous pouvez desormais explorer librement ce territoire.</p>",
             "<div class=\"first-journey__actions\">",
+            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-library>Explorer les oeuvres</button>",
             "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-free>Explorer librement</button>",
-            "<button type=\"button\" data-first-journey-replay>Refaire le Premier Voyage</button>",
+            "<button type=\"button\" data-first-journey-replay>Refaire le premier voyage</button>",
             "</div>",
             "</aside>"
         ].join("");
+        state.root.querySelector("[data-first-journey-library]").addEventListener("click", () => navigateTo("e06_fiction"));
         state.root.querySelector("[data-first-journey-free]").addEventListener("click", clearRoot);
         state.root.querySelector("[data-first-journey-replay]").addEventListener("click", startJourney);
     }

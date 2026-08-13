@@ -70,7 +70,7 @@
 }
 
 .first-journey__replay::before{
-    content:"Vous connaissez deja Makerland ?";
+    content:"Vous connaissez deja les Recits Vivants ?";
     display:block;
     margin-bottom:5px;
     color:rgba(255,244,226,.54);
