@@ -2,6 +2,12 @@
 
 Makerland est le territoire numerique des Recits Vivants.
 
+## Decouvrir Makerland
+
+Le [Livre Vivant de Makerland](docs/LIVING_BOOK_OF_MAKERLAND.md) est la meilleure porte d'entree pour comprendre l'ensemble du projet.
+
+Il relie l'intention, la geographie, le fonctionnement, l'histoire et l'avenir de Makerland dans un seul parcours de lecture.
+
 ## Vision du projet
 
 > Makerland est le territoire numerique des Recits Vivants.
