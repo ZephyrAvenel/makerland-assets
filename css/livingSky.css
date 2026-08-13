@@ -76,15 +76,17 @@
     position:absolute;
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .58);
-    width:min(390px, calc(var(--screen-content-width) * .36));
+    width:min(350px, calc(var(--screen-content-width) * .32));
+    max-height:calc(var(--screen-content-height) * .32);
     box-sizing:border-box;
-    padding:16px 18px;
+    padding:14px 16px;
     border:1px solid rgba(255,224,166,.26);
     border-radius:20px;
     background:radial-gradient(ellipse at top, rgba(255,222,155,.12), rgba(7,13,23,.6) 62%, rgba(4,8,14,.36));
     box-shadow:0 22px 48px rgba(0,0,0,.3), 0 0 32px rgba(255,205,125,.1);
     backdrop-filter:blur(9px);
-    pointer-events:auto;
+    overflow:auto;
+    pointer-events:none;
     opacity:0;
     transform:translateY(10px);
     transition:opacity .65s ease, transform .65s ease;
@@ -115,6 +117,7 @@
 .living-sky__panel.is-visible{
     opacity:1;
     transform:translateY(0);
+    pointer-events:auto;
 }
 
 .living-sky__panel h2,
@@ -130,23 +133,23 @@
 }
 
 .living-sky__panel p{
-    margin-top:8px;
+    margin-top:6px;
     color:rgba(255,242,218,.8);
     font-size:clamp(11px, calc(var(--screen-content-width) * .01), 15px);
-    line-height:1.45;
+    line-height:1.38;
 }
 
 .living-sky__chips{
     display:flex;
     flex-wrap:wrap;
-    gap:6px;
-    margin-top:10px;
+    gap:5px;
+    margin-top:8px;
 }
 
 .living-sky__chips span{
     border:1px solid rgba(255,224,166,.22);
     border-radius:999px;
-    padding:5px 8px;
+    padding:4px 7px;
     color:rgba(255,242,218,.82);
     background:rgba(255,230,180,.06);
     font-size:11px;
@@ -254,8 +257,9 @@ body.season-winter .living-sky__star{
     .living-sky__panel{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .54);
-        width:calc(var(--screen-content-width) * .42);
-        padding:11px 12px;
+        width:calc(var(--screen-content-width) * .36);
+        max-height:calc(var(--screen-content-height) * .3);
+        padding:10px 11px;
     }
 
     .living-sky__territories,

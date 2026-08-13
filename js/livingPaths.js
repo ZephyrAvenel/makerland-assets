@@ -276,10 +276,11 @@
         return [
             `<li class="living-paths__step${status}">`,
             "<span class=\"living-paths__dot\"></span>",
-            "<span>",
+            "<span class=\"living-paths__step-text\">",
             `<strong>${escapeHtml(step.label)}</strong>`,
             resources ? `<br><small>${escapeHtml(resources)}</small>` : "",
             "</span>",
+            "<span class=\"living-paths__step-leader\" aria-hidden=\"true\"></span>",
             action,
             "</li>"
         ].join("");
