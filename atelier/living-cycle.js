@@ -112,7 +112,9 @@
     }
 
     function renderBreadcrumb() {
-        const target = document.querySelector("[data-cycle-breadcrumb]");
+        const target =
+            document.querySelector(".living-breadcrumb[data-cycle-breadcrumb]") ||
+            document.querySelector("main [data-cycle-breadcrumb]");
         const path = document.body.dataset.cycleBreadcrumb;
 
         if (!target || !path) {
