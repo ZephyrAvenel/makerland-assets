@@ -1,5 +1,18 @@
 (function () {
     const STORAGE_PREFIX = "makerland:atelier:object:";
+    const OBJECT_RESONANCES = {
+        "carnet-dialogue": ["Ce carnet eclaire aussi Transmission", "../../constellation/transmission/"],
+        "premiere-question": ["Cette question rejoint Cartographie", "../cartographie/"],
+        "conversation-fondatrice": ["Cette conversation resonne avec la Constellation", "../../constellation/"],
+        "carte-narrative": ["Cette carte ouvre Chemin", "../../constellation/chemin/"],
+        "spirale": ["Cette forme rejoint Fonctionnement", "../../constellation/fonctionnement/"],
+        "constellation": ["Cette etoile repond a la Constellation", "../../constellation/"],
+        "image-retenue": ["Cette image appelle Clarification", "../clarification/"],
+        "prompt-creatif": ["Ce prompt poursuit Dialogue", "../dialogue/"],
+        "brouillon": ["Ce brouillon conduit vers Clarification", "../clarification/"],
+        "journal-versions": ["Ce journal rejoint Transmission", "../../constellation/transmission/"],
+        "jalon-rv": ["Ce jalon ouvre Evolution", "../evolution/"]
+    };
 
     function getRoomId() {
         const host = document.querySelector("[data-atelier-objects]");
@@ -77,6 +90,7 @@
             '<h2 id="objectDrawerTitle"></h2>',
             '<p class="object-drawer__intro"></p>',
             '<p class="object-drawer__content"></p>',
+            '<a class="object-drawer__resonance" hidden></a>',
             '<a class="object-drawer__more" hidden>Explorer davantage</a>',
             '</article>'
         ].join("");
@@ -100,6 +114,17 @@
         overlay.querySelector("#objectDrawerTitle").textContent = item.title;
         overlay.querySelector(".object-drawer__intro").textContent = item.intro;
         overlay.querySelector(".object-drawer__content").textContent = item.content;
+
+        const resonance = overlay.querySelector(".object-drawer__resonance");
+        const relation = OBJECT_RESONANCES[item.id];
+        if (relation) {
+            resonance.hidden = false;
+            resonance.href = relation[1];
+            resonance.textContent = relation[0];
+        } else {
+            resonance.hidden = true;
+            resonance.removeAttribute("href");
+        }
 
         const more = overlay.querySelector(".object-drawer__more");
         if (item.moreHref) {
