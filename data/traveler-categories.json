@@ -1,0 +1,81 @@
+{
+  "generatedFor": "RV-097",
+  "description": "Categories locales de la Constellation des Voyageurs. La categorisation repose uniquement sur des mots-clefs simples, sans IA ni serveur.",
+  "categories": [
+    {
+      "id": "nature",
+      "label": "Nature",
+      "symbol": "🌿",
+      "keywords": ["arbre", "foret", "racine", "terre", "vent", "rivage", "source", "saison", "jardin", "vivant"],
+      "concepts": ["Vivant", "Territoire"]
+    },
+    {
+      "id": "esperance",
+      "label": "Espérance",
+      "symbol": "✨",
+      "keywords": ["espoir", "esperance", "confiance", "lumiere", "tenir", "continuer", "continue", "ouvrir", "possible", "demain"],
+      "concepts": ["Transformation", "Seuil"]
+    },
+    {
+      "id": "liberte",
+      "label": "Liberté",
+      "symbol": "🕊",
+      "keywords": ["liberte", "choisir", "respirer", "partir", "ouvrir", "sortir", "mouvement", "chemin"],
+      "concepts": ["Boussole", "Seuil"]
+    },
+    {
+      "id": "seuil",
+      "label": "Seuil",
+      "symbol": "🌙",
+      "keywords": ["seuil", "porte", "passage", "traverser", "entrer", "quitter", "commencer", "franchir"],
+      "concepts": ["Seuil", "Boussole"]
+    },
+    {
+      "id": "transformation",
+      "label": "Transformation",
+      "symbol": "🔥",
+      "keywords": ["changer", "devenir", "doute", "doutes", "peur", "metamorphose", "transformer", "evoluer", "clarifier"],
+      "concepts": ["Transformation", "Clarification"]
+    },
+    {
+      "id": "dialogue",
+      "label": "Dialogue",
+      "symbol": "🌌",
+      "keywords": ["dialogue", "question", "ecoute", "parole", "conversation", "reponse", "voix", "rencontre"],
+      "concepts": ["Dialogue", "Relation"]
+    },
+    {
+      "id": "renaissance",
+      "label": "Renaissance",
+      "symbol": "🌱",
+      "keywords": ["renaitre", "renaissance", "germer", "naissance", "nouveau", "premier", "graine", "recommencer"],
+      "concepts": ["Intuition", "Vivant"]
+    },
+    {
+      "id": "transmission",
+      "label": "Transmission",
+      "symbol": "📚",
+      "keywords": ["transmettre", "livre", "memoire", "partager", "laisser", "trace", "heritage", "lecture"],
+      "concepts": ["Transmission", "Bibliothèque"]
+    },
+    {
+      "id": "monde-commun",
+      "label": "Monde commun",
+      "symbol": "🌍",
+      "keywords": ["monde", "commun", "ensemble", "habiter", "relation", "relier", "nous", "territoire"],
+      "concepts": ["Monde commun", "Écologie narrative"]
+    },
+    {
+      "id": "resonance",
+      "label": "Résonance",
+      "symbol": "💫",
+      "keywords": ["resonance", "echo", "etoile", "constellation", "sens", "signe", "appel", "reconnaitre"],
+      "concepts": ["Résonance", "Constellation"]
+    }
+  ],
+  "fallback": {
+    "id": "resonance",
+    "label": "Résonance",
+    "symbol": "💫"
+  }
+}
