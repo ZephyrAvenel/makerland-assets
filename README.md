@@ -11,3 +11,9 @@ Makerland est le territoire numerique des Recits Vivants.
 > Il invite le visiteur a habiter un territoire ou les oeuvres, les dialogues, les cartes, les rencontres et les lecteurs evoluent ensemble dans une meme ecologie narrative.
 
 Le document [MAKERLAND_MASTERPLAN_v1.0](docs/vision/MAKERLAND_MASTERPLAN_v1.0.md) constitue la reference conceptuelle officielle du projet.
+
+Documents fondateurs :
+
+- [MAKERLAND_MASTERPLAN_v1.0](docs/vision/MAKERLAND_MASTERPLAN_v1.0.md)
+- [DEVELOPMENT_PRINCIPLES](docs/vision/DEVELOPMENT_PRINCIPLES.md)
+- [MANIFESTO](docs/vision/MANIFESTO.md)
