@@ -1,0 +1,5287 @@
+{
+  "generatedAt": "2026-08-13T13:17:06.393Z",
+  "mission": "RV-095",
+  "source": [
+    "data/living-graph.json",
+    "data/concept-network.json",
+    "data/work-network.json",
+    "data/archive-assets.json",
+    "data/archive-mapping.json",
+    "js/livingCurator.js"
+  ],
+  "dashboard": {
+    "generatedAt": "2026-08-13T13:17:06.393Z",
+    "conceptCoverage": {
+      "total": 26,
+      "covered": 21,
+      "rate": 80.8
+    },
+    "archiveCoverage": {
+      "total": 10,
+      "covered": 6,
+      "rate": 60
+    },
+    "iconographicCoverage": {
+      "total": 101,
+      "covered": 98,
+      "rate": 97
+    },
+    "currentRelationDensity": 2.24,
+    "estimatedRelationDensityAfterRestoration": 2.44,
+    "recommendations": {
+      "total": 64,
+      "green": 22,
+      "yellow": 42,
+      "red": 0
+    },
+    "sourceHealth": {
+      "archives": 10,
+      "concepts": 26,
+      "works": 10,
+      "images": 101,
+      "nodes": 318,
+      "relations": 713,
+      "orphanResources": 52,
+      "conceptsWithoutIllustration": 5,
+      "archivesWithoutWork": 4,
+      "worksWithoutConcepts": 3,
+      "relationDensity": 2.24
+    }
+  },
+  "audit": {
+    "orphanNodes": 49,
+    "conceptsWithoutImages": 5,
+    "archivesWithoutWorks": 4,
+    "worksWithoutConcepts": 3,
+    "unlinkedImages": 3
+  },
+  "recommendations": [
+    {
+      "id": "REC-0001",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0001",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Zéphyr Avenel\" pourrait etre reliee aux archives D007, D004, D001 ; concepts Marge vivante, Vivant.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0007",
+            "label": "Couverture Cosmologie des recits vivants - VF.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0003",
+            "label": "Carte-Sceau-Atlas-des-Récits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0005",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0002",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0003",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Certains lieux ne se visitent pas seulement. Ils se traversent.\" pourrait etre reliee aux archives D007, D008, D002 ; concepts Atlas, Cartes narratives, Récits Vivants.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0005",
+            "label": "Cartes narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0006",
+            "label": "Amina Yusuf.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0027",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0003",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0005",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Explorer ce que les histoires font à nos vies\" pourrait etre reliee aux archives D007, D004 ; concepts Atlas, Marge vivante, Vivant.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0001",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0009",
+            "label": "Au-dela-des-epines.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0029",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0004",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0006",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Que cherchons-nous à préserver ?\" pourrait etre reliee aux archives D005, D007, D004 ; concepts Atlas.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0010",
+            "label": "au-seuil-des-etoile-portee-immersive.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0030",
+            "label": "Couverture Atlas Vol IV.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0005",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0007",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Explorer la démarche dialogique\" pourrait etre reliee aux archives D007, D003, D002 ; concepts Cosmologie, Récits Vivants, Vivant.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0011",
+            "label": "BANNIERE_RECITS_VIVANTS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0031",
+            "label": "Couverture Cosmologie des recits vivants - VF.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0006",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0009",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"🌿 Le Soi\" pourrait etre reliee aux archives D007, D008, D002.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0013",
+            "label": "BOUSSOLE-DES-RECITS-HABITABLES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0033",
+            "label": "Couverture Lumières Fractales -A5.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0007",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0010",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"🌀 Transformation\" pourrait etre reliee aux archives D005, D007, D008 ; concepts Seuil.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0001",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0014",
+            "label": "boussole-humanite.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0048",
+            "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0008",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0011",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"🤝 Relation\" pourrait etre reliee aux archives D008, D002, D006 ; concepts Récits Vivants, Vivant ; salles ROOM-CONSTELLATION.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0015",
+            "label": "boussole-interieure.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-CONSTELLATION",
+            "label": "constellation",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0009",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0013",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"🌌 Le Sens\" pourrait etre reliee aux archives D005, D008, D002 ; concepts Boussole, Récits Vivants.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0003",
+            "label": "Boussole",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0017",
+            "label": "carte_le_seuil_A6-Verso.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0010",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0015",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"✨ Votre voyage commence ici\" pourrait etre reliee aux archives D008, D002, D001 ; concepts Boussole ; salles ROOM-CARNET.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0003",
+            "label": "Boussole",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0100",
+            "label": "Votre-voyage-commence-ici.png",
+            "score": 3,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0019",
+            "label": "charte-recits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-CARNET",
+            "label": "carnet",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0011",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0020",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "Aucune relation forte detectee. Une analyse humaine est recommandee avant integration.",
+      "proposals": {
+        "concepts": [],
+        "archives": [],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0024",
+            "label": "continuer-a-marcher.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0012",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0021",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Ressentir\" pourrait etre reliee aux archives D003, D004, D001.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0025",
+            "label": "cosmologie-recits-vivants-carte.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0013",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0022",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Expérimenter\" pourrait etre reliee aux archives D003, D002, D006.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0026",
+            "label": "cosmologie-recits-vivants-site-banner.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0014",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0023",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Contempler\" pourrait etre reliee aux archives D001 ; concepts Constellation, Récits Vivants, Vivant.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0019",
+            "label": "Constellation",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0034",
+            "label": "Elohim.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0015",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0024",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Pourquoi autant de formes ?\" pourrait etre reliee aux archives D001 ; concepts Récits Vivants, Vivant.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0035",
+            "label": "Elydris.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0016",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0027",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Entrer autrement\" pourrait etre reliee aux archives D004 ; concepts Atlas, Cosmologie, Friction.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0007",
+            "label": "Friction",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0038",
+            "label": "FUTUR-IMAGE-CARTE-GENERALE.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0017",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0034",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "Aucune relation forte detectee. Une analyse humaine est recommandee avant integration.",
+      "proposals": {
+        "concepts": [],
+        "archives": [],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0045",
+            "label": "FUTUR-JARDIN-TRANSMISSION.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0018",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0035",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Tenir debout sans se durcir\" pourrait etre reliee aux archives D004, D001 ; concepts Récits Vivants.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0046",
+            "label": "grande-carte-des-recits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0019",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0037",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Entrer\" pourrait etre reliee aux archives D002 ; concepts Cosmologie, Friction.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0007",
+            "label": "Friction",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0049",
+            "label": "l-humanite.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0020",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0039",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Charte implicite du regard\" pourrait etre reliee aux archives D009, D005 ; concepts Constellation, Jardins futurs, Passage.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0019",
+            "label": "Constellation",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0020",
+            "label": "Jardins futurs",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0018",
+            "label": "Passage",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0019",
+            "label": "charte-recits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0051",
+            "label": "la-foret.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0086",
+            "label": "seuil-du-regard-3.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0021",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0041",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Une case de côté\" pourrait etre reliee aux archives D005 ; concepts Jardins futurs, Seuil.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0020",
+            "label": "Jardins futurs",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0096",
+            "label": "UNE-CASE-DE-COTE.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0053",
+            "label": "la-marge-vivante.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0022",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0042",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Huit mots pour entrer dans l’univers\" pourrait etre reliee aux archives D006 ; concepts Cosmologie, Friction, Cartes narratives.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0007",
+            "label": "Friction",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0005",
+            "label": "Cartes narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0020",
+            "label": "Jardins futurs",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0054",
+            "label": "La-spirale-sommaire-du-site-V2.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0077",
+            "label": "RACINES-DANS-LE-REEL-1.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0023",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0048",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "Aucune relation forte detectee. Une analyse humaine est recommandee avant integration.",
+      "proposals": {
+        "concepts": [],
+        "archives": [],
+        "works": [
+          {
+            "id": "BOOK-0010",
+            "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0060",
+            "label": "Mara Lindwood.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0065",
+            "label": "micro-cosmo-fracture.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0024",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0051",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Le récit n’explique pas tout\" pourrait etre reliee aux archives D005, D003 ; concepts Forêt, Vivant ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0012",
+            "label": "Forêt",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0063",
+            "label": "micro-cosmo-alignement.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-001",
+            "label": "Intuition des Recits Vivants",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0025",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0052",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Récit et corps\" pourrait etre reliee aux archives D003 ; concepts Vivant ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0064",
+            "label": "micro-cosmo-deplacement.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-001",
+            "label": "Intuition des Recits Vivants",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0026",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0053",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Récit et institution\" pourrait etre reliee aux archives D003, D001 ; concepts Vivant, Marge vivante ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0065",
+            "label": "micro-cosmo-fracture.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-001",
+            "label": "Intuition des Recits Vivants",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0027",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0054",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Récit et fatigue\" pourrait etre reliee aux archives D003, D006 ; concepts Spirale, Vivant ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0011",
+            "label": "Spirale",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0066",
+            "label": "micro-cosmo-integration.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-001",
+            "label": "Intuition des Recits Vivants",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0028",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0055",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Récit et rapports de force\" pourrait etre reliee aux archives D005, D003 ; concepts Vivant ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0067",
+            "label": "micro-cosmo-seuil.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-001",
+            "label": "Intuition des Recits Vivants",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0029",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0056",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Ce qui use sans faire de bruit\" pourrait etre reliee aux archives D003.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0068",
+            "label": "micro-cosmo-stabilisation.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0030",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0057",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Quand un lien fatigue sans éclater\" pourrait etre reliee aux archives D003, D001 ; concepts Justesse, Liberté, Racines.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0014",
+            "label": "Liberté",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0013",
+            "label": "Racines",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0069",
+            "label": "micro-cosmo-traversee.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0031",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0058",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Il existe des relations qui demandent une traduction permanente\" pourrait etre reliee aux archives D005 ; concepts Seuil.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0070",
+            "label": "micro-ecologie-narrative.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0032",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0059",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Tenir trop longtemps n’est pas toujours une preuve de force\" pourrait etre reliee aux archives D005 ; concepts Récits Vivants, Seuil.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0071",
+            "label": "Noxira.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0033",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0060",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Quand la loyauté devient un effort de disparition\" pourrait etre reliee aux archives D005 ; concepts Justesse.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0072",
+            "label": "OEUVRE-IMMERSIVE.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0034",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0061",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Certaines fatigues viennent de ce qu’on ne dit plus\" pourrait etre reliee aux archives D008, D006, D004 ; concepts Cosmologie, Devenir, Friction.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0008",
+            "label": "Devenir",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0007",
+            "label": "Friction",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0073",
+            "label": "Orientation-site.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0035",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0062",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Quand on continue par habitude intérieure\" pourrait etre reliee aux archives D004 ; concepts Boussole, Justesse, Météorologie narrative.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0003",
+            "label": "Boussole",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0017",
+            "label": "Météorologie narrative",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0015",
+            "label": "boussole-interieure.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0074",
+            "label": "parcours-de-lecture.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0036",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0063",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Ne pas répondre tout de suite est parfois une forme de vérité\" pourrait etre reliee aux archives D003.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0075",
+            "label": "plurivers.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0098",
+            "label": "VERITE-JUSTICE-PAIX.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0037",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0064",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Il existe des présences qui demandent trop de surveillance intérieure\" pourrait etre reliee aux archives D003 ; concepts Boussole.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0003",
+            "label": "Boussole",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0015",
+            "label": "boussole-interieure.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0038",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0065",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Quand le calme d’une scène cache un coût disproportionné\" pourrait etre reliee aux archives D003 ; concepts Justesse.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0077",
+            "label": "RACINES-DANS-LE-REEL-1.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0039",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0066",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Certaines paix se paient trop cher\" pourrait etre reliee aux archives D003.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0078",
+            "label": "recits-collectifs-cosmologie.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0098",
+            "label": "VERITE-JUSTICE-PAIX.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0040",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0067",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Ce qui soulage sans endormir\" pourrait etre reliee aux archives D005, D003 ; concepts Seuil.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0079",
+            "label": "recits-empeches.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0041",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0068",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Il existe des présences qui reposent vraiment\" pourrait etre reliee aux archives D003.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0080",
+            "label": "recits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0042",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0069",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Quand un lien laisse davantage de place à la vie\" pourrait etre reliee aux archives D003 ; concepts Justesse.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0076",
+            "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0081",
+            "label": "respiration.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0043",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0070",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Certaines joies ne sont pas des oublis\" pourrait etre reliee aux archives D005.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0082",
+            "label": "seuil-de-l-identite-2.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0044",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0071",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Une paix juste ne demande pas qu’on se réduise\" pourrait etre reliee aux archives D005.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0083",
+            "label": "seuil-de-la-presence-5.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0098",
+            "label": "VERITE-JUSTICE-PAIX.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0045",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0075",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Le décalage\" pourrait etre reliee aux archives D003.",
+      "proposals": {
+        "concepts": [],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0087",
+            "label": "Seuil-Friction-Devenir-image.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0046",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0076",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Ce qui résiste\" pourrait etre reliee aux archives D001 ; concepts Récits Vivants.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0088",
+            "label": "source-des-recits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0047",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0077",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Ce qui se transforme\" pourrait etre reliee aux archives D006 ; concepts Racines.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0013",
+            "label": "Racines",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0089",
+            "label": "spirale-de-l-attention.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0048",
+      "category": "noeud_orphelin",
+      "target": "BLOCK-0079",
+      "targetType": "article-block",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Au-delà des Épines\" pourrait etre reliee aux archives D006 ; concepts Récits Vivants.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0002",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0009",
+            "label": "Au-dela-des-epines.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0091",
+            "label": "spirale-passage.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0049",
+      "category": "noeud_orphelin",
+      "target": "ROOM-CARNET",
+      "targetType": "room",
+      "origin": "data/living-graph.json",
+      "probableReason": "Le noeud existe dans le graphe mais aucune arete ne le relie encore au territoire.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Carnet de Voyage\" pourrait etre reliee aux salles ROOM-CARNET.",
+      "proposals": {
+        "concepts": [],
+        "archives": [],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0100",
+            "label": "Votre-voyage-commence-ici.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-CARNET",
+            "label": "carnet",
+            "score": 2,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0050",
+      "category": "concept_sans_illustration",
+      "target": "CON-0022",
+      "targetType": "concept",
+      "origin": "data/concept-network.json",
+      "probableReason": "Le concept possede des relations editoriales mais aucune image patrimoniale associee.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Habitabilité\" pourrait etre reliee aux archives D003, D002, D006 ; concepts Habitabilité.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0022",
+            "label": "Habitabilité",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0026",
+            "label": "cosmologie-recits-vivants-site-banner.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0051",
+      "category": "concept_sans_illustration",
+      "target": "CON-0023",
+      "targetType": "concept",
+      "origin": "data/concept-network.json",
+      "probableReason": "Le concept possede des relations editoriales mais aucune image patrimoniale associee.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Discernement\" pourrait etre reliee aux archives D001 ; concepts Constellation, Discernement, Récits Vivants.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0019",
+            "label": "Constellation",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0023",
+            "label": "Discernement",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0034",
+            "label": "Elohim.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0052",
+      "category": "concept_sans_illustration",
+      "target": "CON-0024",
+      "targetType": "concept",
+      "origin": "data/concept-network.json",
+      "probableReason": "Le concept possede des relations editoriales mais aucune image patrimoniale associee.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Parole vraie\" pourrait etre reliee aux concepts Parole vraie.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0024",
+            "label": "Parole vraie",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0035",
+            "label": "Elydris.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0053",
+      "category": "concept_sans_illustration",
+      "target": "CON-0025",
+      "targetType": "concept",
+      "origin": "data/concept-network.json",
+      "probableReason": "Le concept possede des relations editoriales mais aucune image patrimoniale associee.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"Justesse\" pourrait etre reliee aux archives D003, D004, D001 ; concepts Cartes narratives, Cosmologie, Justesse.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0005",
+            "label": "Cartes narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0007",
+            "label": "Couverture Cosmologie des recits vivants - VF.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0036",
+            "label": "emerveillement-face-au-vivant.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": []
+      }
+    },
+    {
+      "id": "REC-0054",
+      "category": "concept_sans_illustration",
+      "target": "CON-0026",
+      "targetType": "concept",
+      "origin": "data/concept-network.json",
+      "probableReason": "Le concept possede des relations editoriales mais aucune image patrimoniale associee.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Œuvre immersive\" pourrait etre reliee aux archives D005, D003, D006 ; concepts Œuvre immersive, Vivant, Cosmologie.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0026",
+            "label": "Œuvre immersive",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0008",
+            "label": "Devenir",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 3,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0010",
+            "label": "au-seuil-des-etoile-portee-immersive.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0037",
+            "label": "equilibre-du-coeur.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0072",
+            "label": "OEUVRE-IMMERSIVE.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0055",
+      "category": "archive_sans_oeuvre",
+      "target": "D002",
+      "targetType": "archive",
+      "origin": "data/archive-mapping.json",
+      "probableReason": "L'archive ne pointe vers aucun livre ou oeuvre dans le mapping patrimonial actuel.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Naissance de la pensée dialogique\" pourrait etre reliee aux archives D002, D009, D005 ; concepts Boussole, Humanité, Spirale ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0003",
+            "label": "Boussole",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0015",
+            "label": "Humanité",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0011",
+            "label": "Spirale",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D002",
+            "label": "Naissance de la pensée dialogique",
+            "score": 4,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0013",
+            "label": "BOUSSOLE-DES-RECITS-HABITABLES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0014",
+            "label": "boussole-humanite.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0015",
+            "label": "boussole-interieure.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0022",
+            "label": "conseil-des-humains.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0056",
+      "category": "archive_sans_oeuvre",
+      "target": "D006",
+      "targetType": "archive",
+      "origin": "data/archive-mapping.json",
+      "probableReason": "L'archive ne pointe vers aucun livre ou oeuvre dans le mapping patrimonial actuel.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Naissance de Makerland\" pourrait etre reliee aux archives D006, D009, D005 ; concepts Spirale ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0011",
+            "label": "Spirale",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D006",
+            "label": "Naissance de Makerland",
+            "score": 3,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0026",
+            "label": "cosmologie-recits-vivants-site-banner.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0054",
+            "label": "La-spirale-sommaire-du-site-V2.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0072",
+            "label": "OEUVRE-IMMERSIVE.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0073",
+            "label": "Orientation-site.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-008",
+            "label": "Prefiguration de Makerland",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0057",
+      "category": "archive_sans_oeuvre",
+      "target": "D008",
+      "targetType": "archive",
+      "origin": "data/archive-mapping.json",
+      "probableReason": "L'archive ne pointe vers aucun livre ou oeuvre dans le mapping patrimonial actuel.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Naissance de la Boussole Vivante\" pourrait etre reliee aux archives D008, D007, D009 ; concepts Boussole, Humanité, Marge vivante ; salles ROOM-BOUSSOLE, ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0003",
+            "label": "Boussole",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0015",
+            "label": "Humanité",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0026",
+            "label": "Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D008",
+            "label": "Naissance de la Boussole Vivante",
+            "score": 4,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0013",
+            "label": "BOUSSOLE-DES-RECITS-HABITABLES.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0014",
+            "label": "boussole-humanite.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0015",
+            "label": "boussole-interieure.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0050",
+            "label": "LA-BOUSSOLE-DES-PASSAGES-VIVANTS.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-BOUSSOLE",
+            "label": "boussole",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          },
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-007",
+            "label": "Orientation et boussole",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0058",
+      "category": "archive_sans_oeuvre",
+      "target": "D010",
+      "targetType": "archive",
+      "origin": "data/archive-mapping.json",
+      "probableReason": "L'archive ne pointe vers aucun livre ou oeuvre dans le mapping patrimonial actuel.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Naissance des Archives Vivantes\" pourrait etre reliee aux archives D010, D009, D005 ; concepts Marge vivante, Vivant ; salles ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D010",
+            "label": "Naissance des Archives Vivantes",
+            "score": 4,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0001",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0005",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0072",
+            "label": "OEUVRE-IMMERSIVE.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0097",
+            "label": "Une-oeuvre-qui-se-decouvre-comme-une-foret.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0099",
+            "label": "Volume III.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0059",
+      "category": "oeuvre_sans_concept",
+      "target": "BOOK-0008",
+      "targetType": "work",
+      "origin": "data/work-network.json",
+      "probableReason": "L'oeuvre est recensee mais aucun concept directeur ne lui est encore rattache.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Couverture Livre L Ecriture Augmentée V2.png\" pourrait etre reliee aux archives D009, D007, D005 ; concepts Seuil, Atlas, Cosmologie ; salles ROOM-BIBLIOTHEQUE, ROOM-ATELIER.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0008",
+            "label": "Couverture Livre L Ecriture Augmentée V2.png",
+            "score": 4,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0032",
+            "label": "Couverture Livre L Ecriture Augmentée V2.png",
+            "score": 6,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0033",
+            "label": "Couverture Lumières Fractales -A5.jpg",
+            "score": 3,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0048",
+            "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+            "score": 3,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0027",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-BIBLIOTHEQUE",
+            "label": "bibliotheque",
+            "score": 2,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          },
+          {
+            "id": "ROOM-ATELIER",
+            "label": "atelier",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          },
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-006",
+            "label": "Mise en relation avec les livres",
+            "score": 2,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0060",
+      "category": "oeuvre_sans_concept",
+      "target": "BOOK-0009",
+      "targetType": "work",
+      "origin": "data/work-network.json",
+      "probableReason": "L'oeuvre est recensee mais aucun concept directeur ne lui est encore rattache.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"Couverture Lumières Fractales -A5.jpg\" pourrait etre reliee aux archives D007, D001, D009 ; concepts Atlas, Cosmologie, Marge vivante ; salles ROOM-BIBLIOTHEQUE, ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0001",
+            "label": "Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0009",
+            "label": "Couverture Lumières Fractales -A5.jpg",
+            "score": 3,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0005",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0033",
+            "label": "Couverture Lumières Fractales -A5.jpg",
+            "score": 5,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0027",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0028",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0029",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-BIBLIOTHEQUE",
+            "label": "bibliotheque",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          },
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-006",
+            "label": "Mise en relation avec les livres",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0061",
+      "category": "oeuvre_sans_concept",
+      "target": "BOOK-0010",
+      "targetType": "work",
+      "origin": "data/work-network.json",
+      "probableReason": "L'oeuvre est recensee mais aucun concept directeur ne lui est encore rattache.",
+      "risk": "green",
+      "riskLabel": "Faible risque",
+      "curatorJustification": "La ressource \"L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png\" pourrait etre reliee aux archives D005, D007, D001 ; concepts Seuil, Atlas, Cosmologie ; salles ROOM-BIBLIOTHEQUE, ROOM-OEUVRE.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0004",
+            "label": "Atlas",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0002",
+            "label": "Cosmologie",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0025",
+            "label": "Justesse",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D009",
+            "label": "Naissance de l'Atelier IA",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0001",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0010",
+            "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0004",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0048",
+            "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+            "score": 4,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0027",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0028",
+            "label": "Couverture Atlas V1.jpg",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0029",
+            "label": "Couverture Atlas V2.jpg",
+            "score": 2,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-BIBLIOTHEQUE",
+            "label": "bibliotheque",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          },
+          {
+            "id": "ROOM-OEUVRE",
+            "label": "oeuvre",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-005",
+            "label": "Deploiement de l'oeuvre immersive",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          },
+          {
+            "id": "T-006",
+            "label": "Mise en relation avec les livres",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0062",
+      "category": "image_non_reliee",
+      "target": "IMG-0001",
+      "targetType": "image",
+      "origin": "data/archive-assets.json",
+      "probableReason": "L'image ne possede ni archive candidate, ni concept, ni livre, ni figure.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"backblue.gif\" pourrait etre reliee aux archives D007, D004, D001 ; concepts Marge vivante, Vivant ; salles ROOM-ATELIER.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0010",
+            "label": "Marge vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "CON-0016",
+            "label": "Vivant",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D001",
+            "label": "Pourquoi les Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0003",
+            "label": "Couverture - Atlas des Récits Vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "BOOK-0007",
+            "label": "Couverture Cosmologie des recits vivants - VF.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0001",
+            "label": "backblue.gif",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0016",
+            "label": "Carré Auteur Image.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0003",
+            "label": "Carte-Sceau-Atlas-des-Récits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0005",
+            "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-ATELIER",
+            "label": "atelier",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0063",
+      "category": "image_non_reliee",
+      "target": "IMG-0002",
+      "targetType": "image",
+      "origin": "data/archive-assets.json",
+      "probableReason": "L'image ne possede ni archive candidate, ni concept, ni livre, ni figure.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"fade.gif\" pourrait etre reliee aux archives D005, D007, D003 ; concepts Seuil ; salles ROOM-ATELIER.",
+      "proposals": {
+        "concepts": [
+          {
+            "id": "CON-0006",
+            "label": "Seuil",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "archives": [
+          {
+            "id": "D005",
+            "label": "Naissance de l'Œuvre immersive",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D007",
+            "label": "Naissance de la Bibliothèque Vivante",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D003",
+            "label": "Naissance de la Cosmologie des Récits Vivants",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "D004",
+            "label": "Naissance des Cartes Narratives",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "works": [
+          {
+            "id": "BOOK-0007",
+            "label": "Couverture Cosmologie des recits vivants - VF.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "images": [
+          {
+            "id": "IMG-0004",
+            "label": "Atlas-des-récits-vivants.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0008",
+            "label": "AU SEUIL DES ÉTOILES.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0016",
+            "label": "Carré Auteur Image.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0002",
+            "label": "fade.gif",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-ATELIER",
+            "label": "atelier",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    },
+    {
+      "id": "REC-0064",
+      "category": "image_non_reliee",
+      "target": "IMG-0101",
+      "targetType": "image",
+      "origin": "data/archive-assets.json",
+      "probableReason": "L'image ne possede ni archive candidate, ni concept, ni livre, ni figure.",
+      "risk": "yellow",
+      "riskLabel": "Validation editoriale souhaitable",
+      "curatorJustification": "La ressource \"stardust.png\" pourrait etre reliee aux salles ROOM-ATELIER.",
+      "proposals": {
+        "concepts": [],
+        "archives": [],
+        "works": [],
+        "images": [
+          {
+            "id": "IMG-0016",
+            "label": "Carré Auteur Image.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0038",
+            "label": "FUTUR-IMAGE-CARTE-GENERALE.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0087",
+            "label": "Seuil-Friction-Devenir-image.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          },
+          {
+            "id": "IMG-0101",
+            "label": "stardust.png",
+            "score": 1,
+            "reason": "Mots communs detectes dans les metadonnees."
+          }
+        ],
+        "rooms": [
+          {
+            "id": "ROOM-ATELIER",
+            "label": "atelier",
+            "score": 1,
+            "reason": "Champ lexical de salle detecte dans les metadonnees."
+          }
+        ],
+        "timeline": [
+          {
+            "id": "T-009",
+            "label": "Preparation des Archives Vivantes",
+            "score": 1,
+            "reason": "Correspondance avec la chronologie RV-090."
+          }
+        ]
+      }
+    }
+  ],
+  "note": "Ce plan ne modifie aucune donnee patrimoniale. Il propose des rattachements a valider progressivement."
+}
