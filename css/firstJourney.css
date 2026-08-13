@@ -1,0 +1,225 @@
+.first-journey{
+    position:absolute;
+    inset:0;
+    z-index:95;
+    pointer-events:none;
+    --screen-content-width:min(100vw, 150vh);
+    --screen-content-height:min(100vh, 66.6667vw);
+    --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
+    --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
+    color:rgba(255,243,222,.92);
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+.first-journey__welcome,
+.first-journey__step,
+.first-journey__replay{
+    border:1px solid rgba(255,224,166,.26);
+    border-radius:22px;
+    background:radial-gradient(ellipse at top, rgba(255,224,166,.13), rgba(7,13,23,.68) 64%, rgba(5,9,16,.5));
+    box-shadow:0 24px 58px rgba(0,0,0,.34), 0 0 38px rgba(255,207,130,.1);
+    backdrop-filter:blur(10px);
+    pointer-events:auto;
+}
+
+.first-journey__welcome{
+    position:absolute;
+    left:50%;
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .54);
+    width:min(560px, calc(var(--screen-content-width) * .52));
+    padding:24px 28px;
+    transform:translate(-50%, -50%);
+    animation:firstJourneyAppear .9s cubic-bezier(.22,1,.36,1) both;
+}
+
+.first-journey__step{
+    position:absolute;
+    right:calc(var(--screen-content-left) + var(--screen-content-width) * .055);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    width:min(390px, calc(var(--screen-content-width) * .34));
+    max-height:min(520px, 76vh);
+    padding:17px 19px;
+    box-sizing:border-box;
+    overflow:auto;
+    animation:firstJourneyAppear .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+.first-journey__replay{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .04);
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+    padding:9px 12px;
+    opacity:.86;
+}
+
+.first-journey h2,
+.first-journey h3,
+.first-journey p{
+    margin:0;
+}
+
+.first-journey h2{
+    color:#ffe4ad;
+    font-size:clamp(22px, calc(var(--screen-content-width) * .026), 38px);
+    line-height:1.08;
+    text-shadow:0 3px 20px rgba(0,0,0,.62);
+}
+
+.first-journey h3{
+    color:#ffe5b2;
+    font-size:clamp(17px, calc(var(--screen-content-width) * .016), 25px);
+    line-height:1.18;
+}
+
+.first-journey p{
+    margin-top:10px;
+    color:rgba(255,244,225,.82);
+    font-size:clamp(13px, calc(var(--screen-content-width) * .011), 16px);
+    line-height:1.5;
+}
+
+.first-journey__subtitle{
+    display:block;
+    margin-top:7px;
+    color:rgba(255,224,166,.78);
+    font-size:clamp(12px, calc(var(--screen-content-width) * .01), 14px);
+    line-height:1.35;
+}
+
+.first-journey__quote{
+    margin-top:14px;
+    padding:12px 14px;
+    border-left:1px solid rgba(255,224,166,.45);
+    color:rgba(255,239,208,.88);
+    background:rgba(255,230,180,.06);
+    font-size:clamp(13px, calc(var(--screen-content-width) * .011), 15px);
+    line-height:1.48;
+}
+
+.first-journey__progress{
+    margin-top:13px;
+    color:rgba(255,224,166,.76);
+    font-size:12px;
+    letter-spacing:.08em;
+}
+
+.first-journey__actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:17px;
+}
+
+.first-journey button,
+.first-journey a{
+    border:1px solid rgba(255,224,166,.3);
+    border-radius:999px;
+    padding:8px 12px;
+    color:rgba(255,244,226,.9);
+    background:rgba(255,230,180,.08);
+    font:inherit;
+    font-size:13px;
+    text-decoration:none;
+    cursor:pointer;
+    transition:background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.first-journey button:hover,
+.first-journey a:hover,
+.first-journey button:focus-visible,
+.first-journey a:focus-visible{
+    border-color:rgba(255,224,166,.52);
+    background:rgba(255,230,180,.14);
+    outline:none;
+    transform:translateY(-1px);
+}
+
+.first-journey__primary{
+    color:#fff4d4 !important;
+    border-color:rgba(255,224,166,.48) !important;
+    box-shadow:0 0 22px rgba(255,207,130,.12);
+}
+
+@keyframes firstJourneyAppear{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.first-journey__welcome{
+    animation-name:firstJourneyWelcomeAppear;
+}
+
+@keyframes firstJourneyWelcomeAppear{
+    from{
+        opacity:0;
+        transform:translate(-50%, calc(-50% + 14px));
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%, -50%);
+    }
+}
+
+@media (max-width:768px){
+    .first-journey__welcome{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
+        width:calc(var(--screen-content-width) * .78);
+        padding:18px 19px;
+    }
+
+    .first-journey__step{
+        right:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
+        width:calc(var(--screen-content-width) * .48);
+        padding:13px 14px;
+    }
+
+    .first-journey p{
+        line-height:1.42;
+    }
+}
+
+@media (max-width:768px) and (orientation:portrait){
+    .first-journey__step{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .09);
+        right:auto;
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
+        width:calc(var(--screen-content-width) * .82);
+    }
+}
+
+@media (max-width:768px) and (orientation:landscape){
+    .first-journey__step{
+        right:calc(var(--screen-content-left) + var(--screen-content-width) * .04);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        width:calc(var(--screen-content-width) * .42);
+        max-height:76vh;
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    .first-journey__step{
+        right:calc(var(--screen-content-left) + var(--screen-content-width) * .04);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        width:calc(var(--screen-content-width) * .46);
+        max-height:76vh;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .first-journey__welcome,
+    .first-journey__step{
+        animation:none;
+    }
+
+    .first-journey button,
+    .first-journey a{
+        transition:none;
+    }
+}
