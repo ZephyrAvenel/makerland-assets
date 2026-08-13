@@ -110,6 +110,27 @@ blockquote{
         0 0 28px rgba(255,198,96,.12);
 }
 
+.room-link.is-visited-place{
+    border-color:rgba(255,224,158,.28);
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.2),
+        0 0 30px rgba(255,198,96,.08);
+}
+
+.visited-place-mark{
+    display:inline-flex;
+    margin-top:14px;
+    padding:6px 10px;
+    border:1px solid rgba(255,224,158,.24);
+    border-radius:999px;
+    color:rgba(255,224,158,.82);
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    background:rgba(255,255,255,.025);
+}
+
 .placeholder-card p{
     max-width:none;
     font-size:clamp(14px, 2.4vw, 17px);
@@ -316,6 +337,14 @@ blockquote{
     box-shadow:0 18px 38px rgba(0,0,0,.18);
 }
 
+.cycle-echo.is-living-return{
+    border-color:rgba(255,224,158,.24);
+    color:rgba(255,238,202,.88);
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.18),
+        0 0 32px rgba(255,198,96,.1);
+}
+
 .journey-memory{
     margin-top:28px;
     padding:18px 20px;
@@ -413,6 +442,23 @@ blockquote{
     color:#ffe3a8;
     border-color:rgba(255,224,158,.38);
     box-shadow:0 0 26px rgba(255,198,96,.14);
+}
+
+.first-steps{
+    display:grid;
+    gap:10px;
+    width:min(720px, 100%);
+    margin:20px auto 0;
+}
+
+.first-steps p{
+    max-width:none;
+    padding:14px 18px;
+    border-left:1px solid rgba(255,224,158,.28);
+    color:rgba(255,246,222,.82);
+    font-size:clamp(15px, 2.5vw, 18px);
+    text-align:left;
+    background:rgba(255,255,255,.026);
 }
 
 .journal-tags{
