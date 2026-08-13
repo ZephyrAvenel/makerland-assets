@@ -1,0 +1,6286 @@
+{
+  "generatedFrom": [
+    "docs/patrimoine/",
+    "data/archive-assets.json",
+    "data/archive-mapping.json"
+  ],
+  "nodes": [
+    {
+      "id": "BLOCK-0001",
+      "type": "article-block",
+      "label": "Zéphyr Avenel"
+    },
+    {
+      "id": "BLOCK-0002",
+      "type": "article-block",
+      "label": "La Spirale du Site"
+    },
+    {
+      "id": "BLOCK-0003",
+      "type": "article-block",
+      "label": "Certains lieux ne se visitent pas seulement. Ils se traversent."
+    },
+    {
+      "id": "BLOCK-0004",
+      "type": "article-block",
+      "label": "Pourquoi les Récits Vivants ?"
+    },
+    {
+      "id": "BLOCK-0005",
+      "type": "article-block",
+      "label": "Explorer ce que les histoires font à nos vies"
+    },
+    {
+      "id": "BLOCK-0006",
+      "type": "article-block",
+      "label": "Que cherchons-nous à préserver ?"
+    },
+    {
+      "id": "BLOCK-0007",
+      "type": "article-block",
+      "label": "Explorer la démarche dialogique"
+    },
+    {
+      "id": "BLOCK-0008",
+      "type": "article-block",
+      "label": "🗺️ Atlas des Récits Vivants"
+    },
+    {
+      "id": "BLOCK-0009",
+      "type": "article-block",
+      "label": "🌿 Le Soi"
+    },
+    {
+      "id": "BLOCK-0010",
+      "type": "article-block",
+      "label": "🌀 Transformation"
+    },
+    {
+      "id": "BLOCK-0011",
+      "type": "article-block",
+      "label": "🤝 Relation"
+    },
+    {
+      "id": "BLOCK-0012",
+      "type": "article-block",
+      "label": "🌳 Le Vivant"
+    },
+    {
+      "id": "BLOCK-0013",
+      "type": "article-block",
+      "label": "🌌 Le Sens"
+    },
+    {
+      "id": "BLOCK-0014",
+      "type": "article-block",
+      "label": "🌳 Les Racines de la Liberté"
+    },
+    {
+      "id": "BLOCK-0015",
+      "type": "article-block",
+      "label": "✨ Votre voyage commence ici"
+    },
+    {
+      "id": "BLOCK-0016",
+      "type": "article-block",
+      "label": "Une œuvre à parcourir"
+    },
+    {
+      "id": "BLOCK-0017",
+      "type": "article-block",
+      "label": "Une œuvre à habiter"
+    },
+    {
+      "id": "BLOCK-0018",
+      "type": "article-block",
+      "label": "Une œuvre qui se découvre comme une forêt"
+    },
+    {
+      "id": "BLOCK-0019",
+      "type": "article-block",
+      "label": "Chaque porte ouvre une manière différente de rencontrer l'œuvre"
+    },
+    {
+      "id": "BLOCK-0020",
+      "type": "article-block",
+      "label": "Comprendre"
+    },
+    {
+      "id": "BLOCK-0021",
+      "type": "article-block",
+      "label": "Ressentir"
+    },
+    {
+      "id": "BLOCK-0022",
+      "type": "article-block",
+      "label": "Expérimenter"
+    },
+    {
+      "id": "BLOCK-0023",
+      "type": "article-block",
+      "label": "Contempler"
+    },
+    {
+      "id": "BLOCK-0024",
+      "type": "article-block",
+      "label": "Pourquoi autant de formes ?"
+    },
+    {
+      "id": "BLOCK-0025",
+      "type": "article-block",
+      "label": "L'Arbre des Récits Vivants"
+    },
+    {
+      "id": "BLOCK-0026",
+      "type": "article-block",
+      "label": "Une œuvre vivante"
+    },
+    {
+      "id": "BLOCK-0027",
+      "type": "article-block",
+      "label": "Entrer autrement"
+    },
+    {
+      "id": "BLOCK-0028",
+      "type": "article-block",
+      "label": "Les motifs ne décrivent pas le monde. Ils révèlent des zones de passage."
+    },
+    {
+      "id": "BLOCK-0029",
+      "type": "article-block",
+      "label": "SEUIL"
+    },
+    {
+      "id": "BLOCK-0030",
+      "type": "article-block",
+      "label": "FRICTION"
+    },
+    {
+      "id": "BLOCK-0031",
+      "type": "article-block",
+      "label": "DEVENIR"
+    },
+    {
+      "id": "BLOCK-0032",
+      "type": "article-block",
+      "label": "RÉSONANCE"
+    },
+    {
+      "id": "BLOCK-0033",
+      "type": "article-block",
+      "label": "MARGE VIVANTE"
+    },
+    {
+      "id": "BLOCK-0034",
+      "type": "article-block",
+      "label": "La tension n’est pas toujours l’ennemie"
+    },
+    {
+      "id": "BLOCK-0035",
+      "type": "article-block",
+      "label": "Tenir debout sans se durcir"
+    },
+    {
+      "id": "BLOCK-0036",
+      "type": "article-block",
+      "label": "La Porte du Seuil"
+    },
+    {
+      "id": "BLOCK-0037",
+      "type": "article-block",
+      "label": "Entrer"
+    },
+    {
+      "id": "BLOCK-0038",
+      "type": "article-block",
+      "label": "Le seuil n’est pas une porte"
+    },
+    {
+      "id": "BLOCK-0039",
+      "type": "article-block",
+      "label": "Charte implicite du regard"
+    },
+    {
+      "id": "BLOCK-0040",
+      "type": "article-block",
+      "label": "Reprendre racines dans le réel"
+    },
+    {
+      "id": "BLOCK-0041",
+      "type": "article-block",
+      "label": "Une case de côté"
+    },
+    {
+      "id": "BLOCK-0042",
+      "type": "article-block",
+      "label": "Huit mots pour entrer dans l’univers"
+    },
+    {
+      "id": "BLOCK-0043",
+      "type": "article-block",
+      "label": "Récit vivant"
+    },
+    {
+      "id": "BLOCK-0044",
+      "type": "article-block",
+      "label": "Seuil"
+    },
+    {
+      "id": "BLOCK-0045",
+      "type": "article-block",
+      "label": "Justesse"
+    },
+    {
+      "id": "BLOCK-0046",
+      "type": "article-block",
+      "label": "Parole vraie"
+    },
+    {
+      "id": "BLOCK-0047",
+      "type": "article-block",
+      "label": "Discernement"
+    },
+    {
+      "id": "BLOCK-0048",
+      "type": "article-block",
+      "label": "Fracture"
+    },
+    {
+      "id": "BLOCK-0049",
+      "type": "article-block",
+      "label": "Passage"
+    },
+    {
+      "id": "BLOCK-0050",
+      "type": "article-block",
+      "label": "Habitabilité"
+    },
+    {
+      "id": "BLOCK-0051",
+      "type": "article-block",
+      "label": "Le récit n’explique pas tout"
+    },
+    {
+      "id": "BLOCK-0052",
+      "type": "article-block",
+      "label": "Récit et corps"
+    },
+    {
+      "id": "BLOCK-0053",
+      "type": "article-block",
+      "label": "Récit et institution"
+    },
+    {
+      "id": "BLOCK-0054",
+      "type": "article-block",
+      "label": "Récit et fatigue"
+    },
+    {
+      "id": "BLOCK-0055",
+      "type": "article-block",
+      "label": "Récit et rapports de force"
+    },
+    {
+      "id": "BLOCK-0056",
+      "type": "article-block",
+      "label": "Ce qui use sans faire de bruit"
+    },
+    {
+      "id": "BLOCK-0057",
+      "type": "article-block",
+      "label": "Quand un lien fatigue sans éclater"
+    },
+    {
+      "id": "BLOCK-0058",
+      "type": "article-block",
+      "label": "Il existe des relations qui demandent une traduction permanente"
+    },
+    {
+      "id": "BLOCK-0059",
+      "type": "article-block",
+      "label": "Tenir trop longtemps n’est pas toujours une preuve de force"
+    },
+    {
+      "id": "BLOCK-0060",
+      "type": "article-block",
+      "label": "Quand la loyauté devient un effort de disparition"
+    },
+    {
+      "id": "BLOCK-0061",
+      "type": "article-block",
+      "label": "Certaines fatigues viennent de ce qu’on ne dit plus"
+    },
+    {
+      "id": "BLOCK-0062",
+      "type": "article-block",
+      "label": "Quand on continue par habitude intérieure"
+    },
+    {
+      "id": "BLOCK-0063",
+      "type": "article-block",
+      "label": "Ne pas répondre tout de suite est parfois une forme de vérité"
+    },
+    {
+      "id": "BLOCK-0064",
+      "type": "article-block",
+      "label": "Il existe des présences qui demandent trop de surveillance intérieure"
+    },
+    {
+      "id": "BLOCK-0065",
+      "type": "article-block",
+      "label": "Quand le calme d’une scène cache un coût disproportionné"
+    },
+    {
+      "id": "BLOCK-0066",
+      "type": "article-block",
+      "label": "Certaines paix se paient trop cher"
+    },
+    {
+      "id": "BLOCK-0067",
+      "type": "article-block",
+      "label": "Ce qui soulage sans endormir"
+    },
+    {
+      "id": "BLOCK-0068",
+      "type": "article-block",
+      "label": "Il existe des présences qui reposent vraiment"
+    },
+    {
+      "id": "BLOCK-0069",
+      "type": "article-block",
+      "label": "Quand un lien laisse davantage de place à la vie"
+    },
+    {
+      "id": "BLOCK-0070",
+      "type": "article-block",
+      "label": "Certaines joies ne sont pas des oublis"
+    },
+    {
+      "id": "BLOCK-0071",
+      "type": "article-block",
+      "label": "Une paix juste ne demande pas qu’on se réduise"
+    },
+    {
+      "id": "BLOCK-0072",
+      "type": "article-block",
+      "label": "Ce qui devient plus léger quand la justesse augmente"
+    },
+    {
+      "id": "BLOCK-0073",
+      "type": "article-block",
+      "label": "Au seuil du visible"
+    },
+    {
+      "id": "BLOCK-0074",
+      "type": "article-block",
+      "label": "Une petite constellation du regard"
+    },
+    {
+      "id": "BLOCK-0075",
+      "type": "article-block",
+      "label": "Le décalage"
+    },
+    {
+      "id": "BLOCK-0076",
+      "type": "article-block",
+      "label": "Ce qui résiste"
+    },
+    {
+      "id": "BLOCK-0077",
+      "type": "article-block",
+      "label": "Ce qui se transforme"
+    },
+    {
+      "id": "BLOCK-0078",
+      "type": "article-block",
+      "label": "Seuil / Friction / Devenir"
+    },
+    {
+      "id": "BLOCK-0079",
+      "type": "article-block",
+      "label": "Au-delà des Épines"
+    },
+    {
+      "id": "BLOCK-0080",
+      "type": "article-block",
+      "label": "LA MARGE VIVANTE"
+    },
+    {
+      "id": "BOOK-0001",
+      "type": "work",
+      "label": "COUVERTURE-LES-MARGES-VIVANTES.png",
+      "image": "IMG-0005"
+    },
+    {
+      "id": "BOOK-0002",
+      "type": "work",
+      "label": "AU SEUIL DES ÉTOILES.png",
+      "image": "IMG-0008"
+    },
+    {
+      "id": "BOOK-0003",
+      "type": "work",
+      "label": "Couverture - Atlas des Récits Vivants.png",
+      "image": "IMG-0027"
+    },
+    {
+      "id": "BOOK-0004",
+      "type": "work",
+      "label": "Couverture Atlas V1.jpg",
+      "image": "IMG-0028"
+    },
+    {
+      "id": "BOOK-0005",
+      "type": "work",
+      "label": "Couverture Atlas V2.jpg",
+      "image": "IMG-0029"
+    },
+    {
+      "id": "BOOK-0006",
+      "type": "work",
+      "label": "Couverture Atlas Vol IV.png",
+      "image": "IMG-0030"
+    },
+    {
+      "id": "BOOK-0007",
+      "type": "work",
+      "label": "Couverture Cosmologie des recits vivants - VF.png",
+      "image": "IMG-0031"
+    },
+    {
+      "id": "BOOK-0008",
+      "type": "work",
+      "label": "Couverture Livre L Ecriture Augmentée V2.png",
+      "image": "IMG-0032"
+    },
+    {
+      "id": "BOOK-0009",
+      "type": "work",
+      "label": "Couverture Lumières Fractales -A5.jpg",
+      "image": "IMG-0033"
+    },
+    {
+      "id": "BOOK-0010",
+      "type": "work",
+      "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+      "image": "IMG-0048"
+    },
+    {
+      "id": "CON-0001",
+      "type": "concept",
+      "label": "Récits Vivants"
+    },
+    {
+      "id": "CON-0002",
+      "type": "concept",
+      "label": "Cosmologie"
+    },
+    {
+      "id": "CON-0003",
+      "type": "concept",
+      "label": "Boussole"
+    },
+    {
+      "id": "CON-0004",
+      "type": "concept",
+      "label": "Atlas"
+    },
+    {
+      "id": "CON-0005",
+      "type": "concept",
+      "label": "Cartes narratives"
+    },
+    {
+      "id": "CON-0006",
+      "type": "concept",
+      "label": "Seuil"
+    },
+    {
+      "id": "CON-0007",
+      "type": "concept",
+      "label": "Friction"
+    },
+    {
+      "id": "CON-0008",
+      "type": "concept",
+      "label": "Devenir"
+    },
+    {
+      "id": "CON-0009",
+      "type": "concept",
+      "label": "Résonance"
+    },
+    {
+      "id": "CON-0010",
+      "type": "concept",
+      "label": "Marge vivante"
+    },
+    {
+      "id": "CON-0011",
+      "type": "concept",
+      "label": "Spirale"
+    },
+    {
+      "id": "CON-0012",
+      "type": "concept",
+      "label": "Forêt"
+    },
+    {
+      "id": "CON-0013",
+      "type": "concept",
+      "label": "Racines"
+    },
+    {
+      "id": "CON-0014",
+      "type": "concept",
+      "label": "Liberté"
+    },
+    {
+      "id": "CON-0015",
+      "type": "concept",
+      "label": "Humanité"
+    },
+    {
+      "id": "CON-0016",
+      "type": "concept",
+      "label": "Vivant"
+    },
+    {
+      "id": "CON-0017",
+      "type": "concept",
+      "label": "Météorologie narrative"
+    },
+    {
+      "id": "CON-0018",
+      "type": "concept",
+      "label": "Passage"
+    },
+    {
+      "id": "CON-0019",
+      "type": "concept",
+      "label": "Constellation"
+    },
+    {
+      "id": "CON-0020",
+      "type": "concept",
+      "label": "Jardins futurs"
+    },
+    {
+      "id": "CON-0021",
+      "type": "concept",
+      "label": "Transmission"
+    },
+    {
+      "id": "CON-0022",
+      "type": "concept",
+      "label": "Habitabilité"
+    },
+    {
+      "id": "CON-0023",
+      "type": "concept",
+      "label": "Discernement"
+    },
+    {
+      "id": "CON-0024",
+      "type": "concept",
+      "label": "Parole vraie"
+    },
+    {
+      "id": "CON-0025",
+      "type": "concept",
+      "label": "Justesse"
+    },
+    {
+      "id": "CON-0026",
+      "type": "concept",
+      "label": "Œuvre immersive"
+    },
+    {
+      "id": "D001",
+      "type": "archive",
+      "label": "Pourquoi les Récits Vivants"
+    },
+    {
+      "id": "D002",
+      "type": "archive",
+      "label": "Naissance de la pensée dialogique"
+    },
+    {
+      "id": "D003",
+      "type": "archive",
+      "label": "Naissance de la Cosmologie des Récits Vivants"
+    },
+    {
+      "id": "D004",
+      "type": "archive",
+      "label": "Naissance des Cartes Narratives"
+    },
+    {
+      "id": "D005",
+      "type": "archive",
+      "label": "Naissance de l'Œuvre immersive"
+    },
+    {
+      "id": "D006",
+      "type": "archive",
+      "label": "Naissance de Makerland"
+    },
+    {
+      "id": "D007",
+      "type": "archive",
+      "label": "Naissance de la Bibliothèque Vivante"
+    },
+    {
+      "id": "D008",
+      "type": "archive",
+      "label": "Naissance de la Boussole Vivante"
+    },
+    {
+      "id": "D009",
+      "type": "archive",
+      "label": "Naissance de l'Atelier IA"
+    },
+    {
+      "id": "D010",
+      "type": "archive",
+      "label": "Naissance des Archives Vivantes"
+    },
+    {
+      "id": "FIG-0001",
+      "type": "figure",
+      "label": "Carte-Sceau-Atlas-des-Récits-vivants.png",
+      "image": "IMG-0003"
+    },
+    {
+      "id": "FIG-0002",
+      "type": "figure",
+      "label": "Atlas-des-récits-vivants.png",
+      "image": "IMG-0004"
+    },
+    {
+      "id": "FIG-0003",
+      "type": "figure",
+      "label": "Amina Yusuf.png",
+      "image": "IMG-0006"
+    },
+    {
+      "id": "FIG-0004",
+      "type": "figure",
+      "label": "arbre-des-recits-vivants.png",
+      "image": "IMG-0007"
+    },
+    {
+      "id": "FIG-0005",
+      "type": "figure",
+      "label": "Au-dela-des-epines.png",
+      "image": "IMG-0009"
+    },
+    {
+      "id": "FIG-0006",
+      "type": "figure",
+      "label": "au-seuil-des-etoile-portee-immersive.png",
+      "image": "IMG-0010"
+    },
+    {
+      "id": "FIG-0007",
+      "type": "figure",
+      "label": "BANNIERE_RECITS_VIVANTS.png",
+      "image": "IMG-0011"
+    },
+    {
+      "id": "FIG-0008",
+      "type": "figure",
+      "label": "BEAUTE.png",
+      "image": "IMG-0012"
+    },
+    {
+      "id": "FIG-0009",
+      "type": "figure",
+      "label": "BOUSSOLE-DES-RECITS-HABITABLES.png",
+      "image": "IMG-0013"
+    },
+    {
+      "id": "FIG-0010",
+      "type": "figure",
+      "label": "boussole-humanite.png",
+      "image": "IMG-0014"
+    },
+    {
+      "id": "FIG-0011",
+      "type": "figure",
+      "label": "boussole-interieure.png",
+      "image": "IMG-0015"
+    },
+    {
+      "id": "FIG-0012",
+      "type": "figure",
+      "label": "Carré Auteur Image.png",
+      "image": "IMG-0016"
+    },
+    {
+      "id": "FIG-0013",
+      "type": "figure",
+      "label": "carte_le_seuil_A6-Verso.png",
+      "image": "IMG-0017"
+    },
+    {
+      "id": "FIG-0014",
+      "type": "figure",
+      "label": "carte-de-resonnance.png",
+      "image": "IMG-0018"
+    },
+    {
+      "id": "FIG-0015",
+      "type": "figure",
+      "label": "charte-recits-vivants.png",
+      "image": "IMG-0019"
+    },
+    {
+      "id": "FIG-0016",
+      "type": "figure",
+      "label": "Colonel Rajiv.png",
+      "image": "IMG-0020"
+    },
+    {
+      "id": "FIG-0017",
+      "type": "figure",
+      "label": "CONCENTRATION-NARRATIVE-DU-POUVOIR.png",
+      "image": "IMG-0021"
+    },
+    {
+      "id": "FIG-0018",
+      "type": "figure",
+      "label": "conseil-des-humains.png",
+      "image": "IMG-0022"
+    },
+    {
+      "id": "FIG-0019",
+      "type": "figure",
+      "label": "constellation-des-recits-vivants.png",
+      "image": "IMG-0023"
+    },
+    {
+      "id": "FIG-0020",
+      "type": "figure",
+      "label": "continuer-a-marcher.png",
+      "image": "IMG-0024"
+    },
+    {
+      "id": "FIG-0021",
+      "type": "figure",
+      "label": "cosmologie-recits-vivants-carte.png",
+      "image": "IMG-0025"
+    },
+    {
+      "id": "FIG-0022",
+      "type": "figure",
+      "label": "cosmologie-recits-vivants-site-banner.png",
+      "image": "IMG-0026"
+    },
+    {
+      "id": "FIG-0023",
+      "type": "figure",
+      "label": "Elohim.png",
+      "image": "IMG-0034"
+    },
+    {
+      "id": "FIG-0024",
+      "type": "figure",
+      "label": "Elydris.png",
+      "image": "IMG-0035"
+    },
+    {
+      "id": "FIG-0025",
+      "type": "figure",
+      "label": "emerveillement-face-au-vivant.png",
+      "image": "IMG-0036"
+    },
+    {
+      "id": "FIG-0026",
+      "type": "figure",
+      "label": "equilibre-du-coeur.png",
+      "image": "IMG-0037"
+    },
+    {
+      "id": "FIG-0027",
+      "type": "figure",
+      "label": "FUTUR-IMAGE-CARTE-GENERALE.png",
+      "image": "IMG-0038"
+    },
+    {
+      "id": "FIG-0028",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-CREATION.png",
+      "image": "IMG-0039"
+    },
+    {
+      "id": "FIG-0029",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-DE-COOPERATION.png",
+      "image": "IMG-0040"
+    },
+    {
+      "id": "FIG-0030",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-DE-SEUIL.png",
+      "image": "IMG-0041"
+    },
+    {
+      "id": "FIG-0031",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-DU-SOIN.png",
+      "image": "IMG-0042"
+    },
+    {
+      "id": "FIG-0032",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-DU-VIVANT.png",
+      "image": "IMG-0043"
+    },
+    {
+      "id": "FIG-0033",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-METAMORPHOSE.png",
+      "image": "IMG-0044"
+    },
+    {
+      "id": "FIG-0034",
+      "type": "figure",
+      "label": "FUTUR-JARDIN-TRANSMISSION.png",
+      "image": "IMG-0045"
+    },
+    {
+      "id": "FIG-0035",
+      "type": "figure",
+      "label": "grande-carte-des-recits-vivants.png",
+      "image": "IMG-0046"
+    },
+    {
+      "id": "FIG-0036",
+      "type": "figure",
+      "label": "Horizons-de-l-infini.png",
+      "image": "IMG-0047"
+    },
+    {
+      "id": "FIG-0037",
+      "type": "figure",
+      "label": "l-humanite.png",
+      "image": "IMG-0049"
+    },
+    {
+      "id": "FIG-0038",
+      "type": "figure",
+      "label": "LA-BOUSSOLE-DES-PASSAGES-VIVANTS.png",
+      "image": "IMG-0050"
+    },
+    {
+      "id": "FIG-0039",
+      "type": "figure",
+      "label": "la-foret.png",
+      "image": "IMG-0051"
+    },
+    {
+      "id": "FIG-0040",
+      "type": "figure",
+      "label": "la-maison-commune.png",
+      "image": "IMG-0052"
+    },
+    {
+      "id": "FIG-0041",
+      "type": "figure",
+      "label": "la-marge-vivante.png",
+      "image": "IMG-0053"
+    },
+    {
+      "id": "FIG-0042",
+      "type": "figure",
+      "label": "La-spirale-sommaire-du-site-V2.png",
+      "image": "IMG-0054"
+    },
+    {
+      "id": "FIG-0043",
+      "type": "figure",
+      "label": "le-cerveau.png",
+      "image": "IMG-0055"
+    },
+    {
+      "id": "FIG-0044",
+      "type": "figure",
+      "label": "le-cosmos.png",
+      "image": "IMG-0056"
+    },
+    {
+      "id": "FIG-0045",
+      "type": "figure",
+      "label": "Les_Racines_de_la_Liberté.png",
+      "image": "IMG-0057"
+    },
+    {
+      "id": "FIG-0046",
+      "type": "figure",
+      "label": "les-gardiens-du-seuil.png",
+      "image": "IMG-0058"
+    },
+    {
+      "id": "FIG-0047",
+      "type": "figure",
+      "label": "LES-PORTES-DU-SEUIL-FAILLE.png",
+      "image": "IMG-0059"
+    },
+    {
+      "id": "FIG-0048",
+      "type": "figure",
+      "label": "Mara Lindwood.png",
+      "image": "IMG-0060"
+    },
+    {
+      "id": "FIG-0049",
+      "type": "figure",
+      "label": "METEOROLOGIE NARRATIVE-V3.png",
+      "image": "IMG-0061"
+    },
+    {
+      "id": "FIG-0050",
+      "type": "figure",
+      "label": "meteorologie-narrative.png",
+      "image": "IMG-0062"
+    },
+    {
+      "id": "FIG-0051",
+      "type": "figure",
+      "label": "micro-cosmo-alignement.png",
+      "image": "IMG-0063"
+    },
+    {
+      "id": "FIG-0052",
+      "type": "figure",
+      "label": "micro-cosmo-deplacement.png",
+      "image": "IMG-0064"
+    },
+    {
+      "id": "FIG-0053",
+      "type": "figure",
+      "label": "micro-cosmo-fracture.png",
+      "image": "IMG-0065"
+    },
+    {
+      "id": "FIG-0054",
+      "type": "figure",
+      "label": "micro-cosmo-integration.png",
+      "image": "IMG-0066"
+    },
+    {
+      "id": "FIG-0055",
+      "type": "figure",
+      "label": "micro-cosmo-seuil.png",
+      "image": "IMG-0067"
+    },
+    {
+      "id": "FIG-0056",
+      "type": "figure",
+      "label": "micro-cosmo-stabilisation.png",
+      "image": "IMG-0068"
+    },
+    {
+      "id": "FIG-0057",
+      "type": "figure",
+      "label": "micro-cosmo-traversee.png",
+      "image": "IMG-0069"
+    },
+    {
+      "id": "FIG-0058",
+      "type": "figure",
+      "label": "micro-ecologie-narrative.png",
+      "image": "IMG-0070"
+    },
+    {
+      "id": "FIG-0059",
+      "type": "figure",
+      "label": "Noxira.png",
+      "image": "IMG-0071"
+    },
+    {
+      "id": "FIG-0060",
+      "type": "figure",
+      "label": "OEUVRE-IMMERSIVE.png",
+      "image": "IMG-0072"
+    },
+    {
+      "id": "FIG-0061",
+      "type": "figure",
+      "label": "Orientation-site.png",
+      "image": "IMG-0073"
+    },
+    {
+      "id": "FIG-0062",
+      "type": "figure",
+      "label": "parcours-de-lecture.png",
+      "image": "IMG-0074"
+    },
+    {
+      "id": "FIG-0063",
+      "type": "figure",
+      "label": "plurivers.png",
+      "image": "IMG-0075"
+    },
+    {
+      "id": "FIG-0064",
+      "type": "figure",
+      "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png",
+      "image": "IMG-0076"
+    },
+    {
+      "id": "FIG-0065",
+      "type": "figure",
+      "label": "RACINES-DANS-LE-REEL-1.png",
+      "image": "IMG-0077"
+    },
+    {
+      "id": "FIG-0066",
+      "type": "figure",
+      "label": "recits-collectifs-cosmologie.png",
+      "image": "IMG-0078"
+    },
+    {
+      "id": "FIG-0067",
+      "type": "figure",
+      "label": "recits-empeches.png",
+      "image": "IMG-0079"
+    },
+    {
+      "id": "FIG-0068",
+      "type": "figure",
+      "label": "recits-vivants.png",
+      "image": "IMG-0080"
+    },
+    {
+      "id": "FIG-0069",
+      "type": "figure",
+      "label": "respiration.png",
+      "image": "IMG-0081"
+    },
+    {
+      "id": "FIG-0070",
+      "type": "figure",
+      "label": "seuil-de-l-identite-2.png",
+      "image": "IMG-0082"
+    },
+    {
+      "id": "FIG-0071",
+      "type": "figure",
+      "label": "seuil-de-la-presence-5.png",
+      "image": "IMG-0083"
+    },
+    {
+      "id": "FIG-0072",
+      "type": "figure",
+      "label": "seuil-des-croyances-1.png",
+      "image": "IMG-0084"
+    },
+    {
+      "id": "FIG-0073",
+      "type": "figure",
+      "label": "seuil-du-reel-4.png",
+      "image": "IMG-0085"
+    },
+    {
+      "id": "FIG-0074",
+      "type": "figure",
+      "label": "seuil-du-regard-3.png",
+      "image": "IMG-0086"
+    },
+    {
+      "id": "FIG-0075",
+      "type": "figure",
+      "label": "Seuil-Friction-Devenir-image.png",
+      "image": "IMG-0087"
+    },
+    {
+      "id": "FIG-0076",
+      "type": "figure",
+      "label": "source-des-recits-vivants.png",
+      "image": "IMG-0088"
+    },
+    {
+      "id": "FIG-0077",
+      "type": "figure",
+      "label": "spirale-de-l-attention.png",
+      "image": "IMG-0089"
+    },
+    {
+      "id": "FIG-0078",
+      "type": "figure",
+      "label": "spirale-des-recits-civilisationnels.png",
+      "image": "IMG-0090"
+    },
+    {
+      "id": "FIG-0079",
+      "type": "figure",
+      "label": "spirale-passage.png",
+      "image": "IMG-0091"
+    },
+    {
+      "id": "FIG-0080",
+      "type": "figure",
+      "label": "spirale-pensee-creative.png",
+      "image": "IMG-0092"
+    },
+    {
+      "id": "FIG-0081",
+      "type": "figure",
+      "label": "spirale-recits-vivants.png",
+      "image": "IMG-0093"
+    },
+    {
+      "id": "FIG-0082",
+      "type": "figure",
+      "label": "Tableau-des-12-recits.png",
+      "image": "IMG-0094"
+    },
+    {
+      "id": "FIG-0083",
+      "type": "figure",
+      "label": "un-monde-a-l-autre.png",
+      "image": "IMG-0095"
+    },
+    {
+      "id": "FIG-0084",
+      "type": "figure",
+      "label": "UNE-CASE-DE-COTE.png",
+      "image": "IMG-0096"
+    },
+    {
+      "id": "FIG-0085",
+      "type": "figure",
+      "label": "Une-oeuvre-qui-se-decouvre-comme-une-foret.png",
+      "image": "IMG-0097"
+    },
+    {
+      "id": "FIG-0086",
+      "type": "figure",
+      "label": "VERITE-JUSTICE-PAIX.png",
+      "image": "IMG-0098"
+    },
+    {
+      "id": "FIG-0087",
+      "type": "figure",
+      "label": "Volume III.png",
+      "image": "IMG-0099"
+    },
+    {
+      "id": "FIG-0088",
+      "type": "figure",
+      "label": "Votre-voyage-commence-ici.png",
+      "image": "IMG-0100"
+    },
+    {
+      "id": "IMG-0003",
+      "type": "image",
+      "label": "Carte-Sceau-Atlas-des-Récits-vivants.png"
+    },
+    {
+      "id": "IMG-0004",
+      "type": "image",
+      "label": "Atlas-des-récits-vivants.png"
+    },
+    {
+      "id": "IMG-0005",
+      "type": "book-image",
+      "label": "COUVERTURE-LES-MARGES-VIVANTES.png"
+    },
+    {
+      "id": "IMG-0006",
+      "type": "image",
+      "label": "Amina Yusuf.png"
+    },
+    {
+      "id": "IMG-0007",
+      "type": "image",
+      "label": "arbre-des-recits-vivants.png"
+    },
+    {
+      "id": "IMG-0008",
+      "type": "book-image",
+      "label": "AU SEUIL DES ÉTOILES.png"
+    },
+    {
+      "id": "IMG-0009",
+      "type": "image",
+      "label": "Au-dela-des-epines.png"
+    },
+    {
+      "id": "IMG-0010",
+      "type": "image",
+      "label": "au-seuil-des-etoile-portee-immersive.png"
+    },
+    {
+      "id": "IMG-0011",
+      "type": "image",
+      "label": "BANNIERE_RECITS_VIVANTS.png"
+    },
+    {
+      "id": "IMG-0012",
+      "type": "image",
+      "label": "BEAUTE.png"
+    },
+    {
+      "id": "IMG-0013",
+      "type": "image",
+      "label": "BOUSSOLE-DES-RECITS-HABITABLES.png"
+    },
+    {
+      "id": "IMG-0014",
+      "type": "image",
+      "label": "boussole-humanite.png"
+    },
+    {
+      "id": "IMG-0015",
+      "type": "image",
+      "label": "boussole-interieure.png"
+    },
+    {
+      "id": "IMG-0016",
+      "type": "image",
+      "label": "Carré Auteur Image.png"
+    },
+    {
+      "id": "IMG-0017",
+      "type": "image",
+      "label": "carte_le_seuil_A6-Verso.png"
+    },
+    {
+      "id": "IMG-0018",
+      "type": "image",
+      "label": "carte-de-resonnance.png"
+    },
+    {
+      "id": "IMG-0019",
+      "type": "image",
+      "label": "charte-recits-vivants.png"
+    },
+    {
+      "id": "IMG-0020",
+      "type": "image",
+      "label": "Colonel Rajiv.png"
+    },
+    {
+      "id": "IMG-0021",
+      "type": "image",
+      "label": "CONCENTRATION-NARRATIVE-DU-POUVOIR.png"
+    },
+    {
+      "id": "IMG-0022",
+      "type": "image",
+      "label": "conseil-des-humains.png"
+    },
+    {
+      "id": "IMG-0023",
+      "type": "image",
+      "label": "constellation-des-recits-vivants.png"
+    },
+    {
+      "id": "IMG-0024",
+      "type": "image",
+      "label": "continuer-a-marcher.png"
+    },
+    {
+      "id": "IMG-0025",
+      "type": "image",
+      "label": "cosmologie-recits-vivants-carte.png"
+    },
+    {
+      "id": "IMG-0026",
+      "type": "image",
+      "label": "cosmologie-recits-vivants-site-banner.png"
+    },
+    {
+      "id": "IMG-0027",
+      "type": "book-image",
+      "label": "Couverture - Atlas des Récits Vivants.png"
+    },
+    {
+      "id": "IMG-0028",
+      "type": "book-image",
+      "label": "Couverture Atlas V1.jpg"
+    },
+    {
+      "id": "IMG-0029",
+      "type": "book-image",
+      "label": "Couverture Atlas V2.jpg"
+    },
+    {
+      "id": "IMG-0030",
+      "type": "book-image",
+      "label": "Couverture Atlas Vol IV.png"
+    },
+    {
+      "id": "IMG-0031",
+      "type": "book-image",
+      "label": "Couverture Cosmologie des recits vivants - VF.png"
+    },
+    {
+      "id": "IMG-0032",
+      "type": "book-image",
+      "label": "Couverture Livre L Ecriture Augmentée V2.png"
+    },
+    {
+      "id": "IMG-0033",
+      "type": "book-image",
+      "label": "Couverture Lumières Fractales -A5.jpg"
+    },
+    {
+      "id": "IMG-0034",
+      "type": "image",
+      "label": "Elohim.png"
+    },
+    {
+      "id": "IMG-0035",
+      "type": "image",
+      "label": "Elydris.png"
+    },
+    {
+      "id": "IMG-0036",
+      "type": "image",
+      "label": "emerveillement-face-au-vivant.png"
+    },
+    {
+      "id": "IMG-0037",
+      "type": "image",
+      "label": "equilibre-du-coeur.png"
+    },
+    {
+      "id": "IMG-0038",
+      "type": "image",
+      "label": "FUTUR-IMAGE-CARTE-GENERALE.png"
+    },
+    {
+      "id": "IMG-0039",
+      "type": "image",
+      "label": "FUTUR-JARDIN-CREATION.png"
+    },
+    {
+      "id": "IMG-0040",
+      "type": "image",
+      "label": "FUTUR-JARDIN-DE-COOPERATION.png"
+    },
+    {
+      "id": "IMG-0041",
+      "type": "image",
+      "label": "FUTUR-JARDIN-DE-SEUIL.png"
+    },
+    {
+      "id": "IMG-0042",
+      "type": "image",
+      "label": "FUTUR-JARDIN-DU-SOIN.png"
+    },
+    {
+      "id": "IMG-0043",
+      "type": "image",
+      "label": "FUTUR-JARDIN-DU-VIVANT.png"
+    },
+    {
+      "id": "IMG-0044",
+      "type": "image",
+      "label": "FUTUR-JARDIN-METAMORPHOSE.png"
+    },
+    {
+      "id": "IMG-0045",
+      "type": "image",
+      "label": "FUTUR-JARDIN-TRANSMISSION.png"
+    },
+    {
+      "id": "IMG-0046",
+      "type": "image",
+      "label": "grande-carte-des-recits-vivants.png"
+    },
+    {
+      "id": "IMG-0047",
+      "type": "image",
+      "label": "Horizons-de-l-infini.png"
+    },
+    {
+      "id": "IMG-0048",
+      "type": "book-image",
+      "label": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png"
+    },
+    {
+      "id": "IMG-0049",
+      "type": "image",
+      "label": "l-humanite.png"
+    },
+    {
+      "id": "IMG-0050",
+      "type": "image",
+      "label": "LA-BOUSSOLE-DES-PASSAGES-VIVANTS.png"
+    },
+    {
+      "id": "IMG-0051",
+      "type": "image",
+      "label": "la-foret.png"
+    },
+    {
+      "id": "IMG-0052",
+      "type": "image",
+      "label": "la-maison-commune.png"
+    },
+    {
+      "id": "IMG-0053",
+      "type": "image",
+      "label": "la-marge-vivante.png"
+    },
+    {
+      "id": "IMG-0054",
+      "type": "image",
+      "label": "La-spirale-sommaire-du-site-V2.png"
+    },
+    {
+      "id": "IMG-0055",
+      "type": "image",
+      "label": "le-cerveau.png"
+    },
+    {
+      "id": "IMG-0056",
+      "type": "image",
+      "label": "le-cosmos.png"
+    },
+    {
+      "id": "IMG-0057",
+      "type": "image",
+      "label": "Les_Racines_de_la_Liberté.png"
+    },
+    {
+      "id": "IMG-0058",
+      "type": "image",
+      "label": "les-gardiens-du-seuil.png"
+    },
+    {
+      "id": "IMG-0059",
+      "type": "image",
+      "label": "LES-PORTES-DU-SEUIL-FAILLE.png"
+    },
+    {
+      "id": "IMG-0060",
+      "type": "image",
+      "label": "Mara Lindwood.png"
+    },
+    {
+      "id": "IMG-0061",
+      "type": "image",
+      "label": "METEOROLOGIE NARRATIVE-V3.png"
+    },
+    {
+      "id": "IMG-0062",
+      "type": "image",
+      "label": "meteorologie-narrative.png"
+    },
+    {
+      "id": "IMG-0063",
+      "type": "image",
+      "label": "micro-cosmo-alignement.png"
+    },
+    {
+      "id": "IMG-0064",
+      "type": "image",
+      "label": "micro-cosmo-deplacement.png"
+    },
+    {
+      "id": "IMG-0065",
+      "type": "image",
+      "label": "micro-cosmo-fracture.png"
+    },
+    {
+      "id": "IMG-0066",
+      "type": "image",
+      "label": "micro-cosmo-integration.png"
+    },
+    {
+      "id": "IMG-0067",
+      "type": "image",
+      "label": "micro-cosmo-seuil.png"
+    },
+    {
+      "id": "IMG-0068",
+      "type": "image",
+      "label": "micro-cosmo-stabilisation.png"
+    },
+    {
+      "id": "IMG-0069",
+      "type": "image",
+      "label": "micro-cosmo-traversee.png"
+    },
+    {
+      "id": "IMG-0070",
+      "type": "image",
+      "label": "micro-ecologie-narrative.png"
+    },
+    {
+      "id": "IMG-0071",
+      "type": "image",
+      "label": "Noxira.png"
+    },
+    {
+      "id": "IMG-0072",
+      "type": "image",
+      "label": "OEUVRE-IMMERSIVE.png"
+    },
+    {
+      "id": "IMG-0073",
+      "type": "image",
+      "label": "Orientation-site.png"
+    },
+    {
+      "id": "IMG-0074",
+      "type": "image",
+      "label": "parcours-de-lecture.png"
+    },
+    {
+      "id": "IMG-0075",
+      "type": "image",
+      "label": "plurivers.png"
+    },
+    {
+      "id": "IMG-0076",
+      "type": "image",
+      "label": "QUAND-UN-RECIT-ENTRE-EN-NOUS.png"
+    },
+    {
+      "id": "IMG-0077",
+      "type": "image",
+      "label": "RACINES-DANS-LE-REEL-1.png"
+    },
+    {
+      "id": "IMG-0078",
+      "type": "image",
+      "label": "recits-collectifs-cosmologie.png"
+    },
+    {
+      "id": "IMG-0079",
+      "type": "image",
+      "label": "recits-empeches.png"
+    },
+    {
+      "id": "IMG-0080",
+      "type": "image",
+      "label": "recits-vivants.png"
+    },
+    {
+      "id": "IMG-0081",
+      "type": "image",
+      "label": "respiration.png"
+    },
+    {
+      "id": "IMG-0082",
+      "type": "image",
+      "label": "seuil-de-l-identite-2.png"
+    },
+    {
+      "id": "IMG-0083",
+      "type": "image",
+      "label": "seuil-de-la-presence-5.png"
+    },
+    {
+      "id": "IMG-0084",
+      "type": "image",
+      "label": "seuil-des-croyances-1.png"
+    },
+    {
+      "id": "IMG-0085",
+      "type": "image",
+      "label": "seuil-du-reel-4.png"
+    },
+    {
+      "id": "IMG-0086",
+      "type": "image",
+      "label": "seuil-du-regard-3.png"
+    },
+    {
+      "id": "IMG-0087",
+      "type": "image",
+      "label": "Seuil-Friction-Devenir-image.png"
+    },
+    {
+      "id": "IMG-0088",
+      "type": "image",
+      "label": "source-des-recits-vivants.png"
+    },
+    {
+      "id": "IMG-0089",
+      "type": "image",
+      "label": "spirale-de-l-attention.png"
+    },
+    {
+      "id": "IMG-0090",
+      "type": "image",
+      "label": "spirale-des-recits-civilisationnels.png"
+    },
+    {
+      "id": "IMG-0091",
+      "type": "image",
+      "label": "spirale-passage.png"
+    },
+    {
+      "id": "IMG-0092",
+      "type": "image",
+      "label": "spirale-pensee-creative.png"
+    },
+    {
+      "id": "IMG-0093",
+      "type": "image",
+      "label": "spirale-recits-vivants.png"
+    },
+    {
+      "id": "IMG-0094",
+      "type": "image",
+      "label": "Tableau-des-12-recits.png"
+    },
+    {
+      "id": "IMG-0095",
+      "type": "image",
+      "label": "un-monde-a-l-autre.png"
+    },
+    {
+      "id": "IMG-0096",
+      "type": "image",
+      "label": "UNE-CASE-DE-COTE.png"
+    },
+    {
+      "id": "IMG-0097",
+      "type": "image",
+      "label": "Une-oeuvre-qui-se-decouvre-comme-une-foret.png"
+    },
+    {
+      "id": "IMG-0098",
+      "type": "image",
+      "label": "VERITE-JUSTICE-PAIX.png"
+    },
+    {
+      "id": "IMG-0099",
+      "type": "image",
+      "label": "Volume III.png"
+    },
+    {
+      "id": "IMG-0100",
+      "type": "image",
+      "label": "Votre-voyage-commence-ici.png"
+    },
+    {
+      "id": "ROOM-ATELIER",
+      "type": "room",
+      "label": "Atelier IA",
+      "role": "Lieu des coulisses, dialogues et créations"
+    },
+    {
+      "id": "ROOM-BIBLIOTHEQUE",
+      "type": "room",
+      "label": "Bibliothèque Vivante",
+      "role": "Lieu de rencontre avec les livres et couvertures"
+    },
+    {
+      "id": "ROOM-BOUSSOLE",
+      "type": "room",
+      "label": "Boussole Vivante",
+      "role": "Lieu d'orientation et de passage"
+    },
+    {
+      "id": "ROOM-CARNET",
+      "type": "room",
+      "label": "Carnet de Voyage",
+      "role": "Lieu de mémoire locale du parcours"
+    },
+    {
+      "id": "ROOM-CONSTELLATION",
+      "type": "room",
+      "label": "Constellation",
+      "role": "Lieu des résonances et transmissions"
+    },
+    {
+      "id": "ROOM-OEUVRE",
+      "type": "room",
+      "label": "Œuvre immersive",
+      "role": "Territoire principal des récits et seuils"
+    }
+  ],
+  "edges": [
+    {
+      "source": "D001",
+      "target": "D002",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "D001",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "D003",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "D002",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "D004",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "D003",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "D005",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "D004",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "D006",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "D005",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "D007",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "D006",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "D008",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "D007",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "D009",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "D008",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "D010",
+      "type": "archive_next",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D010",
+      "target": "D009",
+      "type": "archive_previous",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "CON-0001",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "CON-0010",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "CON-0013",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "CON-0016",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0003",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0004",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0007",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0011",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0013",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0019",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0023",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0025",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0026",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0036",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0043",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0046",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0050",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0053",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0057",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "IMG-0076",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0001",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0002",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0004",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0007",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0009",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0015",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0019",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0021",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0022",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0025",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0032",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "FIG-0035",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "BOOK-0001",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "BOOK-0003",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D001",
+      "target": "BOOK-0007",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "CON-0003",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "CON-0015",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "IMG-0013",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "IMG-0014",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "IMG-0015",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "IMG-0022",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "IMG-0049",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "IMG-0050",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "FIG-0009",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "FIG-0010",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "FIG-0011",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "FIG-0018",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "FIG-0037",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D002",
+      "target": "FIG-0038",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "CON-0002",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0025",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0026",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0056",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0063",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0064",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0065",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0066",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0067",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0068",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0069",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0075",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "IMG-0078",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0021",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0022",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0044",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0051",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0052",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0053",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0054",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0055",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0056",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0057",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0063",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "FIG-0066",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D003",
+      "target": "BOOK-0007",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "CON-0004",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "CON-0005",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "CON-0017",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0003",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0004",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0017",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0018",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0025",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0038",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0046",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0061",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0062",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0073",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "IMG-0094",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0001",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0002",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0013",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0014",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0021",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0027",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0035",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0049",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0050",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0061",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "FIG-0082",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "BOOK-0003",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "BOOK-0004",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "BOOK-0005",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D004",
+      "target": "BOOK-0006",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "CON-0006",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "CON-0012",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "CON-0018",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "CON-0026",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0010",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0017",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0041",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0050",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0051",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0058",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0059",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0067",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0072",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0082",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0083",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0084",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0085",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0086",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0087",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "IMG-0091",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0006",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0013",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0030",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0038",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0039",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0046",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0047",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0055",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0060",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0070",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0071",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "FIG-0072",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D005",
+      "target": "BOOK-0002",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "CON-0011",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0026",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0054",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0073",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0089",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0090",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0091",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0092",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0093",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "IMG-0100",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0022",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0042",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0061",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0077",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0078",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0079",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0080",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0081",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D006",
+      "target": "FIG-0088",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "CON-0004",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "IMG-0003",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "IMG-0004",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "FIG-0001",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "FIG-0002",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0001",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0002",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0003",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0004",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0005",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0006",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0007",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0008",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0009",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D007",
+      "target": "BOOK-0010",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "CON-0003",
+      "type": "archive_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "IMG-0013",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "IMG-0014",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "IMG-0015",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "IMG-0050",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "IMG-0073",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "FIG-0009",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "FIG-0010",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "FIG-0011",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "FIG-0038",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D008",
+      "target": "FIG-0061",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "IMG-0016",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "IMG-0039",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "IMG-0092",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "FIG-0012",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "FIG-0028",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "FIG-0080",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D009",
+      "target": "BOOK-0008",
+      "type": "archive_work",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D010",
+      "target": "IMG-0099",
+      "type": "archive_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "D010",
+      "target": "FIG-0087",
+      "type": "archive_figure",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0003",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0003",
+      "target": "CON-0004",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0003",
+      "target": "CON-0005",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0003",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0001",
+      "target": "IMG-0003",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0003",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0003",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0004",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0004",
+      "target": "CON-0004",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0004",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0002",
+      "target": "IMG-0004",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0004",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0004",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0005",
+      "target": "CON-0010",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0005",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0001",
+      "target": "IMG-0005",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0005",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0005",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0003",
+      "target": "IMG-0006",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0007",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0007",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0004",
+      "target": "IMG-0007",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0007",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0008",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0002",
+      "target": "IMG-0008",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0008",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0008",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0005",
+      "target": "IMG-0009",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0010",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0006",
+      "target": "IMG-0010",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0010",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0011",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0011",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0007",
+      "target": "IMG-0011",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0011",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0008",
+      "target": "IMG-0012",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0013",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0013",
+      "target": "CON-0003",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0009",
+      "target": "IMG-0013",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0013",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0013",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0014",
+      "target": "CON-0003",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0014",
+      "target": "CON-0015",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0010",
+      "target": "IMG-0014",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0014",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0014",
+      "target": "ROOM-CONSTELLATION",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0015",
+      "target": "CON-0003",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0011",
+      "target": "IMG-0015",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0015",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0012",
+      "target": "IMG-0016",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0016",
+      "target": "ROOM-ATELIER",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0017",
+      "target": "CON-0005",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0017",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0013",
+      "target": "IMG-0017",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0017",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0018",
+      "target": "CON-0005",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0018",
+      "target": "CON-0009",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0014",
+      "target": "IMG-0018",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0018",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0018",
+      "target": "ROOM-CONSTELLATION",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0019",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0019",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0015",
+      "target": "IMG-0019",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0019",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0016",
+      "target": "IMG-0020",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0017",
+      "target": "IMG-0021",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0018",
+      "target": "IMG-0022",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0023",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0023",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0023",
+      "target": "CON-0019",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0019",
+      "target": "IMG-0023",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0023",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0023",
+      "target": "ROOM-CONSTELLATION",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0020",
+      "target": "IMG-0024",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0025",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0025",
+      "target": "CON-0002",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0025",
+      "target": "CON-0005",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0025",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0021",
+      "target": "IMG-0025",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0025",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0026",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0026",
+      "target": "CON-0002",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0026",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0022",
+      "target": "IMG-0026",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0026",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0027",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0027",
+      "target": "CON-0004",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0027",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0003",
+      "target": "IMG-0027",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0027",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0027",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0028",
+      "target": "CON-0004",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0004",
+      "target": "IMG-0028",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0028",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0029",
+      "target": "CON-0004",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0005",
+      "target": "IMG-0029",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0029",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0030",
+      "target": "CON-0004",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0006",
+      "target": "IMG-0030",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0030",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0031",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0031",
+      "target": "CON-0002",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0031",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0007",
+      "target": "IMG-0031",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0031",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0031",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0008",
+      "target": "IMG-0032",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0032",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0032",
+      "target": "ROOM-ATELIER",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0009",
+      "target": "IMG-0033",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0033",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0023",
+      "target": "IMG-0034",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0024",
+      "target": "IMG-0035",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0036",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0025",
+      "target": "IMG-0036",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0036",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0026",
+      "target": "IMG-0037",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0038",
+      "target": "CON-0005",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0027",
+      "target": "IMG-0038",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0038",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0039",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0028",
+      "target": "IMG-0039",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0039",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0040",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0029",
+      "target": "IMG-0040",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0040",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0041",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0041",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0030",
+      "target": "IMG-0041",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0041",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0042",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0031",
+      "target": "IMG-0042",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0042",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0043",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0043",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0032",
+      "target": "IMG-0043",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0043",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0044",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0033",
+      "target": "IMG-0044",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0044",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0045",
+      "target": "CON-0020",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0045",
+      "target": "CON-0021",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0034",
+      "target": "IMG-0045",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0045",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0045",
+      "target": "ROOM-CONSTELLATION",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0046",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0046",
+      "target": "CON-0005",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0046",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0035",
+      "target": "IMG-0046",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0046",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0036",
+      "target": "IMG-0047",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "BOOK-0010",
+      "target": "IMG-0048",
+      "type": "work_cover",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0048",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0049",
+      "target": "CON-0015",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0037",
+      "target": "IMG-0049",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0049",
+      "target": "ROOM-CONSTELLATION",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0050",
+      "target": "CON-0003",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0050",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0050",
+      "target": "CON-0018",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0038",
+      "target": "IMG-0050",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0050",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0050",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0051",
+      "target": "CON-0012",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0039",
+      "target": "IMG-0051",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0051",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0040",
+      "target": "IMG-0052",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0053",
+      "target": "CON-0010",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0053",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0041",
+      "target": "IMG-0053",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0053",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0053",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0054",
+      "target": "CON-0011",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0042",
+      "target": "IMG-0054",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0054",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0043",
+      "target": "IMG-0055",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0044",
+      "target": "IMG-0056",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0057",
+      "target": "CON-0013",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0057",
+      "target": "CON-0014",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0045",
+      "target": "IMG-0057",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0057",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0058",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0046",
+      "target": "IMG-0058",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0058",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0059",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0047",
+      "target": "IMG-0059",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0059",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0048",
+      "target": "IMG-0060",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0061",
+      "target": "CON-0017",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0049",
+      "target": "IMG-0061",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0061",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0062",
+      "target": "CON-0017",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0050",
+      "target": "IMG-0062",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0062",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0051",
+      "target": "IMG-0063",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0052",
+      "target": "IMG-0064",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0053",
+      "target": "IMG-0065",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0054",
+      "target": "IMG-0066",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0067",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0055",
+      "target": "IMG-0067",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0067",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0056",
+      "target": "IMG-0068",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0057",
+      "target": "IMG-0069",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0058",
+      "target": "IMG-0070",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0059",
+      "target": "IMG-0071",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0060",
+      "target": "IMG-0072",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0072",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0061",
+      "target": "IMG-0073",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0073",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0062",
+      "target": "IMG-0074",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0063",
+      "target": "IMG-0075",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0076",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0064",
+      "target": "IMG-0076",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0076",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0077",
+      "target": "CON-0013",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0065",
+      "target": "IMG-0077",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0077",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0078",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0078",
+      "target": "CON-0002",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0066",
+      "target": "IMG-0078",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0078",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0079",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0067",
+      "target": "IMG-0079",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0079",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0080",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0080",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0068",
+      "target": "IMG-0080",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0080",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0069",
+      "target": "IMG-0081",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0082",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0070",
+      "target": "IMG-0082",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0082",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0083",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0071",
+      "target": "IMG-0083",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0083",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0084",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0072",
+      "target": "IMG-0084",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0084",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0085",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0073",
+      "target": "IMG-0085",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0085",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0086",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0074",
+      "target": "IMG-0086",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0086",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0087",
+      "target": "CON-0006",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0087",
+      "target": "CON-0007",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0087",
+      "target": "CON-0008",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0075",
+      "target": "IMG-0087",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0087",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0087",
+      "target": "ROOM-ATELIER",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0088",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0088",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0076",
+      "target": "IMG-0088",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0088",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0089",
+      "target": "CON-0011",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0077",
+      "target": "IMG-0089",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0089",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0090",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0090",
+      "target": "CON-0011",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0078",
+      "target": "IMG-0090",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0090",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0091",
+      "target": "CON-0011",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0091",
+      "target": "CON-0018",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0079",
+      "target": "IMG-0091",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0091",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0091",
+      "target": "ROOM-BOUSSOLE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0092",
+      "target": "CON-0011",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0080",
+      "target": "IMG-0092",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0092",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0092",
+      "target": "ROOM-ATELIER",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0093",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0093",
+      "target": "CON-0011",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0093",
+      "target": "CON-0016",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0081",
+      "target": "IMG-0093",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0093",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0094",
+      "target": "CON-0001",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0082",
+      "target": "IMG-0094",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0094",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0083",
+      "target": "IMG-0095",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0084",
+      "target": "IMG-0096",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0097",
+      "target": "CON-0012",
+      "type": "image_concept",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0085",
+      "target": "IMG-0097",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "IMG-0097",
+      "target": "ROOM-OEUVRE",
+      "type": "image_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0086",
+      "target": "IMG-0098",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0087",
+      "target": "IMG-0099",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "FIG-0088",
+      "target": "IMG-0100",
+      "type": "figure_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0003",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0004",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0007",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0011",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0013",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0019",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0023",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0025",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0026",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0027",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0031",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0046",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0076",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0078",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0079",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0080",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0088",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0090",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0093",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "IMG-0094",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0004",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0008",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0025",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0084",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0093",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0111",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0131",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0001",
+      "target": "BLOCK-0132",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "IMG-0025",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "IMG-0026",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "IMG-0031",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "IMG-0078",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "BLOCK-0093",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "BLOCK-0156",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "BLOCK-0184",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "BLOCK-0185",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0002",
+      "target": "BLOCK-0186",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "ROOM-BOUSSOLE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "IMG-0013",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "IMG-0014",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "IMG-0015",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "IMG-0050",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "BLOCK-0106",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "BLOCK-0111",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "BLOCK-0187",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0003",
+      "target": "BLOCK-0240",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "IMG-0003",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "IMG-0004",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "IMG-0027",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "IMG-0028",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "IMG-0029",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "IMG-0030",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "BLOCK-0008",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "BLOCK-0180",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "BLOCK-0186",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0004",
+      "target": "BLOCK-0196",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "IMG-0003",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "IMG-0017",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "IMG-0018",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "IMG-0025",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "IMG-0038",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "IMG-0046",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0005",
+      "target": "BLOCK-0158",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0008",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0010",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0017",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0041",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0058",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0059",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0067",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0082",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0083",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0084",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0085",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0086",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "IMG-0087",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0029",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0036",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0038",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0044",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0073",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0078",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0089",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0006",
+      "target": "BLOCK-0090",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0007",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0007",
+      "target": "IMG-0087",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0007",
+      "target": "BLOCK-0030",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0007",
+      "target": "BLOCK-0078",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0007",
+      "target": "BLOCK-0089",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0007",
+      "target": "BLOCK-0237",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "ROOM-ATELIER",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "IMG-0087",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "BLOCK-0031",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "BLOCK-0078",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "BLOCK-0089",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "BLOCK-0091",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0008",
+      "target": "BLOCK-0227",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0009",
+      "target": "ROOM-CONSTELLATION",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0009",
+      "target": "IMG-0018",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0009",
+      "target": "BLOCK-0032",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0009",
+      "target": "BLOCK-0144",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "ROOM-BIBLIOTHEQUE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "IMG-0005",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "IMG-0053",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "BLOCK-0033",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "BLOCK-0080",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "BLOCK-0081",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0010",
+      "target": "BLOCK-0238",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "IMG-0054",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "IMG-0089",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "IMG-0090",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "IMG-0091",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "IMG-0092",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "IMG-0093",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "BLOCK-0002",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "BLOCK-0130",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "BLOCK-0169",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "BLOCK-0192",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0011",
+      "target": "BLOCK-0193",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0012",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0012",
+      "target": "IMG-0051",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0012",
+      "target": "IMG-0097",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0012",
+      "target": "BLOCK-0018",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0012",
+      "target": "BLOCK-0097",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0013",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0013",
+      "target": "IMG-0057",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0013",
+      "target": "IMG-0077",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0013",
+      "target": "BLOCK-0014",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0013",
+      "target": "BLOCK-0040",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0014",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0014",
+      "target": "IMG-0057",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0014",
+      "target": "BLOCK-0014",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0015",
+      "target": "ROOM-CONSTELLATION",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0015",
+      "target": "IMG-0014",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0015",
+      "target": "IMG-0049",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0015",
+      "target": "BLOCK-0099",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0015",
+      "target": "BLOCK-0187",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0003",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0004",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0005",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0007",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0011",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0019",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0023",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0025",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0026",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0027",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0031",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0036",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0043",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0046",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0050",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0053",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0080",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0088",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "IMG-0093",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0004",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0008",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0012",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0025",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0026",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0033",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0043",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0016",
+      "target": "BLOCK-0080",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0017",
+      "target": "ROOM-BOUSSOLE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0017",
+      "target": "IMG-0061",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0017",
+      "target": "IMG-0062",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0017",
+      "target": "BLOCK-0112",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0017",
+      "target": "BLOCK-0191",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "ROOM-BOUSSOLE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "IMG-0050",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "IMG-0091",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "BLOCK-0028",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "BLOCK-0049",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "BLOCK-0100",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "BLOCK-0130",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "BLOCK-0233",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0018",
+      "target": "BLOCK-0240",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0019",
+      "target": "ROOM-CONSTELLATION",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0019",
+      "target": "IMG-0023",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0019",
+      "target": "BLOCK-0074",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0019",
+      "target": "BLOCK-0141",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0039",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0040",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0041",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0042",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0043",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0044",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0020",
+      "target": "IMG-0045",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0021",
+      "target": "ROOM-CONSTELLATION",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0021",
+      "target": "IMG-0045",
+      "type": "concept_image",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0021",
+      "target": "BLOCK-0124",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0021",
+      "target": "BLOCK-0134",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0021",
+      "target": "BLOCK-0143",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0022",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0022",
+      "target": "BLOCK-0050",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0023",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0023",
+      "target": "BLOCK-0047",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0024",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0024",
+      "target": "BLOCK-0046",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0025",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0025",
+      "target": "BLOCK-0045",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0025",
+      "target": "BLOCK-0072",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "ROOM-OEUVRE",
+      "type": "concept_room",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "BLOCK-0016",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "BLOCK-0017",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "BLOCK-0018",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "BLOCK-0019",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "BLOCK-0026",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    },
+    {
+      "source": "CON-0026",
+      "target": "BLOCK-0091",
+      "type": "concept_article_block",
+      "confidence": "initiale"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "ROOM-BIBLIOTHEQUE",
+      "name": "Bibliothèque Vivante",
+      "role": "Lieu de rencontre avec les livres et couvertures",
+      "archives": [
+        "D001",
+        "D004",
+        "D007"
+      ],
+      "works": [
+        "BOOK-0001",
+        "BOOK-0002",
+        "BOOK-0003",
+        "BOOK-0004",
+        "BOOK-0005",
+        "BOOK-0006",
+        "BOOK-0007",
+        "BOOK-0008",
+        "BOOK-0009",
+        "BOOK-0010"
+      ],
+      "concepts": [
+        "CON-0004",
+        "CON-0010"
+      ],
+      "images": [
+        "IMG-0003",
+        "IMG-0004",
+        "IMG-0005",
+        "IMG-0008",
+        "IMG-0027",
+        "IMG-0028",
+        "IMG-0029",
+        "IMG-0030",
+        "IMG-0031",
+        "IMG-0032",
+        "IMG-0033",
+        "IMG-0048",
+        "IMG-0053"
+      ],
+      "figures": [
+        "FIG-0001",
+        "FIG-0002",
+        "FIG-0041"
+      ]
+    },
+    {
+      "id": "ROOM-BOUSSOLE",
+      "name": "Boussole Vivante",
+      "role": "Lieu d'orientation et de passage",
+      "archives": [
+        "D002",
+        "D004",
+        "D005",
+        "D008"
+      ],
+      "works": [],
+      "concepts": [
+        "CON-0003",
+        "CON-0017",
+        "CON-0018"
+      ],
+      "images": [
+        "IMG-0013",
+        "IMG-0014",
+        "IMG-0015",
+        "IMG-0050",
+        "IMG-0061",
+        "IMG-0062",
+        "IMG-0073",
+        "IMG-0091"
+      ],
+      "figures": [
+        "FIG-0009",
+        "FIG-0010",
+        "FIG-0011",
+        "FIG-0038",
+        "FIG-0049",
+        "FIG-0050",
+        "FIG-0061",
+        "FIG-0079"
+      ]
+    },
+    {
+      "id": "ROOM-ATELIER",
+      "name": "Atelier IA",
+      "role": "Lieu des coulisses, dialogues et créations",
+      "archives": [],
+      "works": [
+        "BOOK-0008"
+      ],
+      "concepts": [
+        "CON-0008"
+      ],
+      "images": [
+        "IMG-0016",
+        "IMG-0032",
+        "IMG-0087",
+        "IMG-0092"
+      ],
+      "figures": [
+        "FIG-0012",
+        "FIG-0075",
+        "FIG-0080"
+      ]
+    },
+    {
+      "id": "ROOM-CONSTELLATION",
+      "name": "Constellation",
+      "role": "Lieu des résonances et transmissions",
+      "archives": [
+        "D002"
+      ],
+      "works": [],
+      "concepts": [
+        "CON-0009",
+        "CON-0015",
+        "CON-0019",
+        "CON-0021"
+      ],
+      "images": [
+        "IMG-0014",
+        "IMG-0018",
+        "IMG-0023",
+        "IMG-0045",
+        "IMG-0049"
+      ],
+      "figures": [
+        "FIG-0010",
+        "FIG-0014",
+        "FIG-0019",
+        "FIG-0034",
+        "FIG-0037"
+      ]
+    },
+    {
+      "id": "ROOM-CARNET",
+      "name": "Carnet de Voyage",
+      "role": "Lieu de mémoire locale du parcours",
+      "archives": [],
+      "works": [],
+      "concepts": [],
+      "images": [],
+      "figures": []
+    },
+    {
+      "id": "ROOM-OEUVRE",
+      "name": "Œuvre immersive",
+      "role": "Territoire principal des récits et seuils",
+      "archives": [
+        "D001",
+        "D003",
+        "D004",
+        "D005",
+        "D006"
+      ],
+      "works": [
+        "BOOK-0001",
+        "BOOK-0002",
+        "BOOK-0003",
+        "BOOK-0007"
+      ],
+      "concepts": [
+        "CON-0001",
+        "CON-0002",
+        "CON-0005",
+        "CON-0006",
+        "CON-0007",
+        "CON-0010",
+        "CON-0011",
+        "CON-0012",
+        "CON-0013",
+        "CON-0014",
+        "CON-0016",
+        "CON-0020",
+        "CON-0022",
+        "CON-0023",
+        "CON-0024",
+        "CON-0025",
+        "CON-0026"
+      ],
+      "images": [
+        "IMG-0003",
+        "IMG-0004",
+        "IMG-0005",
+        "IMG-0007",
+        "IMG-0008",
+        "IMG-0010",
+        "IMG-0011",
+        "IMG-0013",
+        "IMG-0017",
+        "IMG-0018",
+        "IMG-0019",
+        "IMG-0023",
+        "IMG-0025",
+        "IMG-0026",
+        "IMG-0027",
+        "IMG-0031",
+        "IMG-0036",
+        "IMG-0038",
+        "IMG-0039",
+        "IMG-0040",
+        "IMG-0041",
+        "IMG-0042",
+        "IMG-0043",
+        "IMG-0044",
+        "IMG-0045",
+        "IMG-0046",
+        "IMG-0050",
+        "IMG-0051",
+        "IMG-0053",
+        "IMG-0054",
+        "IMG-0057",
+        "IMG-0058",
+        "IMG-0059",
+        "IMG-0067",
+        "IMG-0072",
+        "IMG-0076",
+        "IMG-0077",
+        "IMG-0078",
+        "IMG-0079",
+        "IMG-0080",
+        "IMG-0082",
+        "IMG-0083",
+        "IMG-0084",
+        "IMG-0085",
+        "IMG-0086",
+        "IMG-0087",
+        "IMG-0088",
+        "IMG-0089",
+        "IMG-0090",
+        "IMG-0091",
+        "IMG-0092",
+        "IMG-0093",
+        "IMG-0094",
+        "IMG-0097"
+      ],
+      "figures": [
+        "FIG-0001",
+        "FIG-0002",
+        "FIG-0004",
+        "FIG-0006",
+        "FIG-0007",
+        "FIG-0009",
+        "FIG-0013",
+        "FIG-0014",
+        "FIG-0015",
+        "FIG-0019",
+        "FIG-0021",
+        "FIG-0022",
+        "FIG-0025",
+        "FIG-0027",
+        "FIG-0028",
+        "FIG-0029",
+        "FIG-0030",
+        "FIG-0031",
+        "FIG-0032",
+        "FIG-0033",
+        "FIG-0034",
+        "FIG-0035",
+        "FIG-0038",
+        "FIG-0039",
+        "FIG-0041",
+        "FIG-0042",
+        "FIG-0045",
+        "FIG-0046",
+        "FIG-0047",
+        "FIG-0055",
+        "FIG-0060",
+        "FIG-0064",
+        "FIG-0065",
+        "FIG-0066",
+        "FIG-0067",
+        "FIG-0068",
+        "FIG-0070",
+        "FIG-0071",
+        "FIG-0072",
+        "FIG-0073",
+        "FIG-0074",
+        "FIG-0075",
+        "FIG-0076",
+        "FIG-0077",
+        "FIG-0078",
+        "FIG-0079",
+        "FIG-0080",
+        "FIG-0081",
+        "FIG-0082",
+        "FIG-0085"
+      ]
+    }
+  ],
+  "stats": {
+    "nodes": 318,
+    "edges": 713,
+    "concepts": 26,
+    "archives": 10,
+    "works": 10,
+    "images": 98,
+    "figures": 88,
+    "rooms": 6,
+    "articleBlocks": 80
+  }
+}

@@ -1,0 +1,786 @@
+{
+  "generatedFrom": [
+    "docs/patrimoine/CONCEPT_CATALOG.md",
+    "data/archive-assets.json",
+    "data/archive-mapping.json"
+  ],
+  "concepts": [
+    {
+      "id": "CON-0001",
+      "name": "Récits Vivants",
+      "archives": [
+        "D001"
+      ],
+      "articleBlocks": [
+        "Pourquoi les Récits Vivants ?",
+        "🗺️ Atlas des Récits Vivants",
+        "L'Arbre des Récits Vivants",
+        "Les récits qui ont besoin d’un ennemi pour tenir",
+        "La Cosmologie des Récits Vivants",
+        "La Boussole des récits habitables",
+        "Les récits empêchés",
+        "Les récits vivants",
+        "La Porte des Récits Empêchés",
+        "La grande carte des récits vivants",
+        "L’Arbre des Récits Vivants",
+        "La Constellation des Récits Vivants"
+      ],
+      "works": [
+        "BOOK-0003",
+        "BOOK-0007"
+      ],
+      "figures": [
+        "FIG-0001",
+        "FIG-0002",
+        "FIG-0004",
+        "FIG-0007",
+        "FIG-0009",
+        "FIG-0015",
+        "FIG-0019",
+        "FIG-0021",
+        "FIG-0022",
+        "FIG-0035",
+        "FIG-0064",
+        "FIG-0066",
+        "FIG-0067",
+        "FIG-0068",
+        "FIG-0076",
+        "FIG-0078",
+        "FIG-0081",
+        "FIG-0082"
+      ],
+      "images": [
+        "IMG-0003",
+        "IMG-0004",
+        "IMG-0007",
+        "IMG-0011",
+        "IMG-0013",
+        "IMG-0019",
+        "IMG-0023",
+        "IMG-0025",
+        "IMG-0026",
+        "IMG-0027",
+        "IMG-0031",
+        "IMG-0046",
+        "IMG-0076",
+        "IMG-0078",
+        "IMG-0079",
+        "IMG-0080",
+        "IMG-0088",
+        "IMG-0090",
+        "IMG-0093",
+        "IMG-0094"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0002",
+      "name": "Cosmologie",
+      "archives": [
+        "D003"
+      ],
+      "articleBlocks": [
+        "La Cosmologie des Récits Vivants",
+        "MINI-COSMOLOGIES OPÉRATIONNELLES",
+        "🌌 Cosmologie des Récits Vivants",
+        "Entrer plus profondément dans l’esprit de Cosmologie des Récits Vivants",
+        "Atlas de la Cosmologie des Récits Vivants"
+      ],
+      "works": [
+        "BOOK-0007"
+      ],
+      "figures": [
+        "FIG-0021",
+        "FIG-0022",
+        "FIG-0066"
+      ],
+      "images": [
+        "IMG-0025",
+        "IMG-0026",
+        "IMG-0031",
+        "IMG-0078"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0003",
+      "name": "Boussole",
+      "archives": [
+        "D002",
+        "D008"
+      ],
+      "articleBlocks": [
+        "La Boussole intérieure",
+        "La Boussole des récits habitables",
+        "La boussole de l’humanité",
+        "LA BOUSSOLE DES PASSAGES VIVANTS"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0009",
+        "FIG-0010",
+        "FIG-0011",
+        "FIG-0038"
+      ],
+      "images": [
+        "IMG-0013",
+        "IMG-0014",
+        "IMG-0015",
+        "IMG-0050"
+      ],
+      "rooms": [
+        "ROOM-BOUSSOLE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0004",
+      "name": "Atlas",
+      "archives": [
+        "D004",
+        "D007"
+      ],
+      "articleBlocks": [
+        "🗺️ Atlas des Récits Vivants",
+        "🌍 Atlas des Récits Vivants",
+        "Atlas de la Cosmologie des Récits Vivants",
+        "Ouvrir l’Atlas autrement"
+      ],
+      "works": [
+        "BOOK-0003",
+        "BOOK-0004",
+        "BOOK-0005",
+        "BOOK-0006"
+      ],
+      "figures": [
+        "FIG-0001",
+        "FIG-0002"
+      ],
+      "images": [
+        "IMG-0003",
+        "IMG-0004",
+        "IMG-0027",
+        "IMG-0028",
+        "IMG-0029",
+        "IMG-0030"
+      ],
+      "rooms": [
+        "ROOM-BIBLIOTHEQUE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0005",
+      "name": "Cartes narratives",
+      "archives": [
+        "D004"
+      ],
+      "articleBlocks": [
+        "Cartes pour traverser"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0001",
+        "FIG-0013",
+        "FIG-0014",
+        "FIG-0021",
+        "FIG-0027",
+        "FIG-0035"
+      ],
+      "images": [
+        "IMG-0003",
+        "IMG-0017",
+        "IMG-0018",
+        "IMG-0025",
+        "IMG-0038",
+        "IMG-0046"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0006",
+      "name": "Seuil",
+      "archives": [
+        "D005"
+      ],
+      "articleBlocks": [
+        "SEUIL",
+        "La Porte du Seuil",
+        "Le seuil n’est pas une porte",
+        "Seuil",
+        "Au seuil du visible",
+        "Seuil / Friction / Devenir",
+        "Seuil / Friction / Devenir",
+        "Au Seuil des Mondes",
+        "Le Seuil des croyances",
+        "Le Seuil de l’identité",
+        "Le Seuil du regard",
+        "Le Seuil du réel"
+      ],
+      "works": [
+        "BOOK-0002"
+      ],
+      "figures": [
+        "FIG-0006",
+        "FIG-0013",
+        "FIG-0030",
+        "FIG-0046",
+        "FIG-0047",
+        "FIG-0055",
+        "FIG-0070",
+        "FIG-0071",
+        "FIG-0072",
+        "FIG-0073",
+        "FIG-0074",
+        "FIG-0075"
+      ],
+      "images": [
+        "IMG-0008",
+        "IMG-0010",
+        "IMG-0017",
+        "IMG-0041",
+        "IMG-0058",
+        "IMG-0059",
+        "IMG-0067",
+        "IMG-0082",
+        "IMG-0083",
+        "IMG-0084",
+        "IMG-0085",
+        "IMG-0086",
+        "IMG-0087"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0007",
+      "name": "Friction",
+      "archives": [],
+      "articleBlocks": [
+        "FRICTION",
+        "Seuil / Friction / Devenir",
+        "Seuil / Friction / Devenir",
+        "Entrer plus profondément dans la friction du roman"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0075"
+      ],
+      "images": [
+        "IMG-0087"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0008",
+      "name": "Devenir",
+      "archives": [],
+      "articleBlocks": [
+        "DEVENIR",
+        "Seuil / Friction / Devenir",
+        "Seuil / Friction / Devenir",
+        "Une œuvre peut devenir un milieu vivant.",
+        "Devenir plus vaste. Habiter plus vivant."
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0075"
+      ],
+      "images": [
+        "IMG-0087"
+      ],
+      "rooms": [
+        "ROOM-ATELIER"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0009",
+      "name": "Résonance",
+      "archives": [],
+      "articleBlocks": [
+        "RÉSONANCE",
+        "Après ce premier parcours à travers les récits, une dernière résonance apparaît."
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0014"
+      ],
+      "images": [
+        "IMG-0018"
+      ],
+      "rooms": [
+        "ROOM-CONSTELLATION"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0010",
+      "name": "Marge vivante",
+      "archives": [
+        "D001"
+      ],
+      "articleBlocks": [
+        "MARGE VIVANTE",
+        "LA MARGE VIVANTE",
+        "LES MARGES VIVANTES",
+        "Les Marges Vivantes"
+      ],
+      "works": [
+        "BOOK-0001"
+      ],
+      "figures": [
+        "FIG-0041"
+      ],
+      "images": [
+        "IMG-0005",
+        "IMG-0053"
+      ],
+      "rooms": [
+        "ROOM-BIBLIOTHEQUE",
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0011",
+      "name": "Spirale",
+      "archives": [
+        "D006"
+      ],
+      "articleBlocks": [
+        "La Spirale du Site",
+        "La spirale des passages",
+        "La spirale de la pensée créative",
+        "Spirale des récits civilisationnels",
+        "Spirale des récits vivants"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0042",
+        "FIG-0077",
+        "FIG-0078",
+        "FIG-0079",
+        "FIG-0080",
+        "FIG-0081"
+      ],
+      "images": [
+        "IMG-0054",
+        "IMG-0089",
+        "IMG-0090",
+        "IMG-0091",
+        "IMG-0092",
+        "IMG-0093"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0012",
+      "name": "Forêt",
+      "archives": [
+        "D005"
+      ],
+      "articleBlocks": [
+        "Une œuvre qui se découvre comme une forêt",
+        "LA FORÊT"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0039",
+        "FIG-0085"
+      ],
+      "images": [
+        "IMG-0051",
+        "IMG-0097"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0013",
+      "name": "Racines",
+      "archives": [
+        "D001"
+      ],
+      "articleBlocks": [
+        "🌳 Les Racines de la Liberté",
+        "Reprendre racines dans le réel"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0045",
+        "FIG-0065"
+      ],
+      "images": [
+        "IMG-0057",
+        "IMG-0077"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0014",
+      "name": "Liberté",
+      "archives": [],
+      "articleBlocks": [
+        "🌳 Les Racines de la Liberté"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0045"
+      ],
+      "images": [
+        "IMG-0057"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0015",
+      "name": "Humanité",
+      "archives": [
+        "D002"
+      ],
+      "articleBlocks": [
+        "L’HUMANITÉ",
+        "La boussole de l’humanité"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0010",
+        "FIG-0037"
+      ],
+      "images": [
+        "IMG-0014",
+        "IMG-0049"
+      ],
+      "rooms": [
+        "ROOM-CONSTELLATION"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0016",
+      "name": "Vivant",
+      "archives": [
+        "D001"
+      ],
+      "articleBlocks": [
+        "Pourquoi les Récits Vivants ?",
+        "🗺️ Atlas des Récits Vivants",
+        "🌳 Le Vivant",
+        "L'Arbre des Récits Vivants",
+        "Une œuvre vivante",
+        "MARGE VIVANTE",
+        "Récit vivant",
+        "LA MARGE VIVANTE",
+        "LES MARGES VIVANTES",
+        "Une œuvre peut devenir un milieu vivant.",
+        "La Cosmologie des Récits Vivants",
+        "Qu’est-ce qui est vivant pour moi ?"
+      ],
+      "works": [
+        "BOOK-0001",
+        "BOOK-0003",
+        "BOOK-0007"
+      ],
+      "figures": [
+        "FIG-0001",
+        "FIG-0002",
+        "FIG-0004",
+        "FIG-0007",
+        "FIG-0015",
+        "FIG-0019",
+        "FIG-0021",
+        "FIG-0022",
+        "FIG-0025",
+        "FIG-0032",
+        "FIG-0035",
+        "FIG-0038",
+        "FIG-0041",
+        "FIG-0068",
+        "FIG-0076",
+        "FIG-0081"
+      ],
+      "images": [
+        "IMG-0003",
+        "IMG-0004",
+        "IMG-0005",
+        "IMG-0007",
+        "IMG-0011",
+        "IMG-0019",
+        "IMG-0023",
+        "IMG-0025",
+        "IMG-0026",
+        "IMG-0027",
+        "IMG-0031",
+        "IMG-0036",
+        "IMG-0043",
+        "IMG-0046",
+        "IMG-0050",
+        "IMG-0053",
+        "IMG-0080",
+        "IMG-0088",
+        "IMG-0093"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0017",
+      "name": "Météorologie narrative",
+      "archives": [
+        "D004"
+      ],
+      "articleBlocks": [
+        "MÉTÉOROLOGIE NARRATIVE",
+        "Météorologie narrative"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0049",
+        "FIG-0050"
+      ],
+      "images": [
+        "IMG-0061",
+        "IMG-0062"
+      ],
+      "rooms": [
+        "ROOM-BOUSSOLE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0018",
+      "name": "Passage",
+      "archives": [
+        "D005"
+      ],
+      "articleBlocks": [
+        "Les motifs ne décrivent pas le monde. Ils révèlent des zones de passage.",
+        "Passage",
+        "Cinq passages pour desserrer le regard",
+        "La spirale des passages",
+        "Une édition de passage",
+        "LA BOUSSOLE DES PASSAGES VIVANTS"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0038",
+        "FIG-0079"
+      ],
+      "images": [
+        "IMG-0050",
+        "IMG-0091"
+      ],
+      "rooms": [
+        "ROOM-BOUSSOLE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0019",
+      "name": "Constellation",
+      "archives": [],
+      "articleBlocks": [
+        "Une petite constellation du regard",
+        "La Constellation des Récits Vivants"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0019"
+      ],
+      "images": [
+        "IMG-0023"
+      ],
+      "rooms": [
+        "ROOM-CONSTELLATION"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0020",
+      "name": "Jardins futurs",
+      "archives": [],
+      "articleBlocks": [],
+      "works": [],
+      "figures": [
+        "FIG-0028",
+        "FIG-0029",
+        "FIG-0030",
+        "FIG-0031",
+        "FIG-0032",
+        "FIG-0033",
+        "FIG-0034"
+      ],
+      "images": [
+        "IMG-0039",
+        "IMG-0040",
+        "IMG-0041",
+        "IMG-0042",
+        "IMG-0043",
+        "IMG-0044",
+        "IMG-0045"
+      ],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0021",
+      "name": "Transmission",
+      "archives": [],
+      "articleBlocks": [
+        "🌳 Transmission",
+        "La Porte des Transmissions",
+        "La Porte des Transmissions"
+      ],
+      "works": [],
+      "figures": [
+        "FIG-0034"
+      ],
+      "images": [
+        "IMG-0045"
+      ],
+      "rooms": [
+        "ROOM-CONSTELLATION"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0022",
+      "name": "Habitabilité",
+      "archives": [],
+      "articleBlocks": [
+        "Habitabilité"
+      ],
+      "works": [],
+      "figures": [],
+      "images": [],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0023",
+      "name": "Discernement",
+      "archives": [],
+      "articleBlocks": [
+        "Discernement"
+      ],
+      "works": [],
+      "figures": [],
+      "images": [],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0024",
+      "name": "Parole vraie",
+      "archives": [],
+      "articleBlocks": [
+        "Parole vraie"
+      ],
+      "works": [],
+      "figures": [],
+      "images": [],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0025",
+      "name": "Justesse",
+      "archives": [],
+      "articleBlocks": [
+        "Justesse",
+        "Ce qui devient plus léger quand la justesse augmente"
+      ],
+      "works": [],
+      "figures": [],
+      "images": [],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    },
+    {
+      "id": "CON-0026",
+      "name": "Œuvre immersive",
+      "archives": [
+        "D005"
+      ],
+      "articleBlocks": [
+        "Une œuvre à parcourir",
+        "Une œuvre à habiter",
+        "Une œuvre qui se découvre comme une forêt",
+        "Chaque porte ouvre une manière différente de rencontrer l'œuvre",
+        "Une œuvre vivante",
+        "Une œuvre peut devenir un milieu vivant."
+      ],
+      "works": [],
+      "figures": [],
+      "images": [],
+      "rooms": [
+        "ROOM-OEUVRE"
+      ],
+      "narrativePacks": [],
+      "note": "Les packs narratifs ne sont pas structures dans RV-090 ; relation laissee vide volontairement."
+    }
+  ]
+}

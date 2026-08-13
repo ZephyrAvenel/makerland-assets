@@ -1,0 +1,283 @@
+{
+  "generatedFrom": [
+    "docs/patrimoine/BOOK_CATALOG.md",
+    "data/archive-assets.json",
+    "data/archive-mapping.json"
+  ],
+  "works": [
+    {
+      "id": "BOOK-0001",
+      "title": "COUVERTURE-LES-MARGES-VIVANTES.png",
+      "coverImage": "IMG-0005",
+      "concepts": [
+        "CON-0010",
+        "CON-0016"
+      ],
+      "archives": [
+        "D001",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0005"
+      ],
+      "articleBlocks": [
+        "BLOCK-0081",
+        "BLOCK-0238"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": [
+        "BOOK-0003",
+        "BOOK-0007"
+      ]
+    },
+    {
+      "id": "BOOK-0002",
+      "title": "AU SEUIL DES ÉTOILES.png",
+      "coverImage": "IMG-0008",
+      "concepts": [
+        "CON-0006"
+      ],
+      "archives": [
+        "D005",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0008"
+      ],
+      "articleBlocks": [
+        "BLOCK-0029",
+        "BLOCK-0036",
+        "BLOCK-0038",
+        "BLOCK-0044",
+        "BLOCK-0073",
+        "BLOCK-0078",
+        "BLOCK-0089",
+        "BLOCK-0090"
+      ],
+      "primaryRoom": "ROOM-OEUVRE",
+      "associatedWorks": []
+    },
+    {
+      "id": "BOOK-0003",
+      "title": "Couverture - Atlas des Récits Vivants.png",
+      "coverImage": "IMG-0027",
+      "concepts": [
+        "CON-0001",
+        "CON-0004",
+        "CON-0016"
+      ],
+      "archives": [
+        "D001",
+        "D004",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0027"
+      ],
+      "articleBlocks": [
+        "BLOCK-0004",
+        "BLOCK-0008",
+        "BLOCK-0025",
+        "BLOCK-0084",
+        "BLOCK-0093",
+        "BLOCK-0111",
+        "BLOCK-0131",
+        "BLOCK-0132"
+      ],
+      "primaryRoom": "ROOM-OEUVRE",
+      "associatedWorks": [
+        "BOOK-0001",
+        "BOOK-0004",
+        "BOOK-0005",
+        "BOOK-0006",
+        "BOOK-0007"
+      ]
+    },
+    {
+      "id": "BOOK-0004",
+      "title": "Couverture Atlas V1.jpg",
+      "coverImage": "IMG-0028",
+      "concepts": [
+        "CON-0004"
+      ],
+      "archives": [
+        "D004",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0028"
+      ],
+      "articleBlocks": [
+        "BLOCK-0008",
+        "BLOCK-0180",
+        "BLOCK-0186",
+        "BLOCK-0196"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": [
+        "BOOK-0003",
+        "BOOK-0005",
+        "BOOK-0006"
+      ]
+    },
+    {
+      "id": "BOOK-0005",
+      "title": "Couverture Atlas V2.jpg",
+      "coverImage": "IMG-0029",
+      "concepts": [
+        "CON-0004"
+      ],
+      "archives": [
+        "D004",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0029"
+      ],
+      "articleBlocks": [
+        "BLOCK-0008",
+        "BLOCK-0180",
+        "BLOCK-0186",
+        "BLOCK-0196"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": [
+        "BOOK-0003",
+        "BOOK-0004",
+        "BOOK-0006"
+      ]
+    },
+    {
+      "id": "BOOK-0006",
+      "title": "Couverture Atlas Vol IV.png",
+      "coverImage": "IMG-0030",
+      "concepts": [
+        "CON-0004"
+      ],
+      "archives": [
+        "D004",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0030"
+      ],
+      "articleBlocks": [
+        "BLOCK-0008",
+        "BLOCK-0180",
+        "BLOCK-0186",
+        "BLOCK-0196"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": [
+        "BOOK-0003",
+        "BOOK-0004",
+        "BOOK-0005"
+      ]
+    },
+    {
+      "id": "BOOK-0007",
+      "title": "Couverture Cosmologie des recits vivants - VF.png",
+      "coverImage": "IMG-0031",
+      "concepts": [
+        "CON-0001",
+        "CON-0002",
+        "CON-0016"
+      ],
+      "archives": [
+        "D001",
+        "D003",
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0031"
+      ],
+      "articleBlocks": [
+        "BLOCK-0004",
+        "BLOCK-0008",
+        "BLOCK-0025",
+        "BLOCK-0084",
+        "BLOCK-0093",
+        "BLOCK-0111",
+        "BLOCK-0131",
+        "BLOCK-0132"
+      ],
+      "primaryRoom": "ROOM-OEUVRE",
+      "associatedWorks": [
+        "BOOK-0001",
+        "BOOK-0003"
+      ]
+    },
+    {
+      "id": "BOOK-0008",
+      "title": "Couverture Livre L Ecriture Augmentée V2.png",
+      "coverImage": "IMG-0032",
+      "concepts": [],
+      "archives": [
+        "D007",
+        "D009"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0032"
+      ],
+      "articleBlocks": [
+        "BLOCK-0201",
+        "BLOCK-0203",
+        "BLOCK-0204",
+        "BLOCK-0220",
+        "BLOCK-0229",
+        "BLOCK-0230"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": []
+    },
+    {
+      "id": "BOOK-0009",
+      "title": "Couverture Lumières Fractales -A5.jpg",
+      "coverImage": "IMG-0033",
+      "concepts": [],
+      "archives": [
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0033"
+      ],
+      "articleBlocks": [
+        "BLOCK-0235",
+        "BLOCK-0236"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": []
+    },
+    {
+      "id": "BOOK-0010",
+      "title": "L ART AUGMENTE - COUVERTURE - OK - 12-7 x 20-32 cm.png",
+      "coverImage": "IMG-0048",
+      "concepts": [],
+      "archives": [
+        "D007"
+      ],
+      "figures": [],
+      "images": [
+        "IMG-0048"
+      ],
+      "articleBlocks": [
+        "BLOCK-0072",
+        "BLOCK-0201",
+        "BLOCK-0202",
+        "BLOCK-0203",
+        "BLOCK-0220"
+      ],
+      "primaryRoom": "ROOM-BIBLIOTHEQUE",
+      "associatedWorks": []
+    }
+  ]
+}
