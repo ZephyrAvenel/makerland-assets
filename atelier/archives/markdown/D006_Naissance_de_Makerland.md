@@ -1,7 +1,7 @@
-﻿# D006 — Naissance de Makerland
+# D006 - Naissance du Territoire des Recits Vivants
 
 ## Statut
 Archive fondatrice — Volume I
 
 ## Note
-Ce fichier constitue le support éditorial de l'archive D006. Il est destiné à être enrichi avec le contenu complet (contexte, dialogue, concepts, œuvres, citations, résonances et intégration Makerland) élaboré au cours de notre travail.
+Ce fichier constitue le support editorial de l'archive D006. Il est destine a etre enrichi avec le contenu complet (contexte, dialogue, concepts, oeuvres, citations, resonances et integration aux Recits Vivants) elabore au cours de notre travail.

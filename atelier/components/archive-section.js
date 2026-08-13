@@ -46,7 +46,7 @@
             ],
             documents: [
                 ["D005", "Naissance de l'Oeuvre immersive", "../archives/d005.html"],
-                ["D006", "Naissance de Makerland", "../archives/d006.html"]
+                ["D006", "Naissance du Territoire des Recits Vivants", "../archives/d006.html"]
             ],
             quote: "Une image juste ne montre pas tout. Elle laisse le visiteur sentir ou il arrive.",
             fragment: "Le climat d'une image precede souvent le sens d'un texte."
@@ -73,13 +73,13 @@
             why: "Cette salle preparera la chronologie des versions, bifurcations, grandes etapes et gestes de transmission.",
             sections: [
                 ["Chronologie", "Les jalons qui structurent l'histoire du projet.", "../archives/d006.html"],
-                ["Grandes etapes", "Les moments ou Makerland a change de nature.", "../archives/d009.html"],
+                ["Grandes etapes", "Les moments ou les Recits Vivants ont change de nature.", "../archives/d009.html"],
                 ["Versions", "Les iterations qui ont stabilise les lieux.", "../archives/d010.html"],
                 ["Bifurcations", "Les choix qui ont ecarte certaines directions.", "../archives/d001.html"],
                 ["Transmission", "Les passages vers les lecteurs et la Constellation.", "../archives/d007.html"]
             ],
             documents: [
-                ["D006", "Naissance de Makerland", "../archives/d006.html"],
+                ["D006", "Naissance du Territoire des Recits Vivants", "../archives/d006.html"],
                 ["D009", "Naissance de l'Atelier IA", "../archives/d009.html"]
             ],
             quote: "Une oeuvre vivante avance moins par ajout que par fidelite progressive a ce qu'elle pressent.",
@@ -199,7 +199,7 @@
             { date: "Narratologie dialogique", title: "Le cadre se formule", text: "Le dialogue devient une maniere de penser les recits." },
             { date: "Atlas", title: "Les idees deviennent cartes", text: "Les concepts trouvent une forme territoriale." },
             { date: "Oeuvre immersive", title: "Le lecteur entre dans le lieu", text: "La lecture devient traversee." },
-            { date: "Makerland", title: "Les lieux se relient", text: "Bibliotheque, Boussole, Atelier et Constellation forment un territoire." },
+            { date: "Territoire", title: "Les lieux se relient", text: "Bibliotheque, Boussole, Atelier et Constellation forment un territoire." },
             { date: "Archives Vivantes", title: "La creation garde ses traces", text: "Les fragments deviennent consultables sans perdre leur mystere." }
         ]));
         host.appendChild(quotes);

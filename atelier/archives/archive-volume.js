@@ -205,10 +205,10 @@
         }
 
         [
-            ["Retour Archives", "index.html"],
-            ["Retour Atelier", "../"],
-            ["Retour Bibliotheque", "../../index.html"],
-            ["Retour Makerland", "../../index.html"]
+            ["Retour aux Archives", "index.html"],
+            ["Retour a l'Atelier", "../"],
+            ["Retour a la Bibliotheque Vivante", "../../index.html"],
+            ["Retour au Territoire", "../../index.html"]
         ].forEach(link => {
             const anchor = createElement("a", "placeholder-return", link[0]);
             anchor.href = link[1];
@@ -232,7 +232,7 @@
                     title: record.meta.title,
                     type: record.id.toUpperCase(),
                     date: "Volume I",
-                    origin: "Archives Vivantes de Makerland",
+                    origin: "Archives Vivantes des Recits Vivants",
                     status: record.meta.status,
                     summary: record.meta.note,
                     href: record.href,
@@ -255,7 +255,7 @@
                 title: record.meta.title,
                 type: record.id.toUpperCase(),
                 date: "Volume I",
-                origin: "Archives Vivantes de Makerland",
+                origin: "Archives Vivantes des Recits Vivants",
                 status: record.meta.status,
                 summary: "Archive officielle issue du Volume I."
             })
