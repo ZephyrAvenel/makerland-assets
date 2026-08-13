@@ -75,6 +75,24 @@
     gap:18px;
 }
 
+.archive-dialogue-block{
+    margin-top:30px;
+}
+
+.archive-fragment-grid,
+.archive-quote-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:18px;
+    margin-top:18px;
+}
+
+.archive-fragment-grid .archive-fragment,
+.archive-quote-grid .archive-quote{
+    width:auto;
+    margin:0;
+}
+
 .archive-card{
     padding:18px;
     border:1px solid rgba(255,224,158,.18);
