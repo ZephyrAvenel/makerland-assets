@@ -6,12 +6,12 @@
 
     const STEPS = [
         {
-            screen: "e01_accueil",
-            title: "Pourquoi Makerland existe",
-            place: "Bibliotheque Vivante",
-            subtitle: "Les oeuvres publiees.",
-            text: "Makerland est un territoire culturel consacre aux Recits Vivants. On y explore la naissance des idees, des formes et des oeuvres.",
-            quote: "Une intuition peut devenir un lieu lorsque quelqu'un prend le temps de l'habiter."
+            screen: "e02_meteo",
+            title: "Ecouter la Meteo interieure",
+            place: "Meteo",
+            subtitle: "Votre premier climat.",
+            text: "La Meteo ne vous demande pas de repondre juste. Elle vous invite a reconnaitre le paysage interieur avec lequel vous entrez.",
+            quote: "Choisir un climat, c'est deja commencer a habiter le territoire."
         },
         {
             screen: "e06_fiction",
@@ -62,6 +62,7 @@
     }
 
     function bindEvents() {
+        document.addEventListener("makerland:firstJourney:intro", renderIntro);
         document.addEventListener("makerland:firstJourney:start", startJourney);
 
         window.addEventListener("screenChanged", event => {
@@ -96,6 +97,7 @@
         }
 
         if (state.memory.active && !state.memory.completed) {
+            document.body.classList.remove("first-journey-intro-ready");
             const step = STEPS[state.memory.step] || STEPS[0];
             if (screenId !== step.screen && !state.syncingScreen) {
                 state.syncingScreen = true;
@@ -110,7 +112,7 @@
         }
 
         if (screenId === "e01_accueil") {
-            renderReplay();
+            clearRoot();
             return;
         }
 
@@ -144,6 +146,27 @@
 
         state.root.querySelector("[data-first-journey-start]").addEventListener("click", startJourney);
         state.root.querySelector("[data-first-journey-free]").addEventListener("click", dismissJourney);
+    }
+
+    function renderIntro() {
+        if (!state.root) return;
+        document.body.classList.add("first-journey-intro-ready");
+        state.root.innerHTML = [
+            "<section class=\"first-journey__intro\" role=\"dialog\" aria-label=\"Votre premier voyage\">",
+            "<h2>Votre premier voyage</h2>",
+            "<p>Les Recits Vivants ne se decouvrent pas en une seule fois.</p>",
+            "<p>Ils se traversent.</p>",
+            "<p>Durant quelques minutes, je vais vous faire decouvrir cinq lieux essentiels de Makerland.</p>",
+            "<p>Il ne s'agit pas de tout comprendre. Seulement de sentir comment ce territoire est construit.</p>",
+            "<div class=\"first-journey__actions\">",
+            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-start>Commencer le voyage</button>",
+            "<button type=\"button\" data-first-journey-threshold>Retour au seuil</button>",
+            "</div>",
+            "</section>"
+        ].join("");
+
+        state.root.querySelector("[data-first-journey-start]").addEventListener("click", startJourney);
+        state.root.querySelector("[data-first-journey-threshold]").addEventListener("click", clearRoot);
     }
 
     function renderStep() {
@@ -211,6 +234,7 @@
     }
 
     function startJourney() {
+        document.body.classList.remove("first-journey-intro-ready");
         state.memory = {
             choice: "guided",
             active: true,
@@ -278,6 +302,7 @@
     }
 
     function clearRoot() {
+        document.body.classList.remove("first-journey-intro-ready");
         state.root.innerHTML = "";
     }
 

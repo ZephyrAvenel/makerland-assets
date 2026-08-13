@@ -148,7 +148,7 @@
         const first = root.querySelector("[data-living-home-first]");
         if (first) {
             first.addEventListener("click", () => {
-                document.dispatchEvent(new CustomEvent("makerland:firstJourney:start"));
+                document.dispatchEvent(new CustomEvent("makerland:firstJourney:intro"));
             });
         }
 
