@@ -113,12 +113,45 @@
 
     function resolveStep(step) {
         const hints = step.resourceHints || [];
-        return Object.assign({}, step, {
+        const resolved = Object.assign({}, step, {
             resources: hints.map(id => ({
                 id,
                 label: labelFor(id)
             }))
         });
+        return withResolvedDestination(resolved);
+    }
+
+    function withResolvedDestination(step) {
+        if (step.target || step.href) {
+            return step;
+        }
+
+        const firstHint = (step.resourceHints || [])[0] || "";
+
+        if (step.kind === "archive" && /^D\d{3}$/.test(firstHint)) {
+            return Object.assign({}, step, {
+                href: "atelier/archives/" + firstHint.toLowerCase() + ".html"
+            });
+        }
+
+        if (step.kind === "concept") {
+            return Object.assign({}, step, { href: "constellation/vivante/" });
+        }
+
+        if (step.kind === "work") {
+            return Object.assign({}, step, { target: "e06_fiction" });
+        }
+
+        if (step.kind === "image") {
+            return Object.assign({}, step, { href: "docs/patrimoine/IMAGE_CATALOG.md" });
+        }
+
+        if (step.kind === "figure") {
+            return Object.assign({}, step, { href: "docs/patrimoine/FIGURE_CATALOG.md" });
+        }
+
+        return step;
     }
 
     function buildPaths() {
@@ -269,6 +302,7 @@
         state.elements.detail.querySelectorAll("[data-go-screen]").forEach(button => {
             button.addEventListener("click", () => {
                 markResourceStep(path);
+                state.elements.layer.classList.remove("is-open");
                 if (typeof Navigation !== "undefined" && Navigation.goTo) {
                     Navigation.goTo(button.dataset.goScreen);
                 }
