@@ -23,9 +23,9 @@
         const details = createElement("dl", "archive-details");
 
         [
-            ["Date", item.date || "A documenter"],
+            ["Volume", item.date || "A documenter"],
             ["Origine", item.origin || "Archive vivante"],
-            ["Etat", item.status || "A enrichir"]
+            ["Statut", item.status || "A enrichir"]
         ].forEach(pair => {
             const term = createElement("dt", "", pair[0]);
             const description = createElement("dd", "", pair[1]);

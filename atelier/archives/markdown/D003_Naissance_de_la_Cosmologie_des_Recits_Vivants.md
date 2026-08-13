@@ -1,7 +1,7 @@
-﻿# D003 — Naissance de la Cosmologie des Récits Vivants
+# D003 — Naissance de la Cosmologie des Récits Vivants
 
 ## Statut
 Archive fondatrice — Volume I
 
 ## Note
-Ce fichier constitue le support éditorial de l'archive D003. Il est destiné à être enrichi avec le contenu complet (contexte, dialogue, concepts, œuvres, citations, résonances et intégration Makerland) élaboré au cours de notre travail.
+Ce fichier constitue le support editorial de l'archive D003. Il est destine a etre enrichi avec le contenu complet (contexte, dialogue, concepts, oeuvres, citations, resonances et integration aux Recits Vivants) elabore au cours de notre travail.
