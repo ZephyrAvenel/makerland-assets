@@ -488,7 +488,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     .living-home__paths{
         left:50%;
         right:auto;
-        bottom:4px;
+        bottom:12px;
         grid-template-columns:repeat(3, minmax(0, 1fr));
         width:min(620px, calc(var(--screen-content-width) * .68));
         gap:4px;
@@ -535,14 +535,14 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
     .living-home__path-action{
         margin-top:0;
-        padding:3px 8px;
+        padding:2px 8px;
         font-size:9px;
         white-space:nowrap;
     }
 
     .living-home__path-row.is-open .living-home__path-panel{
-        max-height:24px;
-        padding:0 10px 5px;
+        max-height:22px;
+        padding:0 10px 4px;
     }
 }
 

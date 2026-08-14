@@ -324,6 +324,53 @@
     }
 }
 
+@media (orientation:landscape){
+    .archive-shell{
+        width:min(1080px, 100%);
+        margin-top:clamp(24px, 5vh, 42px);
+    }
+
+    .archive-model-grid,
+    .archive-two-columns,
+    .archive-fragment-grid,
+    .archive-quote-grid{
+        grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .archive-markdown{
+        width:min(860px, 100%);
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    .archive-header,
+    .archive-why,
+    .archive-summary,
+    .archive-model-grid,
+    .archive-two-columns,
+    .archive-navigation,
+    .archive-markdown{
+        margin-top:18px;
+    }
+
+    .archive-card,
+    .archive-quote,
+    .archive-fragment,
+    .archive-markdown{
+        padding:16px;
+    }
+
+    .archive-fragment p,
+    .archive-markdown p,
+    .archive-markdown li{
+        line-height:1.5;
+    }
+
+    .archive-navigation__links{
+        gap:8px;
+    }
+}
+
 @media (prefers-reduced-motion:reduce) {
     .archive-explore,
     .archive-navigation__links a{

@@ -403,6 +403,25 @@ body.first-journey-intro-ready .living-home{
     }
 }
 
+@media (orientation:landscape){
+    .first-journey__welcome,
+    .first-journey__intro,
+    .first-journey__forest{
+        max-height:calc(var(--screen-content-height) * .82);
+        overflow-y:auto;
+    }
+
+    .first-journey__step{
+        max-height:calc(var(--screen-content-height) * .84);
+        min-height:0;
+        overflow-y:auto;
+    }
+
+    .first-journey__actions{
+        gap:8px;
+    }
+}
+
 @media (max-width:768px) and (orientation:landscape){
     .first-journey__step{
         right:calc(var(--screen-content-left) + var(--screen-content-width) * .04);

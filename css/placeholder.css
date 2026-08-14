@@ -1310,6 +1310,92 @@ h1{
     }
 }
 
+@media (orientation:landscape){
+    body{
+        display:block;
+        padding:clamp(18px, 3.2vw, 32px);
+    }
+
+    main{
+        margin:0 auto;
+    }
+
+    .placeholder-grid,
+    .path-cards,
+    .living-cycle{
+        grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .editorial-flow,
+    .room-section{
+        margin-top:clamp(24px, 4vh, 38px);
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    body{
+        padding:14px;
+    }
+
+    main{
+        width:min(1040px, 100%);
+    }
+
+    main::before{
+        width:48px;
+        height:48px;
+        margin-bottom:12px;
+        font-size:22px;
+    }
+
+    .rv-seal{
+        width:54px;
+        height:54px;
+        margin-bottom:12px;
+    }
+
+    h1{
+        margin-bottom:10px;
+    }
+
+    h2{
+        margin-bottom:10px;
+    }
+
+    p,
+    blockquote,
+    .room-quote,
+    .placeholder-note{
+        line-height:1.42;
+    }
+
+    section,
+    .room-section,
+    .editorial-flow,
+    .archive-shell{
+        margin-top:22px;
+    }
+
+    .placeholder-grid,
+    .path-cards,
+    .living-cycle{
+        gap:10px;
+    }
+
+    .placeholder-card,
+    .editorial-card,
+    .journey-memory,
+    .cycle-echo,
+    .cycle-transfer{
+        padding:14px;
+    }
+
+    .placeholder-return{
+        margin-top:22px;
+        padding:9px 15px;
+    }
+}
+
 @media (prefers-reduced-motion:reduce) {
     main{
         animation:none;
