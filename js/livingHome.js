@@ -22,6 +22,7 @@
 
     let root = null;
     let currentScreen = null;
+    let otherPathsOpen = false;
 
     function init() {
         ensureRoot();
@@ -52,6 +53,7 @@
         if (screenId !== "e01_accueil") {
             document.body.classList.remove("living-home-ready");
             root.innerHTML = "";
+            otherPathsOpen = false;
             return;
         }
 
@@ -126,20 +128,24 @@
 
     function renderDoors(known, firstJourneyCompleted) {
         return [
-            "<nav class=\"living-home__doors\" aria-label=\"Facons d'entrer dans les Recits Vivants\">",
-            "<button type=\"button\" class=\"living-home__door\" data-living-home-first>",
+            "<nav class=\"living-home__paths\" aria-label=\"Chemins de voyage\">",
+            "<button type=\"button\" class=\"living-home__path-main\" data-living-home-first>",
+            "<span>Votre chemin</span>",
             `<strong>${firstJourneyCompleted ? "Premier Voyage accompli &#10003;" : "Je decouvre"}</strong>`,
             `<span>${firstJourneyCompleted ? "Vous pouvez recommencer ce voyage ou poursuivre librement votre exploration." : "Un premier voyage d'environ cinq minutes."}</span>`,
             firstJourneyCompleted ? "<em>Revoir le Premier Voyage</em>" : "",
             "</button>",
-            "<button type=\"button\" class=\"living-home__door\" data-living-home-resume>",
+            `<button type="button" class="living-home__paths-toggle" aria-expanded="${otherPathsOpen ? "true" : "false"}" data-living-home-toggle>Autres chemins ${otherPathsOpen ? "▴" : "▾"}</button>`,
+            `<div class="living-home__paths-more${otherPathsOpen ? " is-open" : ""}" data-living-home-more>`,
+            "<button type=\"button\" class=\"living-home__path-secondary\" data-living-home-resume>",
             "<strong>Je poursuis mon voyage</strong>",
             `<span>${known ? "Reprendre la derniere trace ouverte." : "Ouvrir le Carnet quand il existera deja une trace."}</span>`,
             "</button>",
-            "<button type=\"button\" class=\"living-home__door\" data-living-home-free>",
+            "<button type=\"button\" class=\"living-home__path-secondary\" data-living-home-free>",
             "<strong>J'explore librement</strong>",
             "<span>Entrer sans guidage, au rythme des Recits Vivants.</span>",
             "</button>",
+            "</div>",
             "</nav>"
         ].join("");
     }
@@ -160,6 +166,19 @@
         const resume = root.querySelector("[data-living-home-resume]");
         if (resume) {
             resume.addEventListener("click", resumeJourney);
+        }
+
+        const toggle = root.querySelector("[data-living-home-toggle]");
+        if (toggle) {
+            toggle.addEventListener("click", () => {
+                const more = root.querySelector("[data-living-home-more]");
+                otherPathsOpen = !otherPathsOpen;
+                toggle.setAttribute("aria-expanded", otherPathsOpen ? "true" : "false");
+                toggle.textContent = `Autres chemins ${otherPathsOpen ? "▴" : "▾"}`;
+                if (more) {
+                    more.classList.toggle("is-open", otherPathsOpen);
+                }
+            });
         }
 
         const continueButton = root.querySelector("[data-living-home-continue]");
