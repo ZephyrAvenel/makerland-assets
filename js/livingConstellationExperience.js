@@ -193,12 +193,14 @@
         layer.innerHTML = [
             "<section class=\"living-constellation-experience__quote\" data-lce-quote></section>",
             "<section class=\"living-constellation-experience__cards\" data-lce-cards aria-label=\"Resonances du jour\"></section>",
-            "<section class=\"living-constellation-experience__response\" data-lce-response aria-live=\"polite\"></section>"
+            "<section class=\"living-constellation-experience__response\" data-lce-response aria-live=\"polite\"></section>",
+            "<section class=\"living-constellation-experience__detail\" data-lce-detail aria-live=\"polite\"></section>"
         ].join("");
         screen.appendChild(layer);
         state.elements.quote = layer.querySelector("[data-lce-quote]");
         state.elements.cards = layer.querySelector("[data-lce-cards]");
         state.elements.response = layer.querySelector("[data-lce-response]");
+        state.elements.detail = layer.querySelector("[data-lce-detail]");
     }
 
     function render() {
@@ -214,45 +216,96 @@
         const seasonal = state.data.daily.seasonalPhrases[season] || "";
         const momentPhrase = state.data.daily.momentPhrases[moment] || "";
         state.elements.quote.innerHTML = [
+            "<span>Lieu vivant</span>",
+            "<h2>Constellation Vivante</h2>",
+            "<p>Les oeuvres, les archives, les images et les idees ne restent pas isolees. Ici, elles commencent a se repondre.</p>",
             `<blockquote>${escapeHtml(state.daily.quote)}</blockquote>`,
-            `<p>${escapeHtml(seasonal || momentPhrase)}</p>`
+            `<p class="living-constellation-experience__whisper">${escapeHtml(seasonal || momentPhrase)}</p>`
         ].join("");
     }
 
     function renderCards() {
+        const archive = state.data.mapping.mappings.find(item => item.id === "D010") || state.cards.archive;
         const cards = [
             {
                 type: "Archive Vivante",
-                title: state.cards.archive.id,
-                text: state.cards.archive.label,
-                action: "Decouvrir"
+                title: archive.id,
+                text: archive.label,
+                href: "atelier/archives/d010.html",
+                action: "Ouvrir D010"
             },
             {
                 type: "Concept Vivant",
                 title: state.cards.concept.name,
-                text: "Une idee du Graphe Vivant revient aujourd'hui."
+                text: "Une idee du Graphe Vivant revient aujourd'hui.",
+                detailType: "concept"
             },
             {
                 type: "Image patrimoniale",
                 title: cleanTitle(state.cards.image.name),
                 text: state.cards.image.subject || "Une image issue du patrimoine RV-090.",
-                image: assetPath(state.cards.image)
+                image: assetPath(state.cards.image),
+                detailType: "image"
             },
             {
                 type: "Oeuvre en resonance",
                 title: cleanTitle(state.cards.work.title),
-                text: "Une oeuvre deja reliee au patrimoine des Recits Vivants."
+                text: "Une oeuvre deja reliee au patrimoine des Recits Vivants.",
+                detailType: "work"
             }
         ];
 
-        state.elements.cards.innerHTML = cards.map(card => [
-            "<article class=\"living-constellation-experience__card\">",
+        state.elements.cards.innerHTML = [
+            "<h2>Resonances proposees</h2>",
+            "<div class=\"living-constellation-experience__card-grid\">",
+            cards.map((card, index) => [
+            card.href
+                ? `<a class="living-constellation-experience__card" href="${escapeHtml(card.href)}" data-lce-card="${index}">`
+                : `<button type="button" class="living-constellation-experience__card" data-lce-card="${index}">`,
             `<span>${escapeHtml(card.type)}</span>`,
             `<h3>${escapeHtml(card.title)}</h3>`,
             `<p>${escapeHtml(card.text || "")}</p>`,
             card.image ? `<img src="${escapeHtml(card.image)}" alt="">` : "",
-            "</article>"
-        ].join("")).join("");
+            card.action ? `<em>${escapeHtml(card.action)}</em>` : "<em>Explorer</em>",
+            card.href ? "</a>" : "</button>"
+            ].join("")).join(""),
+            "</div>"
+        ].join("");
+
+        state.elements.cards.querySelectorAll("[data-lce-card]").forEach(button => {
+            const card = cards[Number(button.getAttribute("data-lce-card"))];
+            if (!card || card.href) return;
+            button.addEventListener("click", () => renderDetailCard(card));
+        });
+    }
+
+    function renderDetailCard(card) {
+        const image = card.detailType === "image" && card.image
+            ? `<img src="${escapeHtml(card.image)}" alt="">`
+            : "";
+        const context = detailContext(card.detailType);
+        state.elements.detail.innerHTML = [
+            "<button type=\"button\" class=\"living-constellation-experience__close\" data-lce-close aria-label=\"Fermer\">x</button>",
+            `<span>${escapeHtml(card.type)}</span>`,
+            `<h2>${escapeHtml(card.title)}</h2>`,
+            image,
+            `<p>${escapeHtml(card.text || "")}</p>`,
+            `<p>${escapeHtml(context)}</p>`
+        ].join("");
+        state.elements.detail.classList.add("is-visible");
+        state.elements.detail.querySelector("[data-lce-close]").addEventListener("click", () => {
+            state.elements.detail.classList.remove("is-visible");
+        });
+    }
+
+    function detailContext(type) {
+        if (type === "concept") {
+            return "Cette fiche resume une idee reliee aux archives, aux oeuvres et aux salles du Graphe Vivant.";
+        }
+        if (type === "image") {
+            return "Cette image appartient au patrimoine des Recits Vivants et peut accompagner plusieurs lectures.";
+        }
+        return "Cette oeuvre entre en resonance avec les archives, les concepts et les chemins disponibles dans la Constellation.";
     }
 
     function assetPath(asset) {
