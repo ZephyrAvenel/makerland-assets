@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sandbox Android</title>
+    <link rel="stylesheet" href="input-sandbox.css">
+    <script>
+        (function () {
+            var stage = new URLSearchParams(window.location.search).get("stage") || "0";
+            var stages = {
+                "1": ["../js/app.js"],
+                "2": ["../js/app.js", "../js/livingOverlayManager.js"],
+                "3": ["../js/app.js", "../js/livingOverlayManager.js", "../js/constellationScene.js"],
+                "4": ["../js/app.js", "../js/livingOverlayManager.js", "../js/constellationScene.js", "../js/livingSky.js"],
+                "5": ["../js/app.js", "../js/livingOverlayManager.js", "../js/constellationScene.js", "../js/livingSky.js", "../js/travelerConstellation.js"],
+                "6": ["../js/app.js", "../js/livingOverlayManager.js", "../js/constellationScene.js", "../js/livingSky.js", "../js/travelerConstellation.js", "../js/livingConstellationExperience.js"]
+            };
+            (stages[stage] || []).forEach(function (src) {
+                document.write('<script src="' + src + '"><\\/script>');
+            });
+        })();
+    </script>
+</head>
+<body>
+    <main class="sandbox-shell">
+        <section class="sandbox-card" aria-labelledby="sandboxTitle">
+            <p class="sandbox-kicker">Diagnostic tactile</p>
+            <h1 id="sandboxTitle">Sandbox Android</h1>
+            <p class="sandbox-note">
+                Page isolee pour verifier le focus natif d'un champ de saisie sur Android.
+            </p>
+
+            <label class="sandbox-input-label" for="storyInput">
+                Zone de saisie
+            </label>
+            <textarea id="storyInput" rows="7" placeholder="Touchez ici puis ecrivez quelques mots."></textarea>
+
+            <button id="testInputButton" type="button">
+                Tester la saisie
+            </button>
+        </section>
+
+        <section class="sandbox-card sandbox-steps" aria-labelledby="sandboxStepsTitle">
+            <h2 id="sandboxStepsTitle">Etapes d'isolement</h2>
+            <p>
+                Charger un module a la fois, puis tester le premier toucher sur le champ.
+            </p>
+            <div class="sandbox-step-grid">
+                <button type="button" data-stage="0">0 - textarea seul</button>
+                <button type="button" data-stage="1">1 - app.js</button>
+                <button type="button" data-stage="2">2 - Overlay</button>
+                <button type="button" data-stage="3">3 - Scene</button>
+                <button type="button" data-stage="4">4 - Sky</button>
+                <button type="button" data-stage="5">5 - Traveler</button>
+                <button type="button" data-stage="6">6 - Experience</button>
+            </div>
+        </section>
+
+        <section class="sandbox-card sandbox-log-card" aria-labelledby="sandboxLogTitle">
+            <div class="sandbox-log-header">
+                <h2 id="sandboxLogTitle">Journal</h2>
+                <button id="clearLogButton" type="button">Effacer</button>
+            </div>
+            <pre id="eventLog" aria-live="polite"></pre>
+        </section>
+    </main>
+
+    <script src="input-sandbox.js"></script>
+</body>
+</html>
