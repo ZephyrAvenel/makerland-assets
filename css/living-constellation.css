@@ -1,5 +1,6 @@
 .living-constellation-shell{
     width:min(1180px, 100%);
+    --reading-panel-end-space:clamp(64px, 12dvh, 112px);
 }
 
 .living-constellation-intro{
@@ -134,7 +135,7 @@
 
 .living-constellation-detail{
     margin:20px;
-    padding:22px;
+    padding:22px 22px var(--reading-panel-end-space);
     border-radius:22px;
 }
 
@@ -197,6 +198,12 @@
 
     .living-constellation-stage{
         min-height:560px;
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    .living-constellation-shell{
+        --reading-panel-end-space:clamp(48px, 14dvh, 86px);
     }
 }
 

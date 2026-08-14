@@ -3,6 +3,7 @@
     inset:0;
     z-index:59;
     pointer-events:none;
+    --reading-panel-end-space:clamp(78px, 14dvh, 124px);
     color:rgba(255,243,218,.9);
     font-family:Georgia, "Times New Roman", serif;
 }
@@ -102,7 +103,14 @@
 
 .living-exhibitions__detail{
     overflow:auto;
-    padding-right:4px;
+    padding:0 4px var(--reading-panel-end-space) 0;
+    overscroll-behavior:contain;
+}
+
+.living-exhibitions__close{
+    position:sticky;
+    bottom:0;
+    z-index:2;
 }
 
 .living-exhibitions__detail h2,
@@ -224,6 +232,12 @@
     .living-exhibitions__grid{
         grid-template-columns:repeat(2, minmax(0, 1fr));
         gap:7px;
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    .living-exhibitions{
+        --reading-panel-end-space:clamp(64px, 18dvh, 96px);
     }
 }
 

@@ -1,6 +1,8 @@
 .archive-shell{
     width:min(960px, 100%);
     margin:46px auto 0;
+    padding-bottom:clamp(64px, 12dvh, 120px);
+    box-sizing:border-box;
     text-align:left;
 }
 
@@ -271,7 +273,7 @@
 .archive-markdown{
     width:min(780px, 100%);
     margin:28px auto 0;
-    padding:22px;
+    padding:22px 22px clamp(58px, 10dvh, 96px);
     border:1px solid rgba(255,224,158,.16);
     border-radius:22px;
     background:rgba(255,255,255,.026);
@@ -358,6 +360,14 @@
     .archive-fragment,
     .archive-markdown{
         padding:16px;
+    }
+
+    .archive-shell{
+        padding-bottom:clamp(48px, 14dvh, 86px);
+    }
+
+    .archive-markdown{
+        padding-bottom:clamp(48px, 14dvh, 86px);
     }
 
     .archive-fragment p,
