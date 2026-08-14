@@ -402,6 +402,7 @@
     function renderPassportCard() {
         return [
             "<section class=\"first-journey__passport-card\" aria-label=\"Passeport du Voyageur\">",
+            "<span class=\"first-journey__passport-card-meta\">Trace du voyage</span>",
             "<strong>Passeport du Voyageur</strong>",
             "<span>Premier Voyage : accompli</span>",
             "<span>Sept portes franchies.</span>",
