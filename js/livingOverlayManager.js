@@ -208,6 +208,7 @@
         const host = screen();
         if (!host) return;
         setState(DEFAULT_STATE);
+        bindWriting(host);
         document.addEventListener("keydown", event => {
             if (event.key === "Escape") {
                 closeActive();
@@ -219,6 +220,46 @@
             if (layer && layer.element && layer.element.contains(event.target)) return;
             closeActive();
         });
+    }
+
+    function bindWriting(host) {
+        const panel = host.querySelector(".constellation-panel");
+        const textarea = host.querySelector("#storyInput");
+        const button = host.querySelector("#shareStoryButton");
+        if (!panel || !textarea || !button) return;
+
+        const openWriting = () => {
+            if (state.active === "WRITE") {
+                panel.classList.add("is-writing-active");
+                return;
+            }
+            activate("WRITE", {
+                close: closeWriting,
+                element: panel,
+                focus: textarea
+            });
+            panel.classList.add("is-writing-active");
+        };
+
+        const releaseWriting = () => {
+            closeWriting();
+            clear("WRITE");
+        };
+
+        panel.addEventListener("pointerdown", openWriting);
+        textarea.addEventListener("focus", openWriting);
+        textarea.addEventListener("input", openWriting);
+        button.addEventListener("click", () => {
+            window.setTimeout(releaseWriting, 140);
+        });
+    }
+
+    function closeWriting() {
+        const host = screen();
+        const panel = host ? host.querySelector(".constellation-panel") : null;
+        if (panel) {
+            panel.classList.remove("is-writing-active");
+        }
     }
 
     window.LivingOverlayManager = {
