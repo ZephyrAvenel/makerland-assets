@@ -133,6 +133,156 @@
     outline-offset:4px;
 }
 
+.constellation-scene__answer-star,
+.constellation-scene__relation-line,
+.constellation-scene__first-words,
+.constellation-scene__card-target,
+.constellation-scene__card-reveal{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.constellation-scene__answer-star{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .63);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .11);
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    transform:scale(.72);
+}
+
+.constellation-scene__answer-star::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:rgba(255,239,196,.9);
+    box-shadow:0 0 18px rgba(255,218,143,.58);
+    transform:translate(-50%, -50%);
+}
+
+.constellation-scene__relation-line{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .635);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .15);
+    width:calc(var(--screen-content-width) * .13);
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,223,154,.54), transparent);
+    box-shadow:0 0 14px rgba(255,218,143,.22);
+    transform:rotate(28deg) scaleX(.25);
+    transform-origin:left center;
+}
+
+.constellation-scene__first-words{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .56);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .23);
+    width:calc(var(--screen-content-width) * .26);
+    margin:0;
+    color:rgba(255,239,205,.76);
+    font-size:clamp(12px, calc(var(--screen-content-width) * .012), 18px);
+    line-height:1.35;
+    text-align:center;
+    text-shadow:0 2px 16px rgba(0,0,0,.78), 0 0 16px rgba(255,214,139,.18);
+    transform:translateY(8px);
+}
+
+.constellation-scene__card-target{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .735);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+    width:calc(var(--screen-content-width) * .13);
+    height:calc(var(--screen-content-height) * .19);
+    border:0;
+    border-radius:18px;
+    background:radial-gradient(ellipse at center, rgba(255,224,166,.18), transparent 68%);
+    filter:drop-shadow(0 0 18px rgba(255,215,138,.14));
+    cursor:pointer;
+    transform:rotate(5deg) translateY(4px);
+}
+
+.constellation-scene__card-target:focus-visible{
+    outline:1px solid rgba(255,226,165,.42);
+    outline-offset:4px;
+}
+
+.constellation-scene__card-reveal{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .66);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .265);
+    width:calc(var(--screen-content-width) * .23);
+    box-sizing:border-box;
+    color:rgba(255,240,211,.86);
+    text-align:center;
+    text-shadow:0 2px 16px rgba(0,0,0,.78), 0 0 18px rgba(255,214,139,.16);
+    transform:translateY(10px);
+}
+
+.constellation-scene__card-reveal h2{
+    margin:0;
+    color:rgba(255,226,170,.9);
+    font-size:clamp(13px, calc(var(--screen-content-width) * .013), 20px);
+    line-height:1.22;
+}
+
+.constellation-scene__card-reveal p{
+    margin:7px 0 0;
+    font-size:clamp(11px, calc(var(--screen-content-width) * .011), 16px);
+    line-height:1.36;
+}
+
+.constellation-scene__card-reveal button{
+    margin-top:10px;
+    border:0;
+    border-bottom:1px solid rgba(255,226,165,.42);
+    padding:0 0 3px;
+    color:rgba(255,229,180,.9);
+    background:transparent;
+    font:inherit;
+    font-size:clamp(11px, calc(var(--screen-content-width) * .01), 15px);
+    cursor:pointer;
+    text-shadow:inherit;
+}
+
+.constellation-scene__card-reveal button:focus-visible{
+    outline:1px solid rgba(255,226,165,.42);
+    outline-offset:4px;
+}
+
+#e08_constellation.constellation-scene-meeting:not(.constellation-scene-awakened) .constellation-scene__approach{
+    opacity:1;
+    animation:constellationFirstStarTouch 5.4s ease-in-out infinite;
+}
+
+#e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__answer-star{
+    animation:constellationAnswerStar 6s ease-in-out both;
+}
+
+#e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__relation-line{
+    animation:constellationRelationLine 4.8s ease-in-out both;
+}
+
+#e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__first-words{
+    animation:constellationFirstWords 7.2s var(--constellation-scene-ease) .45s both;
+}
+
+#e08_constellation.constellation-scene-card-ready:not(.constellation-scene-awakened) .constellation-scene__card-target{
+    opacity:1;
+    pointer-events:auto;
+    animation:constellationCardInvitation 6.8s ease-in-out infinite;
+}
+
+#e08_constellation.constellation-scene-card-open:not(.constellation-scene-awakened) .constellation-scene__card-target{
+    animation:constellationCardOpen 1s var(--constellation-scene-ease) both;
+}
+
+#e08_constellation.constellation-scene-card-open:not(.constellation-scene-awakened) .constellation-scene__card-reveal{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+    transition:opacity 1s var(--constellation-scene-ease), transform 1s var(--constellation-scene-ease);
+}
+
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__quote,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__cards,
@@ -233,6 +383,84 @@
     }
 }
 
+@keyframes constellationFirstStarTouch{
+    0%, 100%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 18px rgba(255,221,151,.48));
+    }
+    48%{
+        transform:scale(1.18);
+        filter:drop-shadow(0 0 34px rgba(255,221,151,.72));
+    }
+}
+
+@keyframes constellationAnswerStar{
+    0%{
+        opacity:0;
+        transform:scale(.62);
+    }
+    22%, 76%{
+        opacity:1;
+        transform:scale(1);
+    }
+    100%{
+        opacity:.46;
+        transform:scale(.92);
+    }
+}
+
+@keyframes constellationRelationLine{
+    0%{
+        opacity:0;
+        transform:rotate(28deg) scaleX(.18);
+    }
+    24%, 70%{
+        opacity:.72;
+        transform:rotate(28deg) scaleX(1);
+    }
+    100%{
+        opacity:.16;
+        transform:rotate(28deg) scaleX(.72);
+    }
+}
+
+@keyframes constellationFirstWords{
+    0%{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    18%, 72%{
+        opacity:1;
+        transform:translateY(0);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-4px);
+    }
+}
+
+@keyframes constellationCardInvitation{
+    0%, 100%{
+        opacity:.36;
+        transform:rotate(5deg) translateY(4px);
+    }
+    50%{
+        opacity:.78;
+        transform:rotate(5deg) translateY(0);
+    }
+}
+
+@keyframes constellationCardOpen{
+    from{
+        opacity:.78;
+        transform:rotate(5deg) translateY(0);
+    }
+    to{
+        opacity:.42;
+        transform:rotate(2deg) translateY(-3px);
+    }
+}
+
 @media (max-width:768px){
     .constellation-scene__whisper{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .2);
@@ -247,6 +475,37 @@
         width:38px;
         height:38px;
     }
+
+    .constellation-scene__first-words{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .24);
+        width:calc(var(--screen-content-width) * .34);
+        font-size:clamp(10px, calc(var(--screen-content-width) * .02), 14px);
+    }
+
+    .constellation-scene__answer-star{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .62);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    }
+
+    .constellation-scene__relation-line{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .62);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .15);
+        width:calc(var(--screen-content-width) * .14);
+    }
+
+    .constellation-scene__card-target{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .73);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .06);
+        width:calc(var(--screen-content-width) * .15);
+        height:calc(var(--screen-content-height) * .18);
+    }
+
+    .constellation-scene__card-reveal{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .58);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .29);
+        width:calc(var(--screen-content-width) * .34);
+    }
 }
 
 @media (max-width:768px) and (orientation:landscape){
@@ -259,6 +518,10 @@
         width:34px;
         height:34px;
     }
+
+    .constellation-scene__card-reveal{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .27);
+    }
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -266,12 +529,24 @@
     .constellation-scene__lantern,
     .constellation-scene__card-light,
     #e08_constellation.constellation-scene-visible .constellation-scene__whisper,
-    #e08_constellation.constellation-scene-inviting:not(.constellation-scene-awakened) .constellation-scene__approach{
+    #e08_constellation.constellation-scene-inviting:not(.constellation-scene-awakened) .constellation-scene__approach,
+    #e08_constellation.constellation-scene-meeting:not(.constellation-scene-awakened) .constellation-scene__approach,
+    #e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__answer-star,
+    #e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__relation-line,
+    #e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__first-words,
+    #e08_constellation.constellation-scene-card-ready:not(.constellation-scene-awakened) .constellation-scene__card-target,
+    #e08_constellation.constellation-scene-card-open:not(.constellation-scene-awakened) .constellation-scene__card-target{
         animation:none;
     }
 
     #e08_constellation.constellation-scene-visible .constellation-scene__whisper{
         opacity:1;
         transform:none;
+    }
+
+    #e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__answer-star,
+    #e08_constellation.constellation-scene-relation:not(.constellation-scene-awakened) .constellation-scene__relation-line,
+    #e08_constellation.constellation-scene-card-ready:not(.constellation-scene-awakened) .constellation-scene__card-target{
+        opacity:1;
     }
 }

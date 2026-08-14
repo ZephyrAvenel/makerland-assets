@@ -3,6 +3,10 @@
     const VISIBLE_CLASS = "constellation-scene-visible";
     const SILENT_CLASS = "constellation-scene-silent";
     const INVITING_CLASS = "constellation-scene-inviting";
+    const MEETING_CLASS = "constellation-scene-meeting";
+    const RELATION_CLASS = "constellation-scene-relation";
+    const CARD_READY_CLASS = "constellation-scene-card-ready";
+    const CARD_OPEN_CLASS = "constellation-scene-card-open";
     const AWAKENED_CLASS = "constellation-scene-awakened";
 
     const state = {
@@ -42,19 +46,38 @@
             "<div class=\"constellation-scene__lantern\" aria-hidden=\"true\"></div>",
             "<div class=\"constellation-scene__card-light\" aria-hidden=\"true\"></div>",
             "<p class=\"constellation-scene__whisper\" aria-live=\"polite\">Ici, les recits se repondent.</p>",
-            "<button type=\"button\" class=\"constellation-scene__approach\" data-constellation-approach aria-label=\"Approcher une etoile de la Constellation\"></button>"
+            "<button type=\"button\" class=\"constellation-scene__approach\" data-constellation-approach aria-label=\"Approcher une etoile de la Constellation\"></button>",
+            "<span class=\"constellation-scene__answer-star\" aria-hidden=\"true\"></span>",
+            "<span class=\"constellation-scene__relation-line\" aria-hidden=\"true\"></span>",
+            "<p class=\"constellation-scene__first-words\" aria-live=\"polite\">Les recits ne vivent jamais seuls.</p>",
+            "<button type=\"button\" class=\"constellation-scene__card-target\" data-constellation-card aria-label=\"Approcher une carte suspendue\"></button>",
+            "<article class=\"constellation-scene__card-reveal\" data-constellation-card-reveal aria-live=\"polite\">",
+            "<h2>Une parole suspendue</h2>",
+            "<p>Chaque relation eclaire une autre histoire.</p>",
+            "<button type=\"button\" data-constellation-explore>Explorer...</button>",
+            "</article>"
         ].join("");
 
         state.screen.appendChild(layer);
         state.layer = layer;
-        layer.querySelector("[data-constellation-approach]").addEventListener("click", awaken);
+        layer.querySelector("[data-constellation-approach]").addEventListener("click", startMeeting);
+        layer.querySelector("[data-constellation-card]").addEventListener("click", revealCard);
+        layer.querySelector("[data-constellation-explore]").addEventListener("click", awaken);
     }
 
     function resetScene() {
         if (!state.screen) return;
         clearTimers();
         state.screen.classList.add(SILENT_CLASS);
-        state.screen.classList.remove(VISIBLE_CLASS, INVITING_CLASS, AWAKENED_CLASS);
+        state.screen.classList.remove(
+            VISIBLE_CLASS,
+            INVITING_CLASS,
+            MEETING_CLASS,
+            RELATION_CLASS,
+            CARD_READY_CLASS,
+            CARD_OPEN_CLASS,
+            AWAKENED_CLASS
+        );
 
         schedule(() => {
             if (isVisible(state.screen)) {
@@ -67,6 +90,34 @@
                 state.screen.classList.add(INVITING_CLASS);
             }
         }, 7600);
+    }
+
+    function startMeeting() {
+        if (!state.screen || state.screen.classList.contains(MEETING_CLASS)) {
+            return;
+        }
+        clearTimers();
+        state.screen.classList.add(MEETING_CLASS);
+        state.screen.classList.remove(INVITING_CLASS);
+
+        schedule(() => {
+            if (isVisible(state.screen)) {
+                state.screen.classList.add(RELATION_CLASS);
+            }
+        }, 1400);
+
+        schedule(() => {
+            if (isVisible(state.screen)) {
+                state.screen.classList.add(CARD_READY_CLASS);
+            }
+        }, 3300);
+    }
+
+    function revealCard() {
+        if (!state.screen || !state.screen.classList.contains(CARD_READY_CLASS)) {
+            return;
+        }
+        state.screen.classList.add(CARD_OPEN_CLASS);
     }
 
     function awaken() {
@@ -109,6 +160,7 @@
 
     window.ConstellationScene = {
         init,
+        startMeeting,
         awaken
     };
 
