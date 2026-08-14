@@ -251,6 +251,7 @@
                 type: "Oeuvre en resonance",
                 title: cleanTitle(state.cards.work.title),
                 text: "Une oeuvre deja reliee au patrimoine des Recits Vivants.",
+                image: coverPath(state.cards.work),
                 detailType: "work"
             }
         ];
@@ -265,7 +266,7 @@
             `<span>${escapeHtml(card.type)}</span>`,
             `<h3>${escapeHtml(card.title)}</h3>`,
             `<p>${escapeHtml(card.text || "")}</p>`,
-            card.image ? `<img src="${escapeHtml(card.image)}" alt="">` : "",
+            card.image ? `<img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.title)}">` : "",
             card.action ? `<em>${escapeHtml(card.action)}</em>` : "<em>Explorer</em>",
             card.href ? "</a>" : "</button>"
             ].join("")).join(""),
@@ -280,8 +281,8 @@
     }
 
     function renderDetailCard(card) {
-        const image = card.detailType === "image" && card.image
-            ? `<img src="${escapeHtml(card.image)}" alt="">`
+        const image = card.image
+            ? `<img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.title)}">`
             : "";
         const context = detailContext(card.detailType);
         state.elements.detail.innerHTML = [
@@ -308,12 +309,36 @@
         return "Cette oeuvre entre en resonance avec les archives, les concepts et les chemins disponibles dans la Constellation.";
     }
 
+    function coverPath(work) {
+        if (!work) return "";
+        const direct = firstValue(work, ["src", "cover", "coverUrl", "image", "urlImage", "thumbnail"]);
+        if (direct) return assetPath(direct);
+        const assetId = work.coverImage || work.coverAsset || work.imageId;
+        const asset = findAsset(assetId);
+        return assetPath(asset);
+    }
+
+    function findAsset(id) {
+        if (!id || !state.data || !state.data.assets || !Array.isArray(state.data.assets.assets)) return null;
+        return state.data.assets.assets.find(asset => asset.id === id) || null;
+    }
+
+    function firstValue(source, keys) {
+        for (let index = 0; index < keys.length; index += 1) {
+            const value = source && source[keys[index]];
+            if (typeof value === "string" && value.trim()) return value.trim();
+        }
+        return "";
+    }
+
     function assetPath(asset) {
-        const path = asset && asset.extractedPath ? asset.extractedPath : "";
+        const path = typeof asset === "string"
+            ? asset
+            : firstValue(asset, ["src", "cover", "coverUrl", "image", "urlImage", "extractedPath", "path", "file", "filename"]);
         if (!path) return "";
-        if (/^https?:\/\//.test(path)) return "";
-        if (path.indexOf("raw.githubusercontent.com/") === 0) return "";
-        return path;
+        if (/^https?:\/\//.test(path)) return encodeURI(path);
+        if (path.indexOf("raw.githubusercontent.com/") === 0) return encodeURI("https://" + path);
+        return encodeURI(path);
     }
 
     function bindSharing() {

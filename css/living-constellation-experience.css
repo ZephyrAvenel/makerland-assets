@@ -182,6 +182,8 @@
     opacity:0;
     transform:translate(-50%, 12px);
     transition:opacity .9s ease, transform .9s ease;
+    box-sizing:border-box;
+    overflow:auto;
 }
 
 .living-constellation-experience__detail{
@@ -278,6 +280,8 @@
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .12);
         bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .02);
         width:calc(var(--screen-content-width) * .76);
+        max-height:calc(var(--screen-content-height) * .42);
+        overflow:auto;
     }
 
     .living-constellation-experience__card-grid{
@@ -291,14 +295,55 @@
     }
 
     .living-constellation-experience__card img{
-        display:none;
+        height:36px;
+        object-fit:cover;
     }
 
     .living-constellation-experience__response,
     .living-constellation-experience__detail{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .54);
         width:calc(var(--screen-content-width) * .56);
+        max-height:calc(var(--screen-content-height) * .42);
         padding:12px 14px;
+    }
+}
+
+@media (max-width:768px) and (orientation:portrait){
+    .living-constellation-experience__quote{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
+        width:calc(var(--screen-content-width) * .84);
+    }
+
+    .living-constellation-experience__cards{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .06);
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .035);
+        width:calc(var(--screen-content-width) * .88);
+        max-height:calc(var(--screen-content-height) * .34);
+        padding:10px;
+        box-sizing:border-box;
+        border:1px solid rgba(255,224,166,.16);
+        border-radius:20px;
+        background:linear-gradient(180deg, rgba(6,12,21,.56), rgba(3,7,13,.42));
+        backdrop-filter:blur(9px);
+    }
+
+    .living-constellation-experience__card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .living-constellation-experience__card{
+        min-height:0;
+        padding:9px 10px;
+    }
+
+    .living-constellation-experience__response,
+    .living-constellation-experience__detail{
+        top:auto;
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .05);
+        width:calc(var(--screen-content-width) * .88);
+        max-height:calc(var(--screen-content-height) * .78);
+        padding:15px 16px;
+        z-index:4;
     }
 }
 

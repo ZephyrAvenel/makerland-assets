@@ -209,6 +209,7 @@
         max-height:calc(var(--screen-content-height) * .84);
         grid-template-columns:1fr;
         padding:11px;
+        overflow:auto;
     }
 
     .living-exhibitions__list{
@@ -224,6 +225,38 @@
     .living-exhibitions__grid{
         grid-template-columns:repeat(2, minmax(0, 1fr));
         gap:7px;
+    }
+}
+
+@media (max-width:768px) and (orientation:portrait){
+    .living-exhibitions__entry{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .075);
+        max-width:calc(var(--screen-content-width) * .84);
+        max-height:calc(var(--screen-content-height) * .28);
+        box-sizing:border-box;
+        overflow:auto;
+    }
+
+    .living-exhibitions__entry p{
+        display:block;
+    }
+
+    .living-exhibitions__panel{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+        width:calc(var(--screen-content-width) * .9);
+        max-height:calc(var(--screen-content-height) * .88);
+        z-index:3;
+    }
+
+    .living-exhibitions__list{
+        grid-template-columns:1fr;
+        max-height:calc(var(--screen-content-height) * .22);
+    }
+
+    .living-exhibitions__grid{
+        grid-template-columns:1fr;
     }
 }
 
