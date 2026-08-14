@@ -103,7 +103,10 @@
     height:100%;
     min-height:0;
     box-sizing:border-box;
-    padding:14px 16px;
+    padding:
+        clamp(34px, calc(var(--screen-content-height) * .055), 58px)
+        clamp(24px, calc(var(--screen-content-width) * .032), 46px)
+        clamp(22px, calc(var(--screen-content-height) * .04), 42px);
     border:1px solid transparent;
     border-radius:20px;
     background:transparent;
@@ -244,6 +247,7 @@
 
     #e08_constellation .constellation-panel textarea{
         max-height:24dvh;
+        padding:26px 22px 18px;
     }
 
     .living-overlay-notice{
