@@ -22,6 +22,14 @@
             quote: "Lire, ici, c'est deja entrer dans un territoire."
         },
         {
+            screen: "e03_boussole",
+            title: "Comment s'orienter dans ce territoire ?",
+            place: "Boussole Vivante - Les Cartes Narratives",
+            subtitle: "Des reperes pour explorer.",
+            text: "Vous decouvrez que les Recits Vivants ne proposent pas un chemin unique. Les Cartes Narratives offrent des reperes pour explorer un territoire selon differentes questions, tensions, themes ou experiences. Elles n'indiquent pas une direction obligatoire. Elles invitent chacun a construire son propre parcours.",
+            quote: "Une carte n'impose jamais un chemin. Elle rend le territoire habitable."
+        },
+        {
             screen: "e07_atelier",
             title: "Comment naissent-elles ?",
             place: "L'Atelier des Recits",
@@ -65,6 +73,7 @@
     function bindEvents() {
         document.addEventListener("makerland:firstJourney:intro", renderIntro);
         document.addEventListener("makerland:firstJourney:start", startJourney);
+        document.addEventListener("makerland:firstJourney:resume", resumeJourney);
 
         window.addEventListener("screenChanged", event => {
             renderForCurrentScreen(event.detail.screen);
@@ -94,6 +103,12 @@
 
         if (shouldShowWelcome(screenId)) {
             renderWelcome();
+            return;
+        }
+
+        if (screenId === "e01_accueil" && state.memory.active && !state.memory.completed) {
+            document.body.classList.remove("first-journey-active");
+            clearRoot();
             return;
         }
 
@@ -159,7 +174,7 @@
         state.root.innerHTML = [
             "<section class=\"first-journey__intro\" role=\"dialog\" aria-label=\"Votre premier voyage\">",
             "<h2>Votre premier voyage</h2>",
-            "<p>En cinq etapes, vous allez decouvrir comment naissent les Recits Vivants.</p>",
+            "<p>En six etapes, vous allez decouvrir comment naissent les Recits Vivants.</p>",
             "<p>Vous ne visiterez pas seulement des lieux.</p>",
             "<p>Vous suivrez le chemin qui conduit d'une intuition a une oeuvre.</p>",
             "<div class=\"first-journey__actions\">",
@@ -258,6 +273,36 @@
         renderStep();
     }
 
+    function resumeJourney() {
+        state.memory = readMemory();
+        if (!state.memory.active || state.memory.completed) {
+            startJourney();
+            return;
+        }
+
+        document.body.classList.remove("first-journey-intro-ready");
+        document.body.classList.add("first-journey-active");
+
+        if (state.memory.phase === "forest") {
+            navigateTo("e04_oeuvre");
+            renderForestThreshold();
+            return;
+        }
+
+        if (state.memory.phase === "conclusion") {
+            navigateTo("e08_constellation");
+            renderConclusion();
+            return;
+        }
+
+        state.memory.phase = "steps";
+        state.memory.step = clampStep(state.memory.step);
+        state.memory.updatedAt = new Date().toISOString();
+        writeMemory(state.memory);
+        navigateTo((STEPS[state.memory.step] || STEPS[0]).screen);
+        renderStep();
+    }
+
     function dismissJourney() {
         state.memory.choice = "free";
         state.memory.active = false;
@@ -285,7 +330,7 @@
         writeMemory(state.memory);
         state.root.innerHTML = [
             "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage termine\">",
-            "<h3>Vous connaissez maintenant les cinq portes des Recits Vivants.</h3>",
+            "<h3>Vous connaissez maintenant les six portes des Recits Vivants.</h3>",
             "<p>Le seuil est desormais derriere vous.</p>",
             "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
             "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
@@ -323,7 +368,7 @@
     function renderConclusion() {
         state.root.innerHTML = [
             "<aside class=\"first-journey__step first-journey__conclusion\" aria-label=\"Conclusion du Premier Voyage\">",
-            "<h3>Vous connaissez maintenant les cinq portes des Recits Vivants.</h3>",
+            "<h3>Vous connaissez maintenant les six portes des Recits Vivants.</h3>",
             "<p>Le seuil est desormais derriere vous.</p>",
             "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
             "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
@@ -357,8 +402,8 @@
             "<h2>La Foret de l'Arche</h2>",
             "<span class=\"first-journey__forest-subtitle\">Le seuil de l'Oeuvre immersive</span>",
             "<div class=\"first-journey__forest-text\">",
-            "<p>Vous avez parcouru les cinq lieux fondateurs des Recits Vivants.</p>",
-            "<p>Vous connaissez desormais leur origine, leurs oeuvres, leur atelier, leurs archives et les liens qui les unissent.</p>",
+            "<p>Vous avez parcouru les six lieux fondateurs des Recits Vivants.</p>",
+            "<p>Vous connaissez desormais leur origine, leurs oeuvres, leurs reperes, leur atelier, leurs archives et les liens qui les unissent.</p>",
             "<p>Mais un territoire ne se comprend jamais entierement depuis son seuil.</p>",
             "<p>Il arrive un moment ou il faut accepter de le traverser.</p>",
             "<p>La Foret de l'Arche n'est plus un lieu d'explication.</p>",
@@ -430,11 +475,15 @@
     function readMemory() {
         try {
             const memory = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-            memory.step = Number.isInteger(memory.step) ? memory.step : 0;
+            memory.step = clampStep(memory.step);
             return memory;
         } catch (error) {
             return { step: 0 };
         }
+    }
+
+    function clampStep(step) {
+        return Number.isInteger(step) && step >= 0 && step < STEPS.length ? step : 0;
     }
 
     function writeMemory(memory) {
