@@ -168,6 +168,12 @@
     }
 
     function resumeJourney() {
+        const firstJourney = readJson(FIRST_KEY, {});
+        if (firstJourney.active && !firstJourney.completed) {
+            document.dispatchEvent(new CustomEvent("makerland:firstJourney:resume"));
+            return;
+        }
+
         const memory = readJson(JOURNEY_KEY, {});
         if (memory.lastScreen && memory.lastScreen !== "e01_accueil") {
             navigateTo(memory.lastScreen);
