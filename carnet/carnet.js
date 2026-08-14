@@ -1,6 +1,7 @@
 (function () {
     const NARRATIVE_KEY = "makerland.narrativeMemory.v1";
     const CYCLE_KEY = "makerland:living-cycle";
+    const GUARDIAN_ENCOUNTERS_KEY = "makerland.guardianEncounters.v1";
 
     const RESONANCES = [
         "Les chemins changent avec ceux qui les parcourent.",
@@ -160,6 +161,15 @@
         return card;
     }
 
+    function escapeHtml(value) {
+        return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+    }
+
     function formatDate(value) {
         const date = new Date(value);
         return Number.isNaN(date.getTime())
@@ -176,6 +186,61 @@
 
         const index = Math.floor(Math.random() * RESONANCES.length);
         target.textContent = RESONANCES[index];
+    }
+
+    function renderGuardianWords() {
+        const target = document.querySelector("[data-journal-guardian-words]");
+
+        if (!target) {
+            return;
+        }
+
+        const payload = readJson(GUARDIAN_ENCOUNTERS_KEY);
+        const encounters = Array.isArray(payload.encounters)
+            ? payload.encounters
+            : [];
+
+        if (!encounters.length) {
+            const waiting = document.createElement("article");
+            waiting.className = "placeholder-card journal-card journal-guardian-empty";
+            waiting.innerHTML = [
+                "<h3>Les Paroles des Gardiens</h3>",
+                "<p>Les Gardiens des Recits Vivants apparaissent parfois au detour d'un chemin.</p>",
+                "<p>Leurs paroles ne demandent pas a etre retenues. Elles demandent seulement a pouvoir etre retrouvees lorsque le voyage en aura de nouveau besoin.</p>"
+            ].join("");
+            target.appendChild(waiting);
+            return;
+        }
+
+        encounters.forEach(encounter => {
+            const card = document.createElement("article");
+            card.className = "placeholder-card journal-card journal-guardian-card";
+            card.innerHTML = [
+                "<span class=\"journal-guardian-seal\" aria-hidden=\"true\"></span>",
+                "<div class=\"journal-guardian-figure\" aria-hidden=\"true\">" + escapeHtml(encounter.illustration || "✦") + "</div>",
+                "<h3>" + escapeHtml(encounter.guardianName || "Gardien des Recits Vivants") + "</h3>",
+                "<blockquote>" + escapeHtml(encounter.whisper) + "</blockquote>",
+                "<p class=\"journal-guardian-meta\">Rencontree :<br>" +
+                    escapeHtml(encounter.territoryLabel || "Territoire des Recits Vivants") +
+                    "<br>" +
+                    formatDate(encounter.firstEncounteredAt) +
+                "</p>",
+                "<a class=\"placeholder-return\" href=\"" + escapeHtml(resolveEncounterHref(encounter)) + "\">Revenir dans ce territoire</a>"
+            ].join("");
+            target.appendChild(card);
+        });
+    }
+
+    function resolveEncounterHref(encounter) {
+        const href = encounter && encounter.territoryHref
+            ? encounter.territoryHref
+            : "../index.html";
+
+        if (href.indexOf("http") === 0 || href.indexOf("../") === 0) {
+            return href;
+        }
+
+        return "../" + href;
     }
 
     function renderTraces(memory, cycle, books) {
@@ -402,6 +467,7 @@
         const books = getBookStats();
 
         renderResonance();
+        renderGuardianWords();
         renderTraces(memory, cycle, books);
         renderFirstSteps(cycle);
         renderPath(memory, cycle);
