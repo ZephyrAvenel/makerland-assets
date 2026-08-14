@@ -30,6 +30,16 @@
             quote: "Une carte n'impose jamais un chemin. Elle rend le territoire habitable."
         },
         {
+            screen: "e05_cartes",
+            title: "Comment les idees deviennent-elles des chemins ?",
+            place: "Cartes Narratives",
+            subtitle: "Ici les idees deviennent des chemins.",
+            text: "Les Recits Vivants ne proposent pas seulement des reponses. Ils offrent des cartes pour explorer une question, une relation, un paysage interieur ou une transformation. Chaque carte ouvre un chemin different. En les parcourant, vous decouvrez qu'une idee peut devenir un territoire a habiter.",
+            quote: "Les cartes n'enferment pas le monde. Elles ouvrent des chemins pour le regarder autrement.",
+            href: "https://zephyravenel.github.io/atlas-recits-vivants/",
+            openLabel: "Ouvrir l'Atlas"
+        },
+        {
             screen: "e07_atelier",
             title: "Comment naissent-elles ?",
             place: "L'Atelier des Recits",
@@ -44,7 +54,8 @@
             subtitle: "Les coulisses de la creation.",
             text: "Vous vous demandez peut-etre si l'on peut voir la naissance d'une oeuvre. Les Archives Vivantes conservent les traces : intuitions, conversations, hesitations et decisions qui ont rendu les Recits Vivants possibles.",
             quote: "D001 ouvre la question fondatrice : pourquoi les Recits Vivants ?",
-            href: "atelier/archives/d001.html"
+            href: "atelier/archives/d001.html",
+            openLabel: "Ouvrir D001"
         },
         {
             screen: "e08_constellation",
@@ -174,7 +185,7 @@
         state.root.innerHTML = [
             "<section class=\"first-journey__intro\" role=\"dialog\" aria-label=\"Votre premier voyage\">",
             "<h2>Votre premier voyage</h2>",
-            "<p>En six etapes, vous allez decouvrir comment naissent les Recits Vivants.</p>",
+            "<p>En sept etapes, vous allez decouvrir comment naissent les Recits Vivants.</p>",
             "<p>Vous ne visiterez pas seulement des lieux.</p>",
             "<p>Vous suivrez le chemin qui conduit d'une intuition a une oeuvre.</p>",
             "<div class=\"first-journey__actions\">",
@@ -193,7 +204,7 @@
         const isLast = state.memory.step >= STEPS.length - 1;
         const transitionClass = state.transitioning ? " is-transitioning" : "";
         const action = step.href
-            ? `<a href="${step.href}">Ouvrir D001</a>`
+            ? `<a href="${escapeHtml(step.href)}">${escapeHtml(step.openLabel || "Ouvrir ce lieu")}</a>`
             : `<button type="button" data-first-journey-open>Voir ce lieu</button>`;
 
         state.root.innerHTML = [
@@ -330,7 +341,7 @@
         writeMemory(state.memory);
         state.root.innerHTML = [
             "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage termine\">",
-            "<h3>Vous connaissez maintenant les six portes des Recits Vivants.</h3>",
+            "<h3>Vous connaissez maintenant les sept portes des Recits Vivants.</h3>",
             "<p>Le seuil est desormais derriere vous.</p>",
             "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
             "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
@@ -368,7 +379,7 @@
     function renderConclusion() {
         state.root.innerHTML = [
             "<aside class=\"first-journey__step first-journey__conclusion\" aria-label=\"Conclusion du Premier Voyage\">",
-            "<h3>Vous connaissez maintenant les six portes des Recits Vivants.</h3>",
+            "<h3>Vous connaissez maintenant les sept portes des Recits Vivants.</h3>",
             "<p>Le seuil est desormais derriere vous.</p>",
             "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
             "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
@@ -402,8 +413,8 @@
             "<h2>La Foret de l'Arche</h2>",
             "<span class=\"first-journey__forest-subtitle\">Le seuil de l'Oeuvre immersive</span>",
             "<div class=\"first-journey__forest-text\">",
-            "<p>Vous avez parcouru les six lieux fondateurs des Recits Vivants.</p>",
-            "<p>Vous connaissez desormais leur origine, leurs oeuvres, leurs reperes, leur atelier, leurs archives et les liens qui les unissent.</p>",
+            "<p>Vous avez parcouru les sept lieux fondateurs des Recits Vivants.</p>",
+            "<p>Vous connaissez desormais leur origine, leurs oeuvres, leur boussole, leurs cartes, leur atelier, leurs archives et les liens qui les unissent.</p>",
             "<p>Mais un territoire ne se comprend jamais entierement depuis son seuil.</p>",
             "<p>Il arrive un moment ou il faut accepter de le traverser.</p>",
             "<p>La Foret de l'Arche n'est plus un lieu d'explication.</p>",
