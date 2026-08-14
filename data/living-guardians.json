@@ -1,0 +1,129 @@
+{
+  "settings": {
+    "visibleDuration": 8000,
+    "deployDelay": 400,
+    "fadeDuration": 300,
+    "chance": 0.72
+  },
+  "guardians": {
+    "profondeurs": {
+      "name": "La Gardienne des Profondeurs",
+      "sigil": "🜂",
+      "variant": "depths",
+      "messages": [
+        "Les récits ne demandent pas d'être compris immédiatement. Ils demandent seulement d'être rencontrés.",
+        "Avancez lentement. Certaines portes ne s'ouvrent que lorsque le regard cesse de forcer."
+      ]
+    },
+    "silence": {
+      "name": "Le Gardien du Silence",
+      "sigil": "◌",
+      "variant": "silence",
+      "messages": [
+        "Prenez votre temps. Les chemins importants commencent rarement par une certitude.",
+        "Ce lieu n'attend aucune réponse. Il laisse seulement une place à ce qui cherche à venir."
+      ]
+    },
+    "veilleurs": {
+      "name": "Les Veilleurs",
+      "sigil": "✦",
+      "variant": "watchers",
+      "messages": [
+        "Chaque œuvre garde une lampe allumée pour ceux qui reviennent autrement.",
+        "Vous pouvez entrer par une page, puis découvrir qu'elle appartenait déjà à un monde."
+      ]
+    },
+    "seuils": {
+      "name": "Le Voyageur des Seuils",
+      "sigil": "⌁",
+      "variant": "threshold",
+      "messages": [
+        "Un seuil n'oblige pas à partir. Il rappelle seulement qu'un passage existe.",
+        "Ici, choisir une direction ne ferme pas les autres. Tous les chemins restent ouverts."
+      ]
+    },
+    "hauteurs": {
+      "name": "Le Messager des Hauteurs",
+      "sigil": "✧",
+      "variant": "heights",
+      "messages": [
+        "Levez les yeux. Certains liens apparaissent seulement quand les fragments deviennent constellation.",
+        "Une étoile ne raconte jamais seule. Elle attend les lignes invisibles qui la rejoignent."
+      ]
+    },
+    "passages": {
+      "name": "Le Gardien des Passages",
+      "sigil": "▱",
+      "variant": "passages",
+      "messages": [
+        "Il arrive un moment où comprendre ne suffit plus. Il faut accepter de traverser.",
+        "La porte n'explique pas le récit. Elle vous confie simplement son premier pas."
+      ]
+    },
+    "vivant": {
+      "name": "La Lumière du Vivant",
+      "sigil": "☉",
+      "variant": "living",
+      "messages": [
+        "Ce qui vit ne reste jamais immobile. Revenez, et le même lieu vous parlera autrement.",
+        "Chaque passage laisse une trace légère. Rien n'est compté, mais quelque chose demeure."
+      ]
+    },
+    "mandala": {
+      "name": "Le Mandala des Récits Vivants",
+      "sigil": "◎",
+      "variant": "mandala",
+      "messages": [
+        "Les récits se répondent comme des cercles dans l'eau. Aucun centre ne retient tout.",
+        "Une intuition devient carte, puis œuvre, puis mémoire, puis nouvelle invitation."
+      ]
+    }
+  },
+  "territories": {
+    "e02_meteo": {
+      "primary": "silence",
+      "compatible": ["profondeurs", "vivant"],
+      "position": "right"
+    },
+    "e03_boussole": {
+      "primary": "seuils",
+      "compatible": ["silence", "mandala"],
+      "position": "left"
+    },
+    "e05_cartes": {
+      "primary": "mandala",
+      "compatible": ["seuils", "hauteurs"],
+      "position": "right"
+    },
+    "e06_fiction": {
+      "primary": "veilleurs",
+      "compatible": ["silence", "vivant"],
+      "position": "left"
+    },
+    "e06_essais": {
+      "primary": "veilleurs",
+      "compatible": ["mandala", "silence"],
+      "position": "left"
+    },
+    "e07_atelier": {
+      "primary": "profondeurs",
+      "compatible": ["mandala", "vivant"],
+      "position": "right"
+    },
+    "archives": {
+      "primary": "vivant",
+      "compatible": ["profondeurs", "mandala"],
+      "position": "left"
+    },
+    "e08_constellation": {
+      "primary": "hauteurs",
+      "compatible": ["veilleurs", "vivant"],
+      "position": "right"
+    },
+    "e04_oeuvre": {
+      "primary": "passages",
+      "compatible": ["seuils", "silence"],
+      "position": "left"
+    }
+  }
+}

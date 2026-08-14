@@ -317,6 +317,12 @@ function showJourneyMessage(
         !noticeElement
     ) return;
 
+    if (
+        window.LivingGuardianWhisper &&
+        window.LivingGuardianWhisper.canShowForScreen &&
+        window.LivingGuardianWhisper.canShowForScreen(toScreen)
+    ) return;
+
     let message = "";
 
     if (
