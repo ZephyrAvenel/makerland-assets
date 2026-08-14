@@ -117,12 +117,18 @@
         ["carnet", "Carnet"]
     ];
 
+    const TRANSITION_VISIBLE_DURATION = 7200;
+    const TRANSITION_FADE_DURATION = 650;
+
     let root = null;
     let lastPlace = null;
+    let transitionElement = null;
     let transitionTimer = null;
+    let transitionDismissalBound = false;
 
     function init() {
         ensureRoot();
+        bindTransitionDismissal();
         window.addEventListener("screenChanged", event => {
             render(event.detail.screen);
         });
@@ -242,17 +248,60 @@
         const message = TRANSITIONS[from.id + ">" + to.id];
         if (!message) return;
 
-        window.clearTimeout(transitionTimer);
+        dismissTransition(true);
         const transition = document.createElement("aside");
         transition.className = "narrative-thread__transition";
         transition.innerHTML = `<p>${escapeHtml(message)}</p>`;
         root.appendChild(transition);
+        transitionElement = transition;
+        window.requestAnimationFrame(() => {
+            transition.classList.add("is-visible");
+        });
         transitionTimer = window.setTimeout(() => {
+            dismissTransition(false);
+        }, TRANSITION_VISIBLE_DURATION);
+    }
+
+    function bindTransitionDismissal() {
+        if (transitionDismissalBound) return;
+        transitionDismissalBound = true;
+
+        document.addEventListener("pointerdown", dismissTransitionOnInteraction, { capture: true, passive: true });
+        document.addEventListener("touchstart", dismissTransitionOnInteraction, { capture: true, passive: true });
+        document.addEventListener("wheel", dismissTransitionOnInteraction, { capture: true, passive: true });
+        window.addEventListener("scroll", dismissTransitionOnInteraction, { capture: true, passive: true });
+        document.addEventListener("keydown", dismissTransitionOnInteraction, true);
+    }
+
+    function dismissTransitionOnInteraction() {
+        dismissTransition(false);
+    }
+
+    function dismissTransition(immediate) {
+        if (transitionTimer) {
+            window.clearTimeout(transitionTimer);
+            transitionTimer = null;
+        }
+
+        if (!transitionElement) return;
+
+        const transition = transitionElement;
+        transitionElement = null;
+
+        if (immediate) {
             transition.remove();
-        }, 1900);
+            return;
+        }
+
+        transition.classList.remove("is-visible");
+        transition.classList.add("is-dismissing");
+        window.setTimeout(() => {
+            transition.remove();
+        }, TRANSITION_FADE_DURATION);
     }
 
     function clear() {
+        dismissTransition(true);
         if (root) root.innerHTML = "";
     }
 

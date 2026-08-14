@@ -5,6 +5,12 @@ archwayPassage.js
 
 function createLivingPassage(config) {
 
+const MINIMUM_WHISPER_READING_DURATION =
+    7200;
+
+const INTERACTION_WHISPER_FADE =
+    650;
+
 /****************************************
  STATE
 ****************************************/
@@ -22,6 +28,8 @@ let timers = [];
 let ready = false;
 
 let passing = false;
+
+let interactionDismissalBound = false;
 
 /****************************************
  INIT
@@ -162,6 +170,8 @@ function bindEvents() {
         }
     );
 
+    bindInteractionDismissal();
+
 }
 
 /****************************************
@@ -298,6 +308,8 @@ function revealReduced() {
 
 function revealInvitation() {
 
+    if (ready) return;
+
     ready =
         true;
 
@@ -308,6 +320,68 @@ function revealInvitation() {
 
     passage.classList.add(
         "archway-ready"
+    );
+
+}
+
+function bindInteractionDismissal() {
+
+    if (interactionDismissalBound) return;
+
+    interactionDismissalBound =
+        true;
+
+    document.addEventListener(
+        "pointerdown",
+        dismissWhisperOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    document.addEventListener(
+        "touchstart",
+        dismissWhisperOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    document.addEventListener(
+        "wheel",
+        dismissWhisperOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    window.addEventListener(
+        "scroll",
+        dismissWhisperOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    document.addEventListener(
+        "keydown",
+        dismissWhisperOnInteraction,
+        true
+    );
+
+}
+
+function dismissWhisperOnInteraction() {
+
+    if (
+        !passage ||
+        !passage.classList.contains(
+            "archway-passage-active"
+        ) ||
+        !passage.classList.contains(
+            "archway-whisper-visible"
+        )
+    ) return;
+
+    passage.classList.remove(
+        "archway-whisper-visible"
+    );
+
+    setTimer(
+        revealInvitation,
+        INTERACTION_WHISPER_FADE
     );
 
 }
@@ -446,29 +520,40 @@ function getSelectedWeather() {
 
 function getReadingDuration(text) {
 
+    let duration = 0;
+
     if (
         typeof Navigation !== "undefined" &&
         Navigation.getWhisperReadingDuration
     ) {
 
-        return Navigation.getWhisperReadingDuration(
+        duration =
+            Navigation.getWhisperReadingDuration(
             text
-        );
+            );
+
+    } else {
+
+        const wordCount =
+            text
+                .split(/\s+/)
+                .filter(Boolean)
+                .length;
+
+        duration =
+            Math.min(
+                Math.max(
+                    wordCount * 90,
+                    4000
+                ),
+                8000
+            );
 
     }
 
-    const wordCount =
-        text
-            .split(/\s+/)
-            .filter(Boolean)
-            .length;
-
-    return Math.min(
-        Math.max(
-            wordCount * 90,
-            4000
-        ),
-        8000
+    return Math.max(
+        duration,
+        MINIMUM_WHISPER_READING_DURATION
     );
 
 }
@@ -567,8 +652,8 @@ const ArchwayPassage = createLivingPassage({
     timings: {
         forestSettle: 420,
         whisperShow: 1180,
-        whisperFadeIn: 1000,
-        whisperFadeOut: 800,
+        whisperFadeIn: 650,
+        whisperFadeOut: 650,
         invitationBuffer: 220,
         passageDuration: 980
     },
@@ -624,8 +709,8 @@ const AtlasPassage = createLivingPassage({
     timings: {
         forestSettle: 420,
         whisperShow: 1180,
-        whisperFadeIn: 1000,
-        whisperFadeOut: 1500,
+        whisperFadeIn: 650,
+        whisperFadeOut: 650,
         invitationBuffer: 220,
         passageDuration: 980
     },

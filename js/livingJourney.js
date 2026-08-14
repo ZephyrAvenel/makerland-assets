@@ -18,7 +18,7 @@ const MESSAGE_VISIBLE_CLASS =
     "journey-notice-visible";
 
 const MESSAGE_DURATION =
-    3600;
+    7200;
 
 const CLEANUP_DELAY =
     720;
@@ -95,6 +95,8 @@ let noticeElement = null;
 
 let noticeTimer = null;
 
+let noticeDismissalBound = false;
+
 /****************************************
  INIT
 ****************************************/
@@ -103,6 +105,8 @@ function init() {
 
     ensureNotice();
 
+    bindNoticeDismissal();
+
     window.addEventListener(
         "screenChanged",
         event => {
@@ -110,6 +114,45 @@ function init() {
                 event.detail.screen
             );
         }
+    );
+
+}
+
+function bindNoticeDismissal() {
+
+    if (noticeDismissalBound) return;
+
+    noticeDismissalBound =
+        true;
+
+    document.addEventListener(
+        "pointerdown",
+        dismissNoticeOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    document.addEventListener(
+        "touchstart",
+        dismissNoticeOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    document.addEventListener(
+        "wheel",
+        dismissNoticeOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    window.addEventListener(
+        "scroll",
+        dismissNoticeOnInteraction,
+        { capture: true, passive: true }
+    );
+
+    document.addEventListener(
+        "keydown",
+        dismissNoticeOnInteraction,
+        true
     );
 
 }
@@ -326,6 +369,32 @@ function showJourneyMessage(
             },
             MESSAGE_DURATION
         );
+
+}
+
+function dismissNoticeOnInteraction() {
+
+    if (
+        !noticeElement ||
+        !noticeElement.classList.contains(
+            MESSAGE_VISIBLE_CLASS
+        )
+    ) return;
+
+    if (noticeTimer) {
+
+        window.clearTimeout(
+            noticeTimer
+        );
+
+        noticeTimer =
+            null;
+
+    }
+
+    noticeElement.classList.remove(
+        MESSAGE_VISIBLE_CLASS
+    );
 
 }
 
