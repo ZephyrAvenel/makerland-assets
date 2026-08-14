@@ -10,6 +10,7 @@
     --first-journey-safe-top:max(12px, env(safe-area-inset-top, 0px));
     --first-journey-safe-bottom:max(12px, env(safe-area-inset-bottom, 0px));
     --first-journey-panel-max-height:calc(100dvh - var(--first-journey-safe-top) - var(--first-journey-safe-bottom));
+    --reading-panel-end-space:clamp(84px, 14dvh, 132px);
     color:rgba(255,243,222,.92);
     font-family:Georgia, "Times New Roman", serif;
 }
@@ -67,6 +68,8 @@
     padding:17px 19px;
     min-height:min(342px, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
     box-sizing:border-box;
+    overflow-y:auto;
+    overscroll-behavior:contain;
     animation:firstJourneyAppear .8s cubic-bezier(.22,1,.36,1) both;
 }
 
@@ -111,7 +114,7 @@
     max-width:620px;
     min-height:0;
     overflow-y:auto;
-    padding-right:4px;
+    padding:0 4px var(--reading-panel-end-space) 0;
     flex:1 1 auto;
 }
 
@@ -136,7 +139,7 @@
     margin-top:12px;
     min-height:0;
     overflow-y:auto;
-    padding-right:4px;
+    padding:0 4px var(--reading-panel-end-space) 0;
     flex:1 1 auto;
 }
 
@@ -301,10 +304,10 @@
 }
 
 .first-journey__step > p:not(.first-journey__progress){
-    min-height:4.1em;
-    overflow-y:auto;
+    min-height:0;
+    overflow:visible;
     padding-right:4px;
-    flex:1 1 auto;
+    flex:0 0 auto;
 }
 
 .first-journey button,
@@ -512,6 +515,7 @@ body.first-journey-intro-ready .living-home{
         top:var(--first-journey-step-top);
         width:calc(var(--screen-content-width) * .46);
         max-height:min(82dvh, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
+        --reading-panel-end-space:clamp(68px, 19dvh, 96px);
         padding:10px 12px;
         min-height:0;
     }
@@ -527,15 +531,12 @@ body.first-journey-intro-ready .living-home{
     }
 
     .first-journey__step > p:not(.first-journey__progress){
-        min-height:3em;
         margin-top:7px;
     }
 
     .first-journey__quote{
         margin-top:8px;
         padding:8px 10px;
-        max-height:56px;
-        overflow-y:auto;
         line-height:1.32;
     }
 

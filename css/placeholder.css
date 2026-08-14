@@ -19,6 +19,7 @@ body{
     --season-halo:rgba(255,210,132,.1);
     --season-border:rgba(255,224,158,.18);
     --season-glow:rgba(255,198,96,.14);
+    --reading-page-end-space:clamp(64px, 12dvh, 120px);
 }
 
 body.season-spring{
@@ -47,6 +48,8 @@ body.season-winter{
 
 main{
     width:min(960px, 100%);
+    padding-bottom:var(--reading-page-end-space);
+    box-sizing:border-box;
     text-align:center;
     animation:placeholderArrive .9s cubic-bezier(.22,1,.36,1) both;
 }
@@ -1335,6 +1338,7 @@ h1{
 @media (max-height:520px) and (orientation:landscape){
     body{
         padding:14px;
+        --reading-page-end-space:clamp(48px, 14dvh, 86px);
     }
 
     main{
