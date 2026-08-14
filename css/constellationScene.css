@@ -22,6 +22,8 @@
 .constellation-scene__breath,
 .constellation-scene__lantern,
 .constellation-scene__card-light,
+.constellation-scene__presence-light,
+.constellation-scene__traveler-presence,
 .constellation-scene__sky-drift{
     position:absolute;
     pointer-events:none;
@@ -72,6 +74,27 @@
         radial-gradient(ellipse at 76% 18%, rgba(255,228,170,.12), transparent 32%);
     filter:blur(3px);
     animation:constellationCardsFloat 14s ease-in-out 2.8s infinite;
+}
+
+.constellation-scene__presence-light{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .27);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .14);
+    width:calc(var(--screen-content-width) * .46);
+    height:calc(var(--screen-content-height) * .24);
+    background:linear-gradient(105deg, transparent 0%, rgba(255,226,166,.12) 42%, rgba(255,226,166,.05) 56%, transparent 100%);
+    filter:blur(10px);
+    transform:translateX(-8%) rotate(-3deg);
+}
+
+.constellation-scene__traveler-presence{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .455);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .68);
+    width:calc(var(--screen-content-width) * .09);
+    height:calc(var(--screen-content-height) * .16);
+    border-radius:50%;
+    background:radial-gradient(ellipse at center, rgba(255,218,145,.18), rgba(255,218,145,.06) 42%, transparent 72%);
+    filter:blur(9px);
+    transform:translateY(3px);
 }
 
 .constellation-scene__whisper{
@@ -327,6 +350,22 @@
     animation:constellationGuardianPresence 10s ease-in-out 2.2s infinite;
 }
 
+#e08_constellation.constellation-presence-listening:not(.constellation-scene-awakened) .constellation-scene__presence-light{
+    animation:constellationPresenceCrossing 16s ease-in-out both;
+}
+
+#e08_constellation.constellation-presence-listening:not(.constellation-scene-awakened) .constellation-scene__lantern{
+    animation:constellationPresenceLantern 13s ease-in-out both;
+}
+
+#e08_constellation.constellation-presence-deep:not(.constellation-scene-awakened) .constellation-scene__traveler-presence{
+    animation:constellationTravelerPresence 18s ease-in-out both;
+}
+
+#e08_constellation.constellation-presence-deep:not(.constellation-scene-awakened) .constellation-scene__answer-star{
+    animation:constellationPresenceAnswer 14s ease-in-out both;
+}
+
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__quote,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__cards,
@@ -549,6 +588,50 @@
     }
 }
 
+@keyframes constellationPresenceCrossing{
+    0%, 100%{
+        opacity:0;
+        transform:translateX(-8%) rotate(-3deg);
+    }
+    28%, 68%{
+        opacity:.28;
+        transform:translateX(6%) rotate(-3deg);
+    }
+}
+
+@keyframes constellationPresenceLantern{
+    0%, 100%{
+        opacity:.1;
+        transform:scale(.98);
+    }
+    44%{
+        opacity:.38;
+        transform:scale(1.05);
+    }
+}
+
+@keyframes constellationTravelerPresence{
+    0%, 100%{
+        opacity:0;
+        transform:translateY(3px) scale(.96);
+    }
+    34%, 70%{
+        opacity:.32;
+        transform:translateY(0) scale(1.04);
+    }
+}
+
+@keyframes constellationPresenceAnswer{
+    0%, 100%{
+        opacity:0;
+        transform:scale(.78);
+    }
+    38%, 64%{
+        opacity:.34;
+        transform:scale(.96);
+    }
+}
+
 @media (max-width:768px){
     .constellation-scene__whisper{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .2);
@@ -616,6 +699,8 @@
     .constellation-scene__sky-drift,
     .constellation-scene__lantern,
     .constellation-scene__card-light,
+    .constellation-scene__presence-light,
+    .constellation-scene__traveler-presence,
     #e08_constellation.constellation-scene-visible .constellation-scene__whisper,
     #e08_constellation.constellation-scene-inviting:not(.constellation-scene-awakened) .constellation-scene__approach,
     #e08_constellation.constellation-scene-meeting:not(.constellation-scene-awakened) .constellation-scene__approach,
@@ -627,7 +712,11 @@
     #e08_constellation.constellation-memory-card:not(.constellation-scene-awakened) .constellation-scene__card-light,
     #e08_constellation.constellation-memory-relations.constellation-scene-visible:not(.constellation-scene-meeting):not(.constellation-scene-awakened) .constellation-scene__answer-star,
     #e08_constellation.constellation-memory-relations.constellation-scene-visible:not(.constellation-scene-meeting):not(.constellation-scene-awakened) .constellation-scene__relation-line,
-    #e08_constellation.constellation-memory-guardian:not(.constellation-scene-awakened) .constellation-scene__lantern{
+    #e08_constellation.constellation-memory-guardian:not(.constellation-scene-awakened) .constellation-scene__lantern,
+    #e08_constellation.constellation-presence-listening:not(.constellation-scene-awakened) .constellation-scene__presence-light,
+    #e08_constellation.constellation-presence-listening:not(.constellation-scene-awakened) .constellation-scene__lantern,
+    #e08_constellation.constellation-presence-deep:not(.constellation-scene-awakened) .constellation-scene__traveler-presence,
+    #e08_constellation.constellation-presence-deep:not(.constellation-scene-awakened) .constellation-scene__answer-star{
         animation:none;
     }
 

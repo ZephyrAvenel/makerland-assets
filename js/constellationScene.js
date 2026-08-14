@@ -9,6 +9,8 @@
     const CARD_READY_CLASS = "constellation-scene-card-ready";
     const CARD_OPEN_CLASS = "constellation-scene-card-open";
     const AWAKENED_CLASS = "constellation-scene-awakened";
+    const PRESENCE_CLASS = "constellation-presence-listening";
+    const DEEP_PRESENCE_CLASS = "constellation-presence-deep";
     const RETURNING_CLASS = "constellation-memory-returning";
     const STAR_MEMORY_CLASS = "constellation-memory-star";
     const CARD_MEMORY_CLASS = "constellation-memory-card";
@@ -25,6 +27,7 @@
         screen: null,
         layer: null,
         timers: [],
+        presenceTimers: [],
         memory: null,
         visibleSession: false
     };
@@ -34,9 +37,19 @@
         state.timers = [];
     }
 
+    function clearPresenceTimers() {
+        state.presenceTimers.forEach(timer => window.clearTimeout(timer));
+        state.presenceTimers = [];
+    }
+
     function schedule(callback, delay) {
         const timer = window.setTimeout(callback, delay);
         state.timers.push(timer);
+    }
+
+    function schedulePresence(callback, delay) {
+        const timer = window.setTimeout(callback, delay);
+        state.presenceTimers.push(timer);
     }
 
     function isVisible(element) {
@@ -102,6 +115,8 @@
 
     function endVisitSession() {
         state.visibleSession = false;
+        clearTimers();
+        clearPresenceTimers();
     }
 
     function applyMemoryClasses() {
@@ -135,6 +150,8 @@
             "<div class=\"constellation-scene__sky-drift\" aria-hidden=\"true\"></div>",
             "<div class=\"constellation-scene__lantern\" aria-hidden=\"true\"></div>",
             "<div class=\"constellation-scene__card-light\" aria-hidden=\"true\"></div>",
+            "<div class=\"constellation-scene__presence-light\" aria-hidden=\"true\"></div>",
+            "<div class=\"constellation-scene__traveler-presence\" aria-hidden=\"true\"></div>",
             "<p class=\"constellation-scene__whisper\" aria-live=\"polite\">Ici, les recits se repondent.</p>",
             "<button type=\"button\" class=\"constellation-scene__approach\" data-constellation-approach aria-label=\"Approcher une etoile de la Constellation\"></button>",
             "<span class=\"constellation-scene__answer-star\" aria-hidden=\"true\"></span>",
@@ -153,11 +170,14 @@
         layer.querySelector("[data-constellation-approach]").addEventListener("click", startMeeting);
         layer.querySelector("[data-constellation-card]").addEventListener("click", revealCard);
         layer.querySelector("[data-constellation-explore]").addEventListener("click", awaken);
+        layer.addEventListener("pointerdown", markInteraction, true);
+        layer.addEventListener("keydown", markInteraction, true);
     }
 
     function resetScene() {
         if (!state.screen) return;
         clearTimers();
+        clearPresenceTimers();
         registerVisit();
         applyMemoryClasses();
         const whisper = state.layer ? state.layer.querySelector(".constellation-scene__whisper") : null;
@@ -172,7 +192,9 @@
             RELATION_CLASS,
             CARD_READY_CLASS,
             CARD_OPEN_CLASS,
-            AWAKENED_CLASS
+            AWAKENED_CLASS,
+            PRESENCE_CLASS,
+            DEEP_PRESENCE_CLASS
         );
 
         schedule(() => {
@@ -186,6 +208,40 @@
                 state.screen.classList.add(INVITING_CLASS);
             }
         }, 7600);
+
+        beginPresenceCycle();
+    }
+
+    function beginPresenceCycle() {
+        clearPresenceTimers();
+        schedulePresence(() => {
+            if (canPresenceAppear()) {
+                state.screen.classList.add(PRESENCE_CLASS);
+            }
+        }, 14500);
+
+        schedulePresence(() => {
+            if (canPresenceAppear()) {
+                state.screen.classList.add(DEEP_PRESENCE_CLASS);
+            }
+        }, 28500);
+    }
+
+    function canPresenceAppear() {
+        return Boolean(
+            state.screen &&
+            isVisible(state.screen) &&
+            !state.screen.classList.contains(MEETING_CLASS) &&
+            !state.screen.classList.contains(CARD_OPEN_CLASS) &&
+            !state.screen.classList.contains(AWAKENED_CLASS)
+        );
+    }
+
+    function markInteraction() {
+        clearPresenceTimers();
+        if (state.screen) {
+            state.screen.classList.remove(PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
+        }
     }
 
     function startMeeting() {
@@ -193,6 +249,8 @@
             return;
         }
         clearTimers();
+        clearPresenceTimers();
+        state.screen.classList.remove(PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
         remember("stars", "first-star");
         state.screen.classList.add(MEETING_CLASS);
         state.screen.classList.remove(INVITING_CLASS);
@@ -225,8 +283,9 @@
             return;
         }
         clearTimers();
+        clearPresenceTimers();
         state.screen.classList.add(AWAKENED_CLASS);
-        state.screen.classList.remove(INVITING_CLASS);
+        state.screen.classList.remove(INVITING_CLASS, PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
     }
 
     function observeVisibility() {
