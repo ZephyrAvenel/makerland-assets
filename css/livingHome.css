@@ -420,14 +420,18 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 }
 
-@media (min-width:769px) and (orientation:landscape){
+@media (orientation:landscape){
     .living-home__paths{
+        left:50%;
+        right:auto;
         bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
         grid-template-columns:repeat(3, minmax(0, 1fr));
         align-items:start;
         width:min(760px, calc(var(--screen-content-width) * .72));
         max-height:min(24vh, 180px);
         gap:8px;
+        transform:translateX(-50%);
+        animation:livingHomePaths 1s cubic-bezier(.22,1,.36,1) both;
     }
 
     .living-home__paths-kicker{
