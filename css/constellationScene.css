@@ -366,7 +366,6 @@
     animation:constellationPresenceAnswer 14s ease-in-out both;
 }
 
-#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__quote,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__cards,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-exhibitions__entry,
@@ -378,10 +377,6 @@
     opacity:0 !important;
     transform:translateY(8px);
     pointer-events:none !important;
-}
-
-#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel{
-    pointer-events:auto !important;
 }
 
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__modes,

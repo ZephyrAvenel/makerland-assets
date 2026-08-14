@@ -57,7 +57,8 @@
         state.layers[id] = Object.assign({
             close: null,
             element: null,
-            focus: null
+            focus: null,
+            skipFocus: false
         }, options || {});
     }
 
@@ -94,6 +95,7 @@
     }
 
     function focusLayer(layer) {
+        if (layer.skipFocus) return;
         const target = layer.focus ||
             (layer.element && layer.element.querySelector("button, a, [tabindex]:not([tabindex='-1'])"));
         if (target && typeof target.focus === "function") {
@@ -242,7 +244,7 @@
             activate("WRITE", {
                 close: closeWriting,
                 element: panel,
-                focus: textarea
+                skipFocus: true
             });
             panel.classList.add("is-writing-active");
         };
