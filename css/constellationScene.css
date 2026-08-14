@@ -1,0 +1,277 @@
+#e08_constellation{
+    --constellation-scene-ease:cubic-bezier(.22, 1, .36, 1);
+}
+
+#e08_constellation .screen-bg{
+    transition:filter 1.2s ease, transform 1.2s ease;
+}
+
+#e08_constellation.constellation-scene-silent .screen-bg{
+    filter:brightness(.96) saturate(1.02);
+}
+
+.constellation-scene{
+    position:absolute;
+    inset:0;
+    z-index:61;
+    pointer-events:none;
+    color:rgba(255,239,205,.9);
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+.constellation-scene__breath,
+.constellation-scene__lantern,
+.constellation-scene__card-light,
+.constellation-scene__sky-drift{
+    position:absolute;
+    pointer-events:none;
+    opacity:0;
+}
+
+.constellation-scene__sky-drift{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .2);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .02);
+    width:calc(var(--screen-content-width) * .6);
+    height:calc(var(--screen-content-height) * .34);
+    background:
+        radial-gradient(circle at 24% 45%, rgba(255,230,170,.16), transparent 9%),
+        radial-gradient(circle at 56% 24%, rgba(255,230,170,.13), transparent 7%),
+        radial-gradient(circle at 78% 52%, rgba(255,230,170,.12), transparent 8%);
+    filter:blur(5px);
+    animation:constellationSkyBreath 12s ease-in-out 1.2s infinite;
+}
+
+.constellation-scene__lantern{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .018);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .61);
+    width:calc(var(--screen-content-width) * .12);
+    height:calc(var(--screen-content-height) * .2);
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,199,95,.24), rgba(255,199,95,.08) 36%, transparent 68%);
+    filter:blur(7px);
+    animation:constellationLanternGlow 9s ease-in-out 2s infinite;
+}
+
+.constellation-scene__card-light{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .06);
+    width:calc(var(--screen-content-width) * .22);
+    height:calc(var(--screen-content-height) * .24);
+    background:
+        radial-gradient(ellipse at 24% 32%, rgba(255,228,170,.16), transparent 34%),
+        radial-gradient(ellipse at 76% 18%, rgba(255,228,170,.12), transparent 32%);
+    filter:blur(3px);
+    animation:constellationCardsFloat 14s ease-in-out 2.8s infinite;
+}
+
+.constellation-scene__whisper{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .32);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .25);
+    width:calc(var(--screen-content-width) * .36);
+    margin:0;
+    color:rgba(255,239,204,.76);
+    font-size:clamp(14px, calc(var(--screen-content-width) * .015), 23px);
+    line-height:1.35;
+    text-align:center;
+    text-shadow:0 2px 18px rgba(0,0,0,.78), 0 0 18px rgba(255,214,139,.18);
+    opacity:0;
+    transform:translateY(8px);
+}
+
+#e08_constellation.constellation-scene-visible .constellation-scene__whisper{
+    animation:constellationWhisper 8.6s var(--constellation-scene-ease) 3s both;
+}
+
+.constellation-scene__approach{
+    position:absolute;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .74);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .18);
+    width:44px;
+    height:44px;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:transparent;
+    color:transparent;
+    cursor:pointer;
+    pointer-events:auto;
+    opacity:0;
+}
+
+.constellation-scene__approach::before,
+.constellation-scene__approach::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    border-radius:50%;
+    transform:translate(-50%, -50%);
+}
+
+.constellation-scene__approach::before{
+    width:9px;
+    height:9px;
+    background:rgba(255,240,198,.9);
+    box-shadow:0 0 14px rgba(255,221,151,.56);
+}
+
+.constellation-scene__approach::after{
+    width:34px;
+    height:34px;
+    border:1px solid rgba(255,223,154,.18);
+    box-shadow:0 0 24px rgba(255,215,138,.12);
+}
+
+#e08_constellation.constellation-scene-inviting:not(.constellation-scene-awakened) .constellation-scene__approach{
+    animation:constellationApproach 6.5s ease-in-out infinite;
+    opacity:1;
+}
+
+.constellation-scene__approach:focus-visible{
+    outline:1px solid rgba(255,226,165,.42);
+    outline-offset:4px;
+}
+
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__quote,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__cards,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-exhibitions__entry,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-paths__entry,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-paths__progress,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .traveler-constellation__memory,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .traveler-constellation__paths,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .traveler-constellation__card{
+    opacity:0 !important;
+    transform:translateY(8px);
+    pointer-events:none !important;
+}
+
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__modes,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__territories,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__growth,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__panel,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-exhibitions__panel,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-paths__panel,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__detail,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__response{
+    display:none !important;
+    pointer-events:none !important;
+}
+
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__stage,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .traveler-constellation__sky{
+    opacity:.44;
+}
+
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__link,
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .traveler-constellation__line{
+    opacity:.18;
+}
+
+#e08_constellation.constellation-scene-awakened .constellation-scene{
+    opacity:0;
+    transition:opacity .7s ease;
+}
+
+@keyframes constellationSkyBreath{
+    0%, 100%{
+        opacity:.08;
+        transform:translateY(0) scale(1);
+    }
+    48%{
+        opacity:.28;
+        transform:translateY(4px) scale(1.018);
+    }
+}
+
+@keyframes constellationLanternGlow{
+    0%, 100%{
+        opacity:.1;
+        transform:scale(.98);
+    }
+    50%{
+        opacity:.34;
+        transform:scale(1.04);
+    }
+}
+
+@keyframes constellationCardsFloat{
+    0%, 100%{
+        opacity:.05;
+        transform:translateY(0) rotate(-.12deg);
+    }
+    50%{
+        opacity:.19;
+        transform:translateY(3px) rotate(.12deg);
+    }
+}
+
+@keyframes constellationWhisper{
+    0%{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    14%, 72%{
+        opacity:1;
+        transform:translateY(0);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-4px);
+    }
+}
+
+@keyframes constellationApproach{
+    0%, 100%{
+        transform:scale(.92);
+        filter:drop-shadow(0 0 8px rgba(255,221,151,.22));
+    }
+    48%{
+        transform:scale(1.05);
+        filter:drop-shadow(0 0 18px rgba(255,221,151,.48));
+    }
+}
+
+@media (max-width:768px){
+    .constellation-scene__whisper{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .2);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .24);
+        width:calc(var(--screen-content-width) * .6);
+        font-size:clamp(12px, calc(var(--screen-content-width) * .024), 17px);
+    }
+
+    .constellation-scene__approach{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .72);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .18);
+        width:38px;
+        height:38px;
+    }
+}
+
+@media (max-width:768px) and (orientation:landscape){
+    .constellation-scene__whisper{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .22);
+        font-size:clamp(11px, calc(var(--screen-content-width) * .014), 16px);
+    }
+
+    .constellation-scene__approach{
+        width:34px;
+        height:34px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .constellation-scene__sky-drift,
+    .constellation-scene__lantern,
+    .constellation-scene__card-light,
+    #e08_constellation.constellation-scene-visible .constellation-scene__whisper,
+    #e08_constellation.constellation-scene-inviting:not(.constellation-scene-awakened) .constellation-scene__approach{
+        animation:none;
+    }
+
+    #e08_constellation.constellation-scene-visible .constellation-scene__whisper{
+        opacity:1;
+        transform:none;
+    }
+}
