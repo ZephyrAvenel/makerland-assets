@@ -228,7 +228,13 @@
         const button = host.querySelector("#shareStoryButton");
         if (!panel || !textarea || !button) return;
 
+        const syncWritingState = () => {
+            panel.classList.toggle("has-writing-value", Boolean(textarea.value.trim()));
+            panel.classList.toggle("has-writing-focus", document.activeElement === textarea);
+        };
+
         const openWriting = () => {
+            syncWritingState();
             if (state.active === "WRITE") {
                 panel.classList.add("is-writing-active");
                 return;
@@ -246,11 +252,22 @@
             clear("WRITE");
         };
 
+        syncWritingState();
         panel.addEventListener("pointerdown", openWriting);
-        textarea.addEventListener("focus", openWriting);
-        textarea.addEventListener("input", openWriting);
+        textarea.addEventListener("focus", () => {
+            openWriting();
+            syncWritingState();
+        });
+        textarea.addEventListener("blur", syncWritingState);
+        textarea.addEventListener("input", () => {
+            openWriting();
+            syncWritingState();
+        });
         button.addEventListener("click", () => {
-            window.setTimeout(releaseWriting, 140);
+            window.setTimeout(() => {
+                syncWritingState();
+                releaseWriting();
+            }, 140);
         });
     }
 

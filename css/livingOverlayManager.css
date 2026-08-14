@@ -62,12 +62,41 @@
     transition:opacity .35s ease, transform .35s ease, border-color .35s ease;
 }
 
+#e08_constellation .constellation-panel::before{
+    content:"";
+    position:absolute;
+    left:clamp(24px, 4.2vw, 42px);
+    top:clamp(26px, 4.8vh, 46px);
+    width:2px;
+    height:clamp(34px, calc(var(--screen-content-height) * .06), 58px);
+    border-radius:999px;
+    background:linear-gradient(180deg, rgba(255,235,178,.22), rgba(255,210,118,.92), rgba(255,235,178,.2));
+    box-shadow:0 0 13px rgba(255,213,125,.34);
+    opacity:.82;
+    pointer-events:none;
+    transform:translateY(0);
+    animation:livingWritingCue 2.8s ease-in-out infinite;
+    transition:opacity .22s ease, transform .22s ease;
+}
+
+#e08_constellation .constellation-panel.has-writing-focus::before,
+#e08_constellation .constellation-panel.has-writing-value::before{
+    opacity:0;
+    transform:translateY(4px);
+    animation:none;
+}
+
 #e08_constellation .constellation-panel:focus-within,
 #e08_constellation .constellation-panel.is-writing-active{
     z-index:62;
     opacity:1;
     border-color:rgba(255,224,166,.42);
     box-shadow:0 22px 48px rgba(0,0,0,.32), 0 0 34px rgba(255,205,125,.12);
+}
+
+#e08_constellation .constellation-panel:focus-within textarea{
+    border-color:rgba(255,216,142,.38);
+    box-shadow:inset 0 0 0 1px rgba(96,66,25,.05), 0 0 18px rgba(255,210,118,.14);
 }
 
 #e08_constellation .constellation-panel textarea{
@@ -83,6 +112,7 @@
     color:#1d1307;
     box-shadow:inset 0 0 0 1px rgba(65,42,20,.04);
     overflow:auto;
+    transition:border-color .25s ease, box-shadow .25s ease;
 }
 
 #e08_constellation .constellation-panel textarea::placeholder{
@@ -162,6 +192,17 @@
     transform:translate(-50%, 0);
 }
 
+@keyframes livingWritingCue{
+    0%, 100%{
+        opacity:.32;
+        transform:translateY(0) scaleY(.92);
+    }
+    48%, 58%{
+        opacity:.92;
+        transform:translateY(1px) scaleY(1);
+    }
+}
+
 @media (max-width:768px) and (orientation:portrait){
     #e08_constellation[data-living-overlay-state]{
         --living-overlay-panel-width: calc(var(--screen-content-width) * .9);
@@ -214,5 +255,9 @@
     #e08_constellation[data-living-overlay-state]::after,
     .living-overlay-notice{
         transition:none;
+    }
+
+    #e08_constellation .constellation-panel::before{
+        animation:none;
     }
 }
