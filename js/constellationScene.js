@@ -174,6 +174,18 @@
         layer.addEventListener("keydown", markInteraction, true);
     }
 
+    function bindWritingAwakening() {
+        if (!state.screen || state.screen.dataset.constellationWritingAwakeningBound === "true") {
+            return;
+        }
+
+        const textarea = state.screen.querySelector("#storyInput");
+        if (!textarea) return;
+
+        state.screen.dataset.constellationWritingAwakeningBound = "true";
+        textarea.addEventListener("focusin", awaken);
+    }
+
     function resetScene() {
         if (!state.screen) return;
         clearTimers();
@@ -281,13 +293,17 @@
     }
 
     function awaken() {
-        if (!state.screen || state.screen.classList.contains(AWAKENED_CLASS)) {
+        if (!state.screen) {
+            return;
+        }
+        if (state.screen.classList.contains(AWAKENED_CLASS)) {
+            state.screen.classList.remove(SILENT_CLASS);
             return;
         }
         clearTimers();
         clearPresenceTimers();
         state.screen.classList.add(AWAKENED_CLASS);
-        state.screen.classList.remove(INVITING_CLASS, PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
+        state.screen.classList.remove(SILENT_CLASS, INVITING_CLASS, PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
         clearOverlay("CARD");
     }
 
@@ -349,6 +365,7 @@
         if (!state.screen) return;
         state.memory = readMemory();
         buildLayer();
+        bindWritingAwakening();
         applyMemoryClasses();
         observeVisibility();
     }

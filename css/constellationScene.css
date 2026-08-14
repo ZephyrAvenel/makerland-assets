@@ -380,6 +380,10 @@
     pointer-events:none !important;
 }
 
+#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel{
+    pointer-events:auto !important;
+}
+
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__modes,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__territories,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-sky__growth,
