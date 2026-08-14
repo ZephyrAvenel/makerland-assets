@@ -1,11 +1,51 @@
 (function () {
     const DATA_PATH = "data/living-guardians.json";
     const STORAGE_KEY = "makerland.guardianWhispers";
+    const ENCOUNTERS_KEY = "makerland.guardianEncounters.v1";
     const DEFAULT_SETTINGS = {
         visibleDuration: 8000,
         deployDelay: 400,
         fadeDuration: 300,
         chance: 0.72
+    };
+
+    const TERRITORY_META = {
+        e02_meteo: {
+            label: "Le Seuil des Climats",
+            href: "index.html"
+        },
+        e03_boussole: {
+            label: "Boussole Vivante",
+            href: "index.html"
+        },
+        e04_oeuvre: {
+            label: "Forêt de l'Arche",
+            href: "index.html"
+        },
+        e05_cartes: {
+            label: "Cartes Narratives",
+            href: "index.html"
+        },
+        e06_fiction: {
+            label: "Bibliothèque Vivante",
+            href: "index.html"
+        },
+        e06_essais: {
+            label: "Bibliothèque Vivante",
+            href: "index.html"
+        },
+        e07_atelier: {
+            label: "Atelier des Récits",
+            href: "atelier/"
+        },
+        archives: {
+            label: "Archives Vivantes",
+            href: "atelier/archives/"
+        },
+        e08_constellation: {
+            label: "Constellation",
+            href: "constellation/"
+        }
     };
 
     let data = null;
@@ -135,6 +175,54 @@
         }
     }
 
+    function readEncounters() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(ENCOUNTERS_KEY)) || {};
+            return {
+                version: 1,
+                encounters: Array.isArray(saved.encounters) ? saved.encounters : []
+            };
+        } catch (error) {
+            return {
+                version: 1,
+                encounters: []
+            };
+        }
+    }
+
+    function writeEncounters(payload) {
+        try {
+            localStorage.setItem(ENCOUNTERS_KEY, JSON.stringify(payload));
+        } catch (error) {
+            return;
+        }
+    }
+
+    function rememberEncounter(guardianId, guardian, message, territoryId) {
+        const payload = readEncounters();
+        const key = guardianId + "::" + message;
+
+        if (payload.encounters.some(encounter => encounter.key === key)) {
+            return;
+        }
+
+        const meta = TERRITORY_META[territoryId] || {};
+        payload.encounters.push({
+            key,
+            guardianId,
+            guardianName: guardian.name,
+            illustration: guardian.sigil || "✦",
+            variant: guardian.variant || "",
+            territoryId,
+            territoryLabel: meta.label || territoryId,
+            territoryHref: meta.href || "index.html",
+            whisper: message,
+            firstEncounteredAt: new Date().toISOString()
+        });
+
+        writeEncounters(payload);
+    }
+
     function pickGuardian(config, payload, memory) {
         const ids = [config.primary].concat(config.compatible || []).filter(Boolean);
         const available = ids.filter(id => payload.guardians && payload.guardians[id]);
@@ -241,6 +329,7 @@
             memory.lastTerritory = territoryId;
             memory.lastSeenAt = new Date().toISOString();
             writeMemory(memory);
+            rememberEncounter(guardianId, guardian, message, territoryId);
 
             dismiss(true);
             render(guardian, message, territory.position);
