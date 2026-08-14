@@ -18,7 +18,8 @@
         paths: [],
         activeId: "decouvrir",
         elements: {},
-        memory: null
+        memory: null,
+        lastFocus: null
     };
 
     function fetchJson(path) {
@@ -178,7 +179,9 @@
         layer.setAttribute("aria-label", "Chemins Vivants");
         layer.innerHTML = [
             "<section class=\"living-paths__entry\" data-path-entry></section>",
-            "<section class=\"living-paths__panel\" data-path-panel>",
+            "<button type=\"button\" class=\"living-paths__reopen\" data-reopen-paths hidden>Chemin Vivant</button>",
+            "<section class=\"living-paths__panel\" data-path-panel role=\"dialog\" aria-modal=\"false\" aria-label=\"Chemin Vivant\">",
+            "<button type=\"button\" class=\"living-paths__panel-close\" data-close-paths-panel aria-label=\"Fermer le Chemin Vivant\">×</button>",
             "<nav class=\"living-paths__cards\" data-path-cards aria-label=\"Choisir un chemin vivant\"></nav>",
             "<article class=\"living-paths__detail\" data-path-detail aria-live=\"polite\"></article>",
             "</section>",
@@ -187,9 +190,18 @@
         screen.appendChild(layer);
         state.elements.layer = layer;
         state.elements.entry = layer.querySelector("[data-path-entry]");
+        state.elements.reopen = layer.querySelector("[data-reopen-paths]");
         state.elements.cards = layer.querySelector("[data-path-cards]");
         state.elements.detail = layer.querySelector("[data-path-detail]");
         state.elements.progress = layer.querySelector("[data-path-progress]");
+        state.elements.panel = layer.querySelector("[data-path-panel]");
+        layer.addEventListener("click", onLayerClick);
+        document.addEventListener("keydown", onDocumentKeydown);
+        state.elements.reopen.addEventListener("click", event => {
+            event.stopPropagation();
+            showEntry();
+        });
+        layer.querySelector("[data-close-paths-panel]").addEventListener("click", closePanel);
     }
 
     function render() {
@@ -213,13 +225,18 @@
             "<p>Chaque lecture cree de nouveaux liens.</p>",
             "<p>Chaque retour eclaire un autre chemin.</p>",
             `<p class="living-paths__entry-meta">${escapeHtml(path.title)} - ${escapeHtml(path.duration)} - ${path.steps.length} etapes</p>`,
-            "<button type=\"button\" data-open-paths>Commencer le Chemin Vivant</button>"
+            "<div class=\"living-paths__entry-actions\">",
+            "<button type=\"button\" data-open-paths>Commencer le Chemin Vivant</button>",
+            "<button type=\"button\" class=\"living-paths__quiet\" data-dismiss-paths>Continuer librement</button>",
+            "</div>"
         ].join("");
-        state.elements.entry.querySelector("[data-open-paths]").addEventListener("click", () => {
+        state.elements.entry.querySelector("[data-open-paths]").addEventListener("click", event => {
+            state.lastFocus = event.currentTarget;
             startPath(path.id);
-            state.elements.layer.classList.add("is-open");
+            openPanel();
             render();
         });
+        state.elements.entry.querySelector("[data-dismiss-paths]").addEventListener("click", dismissInvitation);
     }
 
     function renderCards() {
@@ -301,17 +318,61 @@
             renderProgress();
         });
         state.elements.detail.querySelector("[data-close-paths]").addEventListener("click", () => {
-            state.elements.layer.classList.remove("is-open");
+            closePanel();
         });
         state.elements.detail.querySelectorAll("[data-go-screen]").forEach(button => {
             button.addEventListener("click", () => {
                 markResourceStep(path);
-                state.elements.layer.classList.remove("is-open");
+                closePanel({ restoreFocus: false });
                 if (typeof Navigation !== "undefined" && Navigation.goTo) {
                     Navigation.goTo(button.dataset.goScreen);
                 }
             });
         });
+    }
+
+    function openPanel() {
+        state.elements.layer.classList.add("is-open");
+        state.elements.entry.hidden = true;
+        state.elements.reopen.hidden = true;
+        window.setTimeout(() => {
+            const first = state.elements.panel.querySelector("button, a");
+            if (first) first.focus({ preventScroll: true });
+        }, 0);
+    }
+
+    function closePanel(options) {
+        if (!state.elements.layer.classList.contains("is-open")) return;
+        state.elements.layer.classList.remove("is-open");
+        const shouldRestore = !options || options.restoreFocus !== false;
+        if (!shouldRestore) return;
+        state.elements.reopen.hidden = false;
+        const target = state.elements.entry.hidden ? state.elements.reopen : state.lastFocus;
+        if (target && typeof target.focus === "function") {
+            target.focus({ preventScroll: true });
+        }
+    }
+
+    function dismissInvitation() {
+        state.elements.entry.hidden = true;
+        state.elements.reopen.hidden = false;
+    }
+
+    function showEntry() {
+        state.elements.entry.hidden = false;
+        state.elements.reopen.hidden = true;
+        state.elements.entry.querySelector("[data-open-paths]").focus({ preventScroll: true });
+    }
+
+    function onLayerClick(event) {
+        if (!state.elements.layer.classList.contains("is-open")) return;
+        if (event.target.closest(".living-paths__panel")) return;
+        closePanel();
+    }
+
+    function onDocumentKeydown(event) {
+        if (event.key !== "Escape") return;
+        closePanel();
     }
 
     function startPath(id) {
