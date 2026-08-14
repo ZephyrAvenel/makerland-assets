@@ -105,7 +105,7 @@
     function renderCover() {
         return [
             "<section class=\"living-notebook__cover\" aria-label=\"Couverture du Carnet du Voyageur\">",
-            "<img src=\"../assets/logo_rv.png\" alt=\"Sceau des Récits Vivants\">",
+            "<span data-notebook-seal=\"cover\"></span>",
             "<h3>Carnet du Voyageur</h3>",
             "<p>Récits Vivants</p>",
             "</section>"
@@ -117,7 +117,7 @@
             return [
                 "<article class=\"living-notebook__page living-notebook__page--blank\">",
                 "<header>",
-                "<img src=\"../assets/logo_rv.png\" alt=\"\" aria-hidden=\"true\">",
+                "<span data-notebook-seal=\"page\"></span>",
                 "<span>Page libre</span>",
                 "</header>",
                 "<div class=\"living-notebook__page-body\">",
@@ -130,7 +130,7 @@
         return [
             "<article class=\"living-notebook__page\">",
             "<header>",
-            "<img src=\"../assets/logo_rv.png\" alt=\"\" aria-hidden=\"true\">",
+            "<span data-notebook-seal=\"page\"></span>",
             "<div>",
             "<h3>" + escapeHtml(page.title) + "</h3>",
             "<p>" + escapeHtml(page.place) + (page.date ? " · " + escapeHtml(page.date) : "") + "</p>",
@@ -170,6 +170,7 @@
 
         state.root.querySelector("[data-notebook-prev]").disabled = state.page === 0;
         state.root.querySelector("[data-notebook-next]").disabled = state.page >= state.pages.length - 1;
+        hydrateSeals();
         bindRenderedEvents();
 
         if (state.turning) {
@@ -187,6 +188,20 @@
                 writeOpened();
             }, 120);
         }
+    }
+
+    function hydrateSeals() {
+        if (!window.RVSeal || !window.RVSeal.create || !state.root) {
+            return;
+        }
+
+        state.root.querySelectorAll("[data-notebook-seal]").forEach(target => {
+            const seal = window.RVSeal.create({
+                variant: target.dataset.notebookSeal === "cover" ? "notebook" : "notebook-page",
+                hidden: target.dataset.notebookSeal !== "cover"
+            });
+            target.replaceWith(seal);
+        });
     }
 
     function turn(direction) {

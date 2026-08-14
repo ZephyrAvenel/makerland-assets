@@ -275,41 +275,15 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
     filter:drop-shadow(0 0 12px rgba(220,190,120,.20));
 }
 
-.rv-seal--journey,
-.rv-seal--passport,
 .rv-seal--forest{
     display:flex;
     margin:0 auto 14px;
-}
-
-.rv-seal--journey{
-    width:58px;
-    height:58px;
-    opacity:.9;
-}
-
-.rv-seal--passport{
-    width:62px;
-    height:62px;
-    opacity:.92;
 }
 
 .rv-seal--forest{
     width:56px;
     height:56px;
     opacity:.72;
-}
-
-.rv-seal--watermark{
-    position:absolute;
-    left:50%;
-    top:50%;
-    z-index:0;
-    width:170px;
-    height:170px;
-    margin:0;
-    opacity:.09;
-    transform:translate(-50%, -50%);
 }
 
 .rv-seal--screen{
@@ -326,45 +300,49 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
         brightness(.96);
 }
 
-.rv-seal--library{
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
-    transform:translateX(-50%);
-}
-
 .rv-seal--compass{
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .075);
-    transform:translateX(-50%);
-    opacity:.52;
-}
-
-.rv-seal--atelier{
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
-    transform:translateX(-50%);
-}
-
-.rv-seal--constellation{
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .09);
+    width:62px;
+    height:62px;
     transform:translateX(-50%);
-}
-
-.rv-seal--cards{
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
-    transform:translateX(-50%);
+    opacity:.46;
+    animation:rvFoundationSealBreath 6.5s ease-in-out infinite;
 }
 
 .rv-seal--forest.rv-seal--screen{
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .515);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .455);
-    width:48px;
-    height:48px;
-    opacity:.34;
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .52);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .48);
+    width:52px;
+    height:52px;
+    opacity:.3;
     transform:translate(-50%, -50%);
-    mix-blend-mode:screen;
+    mix-blend-mode:soft-light;
+    filter:sepia(.32) saturate(.82) brightness(.78);
+    animation:rvFoundationSealBreath 8s ease-in-out infinite;
+}
+
+.rv-seal--forest.rv-seal--screen img{
+    filter:sepia(.32) saturate(.82) brightness(.78);
+}
+
+.rv-seal--forest.rv-seal--screen::before{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border:1px solid rgba(213,177,104,.1);
+    border-radius:50%;
+    box-shadow:inset 0 0 18px rgba(0,0,0,.32);
+}
+
+@keyframes rvFoundationSealBreath{
+    0%,
+    100%{
+        filter:drop-shadow(0 0 8px rgba(220,190,120,.12));
+    }
+    50%{
+        filter:drop-shadow(0 0 16px rgba(220,190,120,.24));
+    }
 }
 
 .entry-intro h1{
@@ -1108,17 +1086,10 @@ body[data-journey-place="constellation"]{
         height:44px;
     }
 
-    .rv-seal--journey,
-    .rv-seal--passport,
     .rv-seal--forest{
         width:48px;
         height:48px;
         margin-bottom:10px;
-    }
-
-    .rv-seal--watermark{
-        width:138px;
-        height:138px;
     }
 
     .entry-intro h1{
@@ -2685,7 +2656,9 @@ body[data-journey-place="constellation"]{
     #e02_meteo[style*="display: block"] .screen-bg,
     #e02_meteo[style*="display: block"] .meteo-intro h1,
     #e02_meteo[style*="display: block"] .meteo-intro p,
-    #e02_meteo[style*="display: block"] .makerland-zone{
+    #e02_meteo[style*="display: block"] .makerland-zone,
+    .rv-seal--compass,
+    .rv-seal--forest.rv-seal--screen{
         animation:none;
     }
 

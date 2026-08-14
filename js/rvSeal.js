@@ -18,6 +18,10 @@
             return "../" + ROOT_SRC;
         }
 
+        if (document.body.dataset.journalPage) {
+            return "../" + ROOT_SRC;
+        }
+
         return ROOT_SRC;
     }
 
@@ -49,59 +53,8 @@
         return seal;
     }
 
-    function prependSeal(target, variant) {
-        if (!target || target.querySelector(".rv-seal")) {
-            return null;
-        }
-
-        const seal = create({
-            variant,
-            label: DEFAULT_ALT
-        });
-
-        target.insertBefore(seal, target.firstChild);
-        return seal;
-    }
-
     function addStandaloneSeals() {
-        const main = document.querySelector("main");
-        if (!main) return;
-
-        let seal = null;
-
-        if (document.body.dataset.cyclePage === "atelier") {
-            seal = prependSeal(main, "place");
-        }
-
-        if (document.body.dataset.cyclePage === "archives") {
-            seal = prependSeal(main, "place");
-        }
-
-        if (document.body.dataset.cycleType === "constellation") {
-            const title = main.querySelector("h1");
-            seal = prependSeal(title ? title.parentElement : main, "place") || seal;
-        }
-
-        if (document.body.dataset.archiveDepth === "detail") {
-            const header =
-                main.querySelector(".placeholder-kicker") ||
-                main.querySelector("h1");
-
-            if (header && !main.querySelector(".rv-seal--archive")) {
-                header.insertAdjacentElement(
-                    "afterend",
-                    create({
-                        variant: "archive",
-                        label: DEFAULT_ALT
-                    })
-                );
-                seal = true;
-            }
-        }
-
-        if (seal) {
-            document.body.classList.add("has-rv-seal");
-        }
+        return;
     }
 
     function hydrateDeclarativeSeals() {
@@ -130,12 +83,7 @@
 
         const supported = {
             e03_boussole: "compass",
-            e05_cartes: "cards",
-            e04_oeuvre: "forest",
-            e06_fiction: "library",
-            e06_essais: "library",
-            e07_atelier: "atelier",
-            e08_constellation: "constellation"
+            e04_oeuvre: "forest"
         };
 
         if (!supported[screenId]) {
@@ -160,7 +108,6 @@
             addImmersiveSeal(event.detail.screen);
         });
 
-        addImmersiveSeal("e01_accueil");
     }
 
     function init() {
