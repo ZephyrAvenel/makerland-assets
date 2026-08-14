@@ -131,7 +131,7 @@
                 return;
             }
             if (state.memory.phase === "conclusion") {
-                if (syncScreen("e08_constellation", renderConclusion)) renderConclusion();
+                if (syncScreen("e08_constellation", showPassport)) showPassport();
                 return;
             }
             const step = STEPS[state.memory.step] || STEPS[0];
@@ -258,7 +258,7 @@
 
         const finish = state.root.querySelector("[data-first-journey-finish]");
         if (finish) {
-            finish.addEventListener("click", showConclusion);
+            finish.addEventListener("click", showPassport);
         }
 
         const pause = state.root.querySelector("[data-first-journey-pause]");
@@ -302,7 +302,7 @@
 
         if (state.memory.phase === "conclusion") {
             navigateTo("e08_constellation");
-            renderConclusion();
+            showPassport();
             return;
         }
 
@@ -332,22 +332,14 @@
         renderForCurrentScreen(state.currentScreen);
     }
 
-    function finishJourney() {
+    function completeJourney() {
         document.body.classList.remove("first-journey-active");
         state.memory.active = false;
         state.memory.completed = true;
-        state.memory.completedAt = new Date().toISOString();
+        state.memory.version = 1;
+        state.memory.completedAt = state.memory.completedAt || new Date().toISOString();
         state.memory.updatedAt = new Date().toISOString();
         writeMemory(state.memory);
-        state.root.innerHTML = [
-            "<aside class=\"first-journey__step\" aria-label=\"Premier Voyage termine\">",
-            "<h3>Vous connaissez maintenant les sept portes des Recits Vivants.</h3>",
-            "<p>Le seuil est desormais derriere vous.</p>",
-            "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
-            "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
-            "<p>Chaque lecteur compose desormais sa propre traversee.</p>",
-            "</aside>"
-        ].join("");
     }
 
     function moveStep(direction) {
@@ -367,41 +359,60 @@
         }, 300);
     }
 
-    function showConclusion() {
-        state.memory.active = true;
-        state.memory.completed = false;
-        state.memory.phase = "conclusion";
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
-        renderConclusion();
+    function showPassport() {
+        completeJourney();
+        renderPassport();
     }
 
-    function renderConclusion() {
+    function renderPassport() {
         state.root.innerHTML = [
-            "<aside class=\"first-journey__step first-journey__conclusion\" aria-label=\"Conclusion du Premier Voyage\">",
-            "<h3>Vous connaissez maintenant les sept portes des Recits Vivants.</h3>",
-            "<p>Le seuil est desormais derriere vous.</p>",
-            "<p>Vous avez decouvert comment une intuition devient une oeuvre, puis rejoint d'autres recits.</p>",
-            "<p>A partir d'ici, il n'existe plus de chemin unique.</p>",
-            "<p>Chaque lecteur compose desormais sa propre traversee.</p>",
+            "<aside class=\"first-journey__step first-journey__passport\" aria-label=\"Passeport du Premier Voyage\">",
+            "<p class=\"first-journey__progress\">Conclusion du Premier Voyage</p>",
+            "<h3>Vous avez franchi les Sept Portes</h3>",
+            "<span class=\"first-journey__passport-subtitle\">Votre premier voyage est accompli.</span>",
+            "<div class=\"first-journey__passport-text\">",
+            "<p>Vous avez traverse les premiers territoires des Recits Vivants.</p>",
+            "<ul>",
+            "<li>Le Seuil des Climats</li>",
+            "<li>La Bibliotheque Vivante</li>",
+            "<li>La Boussole Vivante</li>",
+            "<li>Les Cartes Narratives</li>",
+            "<li>L'Atelier des Recits</li>",
+            "<li>Les Archives Vivantes</li>",
+            "<li>La Constellation</li>",
+            "</ul>",
+            "<p>Ces lieux ne demandent pas d'etre memorises.</p>",
+            "<p>Ils invitent simplement a regarder autrement.</p>",
+            "<p>Ils continueront d'evoluer avec chacune de vos visites.</p>",
+            "</div>",
+            "<blockquote class=\"first-journey__quote\">Un territoire ne s'apprend pas.<br>Il s'habite.</blockquote>",
+            renderPassportCard(),
             "<div class=\"first-journey__actions\">",
-            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-forest>Continuer vers la Foret de l'Arche</button>",
+            "<button type=\"button\" class=\"first-journey__primary\" data-first-journey-forest>Entrer dans la Foret de l'Arche</button>",
             "<button type=\"button\" data-first-journey-free>Explorer librement</button>",
-            "<button type=\"button\" data-first-journey-replay>Refaire le premier voyage</button>",
+            "<button type=\"button\" data-first-journey-territory>Retour au Seuil</button>",
             "</div>",
             "</aside>"
         ].join("");
         state.root.querySelector("[data-first-journey-forest]").addEventListener("click", showForestThreshold);
         state.root.querySelector("[data-first-journey-free]").addEventListener("click", finishAndClear);
-        state.root.querySelector("[data-first-journey-replay]").addEventListener("click", startJourney);
+        state.root.querySelector("[data-first-journey-territory]").addEventListener("click", returnToTerritory);
+    }
+
+    function renderPassportCard() {
+        return [
+            "<section class=\"first-journey__passport-card\" aria-label=\"Passeport du Voyageur\">",
+            "<strong>Passeport du Voyageur</strong>",
+            "<span>Premier Voyage : accompli</span>",
+            "<span>Sept portes franchies.</span>",
+            "<span>Premier seuil traverse.</span>",
+            `<span>Date : ${escapeHtml(todayLabel())}</span>`,
+            "</section>"
+        ].join("");
     }
 
     function showForestThreshold() {
-        state.memory.active = true;
-        state.memory.completed = false;
-        state.memory.phase = "forest";
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
+        completeJourney();
         navigateTo("e04_oeuvre");
         renderForestThreshold();
     }
@@ -435,12 +446,12 @@
     }
 
     function finishAndClear() {
-        finishJourney();
+        completeJourney();
         clearRoot();
     }
 
     function returnToTerritory() {
-        finishJourney();
+        completeJourney();
         clearRoot();
         navigateTo("e01_accueil");
     }
@@ -512,6 +523,14 @@
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#39;");
+    }
+
+    function todayLabel() {
+        try {
+            return new Date().toLocaleDateString("fr-FR");
+        } catch (error) {
+            return "";
+        }
     }
 
     document.addEventListener("DOMContentLoaded", init);

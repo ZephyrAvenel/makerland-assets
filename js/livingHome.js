@@ -58,7 +58,7 @@
         document.body.classList.add("living-home-ready");
         const known = isKnownVisitor();
         root.innerHTML = [
-            renderDoors(known)
+            renderDoors(known, hasCompletedFirstJourney())
         ].join("");
         bindActions();
     }
@@ -124,12 +124,13 @@
         ].join("");
     }
 
-    function renderDoors(known) {
+    function renderDoors(known, firstJourneyCompleted) {
         return [
             "<nav class=\"living-home__doors\" aria-label=\"Facons d'entrer dans les Recits Vivants\">",
             "<button type=\"button\" class=\"living-home__door\" data-living-home-first>",
-            "<strong>Je decouvre</strong>",
-            "<span>Un premier voyage d'environ cinq minutes.</span>",
+            `<strong>${firstJourneyCompleted ? "Premier Voyage accompli &#10003;" : "Je decouvre"}</strong>`,
+            `<span>${firstJourneyCompleted ? "Vous pouvez recommencer ce voyage ou poursuivre librement votre exploration." : "Un premier voyage d'environ cinq minutes."}</span>`,
+            firstJourneyCompleted ? "<em>Revoir le Premier Voyage</em>" : "",
             "</button>",
             "<button type=\"button\" class=\"living-home__door\" data-living-home-resume>",
             "<strong>Je poursuis mon voyage</strong>",
@@ -198,6 +199,11 @@
             journey && journey.visited && Object.keys(journey.visited).length > 1 ||
             paths && ((paths.started || []).length || (paths.completed || []).length)
         );
+    }
+
+    function hasCompletedFirstJourney() {
+        const first = readJson(FIRST_KEY, {});
+        return Boolean(first.completed);
     }
 
     function lastKnownLabel(memory, paths) {
