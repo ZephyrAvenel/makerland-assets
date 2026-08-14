@@ -772,8 +772,8 @@ body[data-journey-place="constellation"]{
     transform:translate(-50%, 10px);
     pointer-events:none;
     transition:
-        opacity .58s ease,
-        transform .58s ease;
+        opacity .65s ease,
+        transform .65s ease;
 }
 
 .journey-notice-visible{
@@ -1547,8 +1547,8 @@ body[data-journey-place="constellation"]{
         0 2px 24px rgba(0,0,0,.82),
         0 0 24px rgba(255,216,142,.18);
     transition:
-        opacity 1s ease,
-        transform 1s ease;
+        opacity .65s ease,
+        transform .65s ease;
     isolation:isolate;
 }
 
