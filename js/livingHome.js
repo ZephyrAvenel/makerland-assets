@@ -22,7 +22,7 @@
 
     let root = null;
     let currentScreen = null;
-    let otherPathsOpen = false;
+    let activePath = "first";
 
     function init() {
         ensureRoot();
@@ -53,7 +53,7 @@
         if (screenId !== "e01_accueil") {
             document.body.classList.remove("living-home-ready");
             root.innerHTML = "";
-            otherPathsOpen = false;
+            activePath = "first";
             return;
         }
 
@@ -127,26 +127,55 @@
     }
 
     function renderDoors(known, firstJourneyCompleted) {
+        const rows = [
+            {
+                id: "first",
+                icon: "&#10022;",
+                title: firstJourneyCompleted ? "Premier voyage accompli" : "Je decouvre",
+                text: firstJourneyCompleted ? "Vous pouvez recommencer ce voyage ou poursuivre votre exploration." : "Un premier voyage d'environ cinq minutes.",
+                action: firstJourneyCompleted ? "Revoir le Premier Voyage" : "Faire mon premier voyage",
+                data: "data-living-home-first"
+            },
+            {
+                id: "resume",
+                icon: "&#9673;",
+                title: "Je poursuis mon voyage",
+                text: known ? "Reprendre la derniere trace ouverte." : "Ouvrir le Carnet quand il existera deja une trace.",
+                action: "Reprendre",
+                data: "data-living-home-resume"
+            },
+            {
+                id: "free",
+                icon: "&#9671;",
+                title: "J'explore librement",
+                text: "Entrer sans guidage, au rythme des Recits Vivants.",
+                action: "Explorer librement",
+                data: "data-living-home-free"
+            }
+        ];
+
         return [
             "<nav class=\"living-home__paths\" aria-label=\"Chemins de voyage\">",
-            "<button type=\"button\" class=\"living-home__path-main\" data-living-home-first>",
-            "<span>Votre chemin</span>",
-            `<strong>${firstJourneyCompleted ? "Premier Voyage accompli &#10003;" : "Je decouvre"}</strong>`,
-            `<span>${firstJourneyCompleted ? "Vous pouvez recommencer ce voyage ou poursuivre librement votre exploration." : "Un premier voyage d'environ cinq minutes."}</span>`,
-            firstJourneyCompleted ? "<em>Revoir le Premier Voyage</em>" : "",
-            "</button>",
-            `<button type="button" class="living-home__paths-toggle" aria-expanded="${otherPathsOpen ? "true" : "false"}" data-living-home-toggle>Autres chemins ${otherPathsOpen ? "▴" : "▾"}</button>`,
-            `<div class="living-home__paths-more${otherPathsOpen ? " is-open" : ""}" data-living-home-more>`,
-            "<button type=\"button\" class=\"living-home__path-secondary\" data-living-home-resume>",
-            "<strong>Je poursuis mon voyage</strong>",
-            `<span>${known ? "Reprendre la derniere trace ouverte." : "Ouvrir le Carnet quand il existera deja une trace."}</span>`,
-            "</button>",
-            "<button type=\"button\" class=\"living-home__path-secondary\" data-living-home-free>",
-            "<strong>J'explore librement</strong>",
-            "<span>Entrer sans guidage, au rythme des Recits Vivants.</span>",
-            "</button>",
-            "</div>",
+            "<p class=\"living-home__paths-kicker\">Choisissez votre maniere d'entrer</p>",
+            rows.map(row => renderPathRow(row)).join(""),
             "</nav>"
+        ].join("");
+    }
+
+    function renderPathRow(row) {
+        const open = activePath === row.id;
+        return [
+            `<section class="living-home__path-row${open ? " is-open" : ""}" data-living-home-path="${row.id}">`,
+            `<button type="button" class="living-home__path-header" aria-expanded="${open ? "true" : "false"}" data-living-home-path-toggle="${row.id}">`,
+            `<span class="living-home__path-icon" aria-hidden="true">${row.icon}</span>`,
+            `<span class="living-home__path-title">${escapeHtml(row.title)}</span>`,
+            "<span class=\"living-home__path-chevron\" aria-hidden=\"true\">&#8250;</span>",
+            "</button>",
+            "<div class=\"living-home__path-panel\">",
+            `<p>${escapeHtml(row.text)}</p>`,
+            `<button type="button" class="living-home__path-action" ${row.data}>${escapeHtml(row.action)}</button>`,
+            "</div>",
+            "</section>"
         ].join("");
     }
 
@@ -168,23 +197,29 @@
             resume.addEventListener("click", resumeJourney);
         }
 
-        const toggle = root.querySelector("[data-living-home-toggle]");
-        if (toggle) {
+        root.querySelectorAll("[data-living-home-path-toggle]").forEach(toggle => {
             toggle.addEventListener("click", () => {
-                const more = root.querySelector("[data-living-home-more]");
-                otherPathsOpen = !otherPathsOpen;
-                toggle.setAttribute("aria-expanded", otherPathsOpen ? "true" : "false");
-                toggle.textContent = `Autres chemins ${otherPathsOpen ? "▴" : "▾"}`;
-                if (more) {
-                    more.classList.toggle("is-open", otherPathsOpen);
-                }
+                const next = toggle.getAttribute("data-living-home-path-toggle") || "first";
+                activePath = next;
+                updateActivePath();
             });
-        }
+        });
 
         const continueButton = root.querySelector("[data-living-home-continue]");
         if (continueButton) {
             continueButton.addEventListener("click", resumeJourney);
         }
+    }
+
+    function updateActivePath() {
+        root.querySelectorAll("[data-living-home-path]").forEach(row => {
+            const open = row.getAttribute("data-living-home-path") === activePath;
+            row.classList.toggle("is-open", open);
+            const toggle = row.querySelector("[data-living-home-path-toggle]");
+            if (toggle) {
+                toggle.setAttribute("aria-expanded", open ? "true" : "false");
+            }
+        });
     }
 
     function resumeJourney() {

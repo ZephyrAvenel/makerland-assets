@@ -47,9 +47,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 .living-home__season,
 .living-home__return,
 .living-home__guide,
-.living-home__path-main,
-.living-home__path-secondary,
-.living-home__paths-toggle{
+.living-home__path-row{
     border:1px solid rgba(255,224,166,.24);
     background:linear-gradient(180deg, rgba(8,15,25,.46), rgba(4,8,15,.24));
     box-shadow:0 18px 42px rgba(0,0,0,.25), 0 0 30px var(--season-glow, rgba(255,207,130,.08));
@@ -90,121 +88,139 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 .living-home__paths{
     position:absolute;
     left:50%;
-    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .085);
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .065);
     display:grid;
-    gap:10px;
-    width:min(520px, calc(var(--screen-content-width) * .54));
+    gap:7px;
+    width:min(500px, calc(var(--screen-content-width) * .5));
+    max-height:min(30vh, 250px);
     transform:translateX(-50%);
     pointer-events:auto;
     animation:livingHomeDoor 1s cubic-bezier(.22,1,.36,1) both;
 }
 
-.living-home__path-main,
-.living-home__path-secondary,
-.living-home__paths-toggle{
-    border-radius:18px;
-    color:inherit;
-    font:inherit;
-    cursor:pointer;
-}
-
-.living-home__path-main{
-    min-height:76px;
-    padding:12px 16px;
-    color:inherit;
-    font:inherit;
-    text-align:left;
-    transition:transform .35s cubic-bezier(.22,1,.36,1), border-color .35s ease, background .35s ease, box-shadow .35s ease;
-}
-
-.living-home__path-main > span:first-child{
-    display:block;
-    margin-bottom:4px;
+.living-home__paths-kicker{
+    margin:0 0 2px;
     color:rgba(255,224,166,.72);
     font-family:Arial, sans-serif;
     font-size:11px;
     letter-spacing:.12em;
     line-height:1.2;
+    text-align:center;
     text-transform:uppercase;
+    text-shadow:0 3px 18px rgba(0,0,0,.65);
 }
 
-.living-home__path-main strong,
-.living-home__path-secondary strong{
-    display:block;
-    color:#ffe3aa;
-    font-size:clamp(15px, calc(var(--screen-content-width) * .014), 19px);
-    line-height:1.15;
-}
-
-.living-home__path-main span:not(:first-child),
-.living-home__path-secondary span{
-    display:block;
-    margin-top:5px;
-    color:rgba(255,244,226,.76);
-    font-size:clamp(11px, calc(var(--screen-content-width) * .01), 14px);
-    line-height:1.35;
-}
-
-.living-home__path-main em{
-    display:inline-block;
-    margin-top:7px;
-    color:rgba(255,224,166,.86);
-    font-size:clamp(11px, calc(var(--screen-content-width) * .0095), 13px);
-    font-style:normal;
-    line-height:1.2;
-}
-
-.living-home__paths-toggle{
-    justify-self:center;
-    padding:7px 13px;
-    border-radius:999px;
-    color:rgba(255,235,196,.82);
-    font-size:clamp(11px, calc(var(--screen-content-width) * .0095), 13px);
-    line-height:1.2;
-}
-
-.living-home__paths-more{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:10px;
-    max-height:0;
-    opacity:0;
+.living-home__path-row{
+    border-radius:28px;
     overflow:hidden;
-    transform:translateY(-6px);
-    transition:max-height .26s ease, opacity .22s ease, transform .26s ease;
+    transition:border-color .3s ease, background .3s ease, box-shadow .3s ease, transform .3s ease;
 }
 
-.living-home__paths-more.is-open{
-    max-height:118px;
-    opacity:1;
-    transform:translateY(0);
+.living-home__path-row.is-open{
+    border-color:rgba(255,224,166,.38);
+    background:linear-gradient(180deg, rgba(10,17,28,.58), rgba(5,9,16,.34));
+    box-shadow:0 22px 48px rgba(0,0,0,.28), 0 0 34px rgba(255,207,130,.12);
 }
 
-.living-home__path-secondary{
-    min-height:62px;
-    padding:10px 12px;
+.living-home__path-header{
+    display:grid;
+    grid-template-columns:28px 1fr 24px;
+    align-items:center;
+    width:100%;
+    min-height:56px;
+    border:0;
+    padding:0 17px;
+    color:inherit;
+    background:transparent;
+    font:inherit;
+    text-align:left;
+    cursor:pointer;
+}
+
+.living-home__path-icon{
+    color:rgba(255,224,166,.78);
+    font-size:15px;
+    line-height:1;
     text-align:left;
 }
 
-.living-home__path-secondary strong{
-    font-size:clamp(13px, calc(var(--screen-content-width) * .011), 16px);
+.living-home__path-title{
+    color:#ffe3aa;
+    font-size:clamp(14px, calc(var(--screen-content-width) * .012), 17px);
+    line-height:1.15;
 }
 
-.living-home__path-secondary span{
-    font-size:clamp(10px, calc(var(--screen-content-width) * .0088), 12px);
+.living-home__path-chevron{
+    color:rgba(255,224,166,.72);
+    font-size:24px;
+    line-height:1.2;
+    text-align:right;
+    transform:rotate(90deg);
+    transition:transform .3s ease;
 }
 
-.living-home__path-main:hover,
-.living-home__path-main:focus-visible,
-.living-home__path-secondary:hover,
-.living-home__path-secondary:focus-visible,
-.living-home__paths-toggle:hover,
-.living-home__paths-toggle:focus-visible{
+.living-home__path-row.is-open .living-home__path-chevron{
+    transform:rotate(270deg);
+}
+
+.living-home__path-panel{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    padding:0 17px;
+    transform:translateY(-5px);
+    transition:max-height .3s ease, opacity .25s ease, padding .3s ease, transform .3s ease;
+}
+
+.living-home__path-row.is-open .living-home__path-panel{
+    max-height:94px;
+    opacity:1;
+    padding:0 17px 11px;
+    transform:translateY(0);
+}
+
+.living-home__path-panel p{
+    margin:0;
+    color:rgba(255,244,226,.76);
+    font-size:clamp(11px, calc(var(--screen-content-width) * .0095), 13px);
+    line-height:1.28;
+}
+
+.living-home__path-action{
+    margin-top:7px;
+    border:1px solid rgba(255,224,166,.3);
+    border-radius:999px;
+    padding:6px 12px;
+    color:rgba(255,244,226,.9);
+    background:rgba(255,230,180,.08);
+    font:inherit;
+    font-size:12px;
+    line-height:1.2;
+    cursor:pointer;
+    transition:transform .3s ease, border-color .3s ease, background .3s ease;
+}
+
+.living-home__path-header:hover,
+.living-home__path-header:focus-visible,
+.living-home__path-action:hover,
+.living-home__path-action:focus-visible{
+    outline:none;
+}
+
+.living-home__path-row:hover,
+.living-home__path-row:focus-within{
     outline:none;
     transform:translateY(-2px);
     border-color:rgba(255,224,166,.46);
     background:linear-gradient(180deg, rgba(255,224,166,.12), rgba(8,15,25,.34));
     box-shadow:0 22px 50px rgba(0,0,0,.3), 0 0 36px rgba(255,207,130,.14);
+}
+
+.living-home__path-action:hover,
+.living-home__path-action:focus-visible{
+    border-color:rgba(255,224,166,.5);
+    background:rgba(255,230,180,.14);
+    transform:translateY(-1px);
 }
 
 .living-home__guide{
@@ -350,27 +366,18 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
         width:calc(var(--screen-content-width) * .72);
     }
 
-    .living-home__path-main{
-        min-height:0;
-        padding:9px 11px;
+    .living-home__path-header{
+        min-height:52px;
+        padding:0 14px;
     }
 
-    .living-home__path-main span,
-    .living-home__path-secondary span{
-        margin-top:4px;
+    .living-home__path-row.is-open .living-home__path-panel{
+        max-height:96px;
+        padding:0 14px 10px;
     }
 
-    .living-home__paths-more{
-        grid-template-columns:1fr;
-    }
-
-    .living-home__paths-more.is-open{
-        max-height:138px;
-    }
-
-    .living-home__path-secondary{
-        min-height:0;
-        padding:8px 10px;
+    .living-home__path-panel{
+        padding:0 14px;
     }
 
     .living-home__return{
@@ -395,8 +402,9 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 
     .living-home__paths{
-        bottom:88px;
-        width:74vw;
+        bottom:72px;
+        width:76vw;
+        max-height:29vh;
     }
 }
 
@@ -412,43 +420,48 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 
     .living-home__paths{
-        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
-        width:min(430px, calc(var(--screen-content-width) * .46));
-        gap:6px;
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
+        width:min(420px, calc(var(--screen-content-width) * .42));
+        max-height:30vh;
+        gap:5px;
     }
 
-    .living-home__path-main{
-        min-height:0;
-        padding:7px 10px;
+    .living-home__paths-kicker{
+        font-size:9px;
     }
 
-    .living-home__path-main strong,
-    .living-home__path-secondary strong{
-        font-size:12px;
+    .living-home__path-header{
+        grid-template-columns:22px 1fr 20px;
+        min-height:34px;
+        padding:0 11px;
     }
 
-    .living-home__path-main span,
-    .living-home__path-secondary span{
-        font-size:10px;
+    .living-home__path-title{
+        font-size:11px;
     }
 
-    .living-home__paths-toggle{
-        padding:5px 10px;
-        font-size:10px;
+    .living-home__path-icon{
+        font-size:11px;
     }
 
-    .living-home__paths-more{
-        grid-template-columns:repeat(2, minmax(0, 1fr));
-        gap:6px;
+    .living-home__path-chevron{
+        font-size:18px;
     }
 
-    .living-home__paths-more.is-open{
-        max-height:82px;
+    .living-home__path-panel p{
+        font-size:9px;
+        line-height:1.18;
     }
 
-    .living-home__path-secondary{
-        padding:7px 8px;
-        min-height:0;
+    .living-home__path-action{
+        margin-top:4px;
+        padding:4px 8px;
+        font-size:9px;
+    }
+
+    .living-home__path-row.is-open .living-home__path-panel{
+        max-height:48px;
+        padding:0 11px 6px;
     }
 }
 
@@ -457,18 +470,16 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     .living-home__daily,
     .living-home__season,
     .living-home__guide,
-    .living-home__path-main,
-    .living-home__path-secondary,
-    .living-home__paths-toggle,
+    .living-home__path-row,
     .living-home__return,
     .living-home__places{
         animation:none;
     }
 
-    .living-home__path-main,
-    .living-home__path-secondary,
-    .living-home__paths-toggle,
-    .living-home__paths-more{
+    .living-home__path-row,
+    .living-home__path-chevron,
+    .living-home__path-panel,
+    .living-home__path-action{
         transition:none;
     }
 }
