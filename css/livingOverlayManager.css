@@ -45,18 +45,16 @@
 }
 
 #e08_constellation .constellation-panel{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    height:auto;
+    display:block;
+    height:clamp(148px, calc(var(--screen-content-height) * .21), 238px);
     min-height:0;
-    padding:12px;
+    padding:0;
     box-sizing:border-box;
-    border:1px solid rgba(255,224,166,.2);
+    border:0;
     border-radius:20px;
-    background:linear-gradient(180deg, rgba(7,13,22,.52), rgba(3,7,13,.34));
-    box-shadow:0 18px 40px rgba(0,0,0,.26), 0 0 30px rgba(255,205,125,.08);
-    backdrop-filter:blur(9px);
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
     opacity:.86;
     pointer-events:auto;
     transition:opacity .35s ease, transform .35s ease, border-color .35s ease;
@@ -90,37 +88,41 @@
 #e08_constellation .constellation-panel.is-writing-active{
     z-index:62;
     opacity:1;
-    border-color:rgba(255,224,166,.42);
-    box-shadow:0 22px 48px rgba(0,0,0,.32), 0 0 34px rgba(255,205,125,.12);
 }
 
 #e08_constellation .constellation-panel:focus-within textarea{
-    border-color:rgba(255,216,142,.38);
-    box-shadow:inset 0 0 0 1px rgba(96,66,25,.05), 0 0 18px rgba(255,210,118,.14);
+    border-color:transparent;
+    box-shadow:none;
 }
 
 #e08_constellation .constellation-panel textarea{
-    position:static;
+    position:absolute;
+    inset:0;
     display:block;
     width:100%;
-    height:clamp(96px, calc(var(--screen-content-height) * .15), 170px);
+    height:100%;
     min-height:0;
-    padding:12px 14px;
-    border:1px solid rgba(255,224,166,.18);
-    border-radius:16px;
-    background:rgba(255,248,235,.9);
+    box-sizing:border-box;
+    padding:14px 16px;
+    border:1px solid transparent;
+    border-radius:20px;
+    background:transparent;
     color:#1d1307;
-    box-shadow:inset 0 0 0 1px rgba(65,42,20,.04);
+    box-shadow:none;
+    backdrop-filter:none;
     overflow:auto;
+    resize:none;
     transition:border-color .25s ease, box-shadow .25s ease;
 }
 
 #e08_constellation .constellation-panel textarea::placeholder{
-    color:rgba(55,36,18,.56);
+    color:transparent;
 }
 
 #e08_constellation .constellation-panel button{
-    position:static;
+    position:absolute;
+    left:0;
+    top:calc(100% + 10px);
     display:block;
     width:100%;
     height:auto;
@@ -236,11 +238,11 @@
         top:auto;
         bottom:calc(env(safe-area-inset-bottom) + 14px);
         width:calc(var(--screen-content-width) * .86);
+        height:112px;
         max-height:min(42dvh, calc(var(--screen-content-height) * .42));
     }
 
     #e08_constellation .constellation-panel textarea{
-        height:112px;
         max-height:24dvh;
     }
 
