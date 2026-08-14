@@ -195,7 +195,6 @@
             "</section>"
         ].join("");
 
-        insertJourneySeal(".first-journey__intro h2", "journey");
         state.root.querySelector("[data-first-journey-start]").addEventListener("click", startJourney);
         state.root.querySelector("[data-first-journey-threshold]").addEventListener("click", clearRoot);
     }
@@ -395,8 +394,6 @@
             "</div>",
             "</aside>"
         ].join("");
-        insertJourneySeal(".first-journey__passport h3", "passport");
-        insertJourneySeal(".first-journey__passport-card", "watermark", true);
         state.root.querySelector("[data-first-journey-forest]").addEventListener("click", showForestThreshold);
         state.root.querySelector("[data-first-journey-free]").addEventListener("click", finishAndClear);
         state.root.querySelector("[data-first-journey-territory]").addEventListener("click", returnToTerritory);

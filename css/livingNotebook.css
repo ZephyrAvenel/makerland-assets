@@ -29,9 +29,10 @@
     width:100%;
 }
 
-.living-notebook__cover img{
+.living-notebook .rv-seal--notebook{
     width:clamp(92px,18vw,132px);
     height:clamp(92px,18vw,132px);
+    margin:0;
     border-radius:50%;
     filter:drop-shadow(0 0 14px rgba(220,190,120,.22));
 }
@@ -111,9 +112,10 @@
     text-align:left;
 }
 
-.living-notebook__page header img{
+.living-notebook .rv-seal--notebook-page{
     width:42px;
     height:42px;
+    margin:0;
     border-radius:50%;
     opacity:.78;
 }

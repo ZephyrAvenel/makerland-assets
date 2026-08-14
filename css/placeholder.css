@@ -115,17 +115,6 @@ body.has-rv-seal main::before{
     filter:drop-shadow(0 0 12px rgba(220,190,120,.20));
 }
 
-.rv-seal--archive{
-    width:clamp(46px, 8vw, 62px);
-    height:clamp(46px, 8vw, 62px);
-    margin:10px auto 18px;
-    opacity:.78;
-}
-
-.rv-seal--place{
-    opacity:.86;
-}
-
 p{
     margin:0 auto;
     max-width:560px;
