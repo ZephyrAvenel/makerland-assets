@@ -1,5 +1,6 @@
 (function () {
     const SCREEN_ID = "e08_constellation";
+    const MEMORY_KEY = "recitsVivants.constellation.memory";
     const VISIBLE_CLASS = "constellation-scene-visible";
     const SILENT_CLASS = "constellation-scene-silent";
     const INVITING_CLASS = "constellation-scene-inviting";
@@ -8,11 +9,24 @@
     const CARD_READY_CLASS = "constellation-scene-card-ready";
     const CARD_OPEN_CLASS = "constellation-scene-card-open";
     const AWAKENED_CLASS = "constellation-scene-awakened";
+    const RETURNING_CLASS = "constellation-memory-returning";
+    const STAR_MEMORY_CLASS = "constellation-memory-star";
+    const CARD_MEMORY_CLASS = "constellation-memory-card";
+    const RELATION_MEMORY_CLASS = "constellation-memory-relations";
+    const GUARDIAN_MEMORY_CLASS = "constellation-memory-guardian";
+
+    const WHISPERS = [
+        "Ici, les recits se repondent.",
+        "Certaines etoiles gardent la memoire des passages.",
+        "Une lumiere deja rencontree ne brille jamais tout a fait pareil."
+    ];
 
     const state = {
         screen: null,
         layer: null,
-        timers: []
+        timers: [],
+        memory: null,
+        visibleSession: false
     };
 
     function clearTimers() {
@@ -27,6 +41,82 @@
 
     function isVisible(element) {
         return Boolean(element && element.offsetParent !== null);
+    }
+
+    function readMemory() {
+        try {
+            const memory = JSON.parse(localStorage.getItem(MEMORY_KEY)) || {};
+            return normalizeMemory(memory);
+        } catch (error) {
+            return normalizeMemory({});
+        }
+    }
+
+    function writeMemory() {
+        try {
+            localStorage.setItem(MEMORY_KEY, JSON.stringify(state.memory));
+        } catch (error) {
+            return;
+        }
+    }
+
+    function normalizeMemory(memory) {
+        return {
+            visits: Number(memory.visits || 0),
+            stars: Array.isArray(memory.stars) ? memory.stars : [],
+            cards: Array.isArray(memory.cards) ? memory.cards : [],
+            relations: Array.isArray(memory.relations) ? memory.relations : [],
+            lastVisitedAt: memory.lastVisitedAt || "",
+            lastWhisperIndex: Number.isInteger(memory.lastWhisperIndex)
+                ? memory.lastWhisperIndex
+                : -1
+        };
+    }
+
+    function remember(listName, value) {
+        if (!state.memory) return;
+        const list = Array.isArray(state.memory[listName]) ? state.memory[listName] : [];
+        if (!list.includes(value)) {
+            list.push(value);
+        }
+        state.memory[listName] = list;
+        writeMemory();
+        applyMemoryClasses();
+    }
+
+    function nextWhisperIndex() {
+        if (!state.memory) return 0;
+        const next = (state.memory.lastWhisperIndex + 1) % WHISPERS.length;
+        state.memory.lastWhisperIndex = next;
+        writeMemory();
+        return next;
+    }
+
+    function registerVisit() {
+        if (!state.memory || state.visibleSession) return;
+        state.visibleSession = true;
+        state.memory.visits += 1;
+        state.memory.lastVisitedAt = new Date().toISOString();
+        writeMemory();
+    }
+
+    function endVisitSession() {
+        state.visibleSession = false;
+    }
+
+    function applyMemoryClasses() {
+        if (!state.screen || !state.memory) return;
+        state.screen.classList.toggle(RETURNING_CLASS, state.memory.visits > 1);
+        state.screen.classList.toggle(STAR_MEMORY_CLASS, state.memory.stars.length > 0);
+        state.screen.classList.toggle(CARD_MEMORY_CLASS, state.memory.cards.length > 0);
+        state.screen.classList.toggle(RELATION_MEMORY_CLASS, state.memory.relations.length > 0);
+        state.screen.classList.toggle(GUARDIAN_MEMORY_CLASS, shouldSuggestGuardianPresence());
+        state.screen.dataset.constellationVisitTone = String(state.memory.visits % 3);
+    }
+
+    function shouldSuggestGuardianPresence() {
+        if (!state.memory) return false;
+        return state.memory.visits > 2 && state.memory.relations.length > 0 && state.memory.visits % 4 === 0;
     }
 
     function buildLayer() {
@@ -68,6 +158,12 @@
     function resetScene() {
         if (!state.screen) return;
         clearTimers();
+        registerVisit();
+        applyMemoryClasses();
+        const whisper = state.layer ? state.layer.querySelector(".constellation-scene__whisper") : null;
+        if (whisper) {
+            whisper.textContent = WHISPERS[nextWhisperIndex()];
+        }
         state.screen.classList.add(SILENT_CLASS);
         state.screen.classList.remove(
             VISIBLE_CLASS,
@@ -97,11 +193,14 @@
             return;
         }
         clearTimers();
+        remember("stars", "first-star");
         state.screen.classList.add(MEETING_CLASS);
         state.screen.classList.remove(INVITING_CLASS);
 
         schedule(() => {
             if (isVisible(state.screen)) {
+                remember("stars", "answer-star");
+                remember("relations", "first-relation");
                 state.screen.classList.add(RELATION_CLASS);
             }
         }, 1400);
@@ -117,6 +216,7 @@
         if (!state.screen || !state.screen.classList.contains(CARD_READY_CLASS)) {
             return;
         }
+        remember("cards", "suspended-card");
         state.screen.classList.add(CARD_OPEN_CLASS);
     }
 
@@ -141,6 +241,8 @@
             const visible = isVisible(state.screen);
             if (visible && !wasVisible) {
                 resetScene();
+            } else if (!visible && wasVisible) {
+                endVisitSession();
             }
             wasVisible = visible;
         });
@@ -154,13 +256,16 @@
     function init() {
         state.screen = document.getElementById(SCREEN_ID);
         if (!state.screen) return;
+        state.memory = readMemory();
         buildLayer();
+        applyMemoryClasses();
         observeVisibility();
     }
 
     window.ConstellationScene = {
         init,
         startMeeting,
+        readMemory: () => state.memory || readMemory(),
         awaken
     };
 
