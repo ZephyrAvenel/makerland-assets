@@ -195,6 +195,7 @@
             "</section>"
         ].join("");
 
+        insertJourneySeal(".first-journey__intro h2", "journey");
         state.root.querySelector("[data-first-journey-start]").addEventListener("click", startJourney);
         state.root.querySelector("[data-first-journey-threshold]").addEventListener("click", clearRoot);
     }
@@ -394,6 +395,8 @@
             "</div>",
             "</aside>"
         ].join("");
+        insertJourneySeal(".first-journey__passport h3", "passport");
+        insertJourneySeal(".first-journey__passport-card", "watermark", true);
         state.root.querySelector("[data-first-journey-forest]").addEventListener("click", showForestThreshold);
         state.root.querySelector("[data-first-journey-free]").addEventListener("click", finishAndClear);
         state.root.querySelector("[data-first-journey-territory]").addEventListener("click", returnToTerritory);
@@ -440,9 +443,34 @@
             "</div>",
             "</section>"
         ].join("");
+        insertJourneySeal(".first-journey__forest h2", "forest");
         state.root.querySelector("[data-first-journey-enter-forest]").addEventListener("click", finishAndClear);
         state.root.querySelector("[data-first-journey-territory]").addEventListener("click", returnToTerritory);
         state.root.querySelector("[data-first-journey-free]").addEventListener("click", finishAndClear);
+    }
+
+    function insertJourneySeal(selector, variant, hidden) {
+        if (!window.RVSeal || !window.RVSeal.create || !state.root) {
+            return;
+        }
+
+        const target = state.root.querySelector(selector);
+        if (!target) {
+            return;
+        }
+
+        const seal = window.RVSeal.create({
+                variant,
+                hidden: Boolean(hidden),
+                label: "Emblème des Récits Vivants"
+            });
+
+        if (variant === "watermark") {
+            target.insertBefore(seal, target.firstChild);
+            return;
+        }
+
+        target.insertAdjacentElement("beforebegin", seal);
     }
 
     function finishAndClear() {

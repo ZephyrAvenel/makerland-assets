@@ -244,8 +244,127 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
     animation-delay:1.18s;
 }
 
+.entry-intro-emblem img{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+}
+
 .entry-intro-emblem:hover{
     transform:scale(1.03) !important;
+}
+
+.rv-seal{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.rv-seal img{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    filter:drop-shadow(0 0 12px rgba(220,190,120,.20));
+}
+
+.rv-seal--journey,
+.rv-seal--passport,
+.rv-seal--forest{
+    display:flex;
+    margin:0 auto 14px;
+}
+
+.rv-seal--journey{
+    width:58px;
+    height:58px;
+    opacity:.9;
+}
+
+.rv-seal--passport{
+    width:62px;
+    height:62px;
+    opacity:.92;
+}
+
+.rv-seal--forest{
+    width:56px;
+    height:56px;
+    opacity:.72;
+}
+
+.rv-seal--watermark{
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:0;
+    width:170px;
+    height:170px;
+    margin:0;
+    opacity:.09;
+    transform:translate(-50%, -50%);
+}
+
+.rv-seal--screen{
+    position:absolute;
+    z-index:35;
+    width:56px;
+    height:56px;
+    opacity:.66;
+}
+
+.rv-seal--screen img{
+    filter:
+        drop-shadow(0 0 12px rgba(220,190,120,.18))
+        brightness(.96);
+}
+
+.rv-seal--library{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+    transform:translateX(-50%);
+}
+
+.rv-seal--compass{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .075);
+    transform:translateX(-50%);
+    opacity:.52;
+}
+
+.rv-seal--atelier{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    transform:translateX(-50%);
+}
+
+.rv-seal--constellation{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .09);
+    transform:translateX(-50%);
+}
+
+.rv-seal--cards{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .5);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
+    transform:translateX(-50%);
+}
+
+.rv-seal--forest.rv-seal--screen{
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .515);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .455);
+    width:48px;
+    height:48px;
+    opacity:.34;
+    transform:translate(-50%, -50%);
+    mix-blend-mode:screen;
 }
 
 .entry-intro h1{
@@ -982,6 +1101,24 @@ body[data-journey-place="constellation"]{
         width:72px;
         height:72px;
         margin-bottom:8px;
+    }
+
+    .rv-seal--screen{
+        width:44px;
+        height:44px;
+    }
+
+    .rv-seal--journey,
+    .rv-seal--passport,
+    .rv-seal--forest{
+        width:48px;
+        height:48px;
+        margin-bottom:10px;
+    }
+
+    .rv-seal--watermark{
+        width:138px;
+        height:138px;
     }
 
     .entry-intro h1{

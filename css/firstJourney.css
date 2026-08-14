@@ -129,16 +129,20 @@
 }
 
 .first-journey__passport-card{
+    position:relative;
     margin-top:14px;
     padding:13px 14px;
     border:1px solid rgba(255,224,166,.22);
     border-radius:16px;
     background:linear-gradient(180deg, rgba(255,230,180,.09), rgba(7,13,23,.2));
     box-shadow:inset 0 0 24px rgba(255,224,166,.05);
+    overflow:hidden;
 }
 
 .first-journey__passport-card strong,
 .first-journey__passport-card span{
+    position:relative;
+    z-index:1;
     display:block;
 }
 
