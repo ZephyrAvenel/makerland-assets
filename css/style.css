@@ -929,10 +929,14 @@ body[data-journey-place="constellation"]{
 }
 
 .meteo-intro{
+    --meteo-intro-top:calc(var(--screen-content-top) + var(--screen-content-height) * .115);
     position:absolute;
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .12);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .115);
+    top:var(--meteo-intro-top);
     width:calc(var(--screen-content-width) * .76);
+    max-height:calc(100dvh - var(--meteo-intro-top) - max(14px, env(safe-area-inset-bottom, 0px)));
+    overflow-y:auto;
+    box-sizing:border-box;
     z-index:35;
     color:#fff7df;
     text-align:center;
@@ -1118,9 +1122,11 @@ body[data-journey-place="constellation"]{
     }
 
     .meteo-intro{
+        --meteo-intro-top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
         width:calc(var(--screen-content-width) * .84);
+        max-height:calc(100dvh - var(--meteo-intro-top) - max(12px, env(safe-area-inset-bottom, 0px)));
     }
 
     .meteo-intro p{
@@ -1298,10 +1304,14 @@ body[data-journey-place="constellation"]{
 }
 
 .living-compass-welcome{
+    --living-compass-welcome-top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
     position:absolute;
     left:calc(var(--screen-content-left) + var(--screen-content-width) * .24);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    top:var(--living-compass-welcome-top);
     width:calc(var(--screen-content-width) * .52);
+    max-height:calc(100dvh - var(--living-compass-welcome-top) - max(14px, env(safe-area-inset-bottom, 0px)));
+    overflow-y:auto;
+    box-sizing:border-box;
     text-align:center;
     text-shadow:0 2px 20px rgba(0,0,0,.62);
     transform:translateY(8px);
@@ -2156,9 +2166,11 @@ body[data-journey-place="constellation"]{
 
 @media (orientation:portrait) {
     .living-compass-welcome{
+        --living-compass-welcome-top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .07);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
         width:calc(var(--screen-content-width) * .86);
+        max-height:calc(100dvh - var(--living-compass-welcome-top) - max(12px, env(safe-area-inset-bottom, 0px)));
     }
 
     .living-compass-kicker{
@@ -2236,7 +2248,9 @@ body[data-journey-place="constellation"]{
 
 @media (max-height:480px) and (orientation:landscape) {
     .living-compass-welcome{
+        --living-compass-welcome-top:calc(var(--screen-content-top) + var(--screen-content-height) * .03);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .03);
+        max-height:calc(100dvh - var(--living-compass-welcome-top) - max(10px, env(safe-area-inset-bottom, 0px)));
     }
 
     .living-compass-kicker{
@@ -2348,7 +2362,9 @@ body[data-journey-place="constellation"]{
 
 @media (max-height:380px) and (orientation:landscape) {
     .living-compass-welcome{
+        --living-compass-welcome-top:calc(var(--screen-content-top) + var(--screen-content-height) * .035);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .035);
+        max-height:calc(100dvh - var(--living-compass-welcome-top) - max(8px, env(safe-area-inset-bottom, 0px)));
     }
 
     .living-compass-kicker{

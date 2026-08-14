@@ -7,6 +7,9 @@
     --screen-content-height:min(100vh, 66.6667vw);
     --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
     --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
+    --first-journey-safe-top:max(12px, env(safe-area-inset-top, 0px));
+    --first-journey-safe-bottom:max(12px, env(safe-area-inset-bottom, 0px));
+    --first-journey-panel-max-height:calc(100dvh - var(--first-journey-safe-top) - var(--first-journey-safe-bottom));
     color:rgba(255,243,222,.92);
     font-family:Georgia, "Times New Roman", serif;
 }
@@ -22,6 +25,11 @@
     box-shadow:0 24px 58px rgba(0,0,0,.34), 0 0 38px rgba(255,207,130,.1);
     backdrop-filter:blur(10px);
     pointer-events:auto;
+    display:flex;
+    flex-direction:column;
+    max-height:var(--first-journey-panel-max-height);
+    box-sizing:border-box;
+    overflow:hidden;
 }
 
 .first-journey__welcome{
@@ -44,16 +52,21 @@
     animation:firstJourneyAppear .9s cubic-bezier(.22,1,.36,1) both;
 }
 
+.first-journey__welcome,
+.first-journey__intro{
+    overflow-y:auto;
+}
+
 .first-journey__step{
+    --first-journey-step-top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
     position:absolute;
     right:calc(var(--screen-content-left) + var(--screen-content-width) * .055);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+    top:var(--first-journey-step-top);
     width:min(390px, calc(var(--screen-content-width) * .34));
-    max-height:min(520px, 76vh);
+    max-height:min(520px, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
     padding:17px 19px;
-    min-height:342px;
+    min-height:min(342px, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
     box-sizing:border-box;
-    overflow:auto;
     animation:firstJourneyAppear .8s cubic-bezier(.22,1,.36,1) both;
 }
 
@@ -67,10 +80,9 @@
     left:50%;
     top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
     width:min(720px, calc(var(--screen-content-width) * .68));
-    max-height:min(620px, 82vh);
+    max-height:min(620px, var(--first-journey-panel-max-height));
     padding:clamp(22px, 3vw, 34px);
     box-sizing:border-box;
-    overflow:auto;
     text-align:center;
     transform:translate(-50%, -50%);
     animation:firstJourneyForestAppear 1s cubic-bezier(.22,1,.36,1) both;
@@ -97,6 +109,10 @@
 .first-journey__forest-text{
     margin:20px auto 0;
     max-width:620px;
+    min-height:0;
+    overflow-y:auto;
+    padding-right:4px;
+    flex:1 1 auto;
 }
 
 .first-journey__forest .first-journey__actions{
@@ -105,7 +121,7 @@
 
 .first-journey__passport{
     width:min(430px, calc(var(--screen-content-width) * .37));
-    max-height:min(620px, 82vh);
+    max-height:min(620px, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
 }
 
 .first-journey__passport-subtitle{
@@ -118,6 +134,10 @@
 
 .first-journey__passport-text{
     margin-top:12px;
+    min-height:0;
+    overflow-y:auto;
+    padding-right:4px;
+    flex:1 1 auto;
 }
 
 .first-journey__passport-text ul{
@@ -170,6 +190,9 @@
     background:transparent;
     box-shadow:none;
     backdrop-filter:none;
+    display:block;
+    max-height:none;
+    overflow:visible;
 }
 
 .first-journey__replay::before{
@@ -201,12 +224,14 @@
     font-size:clamp(22px, calc(var(--screen-content-width) * .026), 38px);
     line-height:1.08;
     text-shadow:0 3px 20px rgba(0,0,0,.62);
+    flex:0 0 auto;
 }
 
 .first-journey h3{
     color:#ffe5b2;
     font-size:clamp(17px, calc(var(--screen-content-width) * .016), 25px);
     line-height:1.18;
+    flex:0 0 auto;
 }
 
 .first-journey p{
@@ -222,6 +247,7 @@
     border:1px solid rgba(255,224,166,.18);
     border-radius:16px;
     background:linear-gradient(180deg, rgba(255,230,180,.07), rgba(7,13,23,.18));
+    flex:0 0 auto;
 }
 
 .first-journey__place-card strong,
@@ -250,6 +276,7 @@
     background:rgba(255,230,180,.06);
     font-size:clamp(13px, calc(var(--screen-content-width) * .011), 15px);
     line-height:1.48;
+    flex:0 0 auto;
 }
 
 .first-journey__progress{
@@ -257,6 +284,7 @@
     color:rgba(255,224,166,.76);
     font-size:12px;
     letter-spacing:.08em;
+    flex:0 0 auto;
 }
 
 .first-journey__actions{
@@ -264,6 +292,19 @@
     flex-wrap:wrap;
     gap:8px;
     margin-top:17px;
+    padding-top:6px;
+    flex:0 0 auto;
+    position:sticky;
+    bottom:0;
+    z-index:2;
+    background:linear-gradient(180deg, rgba(7,13,23,0), rgba(7,13,23,.72) 34%, rgba(7,13,23,.88));
+}
+
+.first-journey__step > p:not(.first-journey__progress){
+    min-height:4.1em;
+    overflow-y:auto;
+    padding-right:4px;
+    flex:1 1 auto;
 }
 
 .first-journey button,
@@ -361,11 +402,12 @@ body.first-journey-intro-ready .living-home{
     }
 
     .first-journey__step{
+        --first-journey-step-top:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
         right:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
+        top:var(--first-journey-step-top);
         width:calc(var(--screen-content-width) * .48);
         padding:13px 14px;
-        min-height:310px;
+        min-height:min(310px, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
     }
 
     .first-journey__passport{
@@ -379,16 +421,22 @@ body.first-journey-intro-ready .living-home{
 
 @media (max-width:768px) and (orientation:portrait){
     .first-journey__step{
+        --first-journey-portrait-panel-height:min(320px, calc(100dvh - var(--first-journey-safe-top) - var(--first-journey-safe-bottom)));
+        --first-journey-step-top:min(
+            calc(var(--screen-content-top) + var(--screen-content-height) * .56),
+            calc(100dvh - var(--first-journey-portrait-panel-height) - var(--first-journey-safe-bottom))
+        );
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .09);
         right:auto;
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .56);
+        top:var(--first-journey-step-top);
         width:calc(var(--screen-content-width) * .82);
-        min-height:320px;
+        min-height:var(--first-journey-portrait-panel-height);
+        max-height:calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom));
     }
 
     .first-journey__passport{
         width:calc(var(--screen-content-width) * .84);
-        max-height:78vh;
+        max-height:calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom));
     }
 
     .first-journey__replay{
@@ -399,7 +447,7 @@ body.first-journey-intro-ready .living-home{
     .first-journey__forest{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
         width:calc(var(--screen-content-width) * .86);
-        max-height:78vh;
+        max-height:var(--first-journey-panel-max-height);
     }
 }
 
@@ -407,14 +455,15 @@ body.first-journey-intro-ready .living-home{
     .first-journey__welcome,
     .first-journey__intro,
     .first-journey__forest{
-        max-height:calc(var(--screen-content-height) * .82);
-        overflow-y:auto;
+        max-height:min(calc(var(--screen-content-height) * .82), var(--first-journey-panel-max-height));
     }
 
     .first-journey__step{
-        max-height:calc(var(--screen-content-height) * .84);
+        max-height:min(
+            calc(var(--screen-content-height) * .84),
+            calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom))
+        );
         min-height:0;
-        overflow-y:auto;
     }
 
     .first-journey__actions{
@@ -424,10 +473,11 @@ body.first-journey-intro-ready .living-home{
 
 @media (max-width:768px) and (orientation:landscape){
     .first-journey__step{
+        --first-journey-step-top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
         right:calc(var(--screen-content-left) + var(--screen-content-width) * .04);
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        top:var(--first-journey-step-top);
         width:calc(var(--screen-content-width) * .42);
-        max-height:76vh;
+        max-height:min(76dvh, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
         min-height:0;
     }
 
@@ -450,18 +500,55 @@ body.first-journey-intro-ready .living-home{
 
     .first-journey__forest{
         width:calc(var(--screen-content-width) * .58);
-        max-height:80vh;
+        max-height:min(80dvh, var(--first-journey-panel-max-height));
         padding:14px 16px;
     }
 }
 
 @media (max-height:520px) and (orientation:landscape){
     .first-journey__step{
+        --first-journey-step-top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
         right:calc(var(--screen-content-left) + var(--screen-content-width) * .04);
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+        top:var(--first-journey-step-top);
         width:calc(var(--screen-content-width) * .46);
-        max-height:76vh;
+        max-height:min(82dvh, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom)));
+        padding:10px 12px;
         min-height:0;
+    }
+
+    .first-journey__progress{
+        margin-top:0;
+        font-size:10px;
+    }
+
+    .first-journey__place-card{
+        margin-top:7px;
+        padding:8px 10px;
+    }
+
+    .first-journey__step > p:not(.first-journey__progress){
+        min-height:3em;
+        margin-top:7px;
+    }
+
+    .first-journey__quote{
+        margin-top:8px;
+        padding:8px 10px;
+        max-height:56px;
+        overflow-y:auto;
+        line-height:1.32;
+    }
+
+    .first-journey__actions{
+        margin-top:8px;
+        padding-top:4px;
+        gap:6px;
+    }
+
+    .first-journey button,
+    .first-journey a{
+        padding:6px 9px;
+        font-size:12px;
     }
 
     .first-journey__passport{
@@ -483,7 +570,7 @@ body.first-journey-intro-ready .living-home{
 
     .first-journey__forest{
         width:calc(var(--screen-content-width) * .62);
-        max-height:82vh;
+        max-height:min(82dvh, var(--first-journey-panel-max-height));
         padding:13px 15px;
     }
 }
