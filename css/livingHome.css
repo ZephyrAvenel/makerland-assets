@@ -132,6 +132,15 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     line-height:1.35;
 }
 
+.living-home__door em{
+    display:inline-block;
+    margin-top:10px;
+    color:rgba(255,224,166,.86);
+    font-size:clamp(11px, calc(var(--screen-content-width) * .0095), 13px);
+    font-style:normal;
+    line-height:1.2;
+}
+
 .living-home__door:hover,
 .living-home__door:focus-visible{
     outline:none;
