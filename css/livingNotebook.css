@@ -245,19 +245,41 @@
     }
 }
 
-@media (max-height:520px) and (orientation:landscape){
-    .living-notebook__cover{
-        min-height:240px;
+@media (orientation:landscape){
+    .living-notebook{
+        width:min(860px, 100%);
     }
 
     .living-notebook__page{
-        min-height:270px;
-        padding:20px;
+        max-height:calc(100dvh - 150px);
+        overflow-y:auto;
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape){
+    .living-notebook__cover{
+        min-height:200px;
+        padding:22px;
+    }
+
+    .living-notebook__page{
+        min-height:220px;
+        max-height:calc(100dvh - 92px);
+        padding:18px;
     }
 
     .living-notebook__page-body{
         gap:12px;
-        padding-top:18px;
+        padding-top:16px;
+    }
+
+    .living-notebook__nav{
+        margin-top:10px;
+    }
+
+    .living-notebook__nav button{
+        width:32px;
+        height:32px;
     }
 }
 
