@@ -22,7 +22,7 @@
 
     let root = null;
     let currentScreen = null;
-    let activePath = "first";
+    let activePath = "resume";
 
     function init() {
         ensureRoot();
@@ -53,7 +53,7 @@
         if (screenId !== "e01_accueil") {
             document.body.classList.remove("living-home-ready");
             root.innerHTML = "";
-            activePath = "first";
+            activePath = "resume";
             return;
         }
 
@@ -129,25 +129,25 @@
     function renderDoors(known, firstJourneyCompleted) {
         const rows = [
             {
+                id: "resume",
+                icon: "&#9673;",
+                title: "Poursuivre mon voyage",
+                text: known ? "Reprendre la derniere trace ouverte." : "Ouvrir le Carnet quand il existera deja une trace.",
+                action: "Continuer",
+                data: "data-living-home-resume"
+            },
+            {
                 id: "first",
                 icon: "&#10022;",
-                title: firstJourneyCompleted ? "Premier voyage accompli" : "Je decouvre",
-                text: firstJourneyCompleted ? "Vous pouvez recommencer ce voyage ou poursuivre votre exploration." : "Un premier voyage d'environ cinq minutes.",
+                title: "Revenir au Premier Voyage",
+                text: firstJourneyCompleted ? "Reprendre les sept portes depuis le seuil." : "Decouvrir les premiers lieux des Recits Vivants.",
                 action: firstJourneyCompleted ? "Revoir le Premier Voyage" : "Faire mon premier voyage",
                 data: "data-living-home-first"
             },
             {
-                id: "resume",
-                icon: "&#9673;",
-                title: "Je poursuis mon voyage",
-                text: known ? "Reprendre la derniere trace ouverte." : "Ouvrir le Carnet quand il existera deja une trace.",
-                action: "Reprendre",
-                data: "data-living-home-resume"
-            },
-            {
                 id: "free",
                 icon: "&#9671;",
-                title: "J'explore librement",
+                title: "Entrer librement",
                 text: "Entrer sans guidage, au rythme des Recits Vivants.",
                 action: "Explorer librement",
                 data: "data-living-home-free"
@@ -156,7 +156,7 @@
 
         return [
             "<nav class=\"living-home__paths\" aria-label=\"Chemins de voyage\">",
-            "<p class=\"living-home__paths-kicker\">Choisissez votre maniere d'entrer</p>",
+            "<p class=\"living-home__paths-kicker\">Choisissez votre mani&egrave;re d'entrer</p>",
             rows.map(row => renderPathRow(row)).join(""),
             "</nav>"
         ].join("");
