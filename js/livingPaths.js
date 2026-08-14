@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     const MEMORY_KEY = "makerland.living.paths";
     const CYCLE_KEY = "makerland:living-cycle";
     const SCRIPT_URL = document.currentScript
@@ -207,10 +207,13 @@
     function renderEntry() {
         const path = activePath();
         state.elements.entry.innerHTML = [
-            "<h2>✦ Chemin Vivant</h2>",
-            `<p>${escapeHtml(path.title)}</p>`,
-            `<p>${escapeHtml(path.duration)} · ${path.steps.length} etapes</p>`,
-            "<button type=\"button\" data-open-paths>Commencer</button>"
+            "<span>Action principale</span>",
+            "<h2>Chemin Vivant</h2>",
+            "<p>Les oeuvres ne vivent jamais seules.</p>",
+            "<p>Chaque lecture cree de nouveaux liens.</p>",
+            "<p>Chaque retour eclaire un autre chemin.</p>",
+            `<p class="living-paths__entry-meta">${escapeHtml(path.title)} - ${escapeHtml(path.duration)} - ${path.steps.length} etapes</p>`,
+            "<button type=\"button\" data-open-paths>Commencer le Chemin Vivant</button>"
         ].join("");
         state.elements.entry.querySelector("[data-open-paths]").addEventListener("click", () => {
             startPath(path.id);
@@ -267,7 +270,7 @@
 
     function renderStep(path, step, stepIndex, currentIndex) {
         const status = stepIndex < currentIndex ? " is-done" : stepIndex === currentIndex ? " is-current" : "";
-        const resources = (step.resources || []).map(resource => resource.label).filter(Boolean).slice(0, 2).join(" · ");
+        const resources = (step.resources || []).map(resource => resource.label).filter(Boolean).slice(0, 2).join(" Â· ");
         const action = step.target
             ? `<button type="button" data-go-screen="${step.target}">Ouvrir</button>`
             : step.href
@@ -366,10 +369,10 @@
     function renderProgress() {
         const path = activePath();
         const current = currentStepIndex(path);
-        const rail = path.steps.map((_, index) => index <= current ? "●" : "○").join("────");
+        const rail = path.steps.map((_, index) => index <= current ? "â—" : "â—‹").join("â”€â”€â”€â”€");
         state.elements.progress.innerHTML = [
             `<h3>Votre chemin</h3>`,
-            `<p>${escapeHtml(path.title)} · Etape ${current + 1} / ${path.steps.length}</p>`,
+            `<p>${escapeHtml(path.title)} Â· Etape ${current + 1} / ${path.steps.length}</p>`,
             `<div class="living-paths__rail">${rail}</div>`
         ].join("");
     }
