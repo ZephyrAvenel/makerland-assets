@@ -1,0 +1,119 @@
+#e08_constellation[data-living-overlay-state]{
+    --living-overlay-panel-width: min(430px, calc(var(--screen-content-width) * .42));
+    --living-overlay-panel-max-height: calc(var(--screen-content-height) * .72);
+}
+
+#e08_constellation[data-living-overlay-state]::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:55;
+    pointer-events:none;
+    opacity:0;
+    background:radial-gradient(ellipse at center, rgba(3,7,13,.12), rgba(0,0,0,.28));
+    transition:opacity .45s ease;
+}
+
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"])::after{
+    opacity:.62;
+}
+
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-constellation-experience__quote,
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-constellation-experience__cards,
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-paths__entry,
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-paths__progress,
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-exhibitions__entry,
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-sky__modes,
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .constellation-scene__whisper{
+    opacity:0 !important;
+    pointer-events:none !important;
+    transition:opacity .35s ease;
+}
+
+#e08_constellation[data-living-overlay-state="SKY"] [data-living-overlay-cue]{
+    opacity:0 !important;
+    pointer-events:none !important;
+    transition:opacity .45s ease, transform .45s ease;
+}
+
+#e08_constellation[data-living-overlay-state="SKY"] [data-living-overlay-cue].is-living-overlay-cued{
+    opacity:1 !important;
+    pointer-events:auto !important;
+}
+
+#e08_constellation[data-living-overlay-state="PATH"] .living-paths__panel,
+#e08_constellation[data-living-overlay-state="EXHIBITION"] .living-exhibitions__panel,
+#e08_constellation[data-living-overlay-state="STAR"] .living-sky__panel,
+#e08_constellation[data-living-overlay-state="RELATION"] .living-constellation-experience__detail,
+#e08_constellation[data-living-overlay-state="NOTICE"] .living-constellation-experience__response{
+    z-index:62;
+}
+
+.living-overlay-notice{
+    position:absolute;
+    left:50%;
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
+    z-index:63;
+    max-width:min(420px, calc(var(--screen-content-width) * .7));
+    box-sizing:border-box;
+    padding:12px 16px;
+    border:1px solid rgba(255,224,166,.24);
+    border-radius:999px;
+    background:rgba(5,10,18,.52);
+    box-shadow:0 18px 40px rgba(0,0,0,.28), 0 0 26px rgba(255,207,130,.1);
+    backdrop-filter:blur(9px);
+    color:rgba(255,242,218,.86);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(12px, calc(var(--screen-content-width) * .011), 15px);
+    line-height:1.35;
+    text-align:center;
+    opacity:0;
+    pointer-events:none;
+    transform:translate(-50%, 10px);
+    transition:opacity .45s ease, transform .45s ease;
+}
+
+.living-overlay-notice.is-visible{
+    opacity:1;
+    transform:translate(-50%, 0);
+}
+
+@media (max-width:768px) and (orientation:portrait){
+    #e08_constellation[data-living-overlay-state]{
+        --living-overlay-panel-width: calc(var(--screen-content-width) * .9);
+        --living-overlay-panel-max-height: calc(var(--screen-content-height) * .78);
+    }
+
+    #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"])::after{
+        opacity:.48;
+    }
+
+    #e08_constellation[data-living-overlay-state="PATH"] .living-paths__panel,
+    #e08_constellation[data-living-overlay-state="EXHIBITION"] .living-exhibitions__panel,
+    #e08_constellation[data-living-overlay-state="STAR"] .living-sky__panel,
+    #e08_constellation[data-living-overlay-state="RELATION"] .living-constellation-experience__detail,
+    #e08_constellation[data-living-overlay-state="NOTICE"] .living-constellation-experience__response{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
+        right:auto;
+        top:auto;
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .035);
+        width:var(--living-overlay-panel-width);
+        max-height:var(--living-overlay-panel-max-height);
+        box-sizing:border-box;
+        overflow:auto;
+        transform:translateY(0);
+    }
+
+    .living-overlay-notice{
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+        max-width:calc(var(--screen-content-width) * .86);
+        border-radius:22px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    #e08_constellation[data-living-overlay-state]::after,
+    .living-overlay-notice{
+        transition:none;
+    }
+}

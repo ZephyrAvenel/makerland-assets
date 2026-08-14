@@ -217,9 +217,10 @@
         ].join("");
         state.elements.entry.querySelector("[data-open-paths]").addEventListener("click", () => {
             startPath(path.id);
-            state.elements.layer.classList.add("is-open");
+            openPaths();
             render();
         });
+        queueCue("living-path", state.elements.entry, 8200);
     }
 
     function renderCards() {
@@ -301,17 +302,48 @@
             renderProgress();
         });
         state.elements.detail.querySelector("[data-close-paths]").addEventListener("click", () => {
-            state.elements.layer.classList.remove("is-open");
+            closePaths();
+            clearOverlay("PATH");
         });
         state.elements.detail.querySelectorAll("[data-go-screen]").forEach(button => {
             button.addEventListener("click", () => {
                 markResourceStep(path);
-                state.elements.layer.classList.remove("is-open");
+                closePaths();
+                clearOverlay("PATH");
                 if (typeof Navigation !== "undefined" && Navigation.goTo) {
                     Navigation.goTo(button.dataset.goScreen);
                 }
             });
         });
+    }
+
+    function openPaths() {
+        if (!state.elements.layer) return;
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.activate("PATH", {
+                close: closePaths,
+                element: state.elements.layer.querySelector("[data-path-panel]")
+            });
+        }
+        state.elements.layer.classList.add("is-open");
+    }
+
+    function closePaths() {
+        if (state.elements.layer) {
+            state.elements.layer.classList.remove("is-open");
+        }
+    }
+
+    function clearOverlay(id) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.clear(id);
+        }
+    }
+
+    function queueCue(id, element, duration) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.cue(id, element, { duration });
+        }
     }
 
     function startPath(id) {

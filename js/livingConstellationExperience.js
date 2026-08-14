@@ -207,6 +207,8 @@
         buildLayer();
         renderQuote();
         renderCards();
+        queueCue("today", state.elements.quote, 7200);
+        queueCue("resonances", state.elements.cards, 8600);
     }
 
     function renderQuote() {
@@ -281,6 +283,7 @@
     }
 
     function renderDetailCard(card) {
+        closeResponse();
         const image = card.image
             ? `<img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.title)}">`
             : "";
@@ -293,10 +296,45 @@
             `<p>${escapeHtml(card.text || "")}</p>`,
             `<p>${escapeHtml(context)}</p>`
         ].join("");
+        registerOverlay("RELATION", closeDetail, state.elements.detail);
         state.elements.detail.classList.add("is-visible");
         state.elements.detail.querySelector("[data-lce-close]").addEventListener("click", () => {
-            state.elements.detail.classList.remove("is-visible");
+            closeDetail();
+            clearOverlay("RELATION");
         });
+    }
+
+    function registerOverlay(id, close, element) {
+        if (!window.LivingOverlayManager) return;
+        window.LivingOverlayManager.activate(id, {
+            close,
+            element
+        });
+    }
+
+    function clearOverlay(id) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.clear(id);
+        }
+    }
+
+    function queueCue(id, element, duration) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.cue(id, element, { duration });
+        }
+    }
+
+    function closeDetail() {
+        if (state.elements.detail) {
+            state.elements.detail.classList.remove("is-visible");
+        }
+    }
+
+    function closeResponse() {
+        if (state.elements.response) {
+            state.elements.response.classList.remove("is-visible");
+        }
+        window.clearTimeout(state.responseTimer);
     }
 
     function detailContext(type) {
@@ -375,10 +413,12 @@
             chips.all.length ? `<div class="living-constellation-experience__chips">${chips.all.map(item => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : "",
             "<p>Le territoire garde cette trace uniquement dans ce navigateur.</p>"
         ].join("");
+        registerOverlay("NOTICE", closeResponse, state.elements.response);
         state.elements.response.classList.add("is-visible");
         window.clearTimeout(state.responseTimer);
         state.responseTimer = window.setTimeout(() => {
-            state.elements.response.classList.remove("is-visible");
+            closeResponse();
+            clearOverlay("NOTICE");
         }, 9000);
     }
 
