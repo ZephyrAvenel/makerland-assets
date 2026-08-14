@@ -106,7 +106,13 @@ let immersiveFullscreenRequested = false;
 function bindImmersiveMode() {
 
     const activate =
-        () => {
+        event => {
+
+            if (
+                isTextEntryTarget(
+                    event.target
+                )
+            ) return;
 
             requestImmersiveFullscreen();
 
@@ -119,7 +125,6 @@ function bindImmersiveMode() {
         activate,
 
         {
-            once: true,
             capture: true
         }
 
@@ -132,7 +137,6 @@ function bindImmersiveMode() {
         activate,
 
         {
-            once: true,
             capture: true,
             passive: true
         }
@@ -146,10 +150,24 @@ function bindImmersiveMode() {
         activate,
 
         {
-            once: true,
             capture: true
         }
 
+    );
+
+}
+
+function isTextEntryTarget(target) {
+
+    if (
+        !target ||
+        !(target instanceof Element)
+    ) return false;
+
+    return Boolean(
+        target.closest(
+            "textarea, input, select, [contenteditable], [contenteditable='true']"
+        )
     );
 
 }
