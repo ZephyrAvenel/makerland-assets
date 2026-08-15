@@ -288,8 +288,7 @@
         layer.innerHTML = [
             "<svg class=\"traveler-constellation__sky\" data-traveler-sky viewBox=\"0 0 320 220\" aria-hidden=\"true\"></svg>",
             "<article class=\"traveler-constellation__card\" data-traveler-card aria-live=\"polite\"></article>",
-            "<article class=\"traveler-constellation__memory\" data-traveler-memory></article>",
-            "<article class=\"traveler-constellation__paths\" data-traveler-paths></article>"
+            "<article class=\"traveler-constellation__memory\" data-traveler-memory></article>"
         ].join("");
         screen.appendChild(layer);
 
@@ -297,7 +296,6 @@
         state.elements.sky = layer.querySelector("[data-traveler-sky]");
         state.elements.card = layer.querySelector("[data-traveler-card]");
         state.elements.memory = layer.querySelector("[data-traveler-memory]");
-        state.elements.paths = layer.querySelector("[data-traveler-paths]");
     }
 
     function render() {
@@ -305,7 +303,6 @@
         renderSky();
         renderCard();
         renderMemory();
-        renderPaths();
     }
 
     function starsForFragments() {
@@ -424,6 +421,49 @@
         ].join("");
     }
 
+    function ensurePathsLayer() {
+        buildLayer();
+        if (!state.elements.layer || (state.elements.paths && state.elements.paths.isConnected)) {
+            return;
+        }
+        const paths = document.createElement("article");
+        paths.className = "traveler-constellation__paths";
+        paths.setAttribute("data-traveler-paths", "");
+        paths.setAttribute("aria-live", "polite");
+        state.elements.layer.appendChild(paths);
+        state.elements.paths = paths;
+        registerPathsOverlay();
+    }
+
+    function registerPathsOverlay() {
+        if (!window.LivingOverlayManager) return;
+        window.LivingOverlayManager.register("TRAVELER_PATHS", {
+            close: closePaths,
+            element: state.elements.paths,
+            skipFocus: true
+        });
+    }
+
+    function openPaths() {
+        if (!state.data || !state.memory) return;
+        ensurePathsLayer();
+        renderPaths();
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.activate("TRAVELER_PATHS", {
+                close: closePaths,
+                element: state.elements.paths,
+                skipFocus: true
+            });
+        }
+    }
+
+    function closePaths() {
+        if (state.elements.paths && state.elements.paths.isConnected) {
+            state.elements.paths.remove();
+        }
+        state.elements.paths = null;
+    }
+
     function escapeHtml(value) {
         return String(value || "")
             .replace(/&/g, "&amp;")
@@ -438,6 +478,7 @@
         if (!button || !textarea) return;
 
         button.addEventListener("click", () => {
+            closePaths();
             saveFragment(textarea.value);
         }, true);
     }
@@ -462,7 +503,9 @@
     window.TravelerConstellation = {
         init,
         saveFragment: text => state.data ? saveFragment(text) : null,
-        readMemory
+        readMemory,
+        openPaths,
+        closePaths
     };
 
     if (document.readyState === "loading") {

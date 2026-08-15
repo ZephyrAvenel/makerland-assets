@@ -31,7 +31,7 @@
 
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .traveler-constellation__card,
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .traveler-constellation__memory,
-#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .traveler-constellation__paths{
+#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]):not([data-living-overlay-state="TRAVELER_PATHS"]) .traveler-constellation__paths{
     opacity:0 !important;
     pointer-events:none !important;
     transition:opacity .35s ease;
@@ -178,6 +178,7 @@
 #e08_constellation[data-living-overlay-state="STAR"] .living-sky__panel,
 #e08_constellation[data-living-overlay-state="RELATION"] .living-constellation-experience__detail,
 #e08_constellation[data-living-overlay-state="NOTICE"] .living-constellation-experience__response,
+#e08_constellation[data-living-overlay-state="TRAVELER_PATHS"] .traveler-constellation__paths,
 #e08_constellation[data-living-overlay-state="WRITE"] .constellation-panel{
     z-index:62;
 }
@@ -252,6 +253,7 @@
     #e08_constellation[data-living-overlay-state="STAR"] .living-sky__panel,
     #e08_constellation[data-living-overlay-state="RELATION"] .living-constellation-experience__detail,
     #e08_constellation[data-living-overlay-state="NOTICE"] .living-constellation-experience__response,
+    #e08_constellation[data-living-overlay-state="TRAVELER_PATHS"] .traveler-constellation__paths,
     #e08_constellation[data-living-overlay-state="WRITE"] .constellation-panel{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
         right:auto;
