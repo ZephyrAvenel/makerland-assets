@@ -1,0 +1,58 @@
+#e08_constellation .constellation-panel::before{
+    display:none;
+}
+
+#e08_constellation .constellation-panel textarea{
+    caret-color:rgba(255,226,166,.5);
+}
+
+.rv-living-caret{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:3;
+    width:2px;
+    height:1.45em;
+    border-radius:999px;
+    background:linear-gradient(180deg, rgba(255,248,224,.95), rgba(255,213,126,.96), rgba(225,158,70,.86));
+    box-shadow:0 0 3px rgba(255,226,166,.46);
+    opacity:.82;
+    pointer-events:none;
+    transform:translate(var(--rv-caret-x, 32px), var(--rv-caret-y, 40px));
+    transform-origin:center;
+    transition:transform .08s linear, height .08s linear, opacity .28s ease;
+    animation:rvLivingCaretBreath 3.7s ease-in-out infinite;
+}
+
+.constellation-panel:not(.has-writing-focus):not(.has-writing-value) .rv-living-caret{
+    opacity:.74;
+}
+
+.constellation-panel.has-writing-focus .rv-living-caret,
+.constellation-panel.has-writing-value .rv-living-caret{
+    opacity:.9;
+}
+
+.rv-living-caret.is-hidden{
+    opacity:0;
+}
+
+@keyframes rvLivingCaretBreath{
+    0%, 100%{
+        opacity:.52;
+        filter:brightness(.96);
+        box-shadow:0 0 2px rgba(255,226,166,.3);
+    }
+    50%{
+        opacity:.94;
+        filter:brightness(1.08);
+        box-shadow:0 0 3px rgba(255,226,166,.58);
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .rv-living-caret{
+        animation:none;
+        transition:none;
+    }
+}
