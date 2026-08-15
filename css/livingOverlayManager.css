@@ -127,27 +127,39 @@
 
 #e08_constellation .constellation-panel button{
     position:absolute;
-    left:0;
-    top:calc(100% + 10px);
-    display:block;
-    width:100%;
-    height:auto;
-    min-height:40px;
-    padding:9px 13px;
-    border:1px solid rgba(255,224,166,.34);
+    left:8%;
+    top:calc(100% + clamp(8px, calc(var(--screen-content-height) * .015), 16px));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:84%;
+    height:clamp(36px, calc(var(--screen-content-height) * .064), 68px);
+    min-height:0;
+    padding:0;
+    border:0;
     border-radius:999px;
-    background:rgba(255,230,180,.08);
-    color:rgba(255,243,218,.9);
+    background:transparent;
+    color:rgba(255,221,142,.94);
     font-family:Georgia, "Times New Roman", serif;
-    font-size:13px;
+    font-size:clamp(13px, calc(var(--screen-content-width) * .014), 22px);
+    font-weight:700;
+    letter-spacing:.08em;
     line-height:1.2;
+    text-transform:uppercase;
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.72),
+        0 0 8px rgba(255,195,95,.18);
     cursor:pointer;
+    box-shadow:none;
+    backdrop-filter:none;
 }
 
 #e08_constellation .constellation-panel button:hover,
 #e08_constellation .constellation-panel button:focus-visible{
-    border-color:rgba(255,224,166,.56);
-    background:rgba(255,230,180,.13);
+    color:rgba(255,236,184,.98);
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.76),
+        0 0 10px rgba(255,201,110,.24);
     outline:none;
 }
 

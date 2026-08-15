@@ -92,7 +92,12 @@
 
         mirror.textContent = text.slice(0, index);
         const marker = document.createElement("span");
-        marker.textContent = text.slice(index, index + 1) || "\u200b";
+        marker.textContent = "\u200b";
+        marker.style.display = "inline-block";
+        marker.style.width = "0";
+        marker.style.height = parseLineHeight(style) + "px";
+        marker.style.overflow = "hidden";
+        marker.style.verticalAlign = "top";
         mirror.appendChild(marker);
 
         const markerRect = marker.getBoundingClientRect();
@@ -143,8 +148,11 @@
         mirror.style.fontWeight = style.fontWeight;
         mirror.style.letterSpacing = style.letterSpacing;
         mirror.style.lineHeight = style.lineHeight;
+        mirror.style.wordSpacing = style.wordSpacing;
         mirror.style.textTransform = style.textTransform;
         mirror.style.textAlign = style.textAlign;
+        mirror.style.textIndent = style.textIndent;
+        mirror.style.direction = style.direction;
         mirror.style.tabSize = style.tabSize;
     }
 
