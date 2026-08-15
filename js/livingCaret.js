@@ -9,6 +9,7 @@
     let caret = null;
     let mirror = null;
     let frame = 0;
+    let typingTimer = 0;
 
     function init() {
         const screen = document.getElementById(SCREEN_ID);
@@ -25,6 +26,7 @@
             caret.setAttribute("aria-hidden", "true");
             panel.appendChild(caret);
         }
+        caret.classList.add("is-resting");
 
         mirror = document.createElement("div");
         mirror.className = MIRROR_CLASS;
@@ -34,6 +36,7 @@
         [
             "input",
             "keyup",
+            "keydown",
             "click",
             "mouseup",
             "touchend",
@@ -43,7 +46,12 @@
             "select",
             "scroll",
             "compositionupdate"
-        ].forEach(type => textarea.addEventListener(type, scheduleUpdate, { passive: true }));
+        ].forEach(type => textarea.addEventListener(type, event => {
+            if (event.type === "input" || event.type === "keydown") {
+                markTyping();
+            }
+            scheduleUpdate();
+        }, { passive: true }));
 
         window.addEventListener("resize", scheduleUpdate, { passive: true });
         document.addEventListener("selectionchange", () => {
@@ -97,6 +105,17 @@
         caret.style.setProperty("--rv-caret-y", Math.round(y) + "px");
         caret.style.height = Math.max(22, Math.round(lineHeight * 1.05)) + "px";
         caret.classList.toggle("is-hidden", textarea.disabled || textarea.readOnly);
+    }
+
+    function markTyping() {
+        if (!caret) return;
+        caret.classList.add("is-typing");
+        caret.classList.remove("is-resting");
+        window.clearTimeout(typingTimer);
+        typingTimer = window.setTimeout(() => {
+            caret.classList.remove("is-typing");
+            caret.classList.add("is-resting");
+        }, 1300);
     }
 
     function clampSelection(value, length) {

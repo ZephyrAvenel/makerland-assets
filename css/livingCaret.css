@@ -3,7 +3,7 @@
 }
 
 #e08_constellation .constellation-panel textarea{
-    caret-color:rgba(255,226,166,.5);
+    caret-color:rgba(255,232,184,.42);
 }
 
 .rv-living-caret{
@@ -14,23 +14,74 @@
     width:2px;
     height:1.45em;
     border-radius:999px;
-    background:linear-gradient(180deg, rgba(255,248,224,.95), rgba(255,213,126,.96), rgba(225,158,70,.86));
-    box-shadow:0 0 3px rgba(255,226,166,.46);
-    opacity:.82;
+    background:linear-gradient(180deg, rgba(255,250,232,.9), rgba(244,213,149,.88), rgba(192,129,65,.68));
+    box-shadow:0 0 2px rgba(255,236,196,.38), 0 0 3px rgba(214,151,82,.26);
+    opacity:.78;
     pointer-events:none;
     transform:translate(var(--rv-caret-x, 32px), var(--rv-caret-y, 40px));
     transform-origin:center;
     transition:transform .08s linear, height .08s linear, opacity .28s ease;
-    animation:rvLivingCaretBreath 3.7s ease-in-out infinite;
+    animation:rvLivingCaretBreath 4.4s ease-in-out infinite, rvLivingCaretTint 18s ease-in-out infinite;
+}
+
+.rv-living-caret::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:-4px;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:rgba(255,248,226,.82);
+    box-shadow:0 0 2px rgba(255,235,190,.34);
+    opacity:.42;
+    transform:translate(-50%, 0) scale(.72);
+    transition:opacity .6s ease, transform .6s ease;
+}
+
+.rv-living-caret::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:-6px;
+    width:7px;
+    height:7px;
+    opacity:.24;
+    transform:translate(-50%, 0) scale(.75) rotate(45deg);
+    background:
+        linear-gradient(90deg, transparent 43%, rgba(255,238,201,.68) 48%, rgba(255,238,201,.68) 52%, transparent 57%),
+        linear-gradient(0deg, transparent 43%, rgba(255,238,201,.58) 48%, rgba(255,238,201,.58) 52%, transparent 57%);
+    transition:opacity .65s ease, transform .65s ease;
 }
 
 .constellation-panel:not(.has-writing-focus):not(.has-writing-value) .rv-living-caret{
-    opacity:.74;
+    opacity:.7;
 }
 
 .constellation-panel.has-writing-focus .rv-living-caret,
 .constellation-panel.has-writing-value .rv-living-caret{
-    opacity:.9;
+    opacity:.84;
+}
+
+.rv-living-caret.is-typing{
+    opacity:.88;
+    animation-duration:3.4s, 16s;
+}
+
+.rv-living-caret.is-typing::before,
+.rv-living-caret.is-typing::after{
+    opacity:.12;
+    transform:translate(-50%, 1px) scale(.56) rotate(45deg);
+}
+
+.rv-living-caret.is-resting::before{
+    opacity:.5;
+    transform:translate(-50%, -1px) scale(.78);
+}
+
+.rv-living-caret.is-resting::after{
+    opacity:.3;
+    transform:translate(-50%, -1px) scale(.82) rotate(45deg);
 }
 
 .rv-living-caret.is-hidden{
@@ -39,14 +90,26 @@
 
 @keyframes rvLivingCaretBreath{
     0%, 100%{
-        opacity:.52;
-        filter:brightness(.96);
-        box-shadow:0 0 2px rgba(255,226,166,.3);
+        opacity:.54;
+        filter:brightness(.98);
+        box-shadow:0 0 1px rgba(255,236,196,.3), 0 0 2px rgba(214,151,82,.18);
     }
     50%{
-        opacity:.94;
-        filter:brightness(1.08);
-        box-shadow:0 0 3px rgba(255,226,166,.58);
+        opacity:.9;
+        filter:brightness(1.04);
+        box-shadow:0 0 2px rgba(255,236,196,.48), 0 0 3px rgba(214,151,82,.3);
+    }
+}
+
+@keyframes rvLivingCaretTint{
+    0%, 100%{
+        background:linear-gradient(180deg, rgba(255,250,232,.9), rgba(244,213,149,.88), rgba(192,129,65,.68));
+    }
+    45%{
+        background:linear-gradient(180deg, rgba(255,252,238,.92), rgba(235,196,125,.84), rgba(178,112,62,.62));
+    }
+    70%{
+        background:linear-gradient(180deg, rgba(255,247,222,.88), rgba(230,180,105,.82), rgba(161,94,55,.58));
     }
 }
 
