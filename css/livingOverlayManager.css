@@ -22,7 +22,6 @@
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-constellation-experience__cards,
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-paths__entry,
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-paths__progress,
-#e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-exhibitions__entry,
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .living-sky__modes,
 #e08_constellation[data-living-overlay-state]:not([data-living-overlay-state="SKY"]) .constellation-scene__whisper{
     opacity:0 !important;

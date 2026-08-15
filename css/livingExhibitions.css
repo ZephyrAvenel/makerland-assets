@@ -8,39 +8,6 @@
     font-family:Georgia, "Times New Roman", serif;
 }
 
-.living-exhibitions__entry{
-    position:absolute;
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .065);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .095);
-    max-width:min(300px, calc(var(--screen-content-width) * .28));
-    padding:13px 15px;
-    border:1px solid rgba(255,224,166,.24);
-    border-radius:18px;
-    background:linear-gradient(180deg, rgba(8,15,25,.54), rgba(4,8,15,.28));
-    box-shadow:0 18px 36px rgba(0,0,0,.26), 0 0 30px rgba(255,207,130,.08);
-    backdrop-filter:blur(8px);
-    pointer-events:auto;
-}
-
-.living-exhibitions__entry p,
-.living-exhibitions__entry h2{
-    margin:0;
-}
-
-.living-exhibitions__entry h2{
-    color:#ffe2a3;
-    font-size:clamp(14px, calc(var(--screen-content-width) * .014), 21px);
-    line-height:1.22;
-}
-
-.living-exhibitions__entry p{
-    margin-top:7px;
-    color:rgba(255,242,218,.76);
-    font-size:clamp(10px, calc(var(--screen-content-width) * .009), 13px);
-    line-height:1.4;
-}
-
-.living-exhibitions__entry button,
 .living-exhibitions__close{
     margin-top:10px;
     border:1px solid rgba(255,224,166,.28);
@@ -199,17 +166,6 @@
 }
 
 @media (max-width:768px){
-    .living-exhibitions__entry{
-        left:calc(var(--screen-content-left) + var(--screen-content-width) * .045);
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .065);
-        max-width:calc(var(--screen-content-width) * .24);
-        padding:8px 9px;
-    }
-
-    .living-exhibitions__entry p{
-        display:none;
-    }
-
     .living-exhibitions__panel{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .06);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
@@ -243,19 +199,6 @@
 }
 
 @media (max-width:768px) and (orientation:portrait){
-    .living-exhibitions__entry{
-        left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .075);
-        max-width:calc(var(--screen-content-width) * .84);
-        max-height:calc(var(--screen-content-height) * .28);
-        box-sizing:border-box;
-        overflow:auto;
-    }
-
-    .living-exhibitions__entry p{
-        display:block;
-    }
-
     .living-exhibitions__panel{
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);

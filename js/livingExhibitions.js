@@ -255,7 +255,6 @@
         layer.setAttribute("data-living-exhibitions", "");
         layer.setAttribute("aria-label", "Grandes Constellations Vivantes");
         layer.innerHTML = [
-            "<section class=\"living-exhibitions__entry\" data-exhibition-entry></section>",
             "<section class=\"living-exhibitions__panel\" data-exhibition-panel>",
             "<nav class=\"living-exhibitions__list\" data-exhibition-list aria-label=\"Grandes Constellations\"></nav>",
             "<article class=\"living-exhibitions__detail\" data-exhibition-detail aria-live=\"polite\"></article>",
@@ -263,7 +262,6 @@
         ].join("");
         screen.appendChild(layer);
         state.elements.layer = layer;
-        state.elements.entry = layer.querySelector("[data-exhibition-entry]");
         state.elements.list = layer.querySelector("[data-exhibition-list]");
         state.elements.detail = layer.querySelector("[data-exhibition-detail]");
         state.elements.panel = layer.querySelector("[data-exhibition-panel]");
@@ -271,7 +269,6 @@
 
     function render() {
         buildLayer();
-        renderEntry();
         renderList();
         renderDetail();
         rememberFeatured();
@@ -280,23 +277,6 @@
     function featuredExhibition() {
         const week = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
         return state.exhibitions[week % state.exhibitions.length];
-    }
-
-    function renderEntry() {
-        const featured = featuredExhibition();
-        state.activeId = featured.id;
-        state.elements.entry.innerHTML = [
-            "<h2>Grande Constellation</h2>",
-            `<p>Cette semaine : ${escapeHtml(featured.title)}</p>`,
-            `<p>${escapeHtml(featured.opening)}</p>`,
-            "<button type=\"button\" data-open-exhibitions>Explorer</button>"
-        ].join("");
-        state.elements.entry.querySelector("[data-open-exhibitions]").addEventListener("click", () => {
-            openExhibitions();
-            renderList();
-            renderDetail();
-        });
-        queueCue("living-exhibition", state.elements.entry, 8200);
     }
 
     function renderList() {
@@ -361,12 +341,6 @@
     function clearOverlay(id) {
         if (window.LivingOverlayManager) {
             window.LivingOverlayManager.clear(id);
-        }
-    }
-
-    function queueCue(id, element, duration) {
-        if (window.LivingOverlayManager) {
-            window.LivingOverlayManager.cue(id, element, { duration });
         }
     }
 
