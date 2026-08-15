@@ -254,6 +254,15 @@
                 layer.querySelectorAll("[data-sky-mode]").forEach(item => {
                     item.classList.toggle("is-active", item === button);
                 });
+                if (mode === "sky") {
+                    closeSkyViews();
+                    clearOverlay("RELATION");
+                } else if (window.LivingOverlayManager) {
+                    window.LivingOverlayManager.activate("RELATION", {
+                        close: closeSkyViews,
+                        element: mode === "territories" ? state.elements.territories : state.elements.growth
+                    });
+                }
             });
         });
     }
@@ -309,12 +318,14 @@
             if (event.target.closest("[data-star-id]")) return;
             if (event.target.closest("[data-territory-id]")) return;
             if (event.target.closest("[data-territory-card]")) return;
-            closePanel(true);
+            closePanel(false);
+            clearOverlay("STAR");
         });
 
         document.addEventListener("keydown", event => {
             if (event.key === "Escape") {
-                closePanel(true);
+                closePanel(false);
+                clearOverlay("STAR");
             }
         });
 
@@ -332,11 +343,20 @@
     function bindPanelButton() {
         const button = state.elements.panel.querySelector(".living-sky__close");
         if (button) {
-            button.addEventListener("click", () => closePanel(true));
+            button.addEventListener("click", () => {
+                closePanel(false);
+                clearOverlay("STAR");
+            });
         }
     }
 
     function openPanel() {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.activate("STAR", {
+                close: () => closePanel(false),
+                element: state.elements.panel
+            });
+        }
         state.elements.panel.classList.add("is-visible");
         if (!state.panelHistoryOpen && window.history && window.history.pushState) {
             window.history.pushState({ livingSkyPanel: true }, "", window.location.href);
@@ -355,6 +375,22 @@
             return;
         }
         state.panelHistoryOpen = false;
+    }
+
+    function closeSkyViews() {
+        if (state.elements.layer) {
+            state.elements.layer.dataset.mode = "sky";
+            state.elements.layer.querySelectorAll("[data-sky-mode]").forEach(item => {
+                item.classList.toggle("is-active", item.dataset.skyMode === "sky");
+            });
+        }
+        closePanel(false);
+    }
+
+    function clearOverlay(id) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.clear(id);
+        }
     }
 
     function renderTerritories() {

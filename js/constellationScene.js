@@ -174,6 +174,18 @@
         layer.addEventListener("keydown", markInteraction, true);
     }
 
+    function bindWritingAwakening() {
+        if (!state.screen || state.screen.dataset.constellationWritingAwakeningBound === "true") {
+            return;
+        }
+
+        const textarea = state.screen.querySelector("#storyInput");
+        if (!textarea) return;
+
+        state.screen.dataset.constellationWritingAwakeningBound = "true";
+        textarea.addEventListener("focusin", awaken);
+    }
+
     function resetScene() {
         if (!state.screen) return;
         clearTimers();
@@ -251,6 +263,7 @@
         clearTimers();
         clearPresenceTimers();
         state.screen.classList.remove(PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
+        activateOverlay("STAR");
         remember("stars", "first-star");
         state.screen.classList.add(MEETING_CLASS);
         state.screen.classList.remove(INVITING_CLASS);
@@ -274,18 +287,53 @@
         if (!state.screen || !state.screen.classList.contains(CARD_READY_CLASS)) {
             return;
         }
+        activateOverlay("CARD", ["STAR"]);
         remember("cards", "suspended-card");
         state.screen.classList.add(CARD_OPEN_CLASS);
     }
 
     function awaken() {
-        if (!state.screen || state.screen.classList.contains(AWAKENED_CLASS)) {
+        if (!state.screen) {
+            return;
+        }
+        if (state.screen.classList.contains(AWAKENED_CLASS)) {
+            state.screen.classList.remove(SILENT_CLASS);
             return;
         }
         clearTimers();
         clearPresenceTimers();
         state.screen.classList.add(AWAKENED_CLASS);
-        state.screen.classList.remove(INVITING_CLASS, PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
+        state.screen.classList.remove(SILENT_CLASS, INVITING_CLASS, PRESENCE_CLASS, DEEP_PRESENCE_CLASS);
+        clearOverlay("CARD");
+    }
+
+    function activateOverlay(id, keep) {
+        if (!window.LivingOverlayManager) return;
+        window.LivingOverlayManager.activate(id, {
+            close: closeSceneInteraction,
+            element: state.layer,
+            keep
+        });
+    }
+
+    function clearOverlay(id) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.clear(id);
+        }
+    }
+
+    function closeSceneInteraction() {
+        clearTimers();
+        clearPresenceTimers();
+        if (!state.screen) return;
+        state.screen.classList.remove(
+            MEETING_CLASS,
+            RELATION_CLASS,
+            CARD_READY_CLASS,
+            CARD_OPEN_CLASS,
+            PRESENCE_CLASS,
+            DEEP_PRESENCE_CLASS
+        );
     }
 
     function observeVisibility() {
@@ -317,6 +365,7 @@
         if (!state.screen) return;
         state.memory = readMemory();
         buildLayer();
+        bindWritingAwakening();
         applyMemoryClasses();
         observeVisibility();
     }

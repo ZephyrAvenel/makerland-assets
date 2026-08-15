@@ -366,7 +366,6 @@
     animation:constellationPresenceAnswer 14s ease-in-out both;
 }
 
-#e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .constellation-panel,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__quote,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-constellation-experience__cards,
 #e08_constellation.constellation-scene-silent:not(.constellation-scene-awakened) .living-exhibitions__entry,

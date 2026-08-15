@@ -292,10 +292,11 @@
             "<button type=\"button\" data-open-exhibitions>Explorer</button>"
         ].join("");
         state.elements.entry.querySelector("[data-open-exhibitions]").addEventListener("click", () => {
-            state.elements.layer.classList.add("is-open");
+            openExhibitions();
             renderList();
             renderDetail();
         });
+        queueCue("living-exhibition", state.elements.entry, 8200);
     }
 
     function renderList() {
@@ -335,8 +336,38 @@
             "<button type=\"button\" class=\"living-exhibitions__close\" data-close-exhibitions>Refermer l'exposition</button>"
         ].join("");
         state.elements.detail.querySelector("[data-close-exhibitions]").addEventListener("click", () => {
-            state.elements.layer.classList.remove("is-open");
+            closeExhibitions();
+            clearOverlay("EXHIBITION");
         });
+    }
+
+    function openExhibitions() {
+        if (!state.elements.layer) return;
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.activate("EXHIBITION", {
+                close: closeExhibitions,
+                element: state.elements.panel
+            });
+        }
+        state.elements.layer.classList.add("is-open");
+    }
+
+    function closeExhibitions() {
+        if (state.elements.layer) {
+            state.elements.layer.classList.remove("is-open");
+        }
+    }
+
+    function clearOverlay(id) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.clear(id);
+        }
+    }
+
+    function queueCue(id, element, duration) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.cue(id, element, { duration });
+        }
     }
 
     function block(title, items) {

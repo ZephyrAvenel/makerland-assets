@@ -237,6 +237,7 @@
             render();
         });
         state.elements.entry.querySelector("[data-dismiss-paths]").addEventListener("click", dismissInvitation);
+        queueCue("living-path", state.elements.entry, 8200);
     }
 
     function renderCards() {
@@ -332,6 +333,12 @@
     }
 
     function openPanel() {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.activate("PATH", {
+                close: closePanel,
+                element: state.elements.panel
+            });
+        }
         state.elements.layer.classList.add("is-open");
         state.elements.entry.hidden = true;
         state.elements.reopen.hidden = true;
@@ -345,6 +352,7 @@
         if (!state.elements.layer.classList.contains("is-open")) return;
         state.elements.layer.classList.remove("is-open");
         const shouldRestore = !options || options.restoreFocus !== false;
+        clearOverlay("PATH");
         if (!shouldRestore) return;
         state.elements.reopen.hidden = false;
         const target = state.elements.entry.hidden ? state.elements.reopen : state.lastFocus;
@@ -373,6 +381,18 @@
     function onDocumentKeydown(event) {
         if (event.key !== "Escape") return;
         closePanel();
+    }
+
+    function clearOverlay(id) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.clear(id);
+        }
+    }
+
+    function queueCue(id, element, duration) {
+        if (window.LivingOverlayManager) {
+            window.LivingOverlayManager.cue(id, element, { duration });
+        }
     }
 
     function startPath(id) {

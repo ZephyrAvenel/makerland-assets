@@ -1465,7 +1465,7 @@ body[data-journey-place="constellation"]{
 
 .living-compass-direction[data-direction="repere"]{
     left:50%;
-    top:min(92%, calc(100% - var(--compass-safe-bottom)));
+    top:min(84%, calc(100% - var(--compass-safe-bottom) - 68px));
 }
 
 .living-echo{
@@ -2305,7 +2305,7 @@ body[data-journey-place="constellation"]{
     }
 
     .living-compass-direction[data-direction="repere"]{
-        top:min(82%, calc(100% - var(--compass-safe-bottom)));
+        top:min(78%, calc(100% - var(--compass-safe-bottom) - 42px));
         width:116px;
     }
 

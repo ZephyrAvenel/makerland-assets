@@ -278,6 +278,47 @@ body.season-winter .living-sky__star{
     }
 }
 
+@media (max-width:768px) and (orientation:portrait){
+    .living-sky__modes{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .06);
+        right:auto;
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+        max-width:calc(var(--screen-content-width) * .88);
+        flex-wrap:wrap;
+    }
+
+    .living-sky__stage{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .17);
+        height:calc(var(--screen-content-height) * .46);
+    }
+
+    .living-sky__panel{
+        left:50%;
+        top:auto;
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
+        width:calc(var(--screen-content-width) * .88);
+        max-height:calc(var(--screen-content-height) * .36);
+        padding:13px 15px;
+        transform:translate(-50%, 10px);
+        z-index:3;
+    }
+
+    .living-sky__panel.is-visible{
+        transform:translate(-50%, 0);
+    }
+
+    .living-sky__territories,
+    .living-sky__growth{
+        left:50%;
+        right:auto;
+        top:auto;
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .04);
+        width:calc(var(--screen-content-width) * .88);
+        max-height:calc(var(--screen-content-height) * .48);
+        transform:translateX(-50%);
+    }
+}
+
 @media (prefers-reduced-motion:reduce){
     .living-sky__star{
         animation:none;
