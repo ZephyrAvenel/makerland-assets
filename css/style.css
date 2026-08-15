@@ -2246,6 +2246,87 @@ body[data-journey-place="constellation"]{
     }
 }
 
+@media (orientation:portrait) and (min-width:700px) and (max-width:1180px) {
+    #e03_boussole .living-compass-directions{
+        --compass-edge-margin:46px;
+        --compass-safe-bottom:calc(64px + env(safe-area-inset-bottom));
+    }
+
+    #e03_boussole .living-compass-direction{
+        width:116px;
+        min-height:34px;
+        padding:6px 9px;
+        font-size:12px;
+        line-height:1.14;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="explorer"]{
+        left:50%;
+        top:40%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="creer"]{
+        left:max(var(--compass-edge-margin), 20%);
+        top:62%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="contempler"]{
+        left:min(calc(100% - var(--compass-edge-margin)), 80%);
+        top:62%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="decouvrir"]{
+        left:50%;
+        top:72%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="repere"]{
+        left:50%;
+        top:82%;
+        width:132px;
+        z-index:3;
+    }
+}
+
+@media (orientation:landscape) and (min-width:900px) and (min-height:540px) and (max-width:1400px) {
+    #e03_boussole .living-compass-directions{
+        --compass-edge-margin:56px;
+        --compass-safe-bottom:calc(70px + env(safe-area-inset-bottom));
+    }
+
+    #e03_boussole .living-compass-direction{
+        width:128px;
+        min-height:36px;
+        padding:6px 10px;
+        font-size:12px;
+        line-height:1.14;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="explorer"]{
+        top:34%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="creer"]{
+        left:max(var(--compass-edge-margin), 24%);
+        top:61%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="contempler"]{
+        left:min(calc(100% - var(--compass-edge-margin)), 76%);
+        top:61%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="decouvrir"]{
+        top:72%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="repere"]{
+        top:81%;
+        width:140px;
+        z-index:3;
+    }
+}
+
 @media (max-height:480px) and (orientation:landscape) {
     .living-compass-welcome{
         --living-compass-welcome-top:calc(var(--screen-content-top) + var(--screen-content-height) * .03);
