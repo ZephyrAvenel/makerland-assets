@@ -19,6 +19,7 @@
 .first-journey__intro,
 .first-journey__step,
 .first-journey__forest,
+.first-journey__resume,
 .first-journey__replay{
     border:1px solid rgba(255,224,166,.26);
     border-radius:22px;
@@ -227,6 +228,36 @@
     color:rgba(255,244,226,.74);
     background:rgba(5,9,16,.18);
     font-size:11px;
+}
+
+.first-journey__resume{
+    position:absolute;
+    left:calc(var(--screen-content-left) + max(14px, env(safe-area-inset-left, 0px)));
+    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .035);
+    max-width:min(320px, calc(var(--screen-content-width) * .34));
+    padding:10px 12px;
+    border-radius:999px;
+    align-items:center;
+    gap:9px;
+    flex-direction:row;
+    opacity:.9;
+    animation:firstJourneyAppear .55s cubic-bezier(.22,1,.36,1) both;
+}
+
+.first-journey__resume span{
+    color:rgba(255,224,166,.72);
+    font-family:Arial, sans-serif;
+    font-size:10px;
+    letter-spacing:.08em;
+    line-height:1.15;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+.first-journey__resume button{
+    padding:7px 11px;
+    font-size:12px;
+    white-space:nowrap;
 }
 
 .first-journey h2,
@@ -460,6 +491,14 @@ body.first-journey-intro-ready .living-home{
         width:84vw;
     }
 
+    .first-journey__resume{
+        left:7vw;
+        bottom:calc(var(--first-journey-safe-bottom) + 10px);
+        width:min(86vw, 340px);
+        max-width:min(86vw, 340px);
+        justify-content:center;
+    }
+
     .first-journey__forest{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .52);
         width:calc(var(--screen-content-width) * .86);
@@ -503,6 +542,23 @@ body.first-journey-intro-ready .living-home{
 
     .first-journey__replay{
         bottom:8px;
+    }
+
+    .first-journey__resume{
+        left:calc(var(--screen-content-left) + max(8px, env(safe-area-inset-left, 0px)));
+        bottom:calc(var(--first-journey-safe-bottom) + 6px);
+        max-width:min(360px, calc(var(--screen-content-width) * .46));
+        padding:7px 9px;
+        gap:7px;
+    }
+
+    .first-journey__resume span{
+        display:none;
+    }
+
+    .first-journey__resume button{
+        padding:6px 9px;
+        font-size:11px;
     }
 
     .first-journey__replay::before{
@@ -571,6 +627,23 @@ body.first-journey-intro-ready .living-home{
 
     .first-journey__replay{
         bottom:8px;
+    }
+
+    .first-journey__resume{
+        left:calc(var(--screen-content-left) + max(8px, env(safe-area-inset-left, 0px)));
+        bottom:calc(var(--first-journey-safe-bottom) + 6px);
+        max-width:min(360px, calc(var(--screen-content-width) * .46));
+        padding:7px 9px;
+        gap:7px;
+    }
+
+    .first-journey__resume span{
+        display:none;
+    }
+
+    .first-journey__resume button{
+        padding:6px 9px;
+        font-size:11px;
     }
 
     .first-journey__replay::before{

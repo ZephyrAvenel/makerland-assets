@@ -119,6 +119,10 @@
 
         if (screenId === "e01_accueil" && state.memory.active && !state.memory.completed) {
             document.body.classList.remove("first-journey-active");
+            if (state.memory.phase === "viewing") {
+                renderViewingResume();
+                return;
+            }
             clearRoot();
             return;
         }
@@ -128,7 +132,7 @@
             document.body.classList.add("first-journey-active");
             if (state.memory.phase === "viewing") {
                 document.body.classList.remove("first-journey-active");
-                clearRoot();
+                renderViewingResume();
                 return;
             }
             if (state.memory.phase === "forest") {
@@ -243,6 +247,16 @@
             "</section>"
         ].join("");
         state.root.querySelector("[data-first-journey-replay]").addEventListener("click", startJourney);
+    }
+
+    function renderViewingResume() {
+        state.root.innerHTML = [
+            "<section class=\"first-journey__resume\" aria-label=\"Premier Voyage en cours\">",
+            "<span>Premier Voyage en cours</span>",
+            "<button type=\"button\" data-first-journey-resume>Reprendre le Premier Voyage</button>",
+            "</section>"
+        ].join("");
+        state.root.querySelector("[data-first-journey-resume]").addEventListener("click", resumeJourney);
     }
 
     function bindStepActions(step) {
