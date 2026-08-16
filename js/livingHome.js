@@ -141,7 +141,7 @@
                 icon: "&#10022;",
                 title: "Revenir au Premier Voyage",
                 text: firstJourneyCompleted ? "Reprendre les sept portes depuis le seuil." : "Decouvrir les premiers lieux des Recits Vivants.",
-                action: firstJourneyCompleted ? "Revoir le Premier Voyage" : "Faire mon premier voyage",
+                action: firstJourneyCompleted ? "Revoir le Premier Voyage" : "Faire mon 1er voyage",
                 data: "data-living-home-first"
             },
             {
