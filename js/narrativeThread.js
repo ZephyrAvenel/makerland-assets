@@ -109,14 +109,6 @@
         "boussole>constellation": "Chercher un repere, c'est deja suivre un lien."
     };
 
-    const MAP = [
-        ["bibliotheque", "Bibliotheque"],
-        ["atelier", "Atelier"],
-        ["archive", "Archives"],
-        ["constellation", "Constellation"],
-        ["carnet", "Carnet"]
-    ];
-
     const TRANSITION_VISIBLE_DURATION = 7200;
     const TRANSITION_FADE_DURATION = 650;
 
@@ -163,7 +155,6 @@
         root.innerHTML = [
             renderRole(place),
             renderWhy(place),
-            renderMap(place),
             renderNext(place)
         ].join("");
         bindActions();
@@ -189,17 +180,6 @@
             "<aside class=\"narrative-thread__why\" aria-label=\"Pourquoi cette salle\">",
             "<strong>Pourquoi cette salle ?</strong>",
             `<p>${escapeHtml(place.why)}</p>`,
-            "</aside>"
-        ].join("");
-    }
-
-    function renderMap(place) {
-        return [
-            "<aside class=\"narrative-thread__map\" aria-label=\"Carte du territoire\">",
-            "<p class=\"narrative-thread__map-title\">Le territoire</p>",
-            "<div class=\"narrative-thread__map-grid\">",
-            MAP.map(item => `<span class="narrative-thread__map-node${item[0] === place.id ? " is-current" : ""}">${escapeHtml(item[1])}</span>`).join(""),
-            "</div>",
             "</aside>"
         ].join("");
     }

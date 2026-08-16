@@ -13,7 +13,6 @@
 
 .narrative-thread__role,
 .narrative-thread__why,
-.narrative-thread__map,
 .narrative-thread__next,
 .narrative-thread__transition{
     border:1px solid rgba(255,224,166,.22);
@@ -70,46 +69,6 @@
     border-radius:18px;
     padding:11px 13px;
     animation:narrativeThreadAppear .85s cubic-bezier(.22,1,.36,1) .08s both;
-}
-
-.narrative-thread__map{
-    position:absolute;
-    right:calc(var(--screen-content-left) + var(--screen-content-width) * .055);
-    bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .1);
-    width:min(250px, calc(var(--screen-content-width) * .22));
-    border-radius:18px;
-    padding:10px 12px;
-    animation:narrativeThreadAppear .9s cubic-bezier(.22,1,.36,1) .16s both;
-}
-
-.narrative-thread__map-title{
-    margin:0 0 7px;
-    color:rgba(255,224,166,.76);
-    font-size:11px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
-
-.narrative-thread__map-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:5px;
-}
-
-.narrative-thread__map-node{
-    border:1px solid rgba(255,224,166,.14);
-    border-radius:999px;
-    padding:5px 8px;
-    color:rgba(255,243,222,.64);
-    background:rgba(255,230,180,.04);
-    font-size:11px;
-    line-height:1.15;
-}
-
-.narrative-thread__map-node.is-current{
-    color:#ffe5ad;
-    border-color:rgba(255,224,166,.42);
-    box-shadow:0 0 22px rgba(255,207,130,.16);
 }
 
 .narrative-thread__next{
@@ -218,20 +177,8 @@
         display:none;
     }
 
-    .narrative-thread__map{
-        right:calc(var(--screen-content-left) + var(--screen-content-width) * .05);
-        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .08);
-        width:calc(var(--screen-content-width) * .32);
-        padding:8px 9px;
-    }
-
     .narrative-thread__next{
         display:none;
-    }
-
-    .narrative-thread__map-node{
-        padding:4px 6px;
-        font-size:9px;
     }
 }
 
@@ -241,10 +188,6 @@
         top:14vh;
         width:78vw;
     }
-
-    .narrative-thread__map{
-        display:none;
-    }
 }
 
 @media (max-height:520px) and (orientation:landscape){
@@ -252,22 +195,11 @@
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .06);
         width:calc(var(--screen-content-width) * .28);
     }
-
-    .narrative-thread__map{
-        display:none;
-    }
-}
-
-@media (orientation:landscape) and (min-width:769px) and (max-width:1280px) and (min-height:600px){
-    #e03_boussole[style*="block"] ~ .narrative-thread .narrative-thread__map{
-        display:none;
-    }
 }
 
 @media (prefers-reduced-motion:reduce){
     .narrative-thread__role,
     .narrative-thread__why,
-    .narrative-thread__map,
     .narrative-thread__next,
     .narrative-thread__transition{
         animation:none;
