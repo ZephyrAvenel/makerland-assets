@@ -1077,6 +1077,30 @@ body[data-journey-place="constellation"]{
     content:"Beaucoup traverse mon paysage intérieur.";
 }
 
+@media (orientation:landscape) {
+    .entry-intro{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .055);
+    }
+
+    .entry-intro-emblem{
+        width:clamp(64px, 11dvh, 92px);
+        height:clamp(64px, 11dvh, 92px);
+        margin-bottom:clamp(8px, 1.6dvh, 16px);
+    }
+}
+
+@media (max-height:520px) and (orientation:landscape) {
+    .entry-intro{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .025);
+    }
+
+    .entry-intro-emblem{
+        width:clamp(46px, 12dvh, 60px);
+        height:clamp(46px, 12dvh, 60px);
+        margin-bottom:clamp(5px, 1.2dvh, 8px);
+    }
+}
+
 @media (orientation:portrait) {
     .entry-intro{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .015);
