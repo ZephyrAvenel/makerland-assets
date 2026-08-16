@@ -258,6 +258,12 @@
     }
 }
 
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (hover:none) and (pointer:coarse){
+    #e03_boussole .narrative-thread__map{
+        display:none;
+    }
+}
+
 @media (prefers-reduced-motion:reduce){
     .narrative-thread__role,
     .narrative-thread__why,
