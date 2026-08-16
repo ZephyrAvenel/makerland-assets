@@ -126,6 +126,11 @@
         if (state.memory.active && !state.memory.completed) {
             document.body.classList.remove("first-journey-intro-ready");
             document.body.classList.add("first-journey-active");
+            if (state.memory.phase === "viewing") {
+                document.body.classList.remove("first-journey-active");
+                clearRoot();
+                return;
+            }
             if (state.memory.phase === "forest") {
                 if (syncScreen("e04_oeuvre", renderForestThreshold)) renderForestThreshold();
                 return;
@@ -243,7 +248,7 @@
     function bindStepActions(step) {
         const openButton = state.root.querySelector("[data-first-journey-open]");
         if (openButton) {
-            openButton.addEventListener("click", () => navigateTo(step.screen));
+            openButton.addEventListener("click", () => openCurrentPlace(step));
         }
 
         const previous = state.root.querySelector("[data-first-journey-prev]");
@@ -357,6 +362,17 @@
             navigateTo(STEPS[nextStep].screen);
             renderStep();
         }, 300);
+    }
+
+    function openCurrentPlace(step) {
+        state.memory.active = true;
+        state.memory.phase = "viewing";
+        state.memory.updatedAt = new Date().toISOString();
+        writeMemory(state.memory);
+        document.body.classList.remove("first-journey-intro-ready");
+        document.body.classList.remove("first-journey-active");
+        clearRoot();
+        navigateTo(step.screen);
     }
 
     function showPassport() {
