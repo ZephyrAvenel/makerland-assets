@@ -399,6 +399,36 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
     text-underline-offset:4px;
 }
 
+.global-author-link{
+    position:fixed;
+    right:calc(16px + env(safe-area-inset-right));
+    top:calc(14px + env(safe-area-inset-top));
+    z-index:119;
+    display:none;
+    max-width:150px;
+    color:rgba(255,224,166,.68);
+    font-family:Arial, sans-serif;
+    font-size:10px;
+    line-height:1.1;
+    letter-spacing:.03em;
+    text-decoration:none;
+    text-transform:uppercase;
+    text-shadow:0 2px 12px rgba(0,0,0,.74);
+    pointer-events:auto;
+}
+
+body:not([data-current-screen="e01_accueil"]) .global-author-link{
+    display:inline-block;
+}
+
+.global-author-link:hover,
+.global-author-link:focus-visible{
+    color:rgba(255,239,205,.9);
+    outline:none;
+    text-decoration:underline;
+    text-underline-offset:4px;
+}
+
 .entry-intro-signature{
     margin-top:clamp(8px, calc(var(--screen-content-height) * .016), 18px) !important;
     color:rgba(255,238,210,.94);
@@ -2513,10 +2543,10 @@ body[data-journey-place="constellation"]{
     }
 
     .atlas-passage .archway-whisper{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .155);
         width:calc(var(--screen-content-width) * .42);
         font-size:clamp(12px, calc(var(--screen-content-width) * .014), 17px);
-        line-height:1.24;
+        line-height:1.16;
     }
 
     .atlas-passage .archway-gate{
@@ -2615,10 +2645,10 @@ body[data-journey-place="constellation"]{
     }
 
     .atlas-passage .archway-whisper{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .04);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .15);
         width:calc(var(--screen-content-width) * .38);
         font-size:clamp(12px, calc(var(--screen-content-width) * .015), 16px);
-        line-height:1.24;
+        line-height:1.14;
     }
 
     .atlas-passage .archway-gate{

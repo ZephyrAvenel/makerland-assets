@@ -248,6 +248,16 @@
         font-size:clamp(9px, calc(var(--screen-content-width) * .0072), 11px);
         line-height:1.16;
     }
+
+    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__next{
+        bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .012);
+        width:min(320px, calc(var(--screen-content-width) * .32));
+        padding:5px 8px;
+    }
+
+    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__next strong{
+        font-size:10px;
+    }
 }
 
 @media (orientation:landscape) and (max-width:1024px){

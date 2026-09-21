@@ -122,6 +122,9 @@ function show(screenId) {
     currentScreen =
         screenId;
 
+    document.body.dataset.currentScreen =
+        screenId;
+
     emitChange();
 
 }
