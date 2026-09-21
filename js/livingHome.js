@@ -158,7 +158,6 @@
         return [
             "<nav class=\"living-home__paths\" aria-label=\"Chemins de voyage\">",
             "<p class=\"living-home__paths-kicker\">Choisissez votre mani&egrave;re d'entrer</p>",
-            "<a class=\"living-home__author living-home__author--paths\" href=\"https://zephyravenel.fr\">Decouvrir l'auteur</a>",
             rows.map(row => renderPathRow(row)).join(""),
             "</nav>"
         ].join("");

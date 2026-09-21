@@ -7,6 +7,10 @@ body{
     overflow:hidden;
     background:#000;
     font-family:Arial,sans-serif;
+    --screen-content-width:min(100vw, 150vh);
+    --screen-content-height:min(100vh, 66.6667vw);
+    --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
+    --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
 }
 
 *,
@@ -101,10 +105,6 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
     width:100%;
     height:100%;
     display:none;
-    --screen-content-width:min(100vw, 150vh);
-    --screen-content-height:min(100vh, 66.6667vw);
-    --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
-    --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
 }
 
 .screen-bg{
@@ -417,7 +417,7 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
     pointer-events:auto;
 }
 
-body:not([data-current-screen="e01_accueil"]) .global-author-link{
+body[data-current-screen]:not([data-current-screen="e01_accueil"]) .global-author-link{
     display:inline-block;
 }
 
@@ -2655,6 +2655,17 @@ body[data-journey-place="constellation"]{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .77);
         min-height:calc(var(--screen-content-height) * .1);
         padding-bottom:0;
+    }
+}
+
+@media (orientation:landscape) and (max-width:1024px){
+    .global-author-link{
+        right:auto;
+        left:max(8px, calc(var(--screen-content-left) * .08));
+        top:calc(var(--screen-content-top) + 252px);
+        max-width:clamp(84px, calc(var(--screen-content-left) * .72), 120px);
+        font-size:9px;
+        line-height:1.08;
     }
 }
 

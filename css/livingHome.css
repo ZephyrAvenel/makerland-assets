@@ -131,6 +131,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 .living-home__author--paths{
     grid-column:1 / -1;
     justify-self:center;
+    display:none;
     margin:0 0 7px;
 }
 
@@ -441,9 +442,16 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 
     .living-home__paths{
-        bottom:72px;
+        bottom:calc(28px + env(safe-area-inset-bottom, 0px));
         width:76vw;
-        max-height:29vh;
+        max-height:calc(100dvh - 34px - env(safe-area-inset-bottom, 0px));
+        overflow-y:auto;
+        scrollbar-width:none;
+    }
+
+    .living-home__paths::-webkit-scrollbar{
+        width:0;
+        height:0;
     }
 }
 
@@ -526,17 +534,24 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     .living-home__paths{
         left:50%;
         right:auto;
-        bottom:calc(6px + env(safe-area-inset-bottom, 0px));
+        bottom:calc(28px + env(safe-area-inset-bottom, 0px));
         grid-template-columns:repeat(3, minmax(0, 1fr));
         width:min(
             760px,
             calc(var(--screen-content-width) * .92),
             calc(100vw - 20px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px))
         );
-        max-height:clamp(86px, 31dvh, 132px);
+        max-height:clamp(118px, 42dvh, 184px);
         gap:5px;
+        overflow-y:auto;
+        scrollbar-width:none;
         transform:translateX(-50%);
         animation:livingHomePaths 1s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    .living-home__paths::-webkit-scrollbar{
+        width:0;
+        height:0;
     }
 
     .living-home__paths-kicker{
@@ -596,7 +611,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     }
 
     .living-home__path-row.is-open .living-home__path-panel{
-        max-height:clamp(30px, 12dvh, 54px);
+        max-height:clamp(46px, 18dvh, 82px);
         padding:0 8px 3px;
         overflow-y:auto;
         scrollbar-width:none;
@@ -610,12 +625,12 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
 @media (max-width:960px) and (max-height:480px) and (orientation:landscape){
     .living-home__paths{
-        bottom:clamp(6px, 2dvh, 12px);
-        max-height:clamp(82px, 30dvh, 124px);
+        bottom:clamp(26px, 7dvh, 32px);
+        max-height:clamp(116px, 42dvh, 176px);
     }
 
     .living-home__path-row.is-open .living-home__path-panel{
-        max-height:clamp(30px, 12dvh, 54px);
+        max-height:clamp(46px, 18dvh, 82px);
         overflow-y:auto;
         scrollbar-width:none;
     }

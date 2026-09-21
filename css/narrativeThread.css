@@ -3,10 +3,6 @@
     inset:0;
     z-index:84;
     pointer-events:none;
-    --screen-content-width:min(100vw, 150vh);
-    --screen-content-height:min(100vh, 66.6667vw);
-    --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
-    --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
     color:rgba(255,243,222,.9);
     font-family:Georgia, "Times New Roman", serif;
 }
@@ -241,41 +237,44 @@
         font-size:10px;
     }
 
-    #e03_boussole[style*="block"] ~ .narrative-thread .narrative-thread__role span,
-    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__role span,
-    #e06_fiction[style*="block"] ~ .narrative-thread .narrative-thread__role span{
+    body[data-current-screen="e03_boussole"] .narrative-thread .narrative-thread__role span,
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__role span,
+    body[data-current-screen="e06_fiction"] .narrative-thread .narrative-thread__role span,
+    body[data-current-screen="e04_oeuvre"] .narrative-thread .narrative-thread__role span{
         margin-top:3px;
         font-size:clamp(9px, calc(var(--screen-content-width) * .0072), 11px);
         line-height:1.16;
     }
 
-    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__next{
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__next{
         bottom:calc(var(--screen-content-top) + var(--screen-content-height) * .012);
         width:min(320px, calc(var(--screen-content-width) * .32));
         padding:5px 8px;
     }
 
-    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__next strong{
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__next strong{
         font-size:10px;
     }
 }
 
 @media (orientation:landscape) and (max-width:1024px){
-    #e03_boussole[style*="block"] ~ .narrative-thread .narrative-thread__role,
-    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__role,
-    #e06_fiction[style*="block"] ~ .narrative-thread .narrative-thread__role{
+    body[data-current-screen="e03_boussole"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e06_fiction"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e04_oeuvre"] .narrative-thread .narrative-thread__role{
         left:max(8px, calc(var(--screen-content-left) * .08));
-        top:calc(var(--screen-content-top) + 42px);
+        top:calc(var(--screen-content-top) + 56px);
         width:clamp(80px, calc(var(--screen-content-left) * .78), 150px);
         padding:6px 7px;
     }
 }
 
 @media (max-height:520px) and (orientation:landscape) and (max-width:860px){
-    #e03_boussole[style*="block"] ~ .narrative-thread .narrative-thread__role,
-    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__role,
-    #e06_fiction[style*="block"] ~ .narrative-thread .narrative-thread__role{
-        top:calc(var(--screen-content-top) + 36px);
+    body[data-current-screen="e03_boussole"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e06_fiction"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e04_oeuvre"] .narrative-thread .narrative-thread__role{
+        top:calc(var(--screen-content-top) + 54px);
         width:clamp(84px, calc(var(--screen-content-left) * .72), 120px);
     }
 }
