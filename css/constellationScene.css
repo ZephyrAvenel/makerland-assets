@@ -99,14 +99,14 @@
 
 .constellation-scene__whisper{
     position:absolute;
-    left:calc(var(--screen-content-left) + var(--screen-content-width) * .32);
-    top:calc(var(--screen-content-top) + var(--screen-content-height) * .25);
-    width:calc(var(--screen-content-width) * .36);
+    left:calc(var(--screen-content-left) + var(--screen-content-width) * .58);
+    top:calc(var(--screen-content-top) + var(--screen-content-height) * .19);
+    width:calc(var(--screen-content-width) * .18);
     margin:0;
     color:rgba(255,239,204,.76);
     font-size:clamp(14px, calc(var(--screen-content-width) * .015), 23px);
     line-height:1.35;
-    text-align:center;
+    text-align:left;
     text-shadow:0 2px 18px rgba(0,0,0,.78), 0 0 18px rgba(255,214,139,.18);
     opacity:0;
     transform:translateY(8px);
@@ -632,9 +632,9 @@
 
 @media (max-width:768px){
     .constellation-scene__whisper{
-        left:calc(var(--screen-content-left) + var(--screen-content-width) * .2);
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .24);
-        width:calc(var(--screen-content-width) * .6);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .56);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .16);
+        width:calc(var(--screen-content-width) * .32);
         font-size:clamp(12px, calc(var(--screen-content-width) * .024), 17px);
     }
 
@@ -679,7 +679,9 @@
 
 @media (max-width:768px) and (orientation:landscape){
     .constellation-scene__whisper{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .22);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .58);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .17);
+        width:calc(var(--screen-content-width) * .18);
         font-size:clamp(11px, calc(var(--screen-content-width) * .014), 16px);
     }
 
