@@ -240,6 +240,23 @@
         padding:4px 8px;
         font-size:10px;
     }
+
+    #e03_boussole[style*="block"] ~ .narrative-thread .narrative-thread__role,
+    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__role,
+    #e06_fiction[style*="block"] ~ .narrative-thread .narrative-thread__role{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .025);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .018);
+        width:min(170px, calc(var(--screen-content-width) * .17));
+        padding:6px 8px;
+    }
+
+    #e03_boussole[style*="block"] ~ .narrative-thread .narrative-thread__role span,
+    #e05_cartes[style*="block"] ~ .narrative-thread .narrative-thread__role span,
+    #e06_fiction[style*="block"] ~ .narrative-thread .narrative-thread__role span{
+        margin-top:3px;
+        font-size:clamp(9px, calc(var(--screen-content-width) * .0072), 11px);
+        line-height:1.16;
+    }
 }
 
 @media (prefers-reduced-motion:reduce){
