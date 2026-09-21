@@ -43,6 +43,27 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     line-height:1.36;
 }
 
+.living-home__author{
+    display:inline-block;
+    margin-top:6px;
+    color:rgba(255,224,166,.72);
+    font-family:Arial, sans-serif;
+    font-size:clamp(10px, calc(var(--screen-content-width) * .008), 12px);
+    letter-spacing:.03em;
+    line-height:1.25;
+    pointer-events:auto;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+
+.living-home__author:hover,
+.living-home__author:focus-visible{
+    color:rgba(255,239,205,.94);
+    outline:none;
+    text-decoration:underline;
+    text-underline-offset:4px;
+}
+
 .living-home__daily,
 .living-home__season,
 .living-home__return,

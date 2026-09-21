@@ -70,6 +70,7 @@
             "<section class=\"living-home__threshold\" aria-label=\"Seuil des Recits Vivants\">",
             "<p>Chaque recit ouvre une porte.<br>Chaque porte conduit vers un territoire.<br>Le voyage commence toujours par une premiere rencontre.</p>",
             "<span class=\"living-home__promise\">Une oeuvre immersive de Zephyr Avenel</span>",
+            "<a class=\"living-home__author\" href=\"https://zephyravenel.fr\">Decouvrir l'auteur</a>",
             "</section>"
         ].join("");
     }

@@ -372,6 +372,33 @@ body.living-season-ready .living-compass-direction.is-suggested::before{
     animation-delay:2.52s;
 }
 
+.entry-author-link{
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    margin-top:clamp(6px, calc(var(--screen-content-height) * .012), 14px);
+    color:rgba(255,224,166,.76);
+    font-family:Arial, sans-serif;
+    font-size:clamp(11px, calc(var(--screen-content-width) * .009), 14px);
+    letter-spacing:.03em;
+    line-height:1.25;
+    pointer-events:auto;
+    text-decoration:none;
+    text-transform:uppercase;
+    opacity:0;
+    transform:translateY(8px);
+    filter:brightness(.86);
+    animation:entryTextReveal 1.15s cubic-bezier(.22,.72,.18,1) 2.86s forwards;
+}
+
+.entry-author-link:hover,
+.entry-author-link:focus-visible{
+    color:rgba(255,239,205,.94);
+    outline:none;
+    text-decoration:underline;
+    text-underline-offset:4px;
+}
+
 .entry-intro-signature{
     margin-top:clamp(8px, calc(var(--screen-content-height) * .016), 18px) !important;
     color:rgba(255,238,210,.94);
