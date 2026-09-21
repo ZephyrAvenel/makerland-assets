@@ -491,9 +491,13 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
         right:auto;
         bottom:calc(10px + env(safe-area-inset-bottom, 0px));
         grid-template-columns:repeat(3, minmax(0, 1fr));
-        width:min(620px, calc(var(--screen-content-width) * .68));
+        width:min(
+            760px,
+            calc(var(--screen-content-width) * .92),
+            calc(100vw - 20px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px))
+        );
         max-height:calc(100dvh - 10px - env(safe-area-inset-bottom, 0px));
-        gap:4px;
+        gap:5px;
         transform:translateX(-50%);
         animation:livingHomePaths 1s cubic-bezier(.22,1,.36,1) both;
     }
@@ -507,11 +511,13 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
     .living-home__path-header{
         grid-template-columns:18px 1fr 18px;
+        min-width:0;
         min-height:22px;
         padding:0 10px;
     }
 
     .living-home__path-title{
+        min-width:0;
         font-size:10px;
     }
 
@@ -537,9 +543,12 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
     .living-home__path-action{
         margin-top:0;
+        width:100%;
+        max-width:100%;
         padding:2px 8px;
         font-size:9px;
-        white-space:nowrap;
+        line-height:1.12;
+        white-space:normal;
     }
 
     .living-home__path-row.is-open .living-home__path-panel{
