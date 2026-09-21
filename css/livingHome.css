@@ -477,7 +477,17 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 
 @media (max-width:1024px) and (max-height:520px) and (orientation:landscape){
     .living-home__threshold{
-        top:calc(var(--screen-content-top) + var(--screen-content-height) * .32);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .285);
+    }
+
+    .living-home__intro p{
+        font-size:clamp(.72rem, 2.7vh, .92rem);
+        line-height:1.22;
+    }
+
+    .living-home__promise{
+        margin-top:4px;
+        font-size:clamp(.66rem, 2.3vh, .82rem);
     }
 
     .living-home__guide,
@@ -496,7 +506,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
             calc(var(--screen-content-width) * .92),
             calc(100vw - 20px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px))
         );
-        max-height:calc(100dvh - 10px - env(safe-area-inset-bottom, 0px));
+        max-height:clamp(104px, 36dvh, 152px);
         gap:5px;
         transform:translateX(-50%);
         animation:livingHomePaths 1s cubic-bezier(.22,1,.36,1) both;
@@ -567,11 +577,11 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 @media (max-width:960px) and (max-height:480px) and (orientation:landscape){
     .living-home__paths{
         bottom:clamp(10px, 3dvh, 18px);
-        max-height:calc(100dvh - clamp(10px, 3dvh, 18px) - 8px);
+        max-height:clamp(96px, 34dvh, 142px);
     }
 
     .living-home__path-row.is-open .living-home__path-panel{
-        max-height:clamp(64px, 22dvh, 92px);
+        max-height:clamp(44px, 16dvh, 66px);
         overflow-y:auto;
         scrollbar-width:none;
     }
