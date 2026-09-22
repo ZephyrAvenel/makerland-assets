@@ -2935,17 +2935,21 @@ body[data-journey-place="constellation"]{
 @media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
     #e03_boussole .living-compass-welcome{
         --living-compass-welcome-top:calc(var(--screen-content-top) + max(136px, var(--screen-content-height) * .19));
-        left:calc(var(--screen-content-left) + var(--screen-content-width) * .30);
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .33);
         top:var(--living-compass-welcome-top);
-        width:calc(var(--screen-content-width) * .40);
+        width:calc(var(--screen-content-width) * .34);
         max-height:calc(var(--screen-content-height) * .32);
         overflow-y:auto;
     }
 
     #e03_boussole .living-compass-message{
-        max-width:430px;
+        max-width:350px;
         font-size:clamp(17px, calc(var(--screen-content-width) * .017), 21px);
         line-height:1.24;
+    }
+
+    body[data-current-screen="e01_accueil"] .living-echo{
+        display:none;
     }
 
     #e03_boussole .living-compass-kicker{
