@@ -724,6 +724,11 @@ body.first-journey-intro-ready .living-home{
         padding:6px 10px;
         font-size:11px;
     }
+
+    body[data-current-screen="e01_accueil"] .first-journey__replay,
+    body[data-current-screen="e01_accueil"] .first-journey__resume{
+        display:none;
+    }
 }
 @media (prefers-reduced-motion:reduce){
     .first-journey__welcome,
