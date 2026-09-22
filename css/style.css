@@ -2945,15 +2945,19 @@ body[data-journey-place="constellation"]{
     #e03_boussole .living-compass-message{
         max-width:350px;
         font-size:clamp(17px, calc(var(--screen-content-width) * .017), 21px);
-        line-height:1.24;
+        line-height:1.18;
     }
 
     body[data-current-screen="e01_accueil"] .living-echo{
         display:none;
     }
 
+    body[data-current-screen="e03_boussole"] .living-echo{
+        display:none;
+    }
+
     #e03_boussole .living-compass-kicker{
-        margin-bottom:7px;
+        margin-bottom:5px;
         font-size:10px;
     }
 
@@ -2963,7 +2967,7 @@ body[data-journey-place="constellation"]{
     }
 
     #e03_boussole .living-compass-direction[data-direction="explorer"]{
-        top:16%;
+        top:43%;
     }
 
     #e03_boussole .living-compass-direction[data-direction="creer"],
