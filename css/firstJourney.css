@@ -662,6 +662,69 @@ body.first-journey-intro-ready .living-home{
     }
 }
 
+
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
+    .first-journey__step{
+        --first-journey-step-top:calc(var(--screen-content-top) + var(--screen-content-height) * .07);
+        right:calc(var(--screen-content-left) + var(--screen-content-width) * .035);
+        top:var(--first-journey-step-top);
+        width:min(360px, calc(var(--screen-content-width) * .34));
+        max-height:min(58dvh, calc(100dvh - var(--first-journey-step-top) - var(--first-journey-safe-bottom) - 96px));
+        min-height:0;
+        padding:11px 13px;
+    }
+
+    .first-journey__progress{
+        margin-top:0;
+        font-size:10px;
+    }
+
+    .first-journey h2{
+        font-size:clamp(22px, calc(var(--screen-content-width) * .022), 30px);
+        line-height:1.04;
+    }
+
+    .first-journey p{
+        font-size:12px;
+        line-height:1.28;
+    }
+
+    .first-journey__place-card,
+    .first-journey__quote{
+        margin-top:7px;
+        padding:8px 10px;
+    }
+
+    .first-journey__actions{
+        margin-top:8px;
+        gap:6px;
+    }
+
+    .first-journey button,
+    .first-journey a{
+        padding:6px 9px;
+        font-size:11px;
+    }
+
+    .first-journey__resume{
+        left:50%;
+        bottom:calc(var(--first-journey-safe-bottom) + 8px);
+        width:min(460px, calc(var(--screen-content-width) * .46));
+        max-width:none;
+        transform:translateX(-50%);
+        padding:7px 10px;
+        gap:8px;
+    }
+
+    .first-journey__resume span{
+        display:none;
+    }
+
+    .first-journey__resume button{
+        padding:6px 10px;
+        font-size:11px;
+    }
+}
 @media (prefers-reduced-motion:reduce){
     .first-journey__welcome,
     .first-journey__intro,

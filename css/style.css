@@ -2874,6 +2874,62 @@ body[data-journey-place="constellation"]{
     }
 }
 
+
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
+    .archway-whisper{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .31);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .075);
+        width:calc(var(--screen-content-width) * .38);
+        max-height:22vh;
+        font-size:clamp(14px, calc(var(--screen-content-width) * .015), 20px);
+        line-height:1.28;
+        overflow-y:auto;
+    }
+
+    .archway-whisper span + span{
+        margin-top:4px;
+    }
+
+    .atlas-passage .archway-whisper{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .34);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .12);
+        width:calc(var(--screen-content-width) * .34);
+        max-height:18vh;
+        font-size:clamp(13px, calc(var(--screen-content-width) * .013), 18px);
+        line-height:1.18;
+    }
+
+    #e03_boussole .living-compass-directions{
+        --compass-edge-margin:70px;
+        --compass-safe-bottom:calc(92px + env(safe-area-inset-bottom));
+    }
+
+    #e03_boussole .living-compass-direction{
+        width:118px;
+        min-height:34px;
+        padding:5px 9px;
+        font-size:11.5px;
+        line-height:1.12;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="explorer"]{
+        top:32%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="creer"],
+    #e03_boussole .living-compass-direction[data-direction="contempler"]{
+        top:58%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="decouvrir"]{
+        top:69%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="repere"]{
+        top:min(79%, calc(100% - var(--compass-safe-bottom) - 38px));
+        width:126px;
+    }
+}
 @media (prefers-reduced-motion:reduce) {
     .entry-intro p,
     .entry-intro-emblem,

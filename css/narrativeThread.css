@@ -279,6 +279,92 @@
     }
 }
 
+
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
+    .narrative-thread__role{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .035);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
+        width:min(210px, calc(var(--screen-content-width) * .2));
+        padding:7px 9px;
+        border-radius:14px;
+    }
+
+    .narrative-thread__why{
+        right:calc(var(--screen-content-left) + var(--screen-content-width) * .035);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .045);
+        width:min(230px, calc(var(--screen-content-width) * .22));
+        max-height:min(168px, calc(var(--screen-content-height) * .24));
+        padding:7px 9px;
+        border-radius:14px;
+        overflow-y:auto;
+    }
+
+    .narrative-thread__kicker{
+        margin-bottom:3px;
+        font-size:9px;
+    }
+
+    .narrative-thread__role strong,
+    .narrative-thread__why strong,
+    .narrative-thread__next strong{
+        font-size:clamp(10px, calc(var(--screen-content-width) * .0085), 13px);
+        line-height:1.1;
+    }
+
+    .narrative-thread__role span,
+    .narrative-thread__why p,
+    .narrative-thread__next p{
+        margin-top:4px;
+        font-size:clamp(9px, calc(var(--screen-content-width) * .0074), 12px);
+        line-height:1.18;
+    }
+
+    .narrative-thread__transition{
+        top:45%;
+        width:min(360px, calc(var(--screen-content-width) * .34));
+        padding:9px 13px;
+    }
+
+    .narrative-thread__transition p{
+        font-size:clamp(12px, calc(var(--screen-content-width) * .01), 16px);
+        line-height:1.24;
+    }
+
+    .narrative-thread__next{
+        bottom:calc(var(--screen-content-top) + max(12px, env(safe-area-inset-bottom, 0px)));
+        width:min(520px, calc(var(--screen-content-width) * .5));
+        max-height:min(118px, calc(var(--screen-content-height) * .18));
+        padding:7px 10px;
+        border-radius:14px;
+        overflow-y:auto;
+    }
+
+    .narrative-thread__next-actions{
+        gap:5px;
+        margin-top:5px;
+    }
+
+    .narrative-thread__next button{
+        padding:4px 8px;
+        font-size:10px;
+    }
+
+    body[data-current-screen="e02_meteo"] .narrative-thread .narrative-thread__next,
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__next,
+    body[data-current-screen="e07_atelier"] .narrative-thread .narrative-thread__next,
+    body[data-current-screen="e08_constellation"] .narrative-thread .narrative-thread__next{
+        width:min(440px, calc(var(--screen-content-width) * .42));
+        max-height:min(98px, calc(var(--screen-content-height) * .15));
+    }
+
+    body[data-current-screen="e03_boussole"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e05_cartes"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e06_fiction"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e07_atelier"] .narrative-thread .narrative-thread__role,
+    body[data-current-screen="e08_constellation"] .narrative-thread .narrative-thread__role{
+        width:min(170px, calc(var(--screen-content-width) * .16));
+    }
+}
 @media (prefers-reduced-motion:reduce){
     .narrative-thread__role,
     .narrative-thread__why,
