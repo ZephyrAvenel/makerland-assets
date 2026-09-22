@@ -2963,7 +2963,7 @@ body[data-journey-place="constellation"]{
     }
 
     #e03_boussole .living-compass-direction[data-direction="explorer"]{
-        top:39%;
+        top:16%;
     }
 
     #e03_boussole .living-compass-direction[data-direction="creer"],
