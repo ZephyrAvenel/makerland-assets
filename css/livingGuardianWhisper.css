@@ -229,6 +229,13 @@
     }
 }
 
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
+    body[data-current-screen="e03_boussole"] .guardian-whisper,
+    body[data-current-screen="e06_fiction"] .guardian-whisper{
+        display:none;
+    }
+}
+
 @media (prefers-reduced-motion:reduce){
     .guardian-whisper,
     .guardian-whisper__figure,

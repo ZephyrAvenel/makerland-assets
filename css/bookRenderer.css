@@ -832,6 +832,28 @@ bookRenderer.css
     }
 }
 
+'
+
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
+    .living-library-room-button-previous,
+    .living-library-room-button-next,
+    .living-library-room-button-finish{
+        bottom:max(14px, env(safe-area-inset-bottom)) !important;
+        height:clamp(36px, 6vh, 48px) !important;
+        min-height:36px;
+        font-size:clamp(10px, 1.35vw, 14px);
+    }
+
+    .living-library-room-button-previous{
+        left:max(16px, env(safe-area-inset-left)) !important;
+    }
+
+    .living-library-room-button-next,
+    .living-library-room-button-finish{
+        right:max(16px, env(safe-area-inset-right)) !important;
+    }
+}
+'
 @media (prefers-reduced-motion:reduce) {
     .living-library-room,
     .living-library-cover-button,

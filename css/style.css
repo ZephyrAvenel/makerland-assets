@@ -645,7 +645,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
     text-align:center;
     white-space:nowrap;
     box-shadow:0 8px 22px rgba(0,0,0,.22);
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(8px);
     cursor:pointer;
     transition:
         transform .24s ease,
@@ -837,6 +837,7 @@ body.entry-rite-welcome-visible #entryRiteWelcome{
         width:min(128px, 14vw);
         transform:translateY(8px);
         text-align:left;
+        overflow:visible;
     }
 
     .immersive-zone-atelier:hover .immersive-zone-whisper,
@@ -1261,7 +1262,7 @@ body[data-journey-place="constellation"]{
         padding:clamp(11px, 3.2vw, 16px)
             clamp(8px, 2.8vw, 14px);
         font-size:clamp(12px, 3.25vw, 16px);
-        line-height:1.14;
+        line-height:1.08;
     }
 
     #e02_meteo .makerland-zone-visual-button::after{
@@ -1292,7 +1293,7 @@ body[data-journey-place="constellation"]{
         padding:clamp(10px, 3.4vh, 15px)
             clamp(12px, 2.4vw, 20px);
         font-size:clamp(13.5px, 2.15vw, 18px);
-        line-height:1.14;
+        line-height:1.08;
     }
 
     #e02_meteo .makerland-zone-visual-button::after{
@@ -1734,7 +1735,7 @@ body[data-journey-place="constellation"]{
             rgba(255,207,113,.06) 54%,
             rgba(255,207,113,0) 78%
         );
-    filter:blur(10px);
+    filter:blur(8px);
     transform:translate(-50%, -50%) scale(.96);
     animation:archwayHaloBreathe 7.5s ease-in-out infinite;
 }
@@ -2376,7 +2377,7 @@ body[data-journey-place="constellation"]{
         min-height:34px;
         padding:6px 9px;
         font-size:12px;
-        line-height:1.14;
+        line-height:1.08;
     }
 
     #e03_boussole .living-compass-direction[data-direction="explorer"]{
@@ -2418,7 +2419,7 @@ body[data-journey-place="constellation"]{
         min-height:36px;
         padding:6px 10px;
         font-size:12px;
-        line-height:1.14;
+        line-height:1.08;
     }
 
     #e03_boussole .living-compass-direction[data-direction="explorer"]{
@@ -2648,7 +2649,7 @@ body[data-journey-place="constellation"]{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .15);
         width:calc(var(--screen-content-width) * .38);
         font-size:clamp(12px, calc(var(--screen-content-width) * .015), 16px);
-        line-height:1.14;
+        line-height:1.08;
     }
 
     .atlas-passage .archway-gate{
@@ -2930,6 +2931,75 @@ body[data-journey-place="constellation"]{
         width:126px;
     }
 }
+
+@media (orientation:landscape) and (min-width:769px) and (max-width:1366px) and (min-height:560px){
+    #e03_boussole .living-compass-welcome{
+        --living-compass-welcome-top:calc(var(--screen-content-top) + max(136px, var(--screen-content-height) * .19));
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .30);
+        top:var(--living-compass-welcome-top);
+        width:calc(var(--screen-content-width) * .40);
+        max-height:calc(var(--screen-content-height) * .32);
+        overflow-y:auto;
+    }
+
+    #e03_boussole .living-compass-message{
+        max-width:430px;
+        font-size:clamp(17px, calc(var(--screen-content-width) * .017), 21px);
+        line-height:1.24;
+    }
+
+    #e03_boussole .living-compass-kicker{
+        margin-bottom:7px;
+        font-size:10px;
+    }
+
+    #e03_boussole .living-compass-directions{
+        --compass-edge-margin:84px;
+        --compass-safe-bottom:calc(112px + env(safe-area-inset-bottom));
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="explorer"]{
+        top:39%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="creer"],
+    #e03_boussole .living-compass-direction[data-direction="contempler"]{
+        top:61%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="decouvrir"]{
+        top:71%;
+    }
+
+    #e03_boussole .living-compass-direction[data-direction="repere"]{
+        top:min(78%, calc(100% - var(--compass-safe-bottom) - 42px));
+    }
+
+
+    #e08_constellation .living-constellation-experience__quote{
+        display:none;
+    }    #e05_cartes .atlas-passage .archway-whisper{
+        left:calc(var(--screen-content-left) + var(--screen-content-width) * .56);
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .27);
+        width:calc(var(--screen-content-width) * .30);
+        max-height:none;
+        font-size:clamp(11px, calc(var(--screen-content-width) * .0105), 14px);
+        line-height:1.08;
+        text-align:left;
+        overflow:visible;
+    }
+
+    #e05_cartes .atlas-passage .archway-whisper::before{
+        width:108%;
+        height:116%;
+        filter:blur(8px);
+    }
+
+    #e05_cartes .atlas-passage .archway-gate{
+        top:calc(var(--screen-content-top) + var(--screen-content-height) * .68);
+        width:calc(var(--screen-content-width) * .30);
+    }
+}
 @media (prefers-reduced-motion:reduce) {
     .entry-intro p,
     .entry-intro-emblem,
@@ -3042,7 +3112,7 @@ body[data-journey-place="constellation"]{
         animation:none;
         opacity:.84;
         transform:scale(1);
-        filter:blur(10px);
+        filter:blur(8px);
     }
 
     #e04_oeuvre.archway-screen-active .screen-bg,
