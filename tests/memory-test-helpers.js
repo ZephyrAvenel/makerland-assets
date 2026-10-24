@@ -135,6 +135,11 @@ function createDocument(options = {}) {
         createElement(tagName) {
             return new FakeElement(tagName);
         },
+        createTextNode(value) {
+            const node = new FakeElement("#text");
+            node.textContent = String(value);
+            return node;
+        },
         getElementById(id) {
             return elements.get(id) || null;
         },

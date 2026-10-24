@@ -1,6 +1,5 @@
 (function () {
     const NARRATIVE_KEY = "makerland.narrativeMemory.v1";
-    const CYCLE_KEY = "makerland:living-cycle";
     const GUARDIAN_ENCOUNTERS_KEY = "makerland.guardianEncounters.v1";
 
     const RESONANCES = [
@@ -81,20 +80,34 @@
         }
     }
 
-    function writeJson(key, value) {
-        try {
-            localStorage.setItem(key, JSON.stringify(value));
-        } catch (error) {
-            return;
-        }
-    }
-
     function addUnique(list, value) {
         const values = Array.isArray(list) ? list : [];
         return values.includes(value) ? values : values.concat(value);
     }
 
-    function rememberCarnet(cycle) {
+    function readLivingCycle() {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read || !storage.write) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+
+        try {
+            const state = storage.read();
+
+            if (!state || !state.memory || typeof state.memory !== "object") {
+                return { memory: {}, raw: null, writable: false, storage: null };
+            }
+
+            return { ...state, storage };
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+    }
+
+    function rememberCarnet() {
+        const state = readLivingCycle();
+        const cycle = state.memory;
         const places = Array.isArray(cycle.visitedPlaces)
             ? cycle.visitedPlaces
             : [];
@@ -110,7 +123,11 @@
         cycle.visitedPlaces = places;
         cycle.visitedPlaceIds = addUnique(cycle.visitedPlaceIds, "carnet:carnet");
         cycle.milestones = addUnique(cycle.milestones, "Carnet ouvert");
-        writeJson(CYCLE_KEY, cycle);
+
+        if (state.writable && state.storage) {
+            state.storage.write(cycle, state.raw);
+        }
+
         return cycle;
     }
 
@@ -151,23 +168,21 @@
 
     function createCard(title, lines) {
         const card = document.createElement("article");
-        card.className = "placeholder-card journal-card";
-        card.innerHTML = [
-            "<h3>" + title + "</h3>",
-            "<ul>",
-            lines.map(line => "<li>" + line + "</li>").join(""),
-            "</ul>"
-        ].join("");
-        return card;
-    }
+        const heading = document.createElement("h3");
+        const list = document.createElement("ul");
 
-    function escapeHtml(value) {
-        return String(value || "")
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#39;");
+        card.className = "placeholder-card journal-card";
+        heading.textContent = title;
+        card.appendChild(heading);
+
+        lines.forEach(line => {
+            const item = document.createElement("li");
+            item.textContent = line;
+            list.appendChild(item);
+        });
+
+        card.appendChild(list);
+        return card;
     }
 
     function formatDate(value) {
@@ -213,31 +228,56 @@
         }
 
         encounters.forEach(encounter => {
+            const details = encounter && typeof encounter === "object" ? encounter : {};
             const card = document.createElement("article");
+            const seal = document.createElement("span");
+            const figure = document.createElement("div");
+            const heading = document.createElement("h3");
+            const whisper = document.createElement("blockquote");
+            const meta = document.createElement("p");
+            const link = document.createElement("a");
+
             card.className = "placeholder-card journal-card journal-guardian-card";
-            card.innerHTML = [
-                "<span class=\"journal-guardian-seal\" aria-hidden=\"true\"></span>",
-                "<div class=\"journal-guardian-figure\" aria-hidden=\"true\">" + escapeHtml(encounter.illustration || "✦") + "</div>",
-                "<h3>" + escapeHtml(encounter.guardianName || "Gardien des Recits Vivants") + "</h3>",
-                "<blockquote>" + escapeHtml(encounter.whisper) + "</blockquote>",
-                "<p class=\"journal-guardian-meta\">Rencontree :<br>" +
-                    escapeHtml(encounter.territoryLabel || "Territoire des Recits Vivants") +
-                    "<br>" +
-                    formatDate(encounter.firstEncounteredAt) +
-                "</p>",
-                "<a class=\"placeholder-return\" href=\"" + escapeHtml(resolveEncounterHref(encounter)) + "\">Revenir dans ce territoire</a>"
-            ].join("");
+            seal.className = "journal-guardian-seal";
+            seal.setAttribute("aria-hidden", "true");
+            figure.className = "journal-guardian-figure";
+            figure.setAttribute("aria-hidden", "true");
+            figure.textContent = details.illustration || "✦";
+            heading.textContent = details.guardianName || "Gardien des Recits Vivants";
+            whisper.textContent = details.whisper || "";
+            meta.className = "journal-guardian-meta";
+            meta.appendChild(document.createTextNode("Rencontree :"));
+            meta.appendChild(document.createElement("br"));
+            meta.appendChild(document.createTextNode(
+                details.territoryLabel || "Territoire des Recits Vivants"
+            ));
+            meta.appendChild(document.createElement("br"));
+            meta.appendChild(document.createTextNode(formatDate(details.firstEncounteredAt)));
+            link.className = "placeholder-return";
+            link.setAttribute("href", resolveEncounterHref(details));
+            link.textContent = "Revenir dans ce territoire";
+            card.appendChild(seal);
+            card.appendChild(figure);
+            card.appendChild(heading);
+            card.appendChild(whisper);
+            card.appendChild(meta);
+            card.appendChild(link);
             target.appendChild(card);
         });
     }
 
     function resolveEncounterHref(encounter) {
-        const href = encounter && encounter.territoryHref
+        const href = encounter && typeof encounter.territoryHref === "string" &&
+            encounter.territoryHref
             ? encounter.territoryHref
             : "../index.html";
 
-        if (href.indexOf("http") === 0 || href.indexOf("../") === 0) {
+        if (/^https?:\/\//i.test(href) || href.indexOf("../") === 0) {
             return href;
+        }
+
+        if (/^[a-z][a-z0-9+.-]*:/i.test(href)) {
+            return "../index.html";
         }
 
         return "../" + href;
@@ -375,7 +415,12 @@
             lines.push("Les prochains lieux traverses viendront doucement s'y inscrire.");
         }
 
-        target.innerHTML = lines.map(line => "<p>" + line + "</p>").join("");
+        target.textContent = "";
+        lines.forEach(line => {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = line;
+            target.appendChild(paragraph);
+        });
     }
 
     function renderObjects(cycle) {
@@ -412,18 +457,30 @@
             const id = item[0];
             const known = visited[id];
             const card = document.createElement("article");
+            const heading = document.createElement("h3");
+            const title = document.createElement("p");
+            const list = document.createElement("ul");
+            const state = document.createElement("li");
+            const lastVisit = document.createElement("li");
+            const link = document.createElement("a");
+
             card.className = known
                 ? "placeholder-card journal-card journal-dialogue is-known"
                 : "placeholder-card journal-card journal-dialogue";
-            card.innerHTML = [
-                "<h3>" + id + "</h3>",
-                "<p>" + (known && known.title ? known.title : item[1]) + "</p>",
-                "<ul>",
-                "<li>Etat : " + (known ? "rencontre" : "a rencontrer") + "</li>",
-                "<li>Derniere visite : " + formatDate(known && known.lastVisited) + "</li>",
-                "</ul>",
-                "<a class=\"placeholder-return\" href=\"../atelier/archives/" + id.toLowerCase() + ".html\">Reprendre</a>"
-            ].join("");
+            heading.textContent = id;
+            title.textContent = known && known.title ? known.title : item[1];
+            state.textContent = "Etat : " + (known ? "rencontre" : "a rencontrer");
+            lastVisit.textContent = "Derniere visite : " +
+                formatDate(known && known.lastVisited);
+            link.className = "placeholder-return";
+            link.setAttribute("href", "../atelier/archives/" + id.toLowerCase() + ".html");
+            link.textContent = "Reprendre";
+            list.appendChild(state);
+            list.appendChild(lastVisit);
+            card.appendChild(heading);
+            card.appendChild(title);
+            card.appendChild(list);
+            card.appendChild(link);
             target.appendChild(card);
         });
     }
@@ -463,7 +520,7 @@
 
     function init() {
         const memory = readJson(NARRATIVE_KEY);
-        const cycle = rememberCarnet(readJson(CYCLE_KEY));
+        const cycle = rememberCarnet();
         const books = getBookStats();
 
         renderResonance();
