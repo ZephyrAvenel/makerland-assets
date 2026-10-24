@@ -379,6 +379,38 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
 }
 
 @media (max-width:768px){
+    /*
+     * On Chrome Android, #app remains sized with legacy 100vh and can extend
+     * below the visible viewport. Keep the home layer local to the dynamic
+     * viewport instead of changing #app or the other experiences.
+     */
+    .living-home{
+        top:0;
+        right:0;
+        bottom:auto;
+        left:0;
+        height:100vh;
+        --screen-content-width:min(100vw, 150vh);
+        --screen-content-height:min(100vh, 66.6667vw);
+        --screen-content-left:calc((100vw - var(--screen-content-width)) / 2);
+        --screen-content-top:calc((100vh - var(--screen-content-height)) / 2);
+    }
+
+    @supports (height:100dvh){
+        .living-home{
+            height:100dvh;
+            --screen-content-width:min(100vw, 150dvh);
+            --screen-content-height:min(100dvh, 66.6667vw);
+            --screen-content-top:calc((100dvh - var(--screen-content-height)) / 2);
+        }
+    }
+
+    /* Les portes vivantes portent déjà le seuil sur mobile : conserver
+       l'identité de l'introduction sans superposer son texte aux commandes. */
+    body.living-home-ready #e01_accueil .entry-intro-threshold{
+        display:none;
+    }
+
     .living-home__threshold{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .36);
         width:calc(var(--screen-content-width) * .74);
@@ -571,7 +603,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
     .living-home__path-header{
         grid-template-columns:18px 1fr 18px;
         min-width:0;
-        min-height:20px;
+        min-height:36px;
         padding:0 8px;
     }
 
@@ -604,6 +636,7 @@ body.living-home-ready #e01_accueil .makerland-zone[data-id="entrer"]{
         margin-top:0;
         width:100%;
         max-width:100%;
+        min-height:32px;
         padding:2px 8px;
         font-size:9px;
         line-height:1.12;

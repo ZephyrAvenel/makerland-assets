@@ -1198,6 +1198,11 @@ body[data-journey-place="constellation"]{
 }
 
 @media (orientation:portrait) {
+    /* Le murmure reste visible, mais passe derrière la commande d'entrée. */
+    body[data-current-screen="e01_accueil"] .seasonal-whisper{
+        z-index:30;
+    }
+
     .entry-intro{
         top:calc(var(--screen-content-top) + var(--screen-content-height) * .015);
         left:calc(var(--screen-content-left) + var(--screen-content-width) * .08);
