@@ -19,6 +19,7 @@
     const state = {
         data: null,
         memory: null,
+        memoryStorage: null,
         daily: null,
         cards: null,
         elements: {}
@@ -46,6 +47,65 @@
             localStorage.setItem(key, JSON.stringify(value));
         } catch (error) {
             // Le module reste une amelioration locale non bloquante.
+        }
+    }
+
+    function isPlainObject(value) {
+        return Boolean(value) && typeof value === "object" && !Array.isArray(value) &&
+            Object.prototype.toString.call(value) === "[object Object]";
+    }
+
+    function isOptionalFiniteNumber(value) {
+        return value === undefined || (typeof value === "number" && Number.isFinite(value) && value >= 0);
+    }
+
+    function isOptionalString(value) {
+        return value === undefined || typeof value === "string";
+    }
+
+    function isOptionalIdList(value) {
+        return value === undefined || (Array.isArray(value) && value.every(item => typeof item === "string"));
+    }
+
+    function readConstellationMemory() {
+        let raw;
+        try {
+            raw = localStorage.getItem(MEMORY_KEY);
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false };
+        }
+        if (raw === null) return { memory: {}, raw: null, writable: true };
+        try {
+            const memory = JSON.parse(raw);
+            if (!isPlainObject(memory) || !isOptionalFiniteNumber(memory.visits) ||
+                !isOptionalFiniteNumber(memory.storyCount) || !isOptionalIdList(memory.archivesOpened) ||
+                !isOptionalIdList(memory.conceptsSeen) || !isOptionalIdList(memory.worksDiscovered) ||
+                !isOptionalIdList(memory.imagesMet) || !isOptionalString(memory.firstSeen) ||
+                !isOptionalString(memory.lastSeen)) {
+                return { memory: {}, raw, writable: false };
+            }
+            return { memory: { ...memory }, raw, writable: true };
+        } catch (error) {
+            return { memory: {}, raw, writable: false };
+        }
+    }
+
+    function writeConstellationMemory(storageState, memory) {
+        if (!storageState || !storageState.writable) return false;
+        let current;
+        try {
+            current = localStorage.getItem(MEMORY_KEY);
+        } catch (error) {
+            return false;
+        }
+        if (current !== storageState.raw) return false;
+        const raw = JSON.stringify(memory);
+        try {
+            localStorage.setItem(MEMORY_KEY, raw);
+            storageState.raw = raw;
+            return true;
+        } catch (error) {
+            return false;
         }
     }
 
@@ -114,8 +174,10 @@
     function readMemory() {
         const traveler = readJson(TRAVELER_KEY, {});
         const seasons = readJson(SEASONS_KEY, {});
-        const memory = readJson(MEMORY_KEY, {});
-        memory.visits = Number(memory.visits || 0) + 1;
+        const storageState = readConstellationMemory();
+        const memory = storageState.memory;
+        state.memoryStorage = storageState;
+        memory.visits = (memory.visits || 0) + 1;
         memory.storyCount = Array.isArray(traveler.fragments)
             ? traveler.fragments.length
             : Number(memory.storyCount || 0);
@@ -127,7 +189,7 @@
             memory.firstSeen = seasons.firstSeen || new Date().toISOString();
         }
         memory.lastSeen = new Date().toISOString();
-        writeJson(MEMORY_KEY, memory);
+        writeConstellationMemory(storageState, memory);
         return memory;
     }
 
@@ -404,7 +466,7 @@
         state.memory.archivesOpened = mergeIds(state.memory.archivesOpened, chips.archives.map(item => item.id));
         state.memory.worksDiscovered = mergeIds(state.memory.worksDiscovered, chips.works.map(item => item.id));
         state.memory.imagesMet = mergeIds(state.memory.imagesMet, chips.images.map(item => item.id));
-        writeJson(MEMORY_KEY, state.memory);
+        writeConstellationMemory(state.memoryStorage, state.memory);
 
         state.elements.response.innerHTML = [
             `<h2>${escapeHtml(stage)}</h2>`,

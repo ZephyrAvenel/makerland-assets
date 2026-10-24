@@ -64,6 +64,54 @@
         }
     }
 
+    function isPlainObject(value) {
+        return Boolean(value) && typeof value === "object" && !Array.isArray(value) &&
+            Object.prototype.toString.call(value) === "[object Object]";
+    }
+
+    function isOptionalString(value) {
+        return value === undefined || typeof value === "string";
+    }
+
+    function readSeasonMemory() {
+        let raw;
+        try {
+            raw = localStorage.getItem(MEMORY_KEY);
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false };
+        }
+        if (raw === null) return { memory: {}, raw: null, writable: true };
+        try {
+            const memory = JSON.parse(raw);
+            if (!isPlainObject(memory) || !isOptionalString(memory.firstSeen) ||
+                !isOptionalString(memory.lastSeen) || !isOptionalString(memory.lastWhisperDay)) {
+                return { memory: {}, raw, writable: false };
+            }
+            return { memory: { ...memory }, raw, writable: true };
+        } catch (error) {
+            return { memory: {}, raw, writable: false };
+        }
+    }
+
+    function writeSeasonMemory(state, memory) {
+        if (!state.writable) return false;
+        let current;
+        try {
+            current = localStorage.getItem(MEMORY_KEY);
+        } catch (error) {
+            return false;
+        }
+        if (current !== state.raw) return false;
+        try {
+            const raw = JSON.stringify(memory);
+            localStorage.setItem(MEMORY_KEY, raw);
+            state.raw = raw;
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
     function seasonForMonth(month) {
         if (month >= 2 && month <= 4) {
             return "spring";
@@ -113,15 +161,18 @@
     }
 
     function rememberVisit(date) {
-        const memory = readJson(MEMORY_KEY);
+        const state = readSeasonMemory();
+        const memory = state.memory;
+
+        if (!state.writable) return { memory, state };
 
         if (!memory.firstSeen) {
             memory.firstSeen = date.toISOString();
         }
 
         memory.lastSeen = date.toISOString();
-        writeJson(MEMORY_KEY, memory);
-        return memory;
+        writeSeasonMemory(state, memory);
+        return { memory, state };
     }
 
     function readCycle() {
@@ -210,7 +261,7 @@
             : options[Math.floor(Math.random() * options.length)];
     }
 
-    function renderWhisper(context, memory, date) {
+    function renderWhisper(context, memory, state, date) {
         if (!shouldShowWhisper(memory, date)) {
             return;
         }
@@ -230,17 +281,17 @@
         }
 
         memory.lastWhisperDay = date.toISOString().slice(0, 10);
-        writeJson(MEMORY_KEY, memory);
+        writeSeasonMemory(state, memory);
     }
 
     function init() {
         const now = new Date();
         const context = getContext(now);
-        const memory = rememberVisit(now);
+        const visit = rememberVisit(now);
 
         applyClasses(context);
         updateCycle(context);
-        renderWhisper(context, memory, now);
+        renderWhisper(context, visit.memory, visit.state, now);
     }
 
     if (document.readyState === "loading") {

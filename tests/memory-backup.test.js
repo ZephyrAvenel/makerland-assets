@@ -215,3 +215,46 @@ test("import V1 : une lecture ou une création de point de retour impossible ne 
     assert.throws(() => api.applyImport(inspection, { storage: noJournal, now: DATE }), /quota/);
     assert.equal(noJournal.value("makerland.firstJourney"), "avant");
 });
+
+test("import V1 : le point de retour détecte un conflit et exige une confirmation distincte", () => {
+    const backup = validBackup({ "makerland.firstJourney": "importé", "makerland.narrativeMemory.v1": "importé-2" });
+    const { api, storage } = importHarness({ "makerland.firstJourney": "avant", "makerland.narrativeMemory.v1": "avant-2", "foreign.site": "intact" });
+    const importInspection = api.inspectImport(backup, { storage });
+    api.applyImport(importInspection, { storage, now: DATE });
+    storage.setItem("makerland.firstJourney", "évolution récente");
+    const recovery = api.inspectRecovery({ storage });
+
+    assert.deepEqual(recovery.conflicts, ["makerland.firstJourney"]);
+    assert.equal(api.recoverPreviousState({ storage, inspection: recovery }).conflict, true);
+    assert.equal(storage.value("makerland.firstJourney"), "évolution récente");
+    assert.equal(api.recoverPreviousState({ storage, inspection: recovery, force: true }).ok, true);
+    assert.equal(storage.value("makerland.firstJourney"), "avant");
+    assert.equal(storage.value("makerland.narrativeMemory.v1"), "avant-2");
+    assert.equal(storage.value("foreign.site"), "intact");
+});
+
+test("import V1 : une modification après l'examen du conflit invalide la confirmation", () => {
+    const backup = validBackup({ "makerland.firstJourney": "importé" });
+    const { api, storage } = importHarness({ "makerland.firstJourney": "avant" });
+    api.applyImport(api.inspectImport(backup, { storage }), { storage, now: DATE });
+    storage.setItem("makerland.firstJourney", "évolution 1");
+    const recovery = api.inspectRecovery({ storage });
+    storage.setItem("makerland.firstJourney", "évolution 2");
+
+    assert.throws(() => api.recoverPreviousState({ storage, inspection: recovery, force: true }), /ont changé/);
+    assert.equal(storage.value("makerland.firstJourney"), "évolution 2");
+});
+
+test("import V1 : un journal invalide ou une récupération technique incertaine refuse l'écrasement", () => {
+    const { api, storage } = importHarness({ "makerland.firstJourney": "récent" });
+    storage.setItem(api.RECOVERY_KEY, "{journal-invalide");
+    assert.throws(() => api.inspectRecovery({ storage }), /journal de récupération/);
+
+    const journal = { format: "makerland-backup-recovery-v1", version: 1, status: "pending", createdAt: DATE.toISOString(), keys: ["makerland.firstJourney"], before: { "makerland.firstJourney": "avant" }, target: { "makerland.firstJourney": "importé" }, appliedKeys: ["makerland.firstJourney"] };
+    storage.setItem(api.RECOVERY_KEY, JSON.stringify(journal));
+    const recovery = api.inspectRecovery({ storage });
+    assert.deepEqual(recovery.conflicts, ["makerland.firstJourney"]);
+    assert.equal(recovery.forceAllowed, false);
+    assert.equal(api.recoverPreviousState({ storage, inspection: recovery }).conflict, true);
+    assert.equal(storage.value("makerland.firstJourney"), "récent");
+});

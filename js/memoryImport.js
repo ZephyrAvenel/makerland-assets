@@ -62,15 +62,39 @@ const MakerlandMemoryImport = (() => {
         let raw;
         try { raw = storage.getItem(RECOVERY_KEY); } catch (error) { return { state: "unavailable" }; }
         if (raw === null) return { state: "none" };
-        try { const journal = JSON.parse(raw); return validateJournal(journal) ? { state: "journal", journal } : { state: "invalid" }; } catch (error) { return { state: "invalid" }; }
+        try { const journal = JSON.parse(raw); return validateJournal(journal) ? { state: "journal", journal, raw } : { state: "invalid" }; } catch (error) { return { state: "invalid" }; }
     }
 
-    function recoverPreviousState({ storage = window.localStorage } = {}) {
+    function inspectRecovery({ storage = window.localStorage } = {}) {
         const recovery = getRecoveryStatus({ storage });
         if (recovery.state !== "journal") throw new Error(recoveryMessage(recovery));
-        const result = restoreJournal(recovery.journal, storage, "recovered");
+        const current = readValues(recovery.journal.keys, storage);
+        const voluntaryReturn = recovery.journal.status === "available";
+        const conflicts = recovery.journal.keys.filter(key => voluntaryReturn
+            ? current[key] !== recovery.journal.target[key]
+            : current[key] !== recovery.journal.target[key] && current[key] !== recovery.journal.before[key]);
+        return {
+            journal: recovery.journal,
+            journalRaw: recovery.raw,
+            current,
+            conflicts,
+            forceAllowed: voluntaryReturn && conflicts.length > 0
+        };
+    }
+
+    function recoverPreviousState({ storage = window.localStorage, inspection = null, force = false } = {}) {
+        const checked = inspection || inspectRecovery({ storage });
+        if (!checked || !validateJournal(checked.journal) || !isPlainObject(checked.current)) throw new Error("L'examen du point de retour est invalide.");
+        if (checked.conflicts.length && !force) return { ok: false, conflict: true, conflicts: checked.conflicts };
+        if (force && !checked.forceAllowed) throw new Error("Le remplacement forcé n'est pas autorisé pour cette récupération.");
+        let journalRaw;
+        try { journalRaw = storage.getItem(RECOVERY_KEY); } catch (error) { throw new Error("Le journal de récupération ne peut pas être relu."); }
+        if (journalRaw !== checked.journalRaw) throw new Error("Le point de retour a changé : examinez de nouveau les conflits.");
+        const current = readValues(checked.journal.keys, storage);
+        if (!sameValues(current, checked.current)) throw new Error("Les souvenirs ont changé : examinez de nouveau les conflits.");
+        const result = restoreJournal(checked.journal, storage, "recovered", checked.current);
         if (!result.ok) throw new Error("La récupération n'a pas pu restaurer toutes les valeurs. Le point de retour est conservé.");
-        return { ok: true, restoredKeys: recovery.journal.keys };
+        return { ok: true, restoredKeys: checked.journal.keys, forced: force };
     }
 
     function discardRecoveryPoint({ storage = window.localStorage } = {}) {
@@ -81,9 +105,10 @@ const MakerlandMemoryImport = (() => {
         return { ok: true };
     }
 
-    function restoreJournal(journal, storage, status) {
+    function restoreJournal(journal, storage, status, expectedCurrent = null) {
         try {
             for (const key of journal.keys) {
+                if (expectedCurrent && storage.getItem(key) !== expectedCurrent[key]) throw new Error("Les souvenirs ont changé pendant la récupération.");
                 if (journal.before[key] === null) storage.removeItem(key); else storage.setItem(key, journal.before[key]);
                 if (storage.getItem(key) !== journal.before[key]) throw new Error("Retour arrière incomplet.");
             }
@@ -139,6 +164,7 @@ const MakerlandMemoryImport = (() => {
         const recovery = document.getElementById("memoryBackupRecovery"); const status = document.getElementById("memoryBackupStatus");
         if (!input || !examine || !restore || !cancel || !confirm || !preview || !recovery || !status) return;
         let inspection = null;
+        let recoveryInspection = null;
         const setStatus = (message, state = "") => { status.textContent = message; status.dataset.state = state; };
         const reset = ({ keepFile = false } = {}) => { inspection = null; if (!keepFile) input.value = ""; confirm.checked = false; restore.disabled = true; preview.hidden = true; preview.replaceChildren(); };
         const renderRecovery = () => {
@@ -147,12 +173,35 @@ const MakerlandMemoryImport = (() => {
             const message = document.createElement("p"); message.textContent = recoveryMessage(current); recovery.appendChild(message);
             if (current.state !== "journal") return;
             if (["pending", "rollback-failed", "available"].includes(current.journal.status)) {
-                const recover = document.createElement("button"); recover.type = "button"; recover.className = "memory-backup-panel__secondary"; recover.textContent = "Récupérer l'état précédent";
-                recover.addEventListener("click", () => { try { recoverPreviousState(); setStatus("L'état antérieur a été récupéré.", "success"); renderRecovery(); } catch (error) { setStatus(error.message, "error"); } }); recovery.appendChild(recover);
+                const inspect = document.createElement("button"); inspect.type = "button"; inspect.className = "memory-backup-panel__secondary"; inspect.textContent = "Examiner le point de retour";
+                inspect.addEventListener("click", () => { try { recoveryInspection = inspectRecovery(); renderRecoveryDecision(recoveryInspection); } catch (error) { setStatus(error.message, "error"); } }); recovery.appendChild(inspect);
             }
             if (["available", "recovered", "rolled-back"].includes(current.journal.status)) {
                 const discard = document.createElement("button"); discard.type = "button"; discard.className = "memory-backup-panel__secondary"; discard.textContent = "Supprimer ce point de retour";
                 discard.addEventListener("click", () => { try { discardRecoveryPoint(); setStatus("Le point de retour a été supprimé à votre demande.", "success"); renderRecovery(); } catch (error) { setStatus(error.message, "error"); } }); recovery.appendChild(discard);
+            }
+        };
+        const renderRecoveryDecision = value => {
+            recovery.replaceChildren();
+            const message = document.createElement("p");
+            if (!value.conflicts.length) message.textContent = "Aucun changement depuis l'import n'a été détecté. Vous pouvez revenir à l'état antérieur.";
+            else message.textContent = `${value.conflicts.length} mémoire${value.conflicts.length > 1 ? "s ont" : " a"} évolué depuis l'import. Revenir peut supprimer ces changements récents.`;
+            recovery.appendChild(message);
+            const keep = document.createElement("button"); keep.type = "button"; keep.className = "memory-backup-panel__secondary"; keep.textContent = "Conserver mes souvenirs actuels";
+            keep.addEventListener("click", () => { recoveryInspection = null; setStatus("Vos souvenirs actuels sont conservés.", "success"); renderRecovery(); }); recovery.appendChild(keep);
+            if (!value.conflicts.length) {
+                const restorePrevious = document.createElement("button"); restorePrevious.type = "button"; restorePrevious.className = "memory-backup-panel__secondary"; restorePrevious.textContent = "Revenir à l'état antérieur";
+                restorePrevious.addEventListener("click", () => { try { recoverPreviousState({ inspection: recoveryInspection }); setStatus("L'état antérieur a été récupéré.", "success"); recoveryInspection = null; renderRecovery(); } catch (error) { setStatus(error.message, "error"); } }); recovery.appendChild(restorePrevious);
+            } else if (value.forceAllowed) {
+                const prepareForce = document.createElement("button"); prepareForce.type = "button"; prepareForce.className = "memory-backup-panel__secondary"; prepareForce.textContent = "Revenir malgré les changements";
+                prepareForce.addEventListener("click", () => {
+                    const confirmForce = document.createElement("button"); confirmForce.type = "button"; confirmForce.className = "memory-backup-panel__secondary";
+                    confirmForce.textContent = `Confirmer le remplacement de ${value.conflicts.length} mémoire${value.conflicts.length > 1 ? "s" : ""}`;
+                    confirmForce.addEventListener("click", () => { try { recoverPreviousState({ inspection: recoveryInspection, force: true }); setStatus("L'état antérieur a remplacé les souvenirs modifiés, à votre demande.", "success"); recoveryInspection = null; renderRecovery(); } catch (error) { setStatus(error.message, "error"); } });
+                    prepareForce.replaceWith(confirmForce);
+                }); recovery.appendChild(prepareForce);
+            } else {
+                const blocked = document.createElement("p"); blocked.textContent = "La récupération technique est bloquée : l'origine des changements ne peut pas être établie avec certitude."; recovery.appendChild(blocked);
             }
         };
         input.addEventListener("change", () => { reset({ keepFile: true }); setStatus(input.files && input.files[0] ? "Fichier choisi : examinez-le avant toute restauration." : ""); });
@@ -180,6 +229,6 @@ const MakerlandMemoryImport = (() => {
     function isIsoDate(value) { return typeof value === "string" && Number.isFinite(Date.parse(value)) && new Date(value).toISOString() === value; }
 
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true }); else init();
-    return { FORMAT, VERSION, MAX_BACKUP_BYTES, RECOVERY_KEY, parseBackupText, inspectImport, applyImport, getRecoveryStatus, recoverPreviousState, discardRecoveryPoint, validateJournal };
+    return { FORMAT, VERSION, MAX_BACKUP_BYTES, RECOVERY_KEY, parseBackupText, inspectImport, applyImport, getRecoveryStatus, inspectRecovery, recoverPreviousState, discardRecoveryPoint, validateJournal };
 })();
 window.MakerlandMemoryImport = MakerlandMemoryImport;

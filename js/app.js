@@ -944,10 +944,6 @@ async function start() {
 
  initModules();
 
-    Navigation.goTo(
-        "e01_accueil"
-    );
-
     hideLoading();
 
     state.initialized =
