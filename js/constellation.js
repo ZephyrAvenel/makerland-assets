@@ -10,6 +10,39 @@ const STORAGE_KEY =
 
 let stories = [];
 
+let storageWriteBlocked = false;
+
+function isPlainObject(value) {
+
+    return Boolean(value) &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Object.prototype.toString.call(value) === "[object Object]";
+
+}
+
+function isValidStory(story) {
+
+    const hasValidId =
+        typeof story.id === "number" ||
+        typeof story.id === "string";
+
+    return isPlainObject(story) &&
+        hasValidId &&
+        typeof story.date === "string" &&
+        !Number.isNaN(Date.parse(story.date)) &&
+        typeof story.text === "string" &&
+        typeof story.source === "string";
+
+}
+
+function isValidStories(value) {
+
+    return Array.isArray(value) &&
+        value.every(isValidStory);
+
+}
+
 /****************************************
  INIT
 ****************************************/
@@ -34,15 +67,56 @@ async function init() {
 
 function loadStories() {
 
-    const saved =
-        localStorage.getItem(
-            STORAGE_KEY
-        );
+    storageWriteBlocked = false;
 
-    stories =
-        saved
-        ? JSON.parse(saved)
-        : [];
+    let saved;
+
+    try {
+
+        saved =
+            localStorage.getItem(
+                STORAGE_KEY
+            );
+
+    } catch(error) {
+
+        storageWriteBlocked = true;
+        stories = [];
+
+        return stories;
+
+    }
+
+    if (saved === null) {
+
+        stories = [];
+
+        return stories;
+
+    }
+
+    try {
+
+        const parsed =
+            JSON.parse(saved);
+
+        if (!isValidStories(parsed)) {
+
+            storageWriteBlocked = true;
+            stories = [];
+
+            return stories;
+
+        }
+
+        stories = parsed;
+
+    } catch(error) {
+
+        storageWriteBlocked = true;
+        stories = [];
+
+    }
 
     return stories;
 
@@ -58,6 +132,12 @@ function saveStory(text) {
         !text ||
         text.trim() === ""
     ) {
+
+        return false;
+
+    }
+
+    if (storageWriteBlocked) {
 
         return false;
 
@@ -80,11 +160,18 @@ function saveStory(text) {
 
     };
 
-    stories.unshift(
-        story
-    );
+    const nextStories = [
+        story,
+        ...stories
+    ];
 
-    persist();
+    if (!persist(nextStories)) {
+
+        return false;
+
+    }
+
+    stories = nextStories;
 
     renderStories();
 
@@ -96,17 +183,33 @@ function saveStory(text) {
  STORAGE
 ****************************************/
 
-function persist() {
+function persist(nextStories = stories) {
 
-    localStorage.setItem(
+    if (storageWriteBlocked) {
 
-        STORAGE_KEY,
+        return false;
 
-        JSON.stringify(
-            stories
-        )
+    }
 
-    );
+    try {
+
+        localStorage.setItem(
+
+            STORAGE_KEY,
+
+            JSON.stringify(
+                nextStories
+            )
+
+        );
+
+    } catch(error) {
+
+        return false;
+
+    }
+
+    return true;
 
 }
 
@@ -116,7 +219,13 @@ function persist() {
 
 function removeStory(id) {
 
-    stories =
+    if (storageWriteBlocked) {
+
+        return false;
+
+    }
+
+    const nextStories =
         stories.filter(
 
             story =>
@@ -124,9 +233,17 @@ function removeStory(id) {
 
         );
 
-    persist();
+    if (!persist(nextStories)) {
+
+        return false;
+
+    }
+
+    stories = nextStories;
 
     renderStories();
+
+    return true;
 
 }
 
@@ -136,11 +253,23 @@ function removeStory(id) {
 
 function clearStories() {
 
+    if (storageWriteBlocked) {
+
+        return false;
+
+    }
+
+    if (!persist([])) {
+
+        return false;
+
+    }
+
     stories = [];
 
-    persist();
-
     renderStories();
+
+    return true;
 
 }
 
@@ -218,23 +347,36 @@ function renderStories() {
             card.className =
                 "story-card";
 
-            card.innerHTML = `
+            const storyText =
+                document.createElement(
+                    "div"
+                );
 
-                <div class="story-text">
+            storyText.className =
+                "story-text";
 
-                    ${story.text}
+            storyText.style.whiteSpace =
+                "pre-wrap";
 
-                </div>
+            storyText.textContent =
+                story.text;
 
-                <div class="story-date">
+            const storyDate =
+                document.createElement(
+                    "div"
+                );
 
-                    ${new Date(
-                        story.date
-                    ).toLocaleString()}
+            storyDate.className =
+                "story-date";
 
-                </div>
+            storyDate.textContent =
+                new Date(
+                    story.date
+                ).toLocaleString();
 
-            `;
+            card.appendChild(storyText);
+
+            card.appendChild(storyDate);
 
             container.appendChild(
                 card
