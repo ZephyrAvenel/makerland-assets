@@ -39,20 +39,124 @@
         "constellation:temoignages": "temoignages/"
     };
 
+    let storageWriteBlocked = false;
+
     function readMemory() {
+        storageWriteBlocked = false;
+
+        let saved;
+
         try {
-            return JSON.parse(localStorage.getItem(KEY)) || {};
+            saved = localStorage.getItem(KEY);
         } catch (error) {
+            storageWriteBlocked = true;
+            return {};
+        }
+
+        if (saved === null) {
+            return {};
+        }
+
+        try {
+            const memory = normalizeMemory(JSON.parse(saved));
+
+            if (!memory) {
+                storageWriteBlocked = true;
+                return {};
+            }
+
+            return memory;
+        } catch (error) {
+            storageWriteBlocked = true;
             return {};
         }
     }
 
     function writeMemory(memory) {
+        if (storageWriteBlocked) {
+            return false;
+        }
+
         try {
             localStorage.setItem(KEY, JSON.stringify(memory));
         } catch (error) {
-            return;
+            return false;
         }
+
+        return true;
+    }
+
+    function isPlainObject(value) {
+        return Boolean(value) &&
+            typeof value === "object" &&
+            !Array.isArray(value) &&
+            Object.prototype.toString.call(value) === "[object Object]";
+    }
+
+    function normalizeMemory(memory) {
+        if (!isPlainObject(memory)) {
+            return null;
+        }
+
+        const arrayFields = [
+            "visitedPlaces",
+            "visitedPlaceIds",
+            "milestones",
+            "atelierRooms",
+            "constellationFragments",
+            "atelierObjectIds"
+        ];
+
+        for (const field of arrayFields) {
+            if (memory[field] !== undefined && !Array.isArray(memory[field])) {
+                return null;
+            }
+        }
+
+        if (memory.visitedPlaces && !memory.visitedPlaces.every(place =>
+            isPlainObject(place) &&
+            typeof place.id === "string" &&
+            (place.label === undefined || typeof place.label === "string") &&
+            (place.firstSeen === undefined || typeof place.firstSeen === "string")
+        )) {
+            return null;
+        }
+
+        const stringArrays = [
+            "visitedPlaceIds",
+            "milestones",
+            "atelierRooms",
+            "constellationFragments",
+            "atelierObjectIds"
+        ];
+
+        for (const field of stringArrays) {
+            if (memory[field] && !memory[field].every(value =>
+                typeof value === "string"
+            )) {
+                return null;
+            }
+        }
+
+        if (memory.lastVisitedPlace !== undefined &&
+            memory.lastVisitedPlace !== null &&
+            typeof memory.lastVisitedPlace !== "string") {
+            return null;
+        }
+
+        if (memory.currentPlaceWasKnown !== undefined &&
+            typeof memory.currentPlaceWasKnown !== "boolean") {
+            return null;
+        }
+
+        if (memory.atelierObjects !== undefined &&
+            (!Number.isFinite(memory.atelierObjects) || memory.atelierObjects < 0)) {
+            return null;
+        }
+
+        return {
+            ...memory
+        };
     }
 
     function addUnique(list, value) {

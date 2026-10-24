@@ -97,6 +97,8 @@ let noticeTimer = null;
 
 let noticeDismissalBound = false;
 
+let storageWriteBlocked = false;
+
 /****************************************
  INIT
 ****************************************/
@@ -455,26 +457,126 @@ function ensureNotice() {
 
 function loadMemory() {
 
+    storageWriteBlocked = false;
+
+    let saved;
+
     try {
 
-        const saved =
+        saved =
             localStorage.getItem(
                 STORAGE_KEY
             );
 
-        if (saved) {
-
-            return JSON.parse(saved);
-
-        }
-
     } catch(error) {
+
+        storageWriteBlocked = true;
 
         return createMemory();
 
     }
 
-    return createMemory();
+    if (saved === null) {
+
+        return createMemory();
+
+    }
+
+    try {
+
+        const memory =
+            normalizeMemory(
+                JSON.parse(saved)
+            );
+
+        if (!memory) {
+
+            storageWriteBlocked = true;
+
+            return createMemory();
+
+        }
+
+        return memory;
+
+    } catch(error) {
+
+        storageWriteBlocked = true;
+
+        return createMemory();
+
+    }
+
+}
+
+function isPlainObject(value) {
+
+    return Boolean(value) &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Object.prototype.toString.call(value) === "[object Object]";
+
+}
+
+function normalizeMemory(memory) {
+
+    if (!isPlainObject(memory)) {
+
+        return null;
+
+    }
+
+    const normalized = {
+        ...memory
+    };
+
+    if (normalized.lastScreen !== undefined &&
+        normalized.lastScreen !== null &&
+        typeof normalized.lastScreen !== "string") {
+
+        return null;
+
+    }
+
+    if (normalized.lastPlace !== undefined &&
+        normalized.lastPlace !== null &&
+        typeof normalized.lastPlace !== "string") {
+
+        return null;
+
+    }
+
+    if (normalized.visited === undefined) {
+
+        normalized.visited = {};
+
+        return normalized;
+
+    }
+
+    if (!isPlainObject(normalized.visited)) {
+
+        return null;
+
+    }
+
+    const visited = {};
+
+    for (const [placeId, count] of Object.entries(normalized.visited)) {
+
+        if (!Number.isFinite(count) || count < 0) {
+
+            return null;
+
+        }
+
+        visited[placeId] = count;
+
+    }
+
+    normalized.visited = visited;
+
+    return normalized;
 
 }
 
@@ -490,6 +592,12 @@ function createMemory() {
 
 function saveMemory(memory) {
 
+    if (storageWriteBlocked) {
+
+        return false;
+
+    }
+
     try {
 
         localStorage.setItem(
@@ -501,7 +609,11 @@ function saveMemory(memory) {
 
         // The journey continues without local memory if storage is unavailable.
 
+        return false;
+
     }
+
+    return true;
 
 }
 

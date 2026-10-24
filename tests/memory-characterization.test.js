@@ -125,13 +125,13 @@ test("livingJourney : un écran hors cartographie ne crée pas de mémoire", () 
     assert.equal(storage.value("makerland_living_journey"), null);
 });
 
-test("livingJourney : JSON corrompu est remplacé à la prochaine visite (comportement actuel)", () => {
+test("livingJourney : JSON corrompu reste intact après navigation", () => {
     const raw = "{corrompu";
     const { storage, window } = livingJourneyHarness({ makerland_living_journey: raw });
 
     window.dispatch("screenChanged", { screen: "e03_boussole" });
-    assert.notEqual(storage.value("makerland_living_journey"), raw);
-    assert.equal(read(storage, "makerland_living_journey").visited.boussole, 1);
+    assert.equal(storage.value("makerland_living_journey"), raw);
+    assert.equal(storage.calls.set, 0);
 });
 
 test("livingJourney : stockage indisponible ne bloque pas le changement d’écran", () => {
@@ -140,16 +140,33 @@ test("livingJourney : stockage indisponible ne bloque pas le changement d’écr
     assert.doesNotThrow(() => window.dispatch("screenChanged", { screen: "e03_boussole" }));
 });
 
-test("livingJourney : une mémoire ancienne sans visited interrompt actuellement la transition", () => {
-    const { window } = livingJourneyHarness({
+test("livingJourney : une mémoire ancienne sans visited reste lisible et peut reprendre l’écriture", () => {
+    const { storage, window } = livingJourneyHarness({
         makerland_living_journey: JSON.stringify({ lastScreen: "e01_accueil" })
     });
 
-    assert.throws(() => window.dispatch("screenChanged", { screen: "e03_boussole" }));
+    assert.doesNotThrow(() => window.dispatch("screenChanged", { screen: "e03_boussole" }));
+    const memory = read(storage, "makerland_living_journey");
+    assert.equal(memory.lastScreen, "e03_boussole");
+    assert.equal(memory.visited.boussole, 1);
 });
 
-test.todo("livingJourney : une valeur corrompue devrait être préservée jusqu’à une récupération explicite");
-test.todo("livingJourney : une forme ancienne avec visited absent devrait être normalisée sans exception");
+test("livingJourney : un visited de type inattendu reste intact et bloque les écritures", () => {
+    const raw = JSON.stringify({ visited: [], lastScreen: "e01_accueil" });
+    const { storage, window } = livingJourneyHarness({ makerland_living_journey: raw });
+
+    assert.doesNotThrow(() => window.dispatch("screenChanged", { screen: "e03_boussole" }));
+    assert.equal(storage.value("makerland_living_journey"), raw);
+    assert.equal(storage.calls.set, 0);
+});
+
+test("livingJourney : un échec d’écriture laisse une mémoire valide inchangée", () => {
+    const raw = JSON.stringify({ visited: { boussole: 1 }, lastScreen: "e03_boussole", lastPlace: "boussole" });
+    const { storage, window } = livingJourneyHarness({ makerland_living_journey: raw }, { throwOnSet: true });
+
+    assert.doesNotThrow(() => window.dispatch("screenChanged", { screen: "e03_boussole" }));
+    assert.equal(storage.value("makerland_living_journey"), raw);
+});
 
 function firstJourneyHarness(initial = {}) {
     const storage = createStorage(initial);
@@ -348,15 +365,15 @@ test("living-cycle : les traces d’objets Atelier existantes sont conservées l
     assert.equal(memory.lastVisitedPlace, "atelier:dialogue");
 });
 
-test("living-cycle : JSON corrompu est remplacé à l’initialisation (comportement actuel)", () => {
+test("living-cycle : JSON corrompu reste intact à l’initialisation", () => {
     const raw = "{corrompu";
     const { storage } = livingCycleHarness({ "makerland:living-cycle": raw }, {
         cycleType: "atelier",
         cyclePage: "atelier"
     });
 
-    assert.notEqual(storage.value("makerland:living-cycle"), raw);
-    assert.equal(read(storage, "makerland:living-cycle").lastVisitedPlace, "atelier:atelier");
+    assert.equal(storage.value("makerland:living-cycle"), raw);
+    assert.equal(storage.calls.set, 0);
 });
 
 test("living-cycle : une écriture indisponible n’interrompt pas l’initialisation", () => {
@@ -378,4 +395,53 @@ test("living-cycle : une écriture indisponible n’interrompt pas l’initialis
     assert.equal(storage.value("makerland:living-cycle"), null);
 });
 
-test.todo("living-cycle : une valeur corrompue devrait être préservée avant toute reconstruction");
+test("living-cycle : une structure incomplète conserve ses champs reconnus et reprend une visite", () => {
+    const initial = { customLegacyNote: "à préserver", lastVisitedPlace: "atelier:atelier" };
+    const { storage } = livingCycleHarness({
+        "makerland:living-cycle": JSON.stringify(initial)
+    }, { cycleType: "atelier", cyclePage: "dialogue" });
+    const memory = read(storage, "makerland:living-cycle");
+
+    assert.equal(memory.customLegacyNote, "à préserver");
+    assert.equal(memory.lastVisitedPlace, "atelier:dialogue");
+    assert.equal(memory.visitedPlaceIds[0], "atelier:dialogue");
+});
+
+test("living-cycle : un tableau de type inattendu reste intact et bloque l’écriture", () => {
+    const raw = JSON.stringify({ visitedPlaces: "inattendu" });
+    const { storage } = livingCycleHarness({
+        "makerland:living-cycle": raw
+    }, { cycleType: "atelier", cyclePage: "dialogue" });
+
+    assert.equal(storage.value("makerland:living-cycle"), raw);
+    assert.equal(storage.calls.set, 0);
+});
+
+test("living-cycle : une entrée de lieu ambiguë reste intacte et bloque l’écriture", () => {
+    const raw = JSON.stringify({ visitedPlaces: [null] });
+    const { storage } = livingCycleHarness({
+        "makerland:living-cycle": raw
+    }, { cycleType: "atelier", cyclePage: "dialogue" });
+
+    assert.equal(storage.value("makerland:living-cycle"), raw);
+    assert.equal(storage.calls.set, 0);
+});
+
+test("living-cycle : un échec de lecture bloque l’écriture automatique", () => {
+    const storage = createStorage({}, { throwOnGet: true });
+    const document = createDocument({
+        readyState: "complete",
+        bodyDataset: { cycleType: "atelier", cyclePage: "dialogue" }
+    });
+
+    assert.doesNotThrow(() => runScript("atelier/living-cycle.js", {
+        Date,
+        JSON,
+        Math,
+        Number,
+        Set,
+        document,
+        localStorage: storage
+    }));
+    assert.equal(storage.calls.set, 0);
+});
