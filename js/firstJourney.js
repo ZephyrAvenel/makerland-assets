@@ -2,6 +2,9 @@
     const STORAGE_KEY = "makerland.firstJourney";
     const JOURNEY_KEY = "makerland_living_journey";
     const PATHS_KEY = "makerland.living.paths";
+    const COMPLETIONS_FIELD = "completions";
+    const COMPLETION_FORMAT = 1;
+    const MAX_COMPLETIONS = 24;
     const EXISTING_MEMORY_AT_LOAD = hasPreviousMakerlandMemory();
 
     const STEPS = [
@@ -72,7 +75,9 @@
         currentScreen: null,
         syncingScreen: false,
         transitioning: false,
-        memory: readMemory()
+        memory: {},
+        raw: null,
+        writable: false
     };
 
     function init() {
@@ -108,7 +113,7 @@
 
     function renderForCurrentScreen(screenId) {
         state.currentScreen = screenId;
-        state.memory = readMemory();
+        setMemoryRecord(readMemory());
 
         if (!state.root) return;
 
@@ -287,24 +292,41 @@
     }
 
     function startJourney() {
-        document.body.classList.remove("first-journey-intro-ready");
-        document.body.classList.add("first-journey-active");
-        state.memory = {
+        const record = readMemory();
+        if (!record.writable) return false;
+
+        const completions = preserveCurrentCompletion(record.memory);
+        if (!completions) return false;
+
+        const startedAt = new Date().toISOString();
+        const memory = {
+            ...record.memory,
             choice: "guided",
             active: true,
             completed: false,
             phase: "steps",
             step: 0,
-            startedAt: state.memory.startedAt || new Date().toISOString(),
-            updatedAt: new Date().toISOString()
+            startedAt,
+            updatedAt: startedAt,
+            [COMPLETIONS_FIELD]: completions
         };
-        writeMemory(state.memory);
+
+        delete memory.completedAt;
+        delete memory.version;
+        delete memory.dismissedAt;
+
+        if (!writeMemory(memory, record.raw)) return false;
+
+        setMemoryRecord({ memory, raw: JSON.stringify(memory), writable: true });
+        document.body.classList.remove("first-journey-intro-ready");
+        document.body.classList.add("first-journey-active");
         navigateTo(STEPS[0].screen);
         renderStep();
+        return true;
     }
 
     function resumeJourney() {
-        state.memory = readMemory();
+        setMemoryRecord(readMemory());
         if (!state.memory.active || state.memory.completed) {
             startJourney();
             return;
@@ -328,37 +350,58 @@
         state.memory.phase = "steps";
         state.memory.step = clampStep(state.memory.step);
         state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
+        if (!writeMemory(state.memory, state.raw)) return;
+        state.raw = JSON.stringify(state.memory);
         navigateTo((STEPS[state.memory.step] || STEPS[0]).screen);
         renderStep();
     }
 
     function dismissJourney() {
-        state.memory.choice = "free";
-        state.memory.active = false;
-        state.memory.completed = false;
-        state.memory.dismissedAt = new Date().toISOString();
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
+        const record = readMemory();
+        if (!record.writable) return;
+        const now = new Date().toISOString();
+        const memory = {
+            ...record.memory,
+            choice: "free",
+            active: false,
+            completed: false,
+            dismissedAt: now,
+            updatedAt: now
+        };
+        if (!writeMemory(memory, record.raw)) return;
+        setMemoryRecord({ memory, raw: JSON.stringify(memory), writable: true });
         clearRoot();
     }
 
     function pauseJourney() {
+        const memory = {
+            ...state.memory,
+            active: false,
+            updatedAt: new Date().toISOString()
+        };
+        if (!writeMemory(memory, state.raw)) return;
+        state.memory = memory;
+        state.raw = JSON.stringify(memory);
         document.body.classList.remove("first-journey-active");
-        state.memory.active = false;
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
         renderForCurrentScreen(state.currentScreen);
     }
 
     function completeJourney() {
+        const record = readMemory();
+        if (!record.writable) return false;
+        const now = new Date().toISOString();
+        const memory = {
+            ...record.memory,
+            active: false,
+            completed: true,
+            version: COMPLETION_FORMAT,
+            completedAt: record.memory.completedAt || now,
+            updatedAt: now
+        };
+        if (!writeMemory(memory, record.raw)) return false;
+        setMemoryRecord({ memory, raw: JSON.stringify(memory), writable: true });
         document.body.classList.remove("first-journey-active");
-        state.memory.active = false;
-        state.memory.completed = true;
-        state.memory.version = 1;
-        state.memory.completedAt = state.memory.completedAt || new Date().toISOString();
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
+        return true;
     }
 
     function moveStep(direction) {
@@ -367,11 +410,20 @@
         renderStep();
 
         window.setTimeout(() => {
-            state.memory.step = nextStep;
-            state.memory.active = true;
-            state.memory.phase = "steps";
-            state.memory.updatedAt = new Date().toISOString();
-            writeMemory(state.memory);
+            const memory = {
+                ...state.memory,
+                step: nextStep,
+                active: true,
+                phase: "steps",
+                updatedAt: new Date().toISOString()
+            };
+            if (!writeMemory(memory, state.raw)) {
+                state.transitioning = false;
+                renderForCurrentScreen(state.currentScreen);
+                return;
+            }
+            state.memory = memory;
+            state.raw = JSON.stringify(memory);
             state.transitioning = false;
             navigateTo(STEPS[nextStep].screen);
             renderStep();
@@ -379,10 +431,15 @@
     }
 
     function openCurrentPlace(step) {
-        state.memory.active = true;
-        state.memory.phase = "viewing";
-        state.memory.updatedAt = new Date().toISOString();
-        writeMemory(state.memory);
+        const memory = {
+            ...state.memory,
+            active: true,
+            phase: "viewing",
+            updatedAt: new Date().toISOString()
+        };
+        if (!writeMemory(memory, state.raw)) return;
+        state.memory = memory;
+        state.raw = JSON.stringify(memory);
         document.body.classList.remove("first-journey-intro-ready");
         document.body.classList.remove("first-journey-active");
         clearRoot();
@@ -390,7 +447,7 @@
     }
 
     function showPassport() {
-        completeJourney();
+        if (!completeJourney()) return;
         renderPassport();
     }
 
@@ -443,7 +500,7 @@
     }
 
     function showForestThreshold() {
-        completeJourney();
+        if (!completeJourney()) return;
         navigateTo("e04_oeuvre");
         renderForestThreshold();
     }
@@ -502,12 +559,12 @@
     }
 
     function finishAndClear() {
-        completeJourney();
+        if (!completeJourney()) return;
         clearRoot();
     }
 
     function returnToTerritory() {
-        completeJourney();
+        if (!completeJourney()) return;
         clearRoot();
         navigateTo("e01_accueil");
     }
@@ -552,11 +609,19 @@
 
     function readMemory() {
         try {
-            const memory = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-            memory.step = clampStep(memory.step);
-            return memory;
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw === null) {
+                return { memory: { step: 0 }, raw: null, writable: true };
+            }
+
+            const memory = normalizeMemory(JSON.parse(raw));
+            if (!memory) {
+                return { memory: { step: 0 }, raw, writable: false };
+            }
+
+            return { memory, raw, writable: true };
         } catch (error) {
-            return { step: 0 };
+            return { memory: { step: 0 }, raw: null, writable: false };
         }
     }
 
@@ -564,12 +629,107 @@
         return Number.isInteger(step) && step >= 0 && step < STEPS.length ? step : 0;
     }
 
-    function writeMemory(memory) {
+    function writeMemory(memory, expectedRaw) {
         try {
+            if (localStorage.getItem(STORAGE_KEY) !== expectedRaw) {
+                return false;
+            }
             localStorage.setItem(STORAGE_KEY, JSON.stringify(memory));
+            return true;
         } catch (error) {
-            return;
+            return false;
         }
+    }
+
+    function setMemoryRecord(record) {
+        state.memory = record.memory;
+        state.raw = record.raw;
+        state.writable = record.writable;
+    }
+
+    function normalizeMemory(memory) {
+        if (!isPlainObject(memory)) return null;
+
+        for (const field of ["active", "completed"]) {
+            if (memory[field] !== undefined && typeof memory[field] !== "boolean") {
+                return null;
+            }
+        }
+
+        for (const field of ["choice", "phase", "startedAt", "updatedAt", "completedAt", "dismissedAt"]) {
+            if (memory[field] !== undefined && typeof memory[field] !== "string") {
+                return null;
+            }
+        }
+
+        if (memory.step !== undefined && !Number.isInteger(memory.step)) return null;
+        if (memory.version !== undefined && !Number.isFinite(memory.version)) return null;
+
+        if (
+            memory[COMPLETIONS_FIELD] !== undefined &&
+            (!Array.isArray(memory[COMPLETIONS_FIELD]) ||
+                !memory[COMPLETIONS_FIELD].every(isCompletion))
+        ) {
+            return null;
+        }
+
+        if (
+            Array.isArray(memory[COMPLETIONS_FIELD]) &&
+            memory[COMPLETIONS_FIELD].length > MAX_COMPLETIONS
+        ) {
+            return null;
+        }
+
+        return {
+            ...memory,
+            step: clampStep(memory.step),
+            [COMPLETIONS_FIELD]: Array.isArray(memory[COMPLETIONS_FIELD])
+                ? memory[COMPLETIONS_FIELD].map(completion => ({ ...completion }))
+                : []
+        };
+    }
+
+    function isPlainObject(value) {
+        return Boolean(value) &&
+            typeof value === "object" &&
+            !Array.isArray(value) &&
+            Object.prototype.toString.call(value) === "[object Object]";
+    }
+
+    function isCompletion(completion) {
+        return isPlainObject(completion) &&
+            typeof completion.id === "string" &&
+            isValidDate(completion.completedAt) &&
+            (completion.format === undefined || Number.isFinite(completion.format)) &&
+            (completion.startedAt === undefined || isValidDate(completion.startedAt));
+    }
+
+    function isValidDate(value) {
+        return typeof value === "string" && Number.isFinite(Date.parse(value));
+    }
+
+    function preserveCurrentCompletion(memory) {
+        const completions = Array.isArray(memory[COMPLETIONS_FIELD])
+            ? memory[COMPLETIONS_FIELD].map(completion => ({ ...completion }))
+            : [];
+
+        if (!memory.completed) return completions;
+        if (!isValidDate(memory.completedAt)) return null;
+
+        const completion = {
+            id: `first-journey:${memory.completedAt}`,
+            completedAt: memory.completedAt,
+            format: Number.isFinite(memory.version) ? memory.version : COMPLETION_FORMAT
+        };
+
+        if (isValidDate(memory.startedAt)) {
+            completion.startedAt = memory.startedAt;
+        }
+
+        if (completions.some(item => item.id === completion.id)) return completions;
+        if (completions.length >= MAX_COMPLETIONS) return null;
+        completions.push(completion);
+        return completions;
     }
 
     function escapeHtml(value) {

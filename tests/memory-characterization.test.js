@@ -238,8 +238,8 @@ test("livingJourney : un échec d’écriture laisse une mémoire valide inchang
     assert.equal(storage.value("makerland_living_journey"), raw);
 });
 
-function firstJourneyHarness(initial = {}) {
-    const storage = createStorage(initial);
+function firstJourneyHarness(initial = {}, options = {}) {
+    const storage = createStorage(initial, options);
     const document = createDocument();
     const window = createWindow();
     const navigation = { destinations: [], goTo(screen) { this.destinations.push(screen); } };
@@ -338,14 +338,15 @@ test("firstJourney : une étape ancienne hors limites est ramenée à la premiè
     assert.equal(navigation.destinations.at(-1), "e02_meteo");
 });
 
-test("firstJourney : recommencer après une traversée terminée remplace l’unique état actuel", () => {
+test("firstJourney : recommencer archive l’achèvement et crée un nouveau départ", () => {
     const initial = {
         choice: "guided",
         active: false,
         completed: true,
         step: 6,
         startedAt: "2026-10-24T10:00:00.000Z",
-        completedAt: "2026-10-24T11:00:00.000Z"
+        completedAt: "2026-10-24T11:00:00.000Z",
+        legacyNote: "à conserver"
     };
     const { document, storage } = firstJourneyHarness({
         "makerland.firstJourney": JSON.stringify(initial)
@@ -357,8 +358,20 @@ test("firstJourney : recommencer après une traversée terminée remplace l’un
     assert.equal(memory.active, true);
     assert.equal(memory.completed, false);
     assert.equal(memory.step, 0);
-    assert.equal(memory.startedAt, initial.startedAt);
+    assert.notEqual(memory.startedAt, initial.startedAt);
     assert.equal(memory.completedAt, undefined);
+    assert.deepEqual(memory.completions, [{
+        id: "first-journey:2026-10-24T11:00:00.000Z",
+        completedAt: "2026-10-24T11:00:00.000Z",
+        format: 1,
+        startedAt: "2026-10-24T10:00:00.000Z"
+    }]);
+    assert.equal(memory.legacyNote, "à conserver");
+
+    const reloaded = firstJourneyHarness({ "makerland.firstJourney": storage.value("makerland.firstJourney") });
+    reloaded.document.dispatch("makerland:firstJourney:resume");
+    assert.equal(read(reloaded.storage, "makerland.firstJourney").step, 0);
+    assert.equal(reloaded.navigation.destinations.at(-1), "e02_meteo");
 });
 
 test("firstJourney : une autre mémoire de parcours masque l’accueil guidé", () => {
@@ -369,15 +382,125 @@ test("firstJourney : une autre mémoire de parcours masque l’accueil guidé", 
     assert.equal(root.innerHTML, "");
 });
 
-test("firstJourney : JSON corrompu reste intact tant qu’aucune action ne réécrit la traversée", () => {
+test("firstJourney : JSON corrompu reste intact, y compris après une demande de départ", () => {
     const raw = "{corrompu";
-    const { storage } = firstJourneyHarness({ "makerland.firstJourney": raw });
+    const { document, storage, navigation } = firstJourneyHarness({ "makerland.firstJourney": raw });
 
     assert.equal(storage.value("makerland.firstJourney"), raw);
     assert.equal(storage.calls.set, 0);
+    document.dispatch("makerland:firstJourney:start");
+    assert.equal(storage.value("makerland.firstJourney"), raw);
+    assert.equal(storage.calls.set, 0);
+    assert.equal(navigation.destinations.length, 0);
 });
 
-test.todo("firstJourney : recommencer devrait préserver plusieurs souvenirs plutôt qu’écraser l’unique état");
+test("firstJourney : mémoire historique incomplète et propriété inconnue restent compatibles", () => {
+    const { document, storage } = firstJourneyHarness({
+        "makerland.firstJourney": JSON.stringify({
+            choice: "guided",
+            active: false,
+            completed: false,
+            legacyNote: "à conserver"
+        })
+    });
+
+    document.dispatch("makerland:firstJourney:start");
+    const memory = read(storage, "makerland.firstJourney");
+    assert.equal(memory.legacyNote, "à conserver");
+    assert.deepEqual(memory.completions, []);
+    assert.equal(memory.active, true);
+});
+
+test("firstJourney : une structure ambiguë ou un historique mal formé restent intacts", () => {
+    const rootRaw = "[]";
+    const root = firstJourneyHarness({ "makerland.firstJourney": rootRaw });
+    root.document.dispatch("makerland:firstJourney:start");
+    assert.equal(root.storage.value("makerland.firstJourney"), rootRaw);
+    assert.equal(root.storage.calls.set, 0);
+
+    const historyRaw = JSON.stringify({ completions: [{ completedAt: "2026-10-24T11:00:00.000Z" }] });
+    const history = firstJourneyHarness({ "makerland.firstJourney": historyRaw });
+    history.document.dispatch("makerland:firstJourney:start");
+    assert.equal(history.storage.value("makerland.firstJourney"), historyRaw);
+    assert.equal(history.storage.calls.set, 0);
+});
+
+test("firstJourney : lecture ou écriture indisponible ne crée pas de traversée persistée", () => {
+    const unreadable = firstJourneyHarness({}, { throwOnGet: true });
+    unreadable.document.dispatch("makerland:firstJourney:start");
+    assert.equal(unreadable.storage.calls.set, 0);
+    assert.equal(unreadable.navigation.destinations.length, 0);
+
+    const unwritable = firstJourneyHarness({}, { throwOnSet: true });
+    unwritable.document.dispatch("makerland:firstJourney:start");
+    assert.equal(unwritable.storage.value("makerland.firstJourney"), null);
+    assert.equal(unwritable.navigation.destinations.length, 0);
+});
+
+test("firstJourney : une écriture obsolète est refusée sans effacer la valeur récente", () => {
+    const { document, storage, navigation } = firstJourneyHarness({
+        "makerland.firstJourney": JSON.stringify({ choice: "free", active: false, recent: "ancien" })
+    });
+    const getItem = storage.getItem.bind(storage);
+    let reads = 0;
+    storage.getItem = key => {
+        reads += 1;
+        if (key === "makerland.firstJourney" && reads === 2) {
+            storage.setItem(key, JSON.stringify({ choice: "free", active: false, recent: "nouveau" }));
+        }
+        return getItem(key);
+    };
+
+    document.dispatch("makerland:firstJourney:start");
+    assert.deepEqual(read(storage, "makerland.firstJourney"), { choice: "free", active: false, recent: "nouveau" });
+    assert.equal(navigation.destinations.length, 0);
+});
+
+test("firstJourney : deux achèvements sont conservés sans doublon lors de recommencements successifs", () => {
+    const initial = {
+        choice: "guided",
+        active: false,
+        completed: true,
+        step: 6,
+        startedAt: "2026-10-24T08:00:00.000Z",
+        completedAt: "2026-10-24T09:00:00.000Z",
+        version: 1
+    };
+    const { document, root, storage } = firstJourneyHarness({
+        "makerland.firstJourney": JSON.stringify(initial)
+    });
+
+    document.dispatch("makerland:firstJourney:resume");
+    for (let index = 0; index < 6; index += 1) root.querySelector("[data-first-journey-next]").click();
+    root.querySelector("[data-first-journey-finish]").click();
+    const second = read(storage, "makerland.firstJourney");
+    assert.equal(second.completed, true);
+    assert.equal(second.completions.length, 1);
+
+    document.dispatch("makerland:firstJourney:resume");
+    const restarted = read(storage, "makerland.firstJourney");
+    assert.equal(restarted.completions.length, 2);
+    assert.equal(new Set(restarted.completions.map(item => item.id)).size, 2);
+});
+
+test("firstJourney : une limite atteinte refuse le recommencement sans supprimer d’achèvement", () => {
+    const completions = Array.from({ length: 24 }, (_, index) => ({
+        id: `first-journey:2026-10-${String(index + 1).padStart(2, "0")}T10:00:00.000Z`,
+        completedAt: `2026-10-${String(index + 1).padStart(2, "0")}T10:00:00.000Z`,
+        format: 1
+    }));
+    const raw = JSON.stringify({
+        completed: true,
+        active: false,
+        completedAt: "2026-11-01T10:00:00.000Z",
+        completions
+    });
+    const { document, storage, navigation } = firstJourneyHarness({ "makerland.firstJourney": raw });
+
+    document.dispatch("makerland:firstJourney:start");
+    assert.equal(storage.value("makerland.firstJourney"), raw);
+    assert.equal(navigation.destinations.length, 0);
+});
 
 function livingCycleHarness(initial = {}, bodyDataset = {}) {
     const storage = createStorage(initial);
