@@ -28,23 +28,28 @@
     }
 
     function readCycle() {
-        try {
-            return JSON.parse(localStorage.getItem(CYCLE_KEY)) || {};
-        } catch (error) {
-            return {};
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read) {
+            return { memory: {}, raw: null, writable: false };
         }
+
+        return storage.read();
     }
 
-    function writeCycle(value) {
-        try {
-            localStorage.setItem(CYCLE_KEY, JSON.stringify(value));
-        } catch (error) {
-            return;
+    function writeCycle(value, state) {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!state || !state.writable || !storage || !storage.write) {
+            return false;
         }
+
+        return storage.write(value, state.raw);
     }
 
     function rememberArchive(record) {
-        const cycle = readCycle();
+        const state = readCycle();
+        const cycle = state.memory;
         const id = record.id.toUpperCase();
         const archives = cycle.archiveDialogs && typeof cycle.archiveDialogs === "object"
             ? cycle.archiveDialogs
@@ -65,7 +70,7 @@
             cycle.dialogues.push(id);
         }
 
-        writeCycle(cycle);
+        writeCycle(cycle, state);
     }
 
     function markdownPath(path) {

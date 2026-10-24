@@ -108,19 +108,23 @@
     };
 
     function readMemory() {
-        try {
-            return JSON.parse(localStorage.getItem(KEY)) || {};
-        } catch (error) {
-            return {};
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read) {
+            return { memory: {}, raw: null, writable: false };
         }
+
+        return storage.read();
     }
 
-    function writeMemory(memory) {
-        try {
-            localStorage.setItem(KEY, JSON.stringify(memory));
-        } catch (error) {
-            return;
+    function writeMemory(memory, state) {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!state || !state.writable || !storage || !storage.write) {
+            return false;
         }
+
+        return storage.write(memory, state.raw);
     }
 
     function currentId() {
@@ -207,24 +211,35 @@
         appendBeforeReturn(section);
     }
 
-    function renderTravelingFragment(config, memory) {
+    function renderTravelingFragment(config, memory, state) {
         if (!config || !config.fragment || Math.random() > 0.18) {
             return;
         }
 
-        const last = localStorage.getItem(FRAGMENT_KEY);
+        let last = null;
+
+        try {
+            last = localStorage.getItem(FRAGMENT_KEY);
+        } catch (error) {
+            last = null;
+        }
+
         if (last === config.fragment) {
             return;
         }
 
-        localStorage.setItem(FRAGMENT_KEY, config.fragment);
+        try {
+            localStorage.setItem(FRAGMENT_KEY, config.fragment);
+        } catch (error) {
+            // Le fragment peut rester visible sans marqueur transitoire.
+        }
         memory.travelingFragments = Array.isArray(memory.travelingFragments)
             ? memory.travelingFragments
             : [];
 
         if (!memory.travelingFragments.includes(config.fragment)) {
             memory.travelingFragments.push(config.fragment);
-            writeMemory(memory);
+            writeMemory(memory, state);
         }
 
         const aside = document.createElement("aside");
@@ -249,11 +264,12 @@
     function init() {
         const id = currentId();
         const config = RESONANCES[id];
-        const memory = readMemory();
+        const state = readMemory();
+        const memory = state.memory;
 
         renderCards(config);
         renderPersonalConstellation(memory);
-        renderTravelingFragment(config, memory);
+        renderTravelingFragment(config, memory, state);
         renderThreads();
     }
 

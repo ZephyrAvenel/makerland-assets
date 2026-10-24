@@ -155,12 +155,20 @@ function source(relativePath) {
     return fs.readFileSync(path.join(__dirname, "..", relativePath), "utf8");
 }
 
-function runScript(relativePath, context, exportExpression) {
+function runScript(relativePath, context, exportExpression, options = {}) {
     context.globalThis = context;
-    const suffix = exportExpression
-        ? `\nglobalThis.__testApi = ${exportExpression};`
-        : "";
-    vm.runInNewContext(source(relativePath) + suffix, context);
+    let script = source(relativePath);
+
+    if (exportExpression && options.insideIife) {
+        script = script.replace(
+            /\}\)\(\);\s*$/,
+            `globalThis.__testApi = ${exportExpression};\n})();`
+        );
+    } else if (exportExpression) {
+        script += `\nglobalThis.__testApi = ${exportExpression};`;
+    }
+
+    vm.runInNewContext(script, context);
     return context.__testApi;
 }
 

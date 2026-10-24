@@ -40,36 +40,15 @@
     };
 
     let storageWriteBlocked = false;
+    let storageSnapshot = null;
 
     function readMemory() {
-        storageWriteBlocked = false;
+        const state = readProtectedMemory();
 
-        let saved;
+        storageWriteBlocked = !state.writable;
+        storageSnapshot = state.raw;
 
-        try {
-            saved = localStorage.getItem(KEY);
-        } catch (error) {
-            storageWriteBlocked = true;
-            return {};
-        }
-
-        if (saved === null) {
-            return {};
-        }
-
-        try {
-            const memory = normalizeMemory(JSON.parse(saved));
-
-            if (!memory) {
-                storageWriteBlocked = true;
-                return {};
-            }
-
-            return memory;
-        } catch (error) {
-            storageWriteBlocked = true;
-            return {};
-        }
+        return state.memory;
     }
 
     function writeMemory(memory) {
@@ -77,8 +56,48 @@
             return false;
         }
 
+        return writeProtectedMemory(memory, storageSnapshot);
+    }
+
+    function readProtectedMemory() {
+        let raw;
+
         try {
-            localStorage.setItem(KEY, JSON.stringify(memory));
+            raw = localStorage.getItem(KEY);
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false };
+        }
+
+        if (raw === null) {
+            return { memory: {}, raw: null, writable: true };
+        }
+
+        try {
+            const memory = normalizeMemory(JSON.parse(raw));
+
+            if (!memory) {
+                return { memory: {}, raw, writable: false };
+            }
+
+            return { memory, raw, writable: true };
+        } catch (error) {
+            return { memory: {}, raw, writable: false };
+        }
+    }
+
+    function writeProtectedMemory(memory, expectedRaw) {
+        const normalized = normalizeMemory(memory);
+
+        if (!normalized) {
+            return false;
+        }
+
+        try {
+            if (localStorage.getItem(KEY) !== expectedRaw) {
+                return false;
+            }
+
+            localStorage.setItem(KEY, JSON.stringify(normalized));
         } catch (error) {
             return false;
         }
@@ -104,7 +123,9 @@
             "milestones",
             "atelierRooms",
             "constellationFragments",
-            "atelierObjectIds"
+            "atelierObjectIds",
+            "travelingFragments",
+            "dialogues"
         ];
 
         for (const field of arrayFields) {
@@ -127,7 +148,9 @@
             "milestones",
             "atelierRooms",
             "constellationFragments",
-            "atelierObjectIds"
+            "atelierObjectIds",
+            "travelingFragments",
+            "dialogues"
         ];
 
         for (const field of stringArrays) {
@@ -151,6 +174,11 @@
 
         if (memory.atelierObjects !== undefined &&
             (!Number.isFinite(memory.atelierObjects) || memory.atelierObjects < 0)) {
+            return null;
+        }
+
+        if (memory.archiveDialogs !== undefined &&
+            !isPlainObject(memory.archiveDialogs)) {
             return null;
         }
 
@@ -307,6 +335,13 @@
         renderMemory(memory);
         renderEcho(memory);
         renderVisitedMarkers(memory);
+    }
+
+    if (typeof window !== "undefined") {
+        window.MakerlandLivingCycleStorage = {
+            read: readProtectedMemory,
+            write: writeProtectedMemory
+        };
     }
 
     if (document.readyState === "loading") {

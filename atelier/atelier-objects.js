@@ -35,14 +35,19 @@
     }
 
     function updateCycleMemory(id) {
-        const key = "makerland:living-cycle";
-        let memory = {};
+        const storage = window.MakerlandLivingCycleStorage;
 
-        try {
-            memory = JSON.parse(localStorage.getItem(key) || "{}");
-        } catch (error) {
-            memory = {};
+        if (!storage || !storage.read || !storage.write) {
+            return false;
         }
+
+        const state = storage.read();
+
+        if (!state.writable) {
+            return false;
+        }
+
+        const memory = state.memory;
 
         const objects = Array.isArray(memory.atelierObjectIds)
             ? memory.atelierObjectIds
@@ -55,18 +60,17 @@
         memory.atelierObjectIds = objects;
         memory.atelierObjects = objects.length;
 
-        try {
-            localStorage.setItem(key, JSON.stringify(memory));
-        } catch (error) {
-            return;
-        }
+        return storage.write(memory, state.raw);
     }
 
     function hasSeen(id) {
+        const storage = window.MakerlandLivingCycleStorage;
+
         try {
-            const memory = JSON.parse(
-                localStorage.getItem("makerland:living-cycle") || "{}"
-            );
+            const state = storage && storage.read
+                ? storage.read()
+                : { memory: {} };
+            const memory = state.memory;
             const objects = Array.isArray(memory.atelierObjectIds)
                 ? memory.atelierObjectIds
                 : [];
