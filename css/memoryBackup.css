@@ -1,0 +1,75 @@
+.memory-backup-trigger{
+    position:fixed;
+    left:calc(14px + env(safe-area-inset-left));
+    bottom:calc(14px + env(safe-area-inset-bottom));
+    z-index:118;
+    border:1px solid rgba(255,224,166,.32);
+    border-radius:999px;
+    padding:8px 12px;
+    color:rgba(255,244,226,.94);
+    background:rgba(4,10,18,.78);
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
+    font:12px/1.2 Arial,sans-serif;
+    cursor:pointer;
+}
+
+.memory-backup-trigger:hover,
+.memory-backup-trigger:focus-visible{
+    border-color:rgba(255,224,166,.7);
+    outline:none;
+}
+
+.memory-backup-panel{
+    position:fixed;
+    left:50%;
+    top:50%;
+    z-index:130;
+    width:min(440px, calc(100vw - 32px));
+    max-height:calc(100dvh - 32px);
+    box-sizing:border-box;
+    overflow:auto;
+    border:1px solid rgba(255,224,166,.4);
+    border-radius:22px;
+    padding:22px;
+    color:rgba(255,244,226,.94);
+    background:linear-gradient(160deg,rgba(12,22,37,.98),rgba(4,8,15,.98));
+    box-shadow:0 24px 70px rgba(0,0,0,.58);
+    font-family:Georgia,"Times New Roman",serif;
+    transform:translate(-50%,-50%);
+}
+
+.memory-backup-panel[hidden]{ display:none; }
+.memory-backup-panel h2{ margin:0 34px 10px 0; font-size:clamp(20px,5vw,28px); }
+.memory-backup-panel p{ margin:10px 0; line-height:1.5; }
+.memory-backup-panel__notice{ color:rgba(255,224,166,.88); }
+.memory-backup-panel__close{
+    position:absolute;
+    right:12px;
+    top:12px;
+    border:0;
+    color:inherit;
+    background:transparent;
+    font:24px/1 Arial,sans-serif;
+    cursor:pointer;
+}
+.memory-backup-panel__export{
+    width:100%;
+    min-height:44px;
+    margin-top:8px;
+    border:1px solid rgba(255,224,166,.48);
+    border-radius:999px;
+    color:#fff4de;
+    background:rgba(255,225,166,.11);
+    font:600 15px/1.2 Arial,sans-serif;
+    cursor:pointer;
+}
+.memory-backup-panel__export:hover,
+.memory-backup-panel__export:focus-visible{ background:rgba(255,225,166,.2); outline:none; }
+.memory-backup-panel__status{ min-height:1.5em; margin-bottom:0; font-size:14px; }
+.memory-backup-panel__status[data-state="success"]{ color:#d9f2ce; }
+.memory-backup-panel__status[data-state="error"]{ color:#ffd1c6; }
+
+@media (max-height:520px) and (orientation:landscape){
+    .memory-backup-trigger{ bottom:calc(8px + env(safe-area-inset-bottom)); padding:6px 10px; }
+    .memory-backup-panel{ padding:16px; }
+}

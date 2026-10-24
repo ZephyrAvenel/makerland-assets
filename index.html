@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="css/livingHome.css">
 <link rel="stylesheet" href="css/narrativeThread.css">
 <link rel="stylesheet" href="css/livingGuardianWhisper.css">
+<link rel="stylesheet" href="css/memoryBackup.css">
 
 </head>
 
@@ -529,6 +530,51 @@
     D&eacute;couvrir l&rsquo;auteur
 </a>
 
+<button
+    id="memoryBackupButton"
+    class="memory-backup-trigger"
+    type="button"
+    aria-controls="memoryBackupPanel"
+    aria-expanded="false">
+    Mes souvenirs et sauvegardes
+</button>
+
+<section
+    id="memoryBackupPanel"
+    class="memory-backup-panel"
+    aria-labelledby="memoryBackupTitle"
+    hidden>
+
+    <button
+        id="memoryBackupClose"
+        class="memory-backup-panel__close"
+        type="button"
+        aria-label="Fermer les souvenirs et sauvegardes">&times;</button>
+
+    <h2 id="memoryBackupTitle">Mes souvenirs et sauvegardes</h2>
+
+    <p>
+        Exportez une copie locale de vos souvenirs Makerland pour la conserver sur cet appareil ou l&rsquo;emporter avec vous.
+    </p>
+
+    <p class="memory-backup-panel__notice">
+        Ce fichier peut contenir des textes personnels. Aucun envoi automatique n&rsquo;est effectué.
+    </p>
+
+    <button
+        id="memoryBackupExport"
+        class="memory-backup-panel__export"
+        type="button">
+        Exporter mes souvenirs
+    </button>
+
+    <p id="memoryBackupStatus" class="memory-backup-panel__status" aria-live="polite"></p>
+
+    <p>
+        L&rsquo;import et la restauration volontaire seront proposés dans une prochaine étape.
+    </p>
+</section>
+
 <!-- QR Modal -->
 
 <div id="qrModal">
@@ -589,6 +635,8 @@
 <script src="js/livingHome.js"></script>
 
 <script src="js/narrativeThread.js"></script>
+
+<script src="js/memoryBackup.js"></script>
 
 <script src="js/app.js"></script>
 
