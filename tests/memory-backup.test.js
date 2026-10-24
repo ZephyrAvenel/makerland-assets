@@ -103,3 +103,115 @@ test("sauvegarde V1 : le validateur refuse une clé hors registre et un schéma 
 function apiSizeHint() {
     return 4 * 1024 * 1024;
 }
+
+function importHarness(initial = {}, storage = createStorage(initial)) {
+    const document = createDocument();
+    const window = { ...createWindow(), localStorage: storage };
+    const context = { Date, JSON, Object, Set, TextEncoder, document, window };
+    runScript("js/memoryBackup.js", context, "window.MakerlandMemoryBackup");
+    const api = runScript("js/memoryImport.js", context, "window.MakerlandMemoryImport");
+    return { api, storage };
+}
+
+function validBackup(values, now = DATE) {
+    const { api, storage } = backupHarness(values);
+    return api.prepareBackup({ storage, now }).backup;
+}
+
+test("import V1 : restaure exactement les chaînes brutes sans supprimer les clés absentes ou étrangères", () => {
+    const backup = validBackup({
+        "makerland.firstJourney": '{"completed":true,"unknown":"préserver"}',
+        "makerland:living-cycle": "{invalide"
+    });
+    const { api, storage } = importHarness({
+        "makerland.firstJourney": '{"completed":false}',
+        "makerland.narrativeMemory.v1": '{"absente-du-fichier":true}',
+        "foreign.site": "intact"
+    });
+    const inspection = api.inspectImport(backup, { storage });
+    const result = api.applyImport(inspection, { storage, now: DATE });
+
+    assert.equal(result.ok, true);
+    assert.equal(storage.value("makerland.firstJourney"), backup.memories["makerland.firstJourney"]);
+    assert.equal(storage.value("makerland:living-cycle"), "{invalide");
+    assert.equal(storage.value("makerland.narrativeMemory.v1"), '{"absente-du-fichier":true}');
+    assert.equal(storage.value("foreign.site"), "intact");
+    assert.equal(api.getRecoveryStatus({ storage }).journal.status, "available");
+});
+
+test("import V1 : refuse JSON, versions, registre, types et taille incompatibles avant toute écriture", () => {
+    const { api, storage } = importHarness({ "makerland.firstJourney": "avant" });
+    const backup = validBackup({ "makerland.firstJourney": "après" });
+    const wrongRegistry = { ...backup, supportedKeys: [...backup.supportedKeys].reverse() };
+    const wrongType = { ...backup, memories: { ...backup.memories, "makerland.firstJourney": 4 } };
+
+    assert.throws(() => api.parseBackupText("{non json"), /JSON Makerland/);
+    assert.throws(() => api.parseBackupText("x".repeat(4 * 1024 * 1024 + 1)), /dépasse/);
+    assert.throws(() => api.inspectImport({ ...backup, version: 2 }, { storage }), /compatible/);
+    assert.throws(() => api.inspectImport(wrongRegistry, { storage }), /compatible/);
+    assert.throws(() => api.inspectImport(wrongType, { storage }), /compatible/);
+    assert.equal(storage.value("makerland.firstJourney"), "avant");
+    assert.equal(storage.value(api.RECOVERY_KEY), null);
+});
+
+test("import V1 : annule la restauration lorsque le stockage change après la prévisualisation", () => {
+    const backup = validBackup({ "makerland.firstJourney": "fichier" });
+    const { api, storage } = importHarness({ "makerland.firstJourney": "avant" });
+    const inspection = api.inspectImport(backup, { storage });
+    storage.setItem("makerland.firstJourney", "modifié après examen");
+
+    assert.throws(() => api.applyImport(inspection, { storage, now: DATE }), /ont changé depuis l'examen/);
+    assert.equal(storage.value("makerland.firstJourney"), "modifié après examen");
+    assert.equal(storage.value(api.RECOVERY_KEY), null);
+});
+
+test("import V1 : un échec à mi-parcours restaure les valeurs antérieures et garde un journal résolu", () => {
+    const values = new Map([["makerland.firstJourney", "avant-1"], ["makerland.narrativeMemory.v1", "avant-2"], ["foreign.site", "intact"]]);
+    let failOnce = true;
+    const storage = {
+        getItem(key) { return values.has(key) ? values.get(key) : null; },
+        setItem(key, value) { if (key === "makerland.narrativeMemory.v1" && failOnce) { failOnce = false; throw new Error("quota"); } values.set(key, String(value)); },
+        removeItem(key) { values.delete(key); },
+        value(key) { return values.has(key) ? values.get(key) : null; }
+    };
+    const backup = validBackup({ "makerland.firstJourney": "fichier-1", "makerland.narrativeMemory.v1": "fichier-2" });
+    const { api } = importHarness({}, storage);
+    const inspection = api.inspectImport(backup, { storage });
+
+    assert.throws(() => api.applyImport(inspection, { storage, now: DATE }), /état précédent a été rétabli/);
+    assert.equal(storage.value("makerland.firstJourney"), "avant-1");
+    assert.equal(storage.value("makerland.narrativeMemory.v1"), "avant-2");
+    assert.equal(storage.value("foreign.site"), "intact");
+    assert.equal(api.getRecoveryStatus({ storage }).journal.status, "rolled-back");
+});
+
+test("import V1 : un journal persistant pending permet une récupération après rechargement et ne peut pas être écrasé", () => {
+    const backup = validBackup({ "makerland.firstJourney": "fichier" });
+    const { api, storage } = importHarness({ "makerland.firstJourney": "nouveau" });
+    const journal = {
+        format: "makerland-backup-recovery-v1", version: 1, status: "pending", createdAt: DATE.toISOString(),
+        keys: ["makerland.firstJourney"], before: { "makerland.firstJourney": "ancien" }, target: { "makerland.firstJourney": "nouveau" }, appliedKeys: ["makerland.firstJourney"]
+    };
+    storage.setItem(api.RECOVERY_KEY, JSON.stringify(journal));
+
+    assert.throws(() => api.inspectImport(backup, { storage }), /récupération locale est nécessaire/);
+    assert.equal(api.recoverPreviousState({ storage }).ok, true);
+    assert.equal(storage.value("makerland.firstJourney"), "ancien");
+    assert.equal(api.getRecoveryStatus({ storage }).journal.status, "recovered");
+    assert.equal(api.discardRecoveryPoint({ storage }).ok, true);
+    assert.equal(storage.value(api.RECOVERY_KEY), null);
+});
+
+test("import V1 : une lecture ou une création de point de retour impossible ne modifie aucun souvenir", () => {
+    const backup = validBackup({ "makerland.firstJourney": "fichier" });
+    const unreadable = createStorage({ "makerland.firstJourney": "avant" }, { throwOnGet: true });
+    const { api: unreadableApi } = importHarness({}, unreadable);
+    assert.throws(() => unreadableApi.inspectImport(backup, { storage: unreadable }), /stockage local|Lecture impossible/);
+
+    const values = new Map([["makerland.firstJourney", "avant"]]);
+    const noJournal = { getItem(key) { return values.has(key) ? values.get(key) : null; }, setItem(key, value) { if (key === "makerland.backup.recovery.v1") throw new Error("quota"); values.set(key, String(value)); }, removeItem(key) { values.delete(key); }, value(key) { return values.has(key) ? values.get(key) : null; } };
+    const { api } = importHarness({}, noJournal);
+    const inspection = api.inspectImport(backup, { storage: noJournal });
+    assert.throws(() => api.applyImport(inspection, { storage: noJournal, now: DATE }), /quota/);
+    assert.equal(noJournal.value("makerland.firstJourney"), "avant");
+});
