@@ -85,7 +85,77 @@ test("narrativeMemory : une écriture indisponible laisse le parcours utilisable
     assert.equal(storage.value("makerland.narrativeMemory.v1"), null);
 });
 
-test.todo("narrativeMemory : une action après JSON corrompu ne devrait pas remplacer la valeur sans récupération explicite");
+test("narrativeMemory : une action après JSON corrompu préserve la valeur sans récupération explicite", () => {
+    const raw = "{corrompu";
+    const { api, storage } = narrativeHarness({ "makerland.narrativeMemory.v1": raw });
+
+    const memory = api.rememberDirection("explorer");
+    assert.equal(memory.lastDirection, "explorer");
+    assert.equal(storage.value("makerland.narrativeMemory.v1"), raw);
+    assert.equal(storage.calls.set, 0);
+});
+
+test("narrativeMemory : une mémoire historique incomplète et ses propriétés inconnues sont préservées", () => {
+    const initial = JSON.stringify({ visitCount: 2, customLegacyNote: "à garder" });
+    const { api, storage } = narrativeHarness({ "makerland.narrativeMemory.v1": initial });
+
+    api.rememberWeather("brouillard");
+    const memory = read(storage, "makerland.narrativeMemory.v1");
+    assert.equal(memory.visitCount, 2);
+    assert.equal(memory.customLegacyNote, "à garder");
+    assert.equal(memory.lastWeather, "brouillard");
+});
+
+test("narrativeMemory : une structure racine ou un champ connu ambigu reste intact", () => {
+    const rootRaw = "[]";
+    const root = narrativeHarness({ "makerland.narrativeMemory.v1": rootRaw });
+    root.api.rememberVisit();
+    assert.equal(root.storage.value("makerland.narrativeMemory.v1"), rootRaw);
+
+    const fieldRaw = JSON.stringify({ weatherHistory: "brouillard" });
+    const field = narrativeHarness({ "makerland.narrativeMemory.v1": fieldRaw });
+    field.api.rememberWeather("tempete");
+    assert.equal(field.storage.value("makerland.narrativeMemory.v1"), fieldRaw);
+});
+
+test("narrativeMemory : lecture indisponible bloque toute écriture fondée sur un repli", () => {
+    const { api, storage } = narrativeHarness({}, { throwOnGet: true });
+    api.rememberVisit({ direction: "explorer" });
+    assert.equal(storage.calls.set, 0);
+});
+
+test("narrativeMemory : une écriture obsolète est refusée sans effacer la valeur récente", () => {
+    const { api, storage } = narrativeHarness({
+        "makerland.narrativeMemory.v1": JSON.stringify({ visitCount: 1 })
+    });
+    const getItem = storage.getItem.bind(storage);
+    let reads = 0;
+    storage.getItem = key => {
+        reads += 1;
+
+        if (key === "makerland.narrativeMemory.v1" && reads === 2) {
+            storage.setItem(key, JSON.stringify({ visitCount: 7, customLegacyNote: "récent" }));
+        }
+
+        return getItem(key);
+    };
+
+    api.rememberVisit();
+    assert.deepEqual(read(storage, "makerland.narrativeMemory.v1"), {
+        visitCount: 7,
+        customLegacyNote: "récent"
+    });
+});
+
+test("narrativeMemory : reset reste une suppression explicite limitée à sa clé", () => {
+    const { api, storage } = narrativeHarness({
+        "makerland.narrativeMemory.v1": JSON.stringify({ visitCount: 1 }),
+        "makerland_living_journey": JSON.stringify({ visited: {} })
+    });
+    api.reset();
+    assert.equal(storage.value("makerland.narrativeMemory.v1"), null);
+    assert.equal(storage.value("makerland_living_journey"), JSON.stringify({ visited: {} }));
+});
 
 function livingJourneyHarness(initial = {}, options = {}) {
     const storage = createStorage(initial, options);

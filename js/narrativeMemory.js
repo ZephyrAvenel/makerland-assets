@@ -101,7 +101,77 @@ function isStorageAvailable() {
 
 }
 
+function isPlainObject(value) {
+
+    return Boolean(value) &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Object.prototype.toString.call(value) === "[object Object]";
+
+}
+
 function normalizeMemory(memory) {
+
+    if (!isPlainObject(memory)) {
+
+        return null;
+
+    }
+
+    if (
+        memory.visitCount !== undefined &&
+        (!Number.isFinite(memory.visitCount) || memory.visitCount < 0)
+    ) {
+
+        return null;
+
+    }
+
+    for (const field of [
+        "firstVisit",
+        "lastVisit",
+        "lastWeather",
+        "lastDirection"
+    ]) {
+
+        if (
+            memory[field] !== undefined &&
+            memory[field] !== null &&
+            typeof memory[field] !== "string"
+        ) {
+
+            return null;
+
+        }
+
+    }
+
+    for (const field of ["weatherHistory", "directionHistory"]) {
+
+        if (
+            memory[field] !== undefined &&
+            (!Array.isArray(memory[field]) || !memory[field].every(entry =>
+                isPlainObject(entry) &&
+                typeof entry.value === "string" &&
+                (entry.date === undefined || typeof entry.date === "string")
+            ))
+        ) {
+
+            return null;
+
+        }
+
+    }
+
+    if (
+        memory.milestones !== undefined &&
+        (!Array.isArray(memory.milestones) ||
+            !memory.milestones.every(milestone => typeof milestone === "string"))
+    ) {
+
+        return null;
+
+    }
 
     return {
 
@@ -128,11 +198,15 @@ function normalizeMemory(memory) {
 
 }
 
-function load() {
+function readMemory() {
 
     if (!isStorageAvailable()) {
 
-        return cloneDefaultMemory();
+        return {
+            memory: cloneDefaultMemory(),
+            raw: null,
+            writable: false
+        };
 
     }
 
@@ -143,27 +217,51 @@ function load() {
                 STORAGE_KEY
             );
 
-        if (!raw) {
+        if (raw === null) {
 
-            return cloneDefaultMemory();
+            return {
+                memory: cloneDefaultMemory(),
+                raw: null,
+                writable: true
+            };
 
         }
 
-        return normalizeMemory(
-            JSON.parse(raw)
-        );
+        const memory = normalizeMemory(JSON.parse(raw));
+
+        if (!memory) {
+
+            return {
+                memory: cloneDefaultMemory(),
+                raw,
+                writable: false
+            };
+
+        }
+
+        return { memory, raw, writable: true };
 
     } catch(error) {
 
-        return cloneDefaultMemory();
+        return {
+            memory: cloneDefaultMemory(),
+            raw: null,
+            writable: false
+        };
 
     }
 
 }
 
-function save(memory) {
+function load() {
 
-    if (!isStorageAvailable()) {
+    return readMemory().memory;
+
+}
+
+function save(memory, state) {
+
+    if (!state || !state.writable || !isStorageAvailable()) {
 
         return memory;
 
@@ -171,10 +269,18 @@ function save(memory) {
 
     try {
 
+        const normalized = normalizeMemory(memory);
+
+        if (!normalized || window.localStorage.getItem(STORAGE_KEY) !== state.raw) {
+
+            return memory;
+
+        }
+
         window.localStorage.setItem(
             STORAGE_KEY,
             JSON.stringify(
-                normalizeMemory(memory)
+                normalized
             )
         );
 
@@ -267,8 +373,11 @@ function rememberWeather(selectedWeather) {
 
     }
 
+    const state =
+        readMemory();
+
     const memory =
-        load();
+        state.memory;
 
     const date =
         now();
@@ -288,7 +397,7 @@ function rememberWeather(selectedWeather) {
         "weather:" + selectedWeather
     );
 
-    return save(memory);
+    return save(memory, state);
 
 }
 
@@ -300,8 +409,11 @@ function rememberDirection(direction) {
 
     }
 
+    const state =
+        readMemory();
+
     const memory =
-        load();
+        state.memory;
 
     const date =
         now();
@@ -321,14 +433,17 @@ function rememberDirection(direction) {
         "direction:" + direction
     );
 
-    return save(memory);
+    return save(memory, state);
 
 }
 
 function rememberVisit(details = {}) {
 
+    const state =
+        readMemory();
+
     const memory =
-        load();
+        state.memory;
 
     const date =
         now();
@@ -393,7 +508,7 @@ function rememberVisit(details = {}) {
 
     }
 
-    return save(memory);
+    return save(memory, state);
 
 }
 
