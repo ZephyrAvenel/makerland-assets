@@ -180,7 +180,7 @@ test("accueil : le retour asynchrone des catalogues persiste l'exposition après
     assert.equal(screen.children.length, 1);
 });
 
-test("livingSky : caractérisation hors périmètre — une corruption est encore réécrite", () => {
+test("livingSky : régression S7 — une corruption reste intacte après la correction S8", () => {
     const document = createDocument({ readyState: "loading" });
     document.currentScript = { src: "https://makerland.test/js/livingSky.js" };
     const storage = createStorage({ "makerland:living-cycle": "{corrompu" });
@@ -197,6 +197,5 @@ test("livingSky : caractérisation hors périmètre — une corruption est encor
     api.state.territories = [];
 
     api.rememberSkyState();
-    assert.notEqual(storage.value("makerland:living-cycle"), "{corrompu");
-    assert.ok(read(storage).livingSky);
+    assert.equal(storage.value("makerland:living-cycle"), "{corrompu");
 });

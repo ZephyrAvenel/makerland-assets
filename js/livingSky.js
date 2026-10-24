@@ -1,7 +1,6 @@
 (function () {
     const TRAVELER_KEY = "makerland:traveler-constellation";
     const LEGACY_STORY_KEY = "makerland_stories";
-    const CYCLE_KEY = "makerland:living-cycle";
     const SCRIPT_URL = document.currentScript
         ? document.currentScript.src
         : window.location.href;
@@ -35,14 +34,6 @@
             return JSON.parse(localStorage.getItem(key)) || fallback;
         } catch (error) {
             return fallback;
-        }
-    }
-
-    function writeJson(key, value) {
-        try {
-            localStorage.setItem(key, JSON.stringify(value));
-        } catch (error) {
-            return;
         }
     }
 
@@ -490,18 +481,48 @@
         }, true);
     }
 
+    function readCycle() {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read || !storage.write) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+
+        try {
+            const snapshot = storage.read();
+
+            if (!snapshot || !snapshot.memory || typeof snapshot.memory !== "object") {
+                return { memory: {}, raw: null, writable: false, storage: null };
+            }
+
+            return { ...snapshot, storage };
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+    }
+
     function rememberSkyState() {
-        const cycle = readJson(CYCLE_KEY, {});
-        cycle.livingSky = {
+        const snapshot = readCycle();
+
+        if (!snapshot.writable || !snapshot.storage) {
+            return false;
+        }
+
+        const cycle = snapshot.memory;
+        const sky = {
+            ...(cycle.livingSky || {}),
             stars: state.stars.length,
             territories: state.territories.filter(territory => territory.stars.length).length,
             updatedAt: new Date().toISOString()
         };
         const dominant = state.territories.slice().sort((a, b) => b.stars.length - a.stars.length)[0];
         if (dominant && dominant.stars.length) {
-            cycle.livingSky.lastGuideWhisper = "La constellation " + dominant.label + " grandit.";
+            sky.lastGuideWhisper = "La constellation " + dominant.label + " grandit.";
+        } else {
+            delete sky.lastGuideWhisper;
         }
-        writeJson(CYCLE_KEY, cycle);
+        cycle.livingSky = sky;
+        return snapshot.storage.write(cycle, snapshot.raw);
     }
 
     function audit() {

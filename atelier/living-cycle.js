@@ -200,6 +200,23 @@
             return null;
         }
 
+        if (memory.livingSky !== undefined && !isPlainObject(memory.livingSky)) {
+            return null;
+        }
+
+        if (memory.livingSky && (
+            (memory.livingSky.stars !== undefined &&
+                (!Number.isFinite(memory.livingSky.stars) || memory.livingSky.stars < 0)) ||
+            (memory.livingSky.territories !== undefined &&
+                (!Number.isFinite(memory.livingSky.territories) || memory.livingSky.territories < 0)) ||
+            (memory.livingSky.updatedAt !== undefined &&
+                typeof memory.livingSky.updatedAt !== "string") ||
+            (memory.livingSky.lastGuideWhisper !== undefined &&
+                typeof memory.livingSky.lastGuideWhisper !== "string")
+        )) {
+            return null;
+        }
+
         return {
             ...memory
         };
