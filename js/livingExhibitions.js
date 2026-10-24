@@ -1,6 +1,5 @@
 (function () {
     const TRAVELER_KEY = "makerland:traveler-constellation";
-    const CYCLE_KEY = "makerland:living-cycle";
     const SCRIPT_URL = document.currentScript
         ? document.currentScript.src
         : window.location.href;
@@ -89,14 +88,6 @@
             return JSON.parse(localStorage.getItem(key)) || fallback;
         } catch (error) {
             return fallback;
-        }
-    }
-
-    function writeJson(key, value) {
-        try {
-            localStorage.setItem(key, JSON.stringify(value));
-        } catch (error) {
-            return;
         }
     }
 
@@ -366,15 +357,42 @@
         ].join(" - ");
     }
 
+    function readCycle() {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read || !storage.write) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+
+        try {
+            const snapshot = storage.read();
+
+            if (!snapshot || !snapshot.memory || typeof snapshot.memory !== "object") {
+                return { memory: {}, raw: null, writable: false, storage: null };
+            }
+
+            return { ...snapshot, storage };
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+    }
+
     function rememberFeatured() {
-        const cycle = readJson(CYCLE_KEY, {});
+        const snapshot = readCycle();
+
+        if (!snapshot.writable || !snapshot.storage) {
+            return false;
+        }
+
+        const cycle = snapshot.memory;
         const featured = featuredExhibition();
         cycle.livingExhibitions = {
+            ...(cycle.livingExhibitions || {}),
             featured: featured.title,
             explored: state.activeId,
             updatedAt: new Date().toISOString()
         };
-        writeJson(CYCLE_KEY, cycle);
+        return snapshot.storage.write(cycle, snapshot.raw);
     }
 
     function statistics() {

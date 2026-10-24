@@ -184,6 +184,22 @@
             return null;
         }
 
+        if (memory.livingExhibitions !== undefined &&
+            !isPlainObject(memory.livingExhibitions)) {
+            return null;
+        }
+
+        if (memory.livingExhibitions && (
+            (memory.livingExhibitions.featured !== undefined &&
+                typeof memory.livingExhibitions.featured !== "string") ||
+            (memory.livingExhibitions.explored !== undefined &&
+                typeof memory.livingExhibitions.explored !== "string") ||
+            (memory.livingExhibitions.updatedAt !== undefined &&
+                typeof memory.livingExhibitions.updatedAt !== "string")
+        )) {
+            return null;
+        }
+
         return {
             ...memory
         };
