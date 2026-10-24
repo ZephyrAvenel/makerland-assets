@@ -163,6 +163,17 @@
             }
         }
 
+        if (memory.travelerConcepts !== undefined &&
+            (!Array.isArray(memory.travelerConcepts) ||
+                !memory.travelerConcepts.every(value => typeof value === "string"))) {
+            return null;
+        }
+
+        if (memory.travelerStories !== undefined &&
+            (!Number.isFinite(memory.travelerStories) || memory.travelerStories < 0)) {
+            return null;
+        }
+
         if (memory.lastVisitedPlace !== undefined &&
             memory.lastVisitedPlace !== null &&
             typeof memory.lastVisitedPlace !== "string") {

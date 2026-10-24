@@ -66,14 +66,117 @@ test("accueil : living-cycle est chargé une seule fois avant saisons, Sky et Ex
     const source = indexSource();
     const cycle = source.indexOf('src="atelier/living-cycle.js"');
     const seasons = source.indexOf('src="js/livingSeasons.js"');
+    const traveler = source.indexOf('src="js/travelerConstellation.js"');
     const sky = source.indexOf('src="js/livingSky.js"');
     const exhibitions = source.indexOf('src="js/livingExhibitions.js"');
 
     assert.ok(cycle >= 0);
     assert.equal(source.match(/src="atelier\/living-cycle\.js"/g).length, 1);
     assert.ok(cycle < seasons);
+    assert.ok(seasons < traveler);
+    assert.ok(traveler < sky);
     assert.ok(seasons < sky);
     assert.ok(sky < exhibitions);
+});
+
+test("accueil : Saisons, Voyageur, Sky et Expositions conservent leurs contributions", () => {
+    const document = createDocument({ readyState: "loading" });
+    const storage = createStorage({
+        "makerland:living-cycle": JSON.stringify({
+            customLegacyNote: "à garder",
+            atelierObjectIds: ["brouillon"],
+            dialogues: ["D001"]
+        })
+    });
+    const window = createWindow();
+    window.location = { href: "https://makerland.test/" };
+    const context = {
+        Date,
+        JSON,
+        Math,
+        Number,
+        Object,
+        Set,
+        URL,
+        console: { warn() {} },
+        document,
+        localStorage: storage,
+        window,
+        fetch: () => Promise.resolve({ ok: false })
+    };
+
+    runScript("atelier/living-cycle.js", context);
+    const seasons = runScript("js/livingSeasons.js", context, "{ getContext, updateCycle }", { insideIife: true });
+    document.currentScript = { src: "https://makerland.test/js/travelerConstellation.js" };
+    const traveler = runScript(
+        "js/travelerConstellation.js",
+        context,
+        "{ updateCycleMemory }",
+        { insideIife: true }
+    );
+    document.currentScript = { src: "https://makerland.test/js/livingSky.js" };
+    const sky = runScript("js/livingSky.js", context, "{ rememberSkyState, state }", { insideIife: true });
+    sky.state.stars = [{ id: "S1" }];
+    sky.state.territories = [{ label: "Dialogue", stars: [{ id: "S1" }] }];
+    document.currentScript = { src: "https://makerland.test/js/livingExhibitions.js" };
+    const exhibitions = runScript(
+        "js/livingExhibitions.js",
+        context,
+        "{ rememberFeatured, state }",
+        { insideIife: true }
+    );
+    exhibitions.state.exhibitions = [{ title: "Dialogue" }];
+    exhibitions.state.activeId = "dialogue";
+
+    assert.equal(seasons.updateCycle(seasons.getContext(new Date("2026-10-24T12:00:00.000Z"))), true);
+    assert.equal(traveler.updateCycleMemory({ concepts: ["C001"] }), true);
+    assert.equal(sky.rememberSkyState(), true);
+    assert.equal(exhibitions.rememberFeatured(), true);
+
+    const memory = read(storage);
+    assert.equal(memory.customLegacyNote, "à garder");
+    assert.deepEqual(memory.atelierObjectIds, ["brouillon"]);
+    assert.deepEqual(memory.dialogues, ["D001"]);
+    assert.equal(memory.currentSeason, "automne");
+    assert.deepEqual(memory.constellationFragments, ["voyageurs"]);
+    assert.equal(memory.travelerStories, 1);
+    assert.deepEqual(memory.travelerConcepts, ["C001"]);
+    assert.equal(memory.livingSky.stars, 1);
+    assert.equal(memory.livingExhibitions.featured, "Dialogue");
+});
+
+test("accueil : un cycle corrompu reste intact pour chaque producteur protégé", () => {
+    const raw = "{corrompu";
+    const document = createDocument({ readyState: "loading" });
+    document.currentScript = { src: "https://makerland.test/js/travelerConstellation.js" };
+    const storage = createStorage({ "makerland:living-cycle": raw });
+    const window = createWindow();
+    window.location = { href: "https://makerland.test/" };
+    const context = { Date, JSON, Math, Number, Object, Set, URL, document, localStorage: storage, window };
+
+    runScript("atelier/living-cycle.js", context);
+    const traveler = runScript(
+        "js/travelerConstellation.js",
+        context,
+        "{ updateCycleMemory }",
+        { insideIife: true }
+    );
+    const sky = runScript("js/livingSky.js", context, "{ rememberSkyState, state }", { insideIife: true });
+    sky.state.stars = [];
+    sky.state.territories = [];
+    const exhibitions = runScript(
+        "js/livingExhibitions.js",
+        context,
+        "{ rememberFeatured, state }",
+        { insideIife: true }
+    );
+    exhibitions.state.exhibitions = [{ title: "Dialogue" }];
+    exhibitions.state.activeId = "dialogue";
+
+    assert.equal(traveler.updateCycleMemory({ concepts: [] }), false);
+    assert.equal(sky.rememberSkyState(), false);
+    assert.equal(exhibitions.rememberFeatured(), false);
+    assert.equal(storage.value("makerland:living-cycle"), raw);
 });
 
 test("accueil : la politique est disponible avant la persistance des Expositions", () => {

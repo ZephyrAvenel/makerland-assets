@@ -55,6 +55,26 @@
         }
     }
 
+    function readCycleForWrite() {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read || !storage.write) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+
+        try {
+            const snapshot = storage.read();
+
+            if (!snapshot || !snapshot.memory || typeof snapshot.memory !== "object") {
+                return { memory: {}, raw: null, writable: false, storage: null };
+            }
+
+            return { ...snapshot, storage };
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+    }
+
     function normalize(value) {
         return String(value || "")
             .normalize("NFD")
@@ -263,16 +283,20 @@
     }
 
     function updateCycleMemory(fragment) {
-        const cycle = readJson(CYCLE_KEY, {});
-        cycle.constellationFragments = Array.isArray(cycle.constellationFragments)
-            ? cycle.constellationFragments
-            : [];
+        const snapshot = readCycleForWrite();
+
+        if (!snapshot.writable || !snapshot.storage) {
+            return false;
+        }
+
+        const cycle = snapshot.memory;
+        cycle.constellationFragments = cycle.constellationFragments || [];
         if (!cycle.constellationFragments.includes("voyageurs")) {
             cycle.constellationFragments.push("voyageurs");
         }
-        cycle.travelerStories = Number(cycle.travelerStories || 0) + 1;
+        cycle.travelerStories = (cycle.travelerStories || 0) + 1;
         cycle.travelerConcepts = unique((cycle.travelerConcepts || []).concat(fragment.concepts));
-        writeJson(CYCLE_KEY, cycle);
+        return snapshot.storage.write(cycle, snapshot.raw);
     }
 
     function buildLayer() {
