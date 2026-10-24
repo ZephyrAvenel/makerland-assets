@@ -27,7 +27,12 @@ class FakeElement {
         this.className = "";
         this.classList = new FakeClassList();
         this.dataset = {};
-        this.style = {};
+        this.style = {
+            values: {},
+            setProperty(name, value) {
+                this.values[name] = value;
+            }
+        };
         this.listeners = {};
         this.attributes = {};
         this.textContent = "";
@@ -77,7 +82,7 @@ class FakeElement {
 
 function createStorage(initial = {}, options = {}) {
     const values = new Map(Object.entries(initial));
-    const calls = { get: 0, set: 0, remove: 0 };
+    const calls = { get: 0, set: 0, remove: 0, setKeys: [] };
 
     return {
         calls,
@@ -88,6 +93,7 @@ function createStorage(initial = {}, options = {}) {
         },
         setItem(key, value) {
             calls.set += 1;
+            calls.setKeys.push(key);
             if (options.throwOnSet) throw new Error("storage write unavailable");
             values.set(key, String(value));
         },

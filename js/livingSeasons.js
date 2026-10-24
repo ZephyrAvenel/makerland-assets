@@ -1,6 +1,5 @@
 (function () {
     const MEMORY_KEY = "makerland:living-seasons";
-    const CYCLE_KEY = "makerland:living-cycle";
     const DAY_MS = 24 * 60 * 60 * 1000;
 
     const SEASONS = {
@@ -125,8 +124,34 @@
         return memory;
     }
 
+    function readCycle() {
+        const storage = window.MakerlandLivingCycleStorage;
+
+        if (!storage || !storage.read || !storage.write) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+
+        try {
+            const state = storage.read();
+
+            if (!state || !state.memory || typeof state.memory !== "object") {
+                return { memory: {}, raw: null, writable: false, storage: null };
+            }
+
+            return { ...state, storage };
+        } catch (error) {
+            return { memory: {}, raw: null, writable: false, storage: null };
+        }
+    }
+
     function updateCycle(context) {
-        const cycle = readJson(CYCLE_KEY);
+        const state = readCycle();
+
+        if (!state.writable || !state.storage) {
+            return false;
+        }
+
+        const cycle = state.memory;
         cycle.currentSeason = context.seasonLabel;
         cycle.currentMoment = context.moment;
         cycle.seasonalPlace = context.seasonalPlace;
@@ -139,7 +164,7 @@
             cycle.seasonalFragments.push(fragment);
         }
 
-        writeJson(CYCLE_KEY, cycle);
+        return state.storage.write(cycle, state.raw);
     }
 
     function applyClasses(context) {

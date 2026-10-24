@@ -125,7 +125,8 @@
             "constellationFragments",
             "atelierObjectIds",
             "travelingFragments",
-            "dialogues"
+            "dialogues",
+            "seasonalFragments"
         ];
 
         for (const field of arrayFields) {
@@ -150,7 +151,8 @@
             "constellationFragments",
             "atelierObjectIds",
             "travelingFragments",
-            "dialogues"
+            "dialogues",
+            "seasonalFragments"
         ];
 
         for (const field of stringArrays) {
