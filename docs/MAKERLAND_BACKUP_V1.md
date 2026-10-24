@@ -62,3 +62,13 @@ Avant un retour volontaire, Makerland compare les valeurs actuelles aux valeurs 
 Après une restauration réussie, le point de retour reste disponible localement : le visiteur peut récupérer l’état antérieur, ou le supprimer volontairement. Tant qu’il existe, une nouvelle restauration est refusée afin de ne pas l’écraser. Il n’est jamais supprimé automatiquement ; il subsiste jusqu’à la récupération ou à la suppression volontaire, sous réserve des limites ordinaires du stockage du navigateur.
 
 La vérification préalable détecte aussi une modification des clés concernées entre la prévisualisation et la confirmation : dans ce cas, l’import est annulé et doit être examiné de nouveau. Ces mesures rendent l’opération récupérable, sans prétendre offrir une atomicité inter-onglets que `localStorage` ne possède pas.
+
+## Archives manuelles nommées
+
+Les archives sont des instantanés créés uniquement à la demande du visiteur. Elles utilisent le même format portable `makerland-backup-v1` que les fichiers exportés : les 14 clés du registre et leurs chaînes brutes sont conservées sans normalisation. Une archive porte un identifiant interne, un nom libre de 1 à 80 caractères, sa date, son nombre de mémoires et son instantané V1. Deux archives peuvent avoir le même nom sans être confondues.
+
+Elles sont enregistrées localement dans IndexedDB, dans la base `makerland-memory-archives` et le magasin `archives`, séparément des mémoires actives et du journal `makerland.backup.recovery.v1`. Elles restent disponibles après rechargement, mais peuvent disparaître si les données du site sont effacées ou si le navigateur refuse le stockage (notamment dans certains modes privés). Aucun envoi réseau ni archivage automatique n'est effectué.
+
+La création refuse une lecture incomplète du registre V1, une archive vide, un nom invalide, un échec d'écriture ou une relecture impossible. Chaque archive peut être examinée avant restauration ; celle-ci réutilise strictement le moteur d'import V1, son journal persistant, ses vérifications et son contrôle de conflit. Une archive invalide n'est jamais restaurée. Tant qu'un point de retour non résolu existe, une nouvelle restauration est bloquée afin de ne pas écraser cet état.
+
+L'export d'une archive prépare d'abord le même JSON V1 puis demande un clic explicite sur « Télécharger cette archive ». Cette seconde action évite de faire passer un téléchargement asynchrone d'IndexedDB pour un geste implicite. Le fichier peut contenir des textes personnels et reste compatible avec l'import V1. La suppression nécessite une confirmation distincte, ne touche ni les mémoires actives, ni les autres archives, ni le point de retour, et ne peut pas supprimer les fichiers déjà téléchargés.

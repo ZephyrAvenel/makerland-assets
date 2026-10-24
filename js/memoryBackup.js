@@ -83,7 +83,7 @@ const MakerlandMemoryBackup = (() => {
         return backup.warnings.every(warning => isPlainObject(warning) && SUPPORTED_KEYS.includes(warning.key) && warning.code === "invalid-json-preserved");
     }
 
-    function downloadBackup(prepared, documentRef = document, urlApi = URL) {
+    function downloadBackup(prepared, documentRef = document, urlApi = URL, filename = null) {
         if (!prepared || !validateBackup(prepared.backup) || typeof prepared.serialized !== "string") {
             throw new Error("La sauvegarde à télécharger est invalide.");
         }
@@ -96,7 +96,7 @@ const MakerlandMemoryBackup = (() => {
         const link = documentRef.createElement("a");
         const day = prepared.backup.createdAt.slice(0, 10);
         link.href = url;
-        link.download = `makerland-souvenirs-${day}.json`;
+        link.download = filename || `makerland-souvenirs-${day}.json`;
         link.hidden = true;
         documentRef.body.appendChild(link);
         link.click();
@@ -133,6 +133,14 @@ const MakerlandMemoryBackup = (() => {
 
         trigger.addEventListener("click", () => setOpen(panel.hidden));
         close.addEventListener("click", () => setOpen(false));
+        panel.querySelectorAll("[data-memory-backup-target]").forEach(link => {
+            link.addEventListener("click", () => {
+                const target = document.getElementById(link.dataset.memoryBackupTarget);
+                if (!target) return;
+                panel.scrollTop = Math.max(0, target.offsetTop - panel.offsetTop - 8);
+                target.focus({ preventScroll: true });
+            });
+        });
         exportButton.addEventListener("click", () => {
             status.textContent = "Préparation de votre fichier local…";
             status.dataset.state = "working";
